@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "967493547951",
+    "firebase_url": "https://solfium.firebaseio.com",
+    "project_id": "solfium",
+    "storage_bucket": "solfium.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967493547951:android:f75e230157fc75750da15a",
+        "android_client_info": {
+          "package_name": "com.rnative_02"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "967493547951-u1pe7em7ghot3nhed1hak33d2ne32l58.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmFh0zidLXHhW9x2o-xVVLMEtNjVueP6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "967493547951-u1pe7em7ghot3nhed1hak33d2ne32l58.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
