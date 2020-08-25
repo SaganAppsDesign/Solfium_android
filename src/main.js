@@ -6,32 +6,42 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {db} from '../fire';
+import firebase from 'firebase'; 
 
 
+//const user = firebase.auth().currentUser;
 
 export class Main extends React.Component {
 
- 
+  
   state = {
 
     name: '',
 
   }
 
-  onPress = () =>
+ 
+ 
+    
   
-    this.props.navigation.navigate('Chat', { 
+  user = () =>  db.ref('/Usuario').push({name: this.state.name});
+    
+  onChangeText = name => this.setState({ name });
+  
+  onPress = () =>
+
+      this.props.navigation.navigate('Chat', { 
         
-        name: this.state.name 
+        name: this.state.name
+        
            
     }
-    
-    );
+      
+    )
 
-  onChangeText = name => this.setState({ name });
 
- 
-
+     
   render() {
 
     
@@ -48,10 +58,14 @@ export class Main extends React.Component {
           value={this.state.name}
           
         />
-        <TouchableOpacity onPress={this.onPress}
+        <TouchableOpacity onPress={
+          () => { this.onPress() ; this.user()}
+         }
         >
          <Text style={styles.buttonText}>Siguiente</Text>
         </TouchableOpacity>
+
+        
       </View>
     );
   }
