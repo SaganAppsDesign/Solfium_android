@@ -40,8 +40,8 @@ data = () =>   db.ref('/Viabilidad/' ).on('value', (snapshot) => {
   } else {
     text = 'Lo sentimos, no se puede realizar la instalación' 
     text1 = 'Debido a problemas técnicos causados por la situación geográfica de su hogar, no es posible llevar a cabo la instalación.' 
-    text2 = '' 
-    text3 = '' 
+    text2 = 'Gracias por su tiempo.' 
+    text3 = 'Saludos' 
     color = 'red'
     
   }
@@ -65,7 +65,7 @@ export function InfoResultInsta({navigation}) {
                  <View style={{ flex: 1,  marginTop:'0%', marginBottom:'100%', alignItems:'center'}}>
 
                  
-                 <View style={{flexDirection: 'column', height:'30%'}}>
+                { /* <View style={{flexDirection: 'column', height:'30%'}}>
                  <Text style={{
                   flex:10,
                   color: '#000',
@@ -80,7 +80,7 @@ export function InfoResultInsta({navigation}) {
                   padding: 10,
                   alignItems:'center'}}>Espere mientras se evalúa su instalación...</Text>
 
-                  </View>
+                 </View> */}
 
                  
                  <View style={{flexDirection: 'row'}}>

@@ -21,6 +21,29 @@ export function DatosInstalador2({ navigation }) {
       <ImageOverlay source={tec3}
                     height={height}                   
                     >
+
+
+                    <View
+                          style={{                    
+                            marginTop: '10%',
+                            marginBottom:'2%',
+                            marginRight:'6%',
+                            marginLeft:'70%'}}>
+                          <Button 
+                            onPress={() => navigation.navigate('Chat')}
+                            title=' Chat'
+                            icon={
+                                        <Icon
+                                          name="comments"
+                                          size={50}
+                                          color="white"
+                                        />
+                                      }
+                                                          
+                                  >
+                            
+                          </Button>
+                 </View>
                                     
                   <View>
                       <Card containerStyle={{padding: 10, backgroundColor:'#F7CD63', marginBottom:'15%'}}>
@@ -33,15 +56,6 @@ export function DatosInstalador2({ navigation }) {
                           style={{width:130, height:130, marginBottom:0, marginRight:0, marginLeft:2, marginTop: 2, borderWidth:4, borderColor:'black'}}
                           source={require('../assets/yoda.jpg')}
                           />
-
-                          <TouchableOpacity
-                          onPress={() =>  navigation.navigate('Chat')}>
-                              <Image
-                              style={{width:"100%", height:"60%", marginLeft:'4%', marginTop: '5%'}}
-                              source={require('../assets/chat.png')}
-                          />
-                          </TouchableOpacity>
-
 
 
                          </View>

@@ -25,6 +25,28 @@ export function DatosInstalador({ navigation }) {
                     >
 
                     <View>
+
+                    <View
+                       style={{                    
+                          marginTop: '10%',
+                          marginBottom:'2%',
+                          marginRight:'2%',
+                          marginLeft:'75%'}}>
+                       <Button 
+                          onPress={() => navigation.navigate('Chat')}
+                          title=' Chat'
+                          icon={
+                                      <Icon
+                                        name="comments"
+                                        size={50}
+                                        color="white"
+                                      />
+                                    }
+                                                        
+                                >
+                         
+                        </Button>
+                    </View>
                     <Text style={{color: '#000',
                                     backgroundColor: 'white',
                                     fontSize: 20,
@@ -45,17 +67,7 @@ export function DatosInstalador({ navigation }) {
                           source={require('../assets/yoda.jpg')}
                           />
 
-                          <TouchableOpacity
-                          onPress={() =>  navigation.navigate('Chat')}>
-                              <Image
-                              style={{width:"100%", height:"60%", marginBottom:0, marginRight:0, marginLeft:'4%', marginTop: '5%'}}
-                              source={require('../assets/chat.png')}
-                          />
-                          </TouchableOpacity>
-
-
-
-                         </View>
+                          </View>
                          <View style={{flexDirection: 'column'}}>
                          <Text style={{color: '#000',
                                 backgroundColor: '#BBCEEF',

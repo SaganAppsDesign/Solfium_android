@@ -26,9 +26,7 @@ state = {
      
      
     <View style={styles.container}>
-     <View style={{backgroundColor:'orange', borderColor:'black', borderRadius:5, borderWidth:1}}>
-      <Text style={{fontSize:15, textAlign:'center',  fontWeight:'bold'} }>¿Qué tal {name}? Chatea con el personal de evaluación</Text>
-     </View> 
+   
      
     <View style={styles.container}>	
         <GiftedChat
@@ -38,7 +36,7 @@ state = {
           renderSend={renderSend}
           showUserAvatar
           alwaysShowSend
-          placeholder={"Chatea aquí"}
+          placeholder={"Chatea aquí " + name}
           user={{
             _id: Fire.getUid(),
             name: name,
