@@ -61,11 +61,10 @@ class Fire {
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('Mensajes/Cliente');
+    this.messagesRef = firebase.database().ref('Mensajes');
     this.messagesRef.off();
     const onReceive = (data) => {
       const message = data.val()
-      console.log(message)
       callback({
           _id:  data.key,
           text: message.text,

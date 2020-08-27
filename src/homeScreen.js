@@ -6,7 +6,7 @@ import camara from '../assets/camara.jpg';
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button} from 'react-native-elements';
-import React from 'react';
+import * as React from 'react';
 
 
 

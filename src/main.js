@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,26 +7,34 @@ import {
   View,
 } from 'react-native';
 import {db} from '../fire';
-import firebase from 'firebase'; 
 
 
-//const user = firebase.auth().currentUser;
+var key2,key
+
+
 
 export class Main extends React.Component {
-
+  
   
   state = {
 
     name: '',
+    key: key,
 
   }
 
- 
- 
-    
   
-  user = () =>  db.ref('/Usuario').push({name: this.state.name});
-    
+  
+  user = () =>  db.ref('/Usuario').push({name: this.state.name}).then((snap) => {
+     key = snap.key 
+     this.setState({ key })
+     key2 = this.state.key
+     console.warn('ke32:  ', key2)
+       
+     
+ });
+  
+
   onChangeText = name => this.setState({ name });
   
   onPress = () =>
@@ -34,8 +42,7 @@ export class Main extends React.Component {
       this.props.navigation.navigate('Chat', { 
         
         name: this.state.name
-        
-           
+       
     }
       
     )
@@ -44,11 +51,11 @@ export class Main extends React.Component {
      
   render() {
 
-    
-
     const { navigate } = this.props.navigation;  
-
+     
     return (
+   
+      
       <View>
         <Text style={styles.title}>Introduce un nombre de usuario:</Text>
         <TextInput
@@ -59,7 +66,7 @@ export class Main extends React.Component {
           
         />
         <TouchableOpacity onPress={
-          () => { this.onPress() ; this.user()}
+          () => { this.onPress(); this.user()}
          }
         >
          <Text style={styles.buttonText}>Siguiente</Text>

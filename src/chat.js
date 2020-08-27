@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { GiftedChat, Bubble, Send, MessageText } from 'react-native-gifted-chat';
 import Fire from '../fire';
 import { StyleSheet, Text, View, Image, TouchableOpacity, LogBox, Button} from 'react-native';
@@ -6,9 +6,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { IconButton } from 'react-native-paper';
 
 
+
+
 export class Chat extends React.Component {
 
-  
+
 
 state = {
 
@@ -21,6 +23,7 @@ state = {
    
 
     const { name } = this.props.route.params;
+
    
     return (
      
@@ -40,6 +43,7 @@ state = {
           user={{
             _id: Fire.getUid(),
             name: name,
+           
         }}
       />
 

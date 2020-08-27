@@ -5,29 +5,42 @@ import ImageOverlay from "react-native-image-overlay";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {db} from '../fire';
 
-
 var {height} = Dimensions.get('window');
-var viabilidad
+var viabilidad, user
 var text,text1,text2,text3,color
 
 
+
+
+data = () => db.ref('/Viabilidad').on('child_added', (snapshot) => {
+
   
-data = () =>   db.ref('/Viabilidad/' ).on('value', (snapshot) => {
-  const userObj = snapshot.val();
+   viabilidad = snapshot.Viabilidad;
+  //const key = snapshot.key 
+  
+  user = snapshot.val();
+  
+ 
  //this.Viabilidad = userObj.name;
   
-  viabilidad = userObj.viabilidad
+   viabilidad = user.Viabilidad
+   console.warn('viabilidad: ' + viabilidad)
 
   //console.warn('viabilidad: ' + userObj.Viabilidad)
   
   if (viabilidad == '100%'){
-    //navigation.navigate('Viabilidad total')
     text = '¡Felicidades! Se puede realizar en su hogar el ' + viabilidad + ' de la instalación' 
     text1 = 'El coste total de la instalación será de 5500 $, impuestos incluidos. Se podría llevar a cabo con un pago único o con cómodas mensualidades de 458,33 $ en 12 mesesaaa' 
     text2 = 'Desde la instalación ahorrarás 300$ al mes, lo que hará que tu inversión se rentabilizará en 12 mesesaaa' 
     text3 = 'Con esta instalación, estarás contribuyendo a la protección del planeta, disminuyendo su huella de carbono en 70 Kg/añoaaa' 
     color = 'green'
-   
+     
+  } else if (viabilidad == null){
+    text = 'Espere mientras se evalúa su posible instalación' 
+    text1 = 'Espere mientras se evalúa su posible instalación' 
+    text2 = 'Espere mientras se evalúa su posible instalación' 
+    text3 = 'Espere mientras se evalúa su posible instalación' 
+    color = 'grey'
 
    
   } else if (viabilidad == '50%'){
@@ -46,16 +59,30 @@ data = () =>   db.ref('/Viabilidad/' ).on('value', (snapshot) => {
     
   }
 
-  
-
 
 });
 
-export function InfoResultInsta({navigation}) {
+
+
+export class InfoResultInsta extends React.Component {
+
   
-  data()
+
+  //console.warn(key)
+
+    
+  
+  render() {
+
+    
+      const { navigate } = this.props.navigation;  
+      //const { key } = this.props.route.params;
+
+      data()
 
   return (  
+
+ 
 
     <ImageOverlay source={tec2}
                     height={height}
@@ -64,25 +91,7 @@ export function InfoResultInsta({navigation}) {
        
                  <View style={{ flex: 1,  marginTop:'0%', marginBottom:'100%', alignItems:'center'}}>
 
-                 
-                { /* <View style={{flexDirection: 'column', height:'30%'}}>
-                 <Text style={{
-                  flex:10,
-                  color: '#000',
-                  backgroundColor: 'orange',
-                  fontSize: 15,
-                  marginHorizontal: 15,
-                  marginTop: '5%',
-                  marginBottom:'1%',
-                  marginRight:'5%',
-                  marginLeft:'5%',
-                  fontWeight: 'bold',
-                  padding: 10,
-                  alignItems:'center'}}>Espere mientras se evalúa su instalación...</Text>
-
-                 </View> */}
-
-                 
+                             
                  <View style={{flexDirection: 'row'}}>
                                
 
@@ -112,7 +121,7 @@ export function InfoResultInsta({navigation}) {
                             marginRight:'2%',
                             marginLeft:'0%'}}>
                     <Button 
-                              onPress={() => navigation.navigate('Chat')}
+                              onPress={() => navigate.navigate('Chat')}
                               title=' Chat'
                               icon={
                                           <Icon
@@ -168,7 +177,7 @@ export function InfoResultInsta({navigation}) {
 
                            <View style={{ marginBottom: 10, marginTop: 10}}>
 
-                            <Button title="   Acepto la oferta" onPress={() =>  navigation.navigate('Proceso de pago')} 
+                            <Button title="   Acepto la oferta" onPress={() =>  navigate.navigate('Proceso de pago')} 
                                                                   
                                     icon={
                                         <Icon
@@ -184,7 +193,7 @@ export function InfoResultInsta({navigation}) {
            
                             <Button 
                               title="   Rechazo la oferta"
-                              onPress={() => navigation.navigate('Solfium')}
+                              onPress={() => navigate.navigate('Solfium')}
                          
                               icon={
                                         <Icon
@@ -207,7 +216,7 @@ export function InfoResultInsta({navigation}) {
       </ImageOverlay>
      
        
-  )
+  )}
 }
 
 
