@@ -37,7 +37,7 @@ export function QRCodeOk({ navigation }) {
 
                      <View style={{ marginBottom: 20, marginTop: 10}}>
 
-                      <Button title="   Acepto la visita" onPress={() =>  navigation.navigate('Pantalla Instalador')} 
+                      <Button title="   Acepto la visita" onPress={() =>  navigation.navigate('Viabilidad Instalación')} 
                                                             
                               icon={
                                   <Icon

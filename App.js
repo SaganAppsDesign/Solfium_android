@@ -55,7 +55,7 @@ class MyStack extends Component {
       <Stack.Screen name="Viabilidad 0" component={ViabilidadInstalacion3} />
       <Stack.Screen name="Proceso de pago" component={Payment} />
       <Stack.Screen name="Video Informativo" component={VideoInfo} />
-      <Stack.Screen name="Pantalla Instalador" component={InfoResultInsta} />
+      <Stack.Screen name="Viabilidad Instalación" component={InfoResultInsta} />
       <Stack.Screen name="Instalación en proceso" component={Instalacion} />
       <Stack.Screen name="Rating" component={Ratings} />
       <Stack.Screen name="Escanear QR Instalador" component={DatosInstalador2} />

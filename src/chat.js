@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { GiftedChat, Bubble, Send, MessageText } from 'react-native-gifted-chat';
 import Fire from '../fire';
-import { StyleSheet, Text, View, Image, TouchableOpacity, LogBox, Button} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { IconButton } from 'react-native-paper';
 
@@ -37,8 +37,13 @@ state = {
           onSend={(message) => Fire.sendMessage(message)}
          // renderBubble = {this.renderBubble.bind(this) }
           renderSend={renderSend}
+          renderBubble={renderBubble}
+          renderLoading={renderLoading}
           showUserAvatar
           alwaysShowSend
+          renderUsernameOnMessage  = {true}
+          showAvatarForEveryMessage = {true}
+          scrollToBottom
           placeholder={"Chatea aquí " + name}
           user={{
             _id: Fire.getUid(),
@@ -111,6 +116,11 @@ const styles = StyleSheet.create({
    sendingContainer: {
       justifyContent: 'center',
       alignItems: 'center'
+    },
+    loadingContainer: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center'
     }
 
   
@@ -134,3 +144,37 @@ function renderSend(props) {
 }
 
 
+function renderBubble(props) {
+  return (
+    // Step 3: return the component
+    <Bubble
+      {...props}
+      wrapperStyle={{
+        left: {
+          // Here is the color change
+          backgroundColor: '#D6F1D1'
+        },
+        right: {
+          // Here is the color change
+          backgroundColor: 'red'
+        }
+      }}
+      textStyle={{
+        left: {
+          color: '#000'
+        },
+        right: {
+          color: '#000'
+        }
+      }}
+    />
+  );
+}
+
+function renderLoading() {
+  return (
+    <View style={styles.loadingContainer}>
+      <ActivityIndicator size='large' color='#6646ee' />
+    </View>
+  );
+}

@@ -7,7 +7,7 @@ import {db} from '../fire';
 
 var {height} = Dimensions.get('window');
 var viabilidad, user
-var text,text1,text2,text3,color
+var text,text1,text2,text3,color,opacity
 
 
 
@@ -15,7 +15,7 @@ var text,text1,text2,text3,color
 data = () => db.ref('/Viabilidad').on('child_added', (snapshot) => {
 
   
-   viabilidad = snapshot.Viabilidad;
+  viabilidad = snapshot.Viabilidad;
   //const key = snapshot.key 
   
   user = snapshot.val();
@@ -34,13 +34,15 @@ data = () => db.ref('/Viabilidad').on('child_added', (snapshot) => {
     text2 = 'Desde la instalación ahorrarás 300$ al mes, lo que hará que tu inversión se rentabilizará en 12 mesesaaa' 
     text3 = 'Con esta instalación, estarás contribuyendo a la protección del planeta, disminuyendo su huella de carbono en 70 Kg/añoaaa' 
     color = 'green'
+    opacity = 1
      
-  } else if (viabilidad == null){
+  } else if (viabilidad == 'evaluando'){
     text = 'Espere mientras se evalúa su posible instalación' 
-    text1 = 'Espere mientras se evalúa su posible instalación' 
-    text2 = 'Espere mientras se evalúa su posible instalación' 
+    text1 = 'En breve nos pondremos en contacto con usted' 
+    text2 = 'Muchas gracias por la espera' 
     text3 = 'Espere mientras se evalúa su posible instalación' 
     color = 'grey'
+    opacity = 0
 
    
   } else if (viabilidad == '50%'){
@@ -49,6 +51,7 @@ data = () => db.ref('/Viabilidad').on('child_added', (snapshot) => {
     text2 = 'Desde la instalación ahorrarás 165$ al mes, lo que hará que tu inversión se rentabilizará en 10 meses.' 
     text3 = 'Con esta instalación, estarás contribuyendo a la protección del planeta, disminuyendo su huella de carbono en 55 Kg/año' 
     color = 'orange'
+    opacity = 1
     
   } else {
     text = 'Lo sentimos, no se puede realizar la instalación' 
@@ -56,6 +59,7 @@ data = () => db.ref('/Viabilidad').on('child_added', (snapshot) => {
     text2 = 'Gracias por su tiempo.' 
     text3 = 'Saludos' 
     color = 'red'
+    opacity = 0
     
   }
 
@@ -116,17 +120,20 @@ export class InfoResultInsta extends React.Component {
                   <View
                             style={{
                             
-                            marginTop: '2%',
-                            marginBottom:'5%',
+                            marginTop: '5%',
+                            marginBottom:'0%',
                             marginRight:'2%',
-                            marginLeft:'0%'}}>
+                            marginLeft:'0%',
+                            width:'20%',
+                            height:'50%',
+                           }}>
                     <Button 
-                              onPress={() => navigate.navigate('Chat')}
+                              onPress={() => this.props.navigation.navigate('Chat')}
                               title=' Chat'
                               icon={
                                           <Icon
                                             name="comments"
-                                            size={50}
+                                            size={20}
                                             color="white"
                                           />
                                         }
@@ -136,6 +143,8 @@ export class InfoResultInsta extends React.Component {
                     </Button>
                    </View>
                    </View>
+
+                   
                    <Text style={{color: '#000',
                                 backgroundColor: 'white',
                                 fontSize: 15,
@@ -175,9 +184,9 @@ export class InfoResultInsta extends React.Component {
 
                   <View style={{ marginBottom: '5%'}}>
 
-                           <View style={{ marginBottom: 10, marginTop: 10}}>
+                           <View style={{ marginBottom: 10, marginTop: 10, opacity:opacity}}>
 
-                            <Button title="   Acepto la oferta" onPress={() =>  navigate.navigate('Proceso de pago')} 
+                            <Button title="   Acepto la oferta" onPress={() =>  this.props.navigation.navigate('Proceso de pago')} 
                                                                   
                                     icon={
                                         <Icon
@@ -189,11 +198,11 @@ export class InfoResultInsta extends React.Component {
                            
                             </View>
 
-                           <View >
+                           <View style={{opacity:opacity}}>
            
                             <Button 
                               title="   Rechazo la oferta"
-                              onPress={() => navigate.navigate('Solfium')}
+                              onPress={() => this.props.navigation.navigate('Solfium')}
                          
                               icon={
                                         <Icon

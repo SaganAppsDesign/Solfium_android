@@ -10,7 +10,7 @@ import {db} from '../fire';
 
 
 var key2,key
-
+var fecha =  new Date()
 
 
 export class Main extends React.Component {
@@ -18,18 +18,23 @@ export class Main extends React.Component {
   
   state = {
 
-    name: '',
-    key: key,
+    name: ''
 
   }
 
   
+ 
+  user = () =>  db.ref('/Usuario').push().set({
+    name: this.state.name,
+    fecha: {fecha},
   
-  user = () =>  db.ref('/Usuario').push({name: this.state.name}).then((snap) => {
+    }).then((snap) => {
+    
+
      key = snap.key 
      this.setState({ key })
      key2 = this.state.key
-     console.warn('ke32:  ', key2)
+    
        
      
  });
