@@ -1,42 +1,32 @@
-'use strict';
 import React, { PureComponent } from 'react';
-import { AppRegistry, StyleSheet, Text, TouchableOpacity, View, LogBox, Button, Platform } from 'react-native';
+import { AppRegistry, StyleSheet, Text, TouchableOpacity, View, LogBox, Button } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import PropTypes from 'prop-types'
+import RNMlKit from 'react-native-firebase-mlkit';
 
 
-var uri
+var uri,text, text2, text3, text4, text5, text6
 
 export const Constants = {
-  ...RNCamera.Constants
-}
-
-//console.warn(Constants)
-
-
-export class Camara extends React.Component {
-  
-  camera=null;
-  state = {
-
-    cameraType: Constants.Type.back,
-    flashMode: Constants.FlashMode.off,
-    recognizedText:null,
-    path: null
-
+    ...RNCamera.Constants
   }
-  
 
+export class Camara extends PureComponent {
+
+  camera=null;
  
- /*  constructor(props) {
-    
+  constructor(props) {
     super(props);
     this.state = {
             path: null,
-            recognizedText:null
+            cameraType: Constants.Type.back,
+            flashMode: Constants.FlashMode.off,
+            recognizedText:null,
+            text:''
     };
     
-  } */
+  }
+
 
   componentDidMount(){
 
@@ -54,8 +44,16 @@ export class Camara extends React.Component {
 
   render() {
 
-    uri = this.state.path
-    console.warn('uri_render: ', uri)
+    uri = this.state.path;
+    text = this.state.text;
+    text2 = JSON.stringify(text);
+    //text3 = text2.slice(1,-1);
+     
+    //text4 = JSON.parse(text3);
+    //text5 = text4.blockCoordinates.resultText
+    //textotal = text2.blockCoordinates.resultText
+
+    console.log('TEXTO OCR55555: ', text2)
 
     return (
       <View style={styles.container}>
@@ -83,7 +81,7 @@ export class Camara extends React.Component {
             buttonNegative: 'Cancel',
           }}
           onGoogleVisionBarcodesDetected={({ barcodes }) => {
-           // console.log('barcodes', barcodes);
+           // console.log(barcodes);
           }}
           onTextRecognized={this.props.enableOCR ? (data) => this.onTextRecognized(data):undefined}
         />
@@ -94,7 +92,15 @@ export class Camara extends React.Component {
           </TouchableOpacity>
         </View>
 
-        <View style={{ marginTop: '5%',marginBottom: '5%', backgroundColor:'black'}}>
+        <View style={{ marginTop: '0%',marginBottom: '0%', backgroundColor:'white', height:'100%',  flex: 2}}>
+     
+                <Text style={{ fontSize:13, fontWeight:'bold', width:'100%',  height: '100%',
+                color: 'black', marginTop: "6%",  marginLeft: "0%", marginRight: "0%",  backgroundColor:"white", padding:8, textAlign:'center'
+                }}>Texto OCR: {text2}</Text> 
+           
+        </View>
+
+        <View style={{ marginTop: '0%',marginBottom: '0%', backgroundColor:'black'}}>
      
         <Button 
               title="Enviar foto"
@@ -106,77 +112,58 @@ export class Camara extends React.Component {
               
               
                      />
-</View>
+        </View>
+
       </View>
     );
   }
 
+
+
   takePicture = async () => {
     if (this.camera) {
       const options = { 
-        quality: this.props.quality, 
-        base64: true, 
-        width: this.props.imageWidth, 
-        doNotSave: true,
-        fixOrientation: true,
-        pauseAfterCapture: true,
-        base64: true
-      };
+          quality: this.props.quality, 
+          width: this.props.imageWidth, 
+          base64: true,
+          fixOrientation: true,
+          pauseAfterCapture: true,
+           };
       const data = await this.camera.takePictureAsync(options);
-      this.setState({ path: data });
-     
-      console.log('data.uri: ', data);
+      this.setState({ path: data.uri });
+      //console.log(data.uri);
+      // for on-device (Supports Android and iOS)
+      deviceTextRecognition = await RNMlKit.deviceTextRecognition(data.uri); 
 
+      console.log('data.uri', data.uri);
+     
+      
+      this.setState({text: deviceTextRecognition});
+      console.log('typeof Text Recognition On-Device', deviceTextRecognition);
+
+
+      //cloudTextRecognition = await RNMlKit.cloudTextRecognition(data.uri);
+      //console.log('Text Recognition Cloud', cloudTextRecognition);
+      
       this.props.onCapture && this.props.onCapture(data.base64, this.state.recognizedText)
+
+      
     }
   };
 
     onTextRecognized(data) {
-      if(this.props.enabledOCR) {
+        if(this.props.enabledOCR) {
         console.log('onTextRecognized: ', data);
         if(data && data.textBlocks && data.textBlocks.length > 0) {
-          this.setState({recognizedText: data})
+            this.setState({recognizedText: data})
         }
-      }
+        }
     }
-}
-
-
-
-
-
-Camara.propTypes = {
-
-  cameraType: PropTypes.any,
-  flashMode: PropTypes.any,
-  autoFocus: PropTypes.any,
-  whiteBalance: PropTypes.any,
-  ratio: PropTypes.string,
-  quality: PropTypes.number,
-  imageWidth: PropTypes.number,
-  onCapture:PropTypes.func,
-  enableOCR:PropTypes.bool,
-  onClose: PropTypes.func,
 
 }
 
-Camara.defaultProps = {
-  cameraType: Constants.Type.back,
-  flashMode: Constants.FlashMode.off,
-  autoFocus: Constants.AutoFocus.on,
-  whiteBalance: Constants.WhiteBalance.auto,
-  ratio: '4:3',
-  quality: 0.5,
-  imageWidth: 768,
-  onCapture:null,
-  enableOCR:false,
-  onClose: null,
-
-  
-}
-
-//console.warn(Camara.propTypes);
-
+var deviceTextRecognition, cloudTextRecognition
+console.log('cloudTextRecognition', cloudTextRecognition);
 
 const styles = StyleSheet.create({
   container: {
@@ -200,4 +187,34 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('App', () => ExampleApp);
+//AppRegistry.registerComponent('App', () => ExampleApp);
+
+Camara.propTypes = {
+
+    cameraType: PropTypes.any,
+    flashMode: PropTypes.any,
+    autoFocus: PropTypes.any,
+    whiteBalance: PropTypes.any,
+    ratio: PropTypes.string,
+    quality: PropTypes.number,
+    imageWidth: PropTypes.number,
+    onCapture:PropTypes.func,
+    enableOCR:PropTypes.bool,
+    onClose: PropTypes.func,
+  
+  }
+  
+  Camara.defaultProps = {
+    cameraType: Constants.Type.back,
+    flashMode: Constants.FlashMode.off,
+    autoFocus: Constants.AutoFocus.on,
+    whiteBalance: Constants.WhiteBalance.auto,
+    ratio: '4:3',
+    quality: 0.5,
+    imageWidth: 768,
+    onCapture:null,
+    enableOCR:false,
+    onClose: null,
+  
+    
+  }

@@ -28,10 +28,10 @@ export function DatosInstalador({ navigation }) {
 
                     <View
                        style={{                    
-                          marginTop: '10%',
-                          marginBottom:'2%',
-                          marginRight:'2%',
-                          marginLeft:'75%'}}>
+                          marginTop: '5%',
+                          marginBottom:'5%',
+                          marginRight:'5%',
+                          marginLeft:'70%'}}>
                        <Button 
                           onPress={() => navigation.navigate('Chat')}
                           title=' Chat'

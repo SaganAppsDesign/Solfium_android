@@ -2,10 +2,11 @@ package com.rnative_02;
 
 import android.app.Application;
 import android.content.Context;
-
+import androidx.multidex.MultiDexApplication;
 import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -14,6 +15,7 @@ import com.facebook.soloader.SoLoader;
 import com.github.yamill.orientation.OrientationPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+import com.mlkit.RNMlKitPackage;
 
 import org.reactnative.camera.RNCameraPackage;
 
@@ -21,13 +23,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 
-
-
-
-
-
-
-public class MainApplication extends Application implements ReactApplication {
+public class MainApplication extends MultiDexApplication implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {
@@ -45,13 +41,12 @@ public class MainApplication extends Application implements ReactApplication {
   
           new VectorIconsPackage();
           new MainReactPackage();
+          new ReactVideoPackage();
           new AsyncStoragePackage();
           new OrientationPackage();
-          new ReactVideoPackage();
-          new RNCameraPackage();     
-        
-          new AsyncStoragePackage();
-       
+          new RNCameraPackage();   
+          new RNMlKitPackage();  
+              
          
           return packages;
         }

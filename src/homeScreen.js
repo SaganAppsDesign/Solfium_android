@@ -7,6 +7,7 @@ import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button} from 'react-native-elements';
 import * as React from 'react';
+import Fire, {db} from '../fire';
 
 
 
@@ -14,6 +15,9 @@ import * as React from 'react';
 
 var {height} = Dimensions.get('screen');
 var lat, lon, uri2
+
+var uid = Fire.getUid()
+console.log('UID: ', uid)
 
 
 
@@ -29,6 +33,8 @@ export function HomeScreen({ route, navigation }) {
   lon = JSON.stringify(Longitud)
 
   uri2 = URI.uri
+
+  console.log('uri_home_screen: ', uri2)
     
 return (
 
@@ -155,7 +161,6 @@ return (
                                 costeInstalacion: 5500,
                                 ahorroOferta: 850
  
-
                               }
                               )}
                            >
@@ -214,7 +219,7 @@ const styles = StyleSheet.create({
     },
     //footer
     box3: {
-        flex: 7,
+        flex: 10,
         alignItems: 'center',
         marginBottom:'5%',
         marginTop:'0%'

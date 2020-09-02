@@ -15,14 +15,15 @@ export const db = app.database();
 
 
 
-class Fire {
+export class Fire {
 
   uid = ''
   messagesRef = null
   
  
   constructor ()  {
-  
+
+    
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
     }
@@ -46,34 +47,40 @@ class Fire {
            
       )
 
+      
    
   }
 
   setUid(value){
       this.uid = value;
+      console.log(this.uid)
+      
 
   }
 
   getUid(){
-
     return this.uid;
   }
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('Mensajes');
+      
+
+    this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
+
     const onReceive = (data) => {
       const message = data.val()
+      
       callback({
           _id:  data.key,
           text: message.text,
           createdAt: new Date(message.createdAt),
           user: {
-              id: message.user._id,
-              name: message.user.name,
-              
-          },
+            id: message.user._id,
+            name: message.user.name,
+            
+        },
 
       })
       
@@ -101,6 +108,11 @@ class Fire {
   }
 
 
+
 }
 
+
+
 export default new Fire()
+
+

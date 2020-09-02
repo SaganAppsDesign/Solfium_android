@@ -2,42 +2,36 @@ import * as React from 'react';
 import {
   StyleSheet,
   Text,
-  TextInput,
+  
   TouchableOpacity,
   View,
 } from 'react-native';
-import {db} from '../fire';
+import Fire, {db} from '../fire';
+
+import { TextInput } from 'react-native-paper';
 
 
-var key2,key
 var fecha =  new Date()
-
 
 export class Main extends React.Component {
   
   
   state = {
 
-    name: ''
+    name: '',
+    uid: ''
 
   }
 
-  
  
-  user = () =>  db.ref('/Usuario').push().set({
-    name: this.state.name,
-    fecha: {fecha},
+ 
+  user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
+    name: this.state.name
   
-    }).then((snap) => {
-    
+    //fecha: fecha,
+  
+    })
 
-     key = snap.key 
-     this.setState({ key })
-     key2 = this.state.key
-    
-       
-     
- });
   
 
   onChangeText = name => this.setState({ name });
@@ -56,18 +50,18 @@ export class Main extends React.Component {
      
   render() {
 
-    const { navigate } = this.props.navigation;  
      
     return (
    
-      
-      <View>
-        <Text style={styles.title}>Introduce un nombre de usuario:</Text>
+    
+      <View style={{backgroundColor: 'grey', height:'100%'}}>
+        
         <TextInput
           style={styles.nameInput}
-          placeHolder="Gandalf El Gris"
+          label="Nombre de usuario"
           onChangeText={this.onChangeText}
           value={this.state.name}
+          //mode='outlined'
           
         />
         <TouchableOpacity onPress={
@@ -79,6 +73,7 @@ export class Main extends React.Component {
 
         
       </View>
+     
     );
   }
 }
@@ -96,12 +91,22 @@ const styles = StyleSheet.create({
     height: offset * 2,
     margin: offset,
     paddingHorizontal: offset,
-    borderColor: '#111111',
-    borderWidth: 1,
+    backgroundColor: 'white',
+    
+    fontSize: 15,
+    fontWeight: 'bold',
+    borderRadius: 2,
+   
+   
   },
   buttonText: {
     marginLeft: offset,
-    fontSize: offset,
+    fontSize: 15,
+    fontWeight: 'bold',
+    backgroundColor: 'white',
+    margin:'5%',
+    alignItems: 'center',
+    textAlign:'center'
   },
 });
 

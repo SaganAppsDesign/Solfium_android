@@ -4,27 +4,27 @@ import tec2 from '../assets/tec2.gif';
 import ImageOverlay from "react-native-image-overlay";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {db} from '../fire';
+import Fire from '../fire';
 
 var {height} = Dimensions.get('window');
-var viabilidad, user
+var viabilidad, viabilidad2, user
 var text,text1,text2,text3,color,opacity
 
 
-
-
-data = () => db.ref('/Viabilidad').on('child_added', (snapshot) => {
-
-  
-  viabilidad = snapshot.Viabilidad;
+data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
+ 
+  //viabilidad1 = snapshot.Viabilidad;
   //const key = snapshot.key 
   
-  user = snapshot.val();
+  user = snapshot.hasChild('name')
+  viabilidad = snapshot.child("Viabilidad").val()
   
- 
+  
+  
  //this.Viabilidad = userObj.name;
   
-   viabilidad = user.Viabilidad
-   console.warn('viabilidad: ' + viabilidad)
+   //viabilidad2 = user.Viabilidad
+   console.log('viabilidad: ' + viabilidad)
 
   //console.warn('viabilidad: ' + userObj.Viabilidad)
   
@@ -36,7 +36,7 @@ data = () => db.ref('/Viabilidad').on('child_added', (snapshot) => {
     color = 'green'
     opacity = 1
      
-  } else if (viabilidad == 'evaluando'){
+  } else if (viabilidad == 'evaluando' || viabilidad == null){
     text = 'Espere mientras se evalúa su posible instalación' 
     text1 = 'En breve nos pondremos en contacto con usted' 
     text2 = 'Muchas gracias por la espera' 
@@ -77,10 +77,6 @@ export class InfoResultInsta extends React.Component {
     
   
   render() {
-
-    
-      const { navigate } = this.props.navigation;  
-      //const { key } = this.props.route.params;
 
       data()
 
