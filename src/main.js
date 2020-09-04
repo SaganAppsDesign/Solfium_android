@@ -54,8 +54,9 @@ export class Main extends React.Component {
     return (
    
     
-      <View style={{backgroundColor: 'grey', height:'100%'}}>
-        
+      <View style={{backgroundColor: 'orange', height:'100%', flexDirection:'row'}}>
+       
+      <View style={{flexDirection:'column',  flex:10,  marginTop:'5%'}}>
         <TextInput
           style={styles.nameInput}
           label="Nombre de usuario"
@@ -64,12 +65,16 @@ export class Main extends React.Component {
           //mode='outlined'
           
         />
+
+        </View>
+        <View style={{flexDirection:'column', flex:5, marginTop:'5%'}}>
         <TouchableOpacity onPress={
           () => { this.onPress(); this.user()}
          }
         >
-         <Text style={styles.buttonText}>Siguiente</Text>
+         <Text style={styles.buttonText}>Chat aquí</Text>
         </TouchableOpacity>
+        </View>
 
         
       </View>
@@ -90,6 +95,7 @@ const styles = StyleSheet.create({
   nameInput: {
     height: offset * 2,
     margin: offset,
+    width:'80%',
     paddingHorizontal: offset,
     backgroundColor: 'white',
     
@@ -100,12 +106,14 @@ const styles = StyleSheet.create({
    
   },
   buttonText: {
-    marginLeft: offset,
-    fontSize: 15,
-    fontWeight: 'bold',
-    backgroundColor: 'white',
-    margin:'5%',
-    alignItems: 'center',
+    marginLeft: 10,
+    marginTop:28,
+    fontSize: 20,
+    fontWeight:'bold',
+    backgroundColor: '#DD650C',
+    width:'80%',
+    height:'22%',
+    borderRadius: 10,
     textAlign:'center'
   },
 });

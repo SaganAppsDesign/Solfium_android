@@ -1,14 +1,16 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Button} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions} from 'react-native';
 import tec2 from '../assets/tec2.gif'; 
 import ImageOverlay from "react-native-image-overlay";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import 'react-native-gesture-handler';
 import {db} from '../fire';
 import Fire from '../fire';
+import { Button, Card } from 'react-native-elements';
 
 var {height} = Dimensions.get('window');
 var viabilidad, viabilidad2, user
-var text,text1,text2,text3,color,opacity
+var text,text1,text2,text3,color,opacity,backgroundcolor
 
 
 data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
@@ -18,6 +20,7 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
   
   user = snapshot.hasChild('name')
   viabilidad = snapshot.child("Viabilidad").val()
+  console.warn(viabilidad)
   
   
   
@@ -35,13 +38,24 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
     text3 = 'Con esta instalación, estarás contribuyendo a la protección del planeta, disminuyendo su huella de carbono en 70 Kg/añoaaa' 
     color = 'green'
     opacity = 1
+    backgroundcolor = 'white'
      
-  } else if (viabilidad == 'evaluando' || viabilidad == null){
+  } else if (viabilidad == 'evaluando'){
     text = 'Espere mientras se evalúa su posible instalación' 
     text1 = 'En breve nos pondremos en contacto con usted' 
     text2 = 'Muchas gracias por la espera' 
-    text3 = 'Espere mientras se evalúa su posible instalación' 
+    text3 = '' 
     color = 'grey'
+    backgroundcolor = 'rgba(255, 255, 255, 0)'
+    opacity = 0
+
+  } else if (viabilidad == null){
+    text = 'En breve el personal de instalación se pondrá en contacto con usted.' 
+    text1 = 'Perdone la espera. Muchas gracias' 
+    text2 = 'Saludos' 
+    text3 = '' 
+    color = 'yellow'
+    backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
 
    
@@ -52,6 +66,7 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
     text3 = 'Con esta instalación, estarás contribuyendo a la protección del planeta, disminuyendo su huella de carbono en 55 Kg/año' 
     color = 'orange'
     opacity = 1
+    backgroundcolor = 'white'
     
   } else {
     text = 'Lo sentimos, no se puede realizar la instalación' 
@@ -60,6 +75,7 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
     text3 = 'Saludos' 
     color = 'red'
     opacity = 0
+    backgroundcolor = 'white'
     
   }
 
@@ -69,13 +85,8 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
 
 
 export class InfoResultInsta extends React.Component {
+ 
 
-  
-
-  //console.warn(key)
-
-    
-  
   render() {
 
       data()
@@ -89,29 +100,29 @@ export class InfoResultInsta extends React.Component {
                      
                     >
        
-                 <View style={{ flex: 1,  marginTop:'0%', marginBottom:'100%', alignItems:'center'}}>
+                 <View style={{ flex: 1,  marginTop:'0%', marginBottom:'0%', alignItems:'center'}}>
 
                              
                  <View style={{flexDirection: 'row'}}>
                                
-
-                 <Text style={{
-    
-                  flex:1,
-                  color: '#000',
-                  backgroundColor: color,
-                  fontSize: 20,
-                  marginHorizontal: 15,
-                  marginTop: '5%',
-                  marginBottom:'5%',
-                  marginRight:'5%',
-                  marginLeft:'5%',
-                  fontWeight: 'bold',
-                  padding: 10,
-                  alignItems:'center'
+                   
+                    <Text style={{
             
-              }}>{text}</Text>
-
+                          flex:1,
+                          color: '#000',
+                          backgroundColor: color,
+                          fontSize: 20,
+                          marginHorizontal: 15,
+                          marginTop: '5%',
+                          marginBottom:'5%',
+                          marginRight:'5%',
+                          marginLeft:'5%',
+                          fontWeight: 'bold',
+                          padding: 10,
+                          alignItems:'center'
+                    
+                        }}>{text}</Text>
+                   
                   
                   <View
                             style={{
@@ -125,17 +136,17 @@ export class InfoResultInsta extends React.Component {
                            }}>
                     <Button 
                               onPress={() => this.props.navigation.navigate('Chat')}
-                              title=' Chat'
+                              title='Chat'
                               icon={
                                           <Icon
                                             name="comments"
-                                            size={20}
+                                            size={40}
                                             color="white"
                                           />
                                         }
                                                             
                                     >
-                                  
+                             
                     </Button>
                    </View>
                    </View>
@@ -150,10 +161,6 @@ export class InfoResultInsta extends React.Component {
                                 padding: 10,
                                 textAlign: 'center',
                                 borderRadius:10}} >{text1}</Text>
-
-                  
-
-                 
                    <Text style={{color: '#000',
                                 backgroundColor: 'white',
                                 fontSize: 15,
@@ -167,7 +174,7 @@ export class InfoResultInsta extends React.Component {
                 
 
                    <Text style={{color: '#000',
-                                backgroundColor: 'white',
+                                backgroundColor: backgroundcolor,
                                 fontSize: 15,
                                 marginHorizontal: 15,
                                 marginTop: 10,
