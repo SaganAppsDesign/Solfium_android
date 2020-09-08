@@ -20,14 +20,14 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
   
   user = snapshot.hasChild('name')
   viabilidad = snapshot.child("Viabilidad").val()
-  console.warn(viabilidad)
+  //console.warn(viabilidad)
   
   
   
  //this.Viabilidad = userObj.name;
   
    //viabilidad2 = user.Viabilidad
-   console.log('viabilidad: ' + viabilidad)
+   //console.log('viabilidad: ' + viabilidad)
 
   //console.warn('viabilidad: ' + userObj.Viabilidad)
   

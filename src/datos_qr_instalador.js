@@ -28,7 +28,7 @@ export function DatosInstalador({ navigation }) {
 
                     <View
                        style={{                    
-                          marginTop: '5%',
+                          marginTop: '15%',
                           marginBottom:'5%',
                           marginRight:'5%',
                           marginLeft:'70%'}}>
@@ -59,7 +59,7 @@ export function DatosInstalador({ navigation }) {
                                     borderRadius:10}} h1>Me pasaré por su domicilio el próximo martes a las 10 a.m. A continuación tiene mis datos:</Text>
                   
                    
-                      <Card containerStyle={{padding: 17, backgroundColor:'#F7CD63', marginTop: '2%'}}>
+                      <Card containerStyle={{padding: 10, backgroundColor:'#F7CD63', marginTop: '1%'}}>
                          <View style={[styles.box1]}>      
                          <View style={{flexDirection: 'column'}}>
                          <Image

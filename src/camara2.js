@@ -92,13 +92,13 @@ export class Camara extends PureComponent {
           </TouchableOpacity>
         </View>
 
-        <View style={{ marginTop: '0%',marginBottom: '0%', backgroundColor:'white', height:'100%',  flex: 2}}>
+        {/* <View style={{ marginTop: '0%',marginBottom: '0%', backgroundColor:'white', height:'100%',  flex: 12}}>
      
                 <Text style={{ fontSize:13, fontWeight:'bold', width:'100%',  height: '100%',
                 color: 'black', marginTop: "6%",  marginLeft: "0%", marginRight: "0%",  backgroundColor:"white", padding:8, textAlign:'center'
                 }}>Texto OCR: {text2}</Text> 
            
-        </View>
+              </View> */}
 
         <View style={{ marginTop: '0%',marginBottom: '0%', backgroundColor:'black'}}>
      

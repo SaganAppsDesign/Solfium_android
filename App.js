@@ -22,6 +22,8 @@ import { Camara } from './src/camara2';
 import { QRscan } from './src/qr_scan'; 
 import { Chat } from './src/chat'; 
 import { Main } from './src/main'; 
+import { IngresarConsumo } from './src/ingresar_consumo'; 
+import {ConfirmaUbicacion } from './src/confirma_ubicacion'; 
 import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
@@ -46,9 +48,11 @@ class MyStack extends Component {
         }
       }}>
 
-      <Stack.Screen name="Solfium" component={HomeScreen} initialParams={{ Latitud:  0,  Longitud: 0,  URI: 0  }}/>
+      <Stack.Screen options={{headerShown: false}}  name="Solfium" component={HomeScreen} initialParams={{ Latitud:  0,  Longitud: 0,  URI: 0  }}/>
       <Stack.Screen name="Contacta con Solfium" component={ContactoInstalador} />
       <Stack.Screen name="Cálculos" component={Calculos} />
+      <Stack.Screen options={{headerShown: false}} name="Ingresar Consumo" component={IngresarConsumo}  />
+      <Stack.Screen options={{headerShown: false}} name="Confirma ubicación" component={ConfirmaUbicacion}  />
       <Stack.Screen name="Próxima visita" component={DatosInstalador} />
       <Stack.Screen name="Viabilidad total" component={ViabilidadInstalacion1} />
       <Stack.Screen name="Viabilidad a la baja" component={ViabilidadInstalacion2} />

@@ -2,28 +2,27 @@ import * as React from 'react';
 import {
   StyleSheet,
   Text,
-  
+  ScrollView, Animated, Keyboard, KeyboardAvoidingView,
   TouchableOpacity,
   View,
 } from 'react-native';
 import Fire, {db} from '../fire';
+import fondo from '../assets/fondo2.jpg'; 
 
 import { TextInput } from 'react-native-paper';
+import ImageOverlay from "react-native-image-overlay";
 
 
 var fecha =  new Date()
 
 export class Main extends React.Component {
-  
-  
+   
   state = {
 
     name: '',
     uid: ''
 
   }
-
- 
  
   user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     name: this.state.name
@@ -52,33 +51,48 @@ export class Main extends React.Component {
 
      
     return (
-   
-    
-      <View style={{backgroundColor: 'orange', height:'100%', flexDirection:'row'}}>
-       
-      <View style={{flexDirection:'column',  flex:10,  marginTop:'5%'}}>
-        <TextInput
-          style={styles.nameInput}
-          label="Nombre de usuario"
-          onChangeText={this.onChangeText}
-          value={this.state.name}
-          //mode='outlined'
-          
-        />
+      <ImageOverlay 
 
-        </View>
-        <View style={{flexDirection:'column', flex:5, marginTop:'5%'}}>
-        <TouchableOpacity onPress={
-          () => { this.onPress(); this.user()}
-         }
-        >
-         <Text style={styles.buttonText}>Chat aquí</Text>
-        </TouchableOpacity>
-        </View>
-
+      source={fondo}
+      height={"100%"}
+      overlayAlpha={0}
         
+
+      //resizeMode="stretch"
+      //style={styles.fondo} 
+      >
+    
+      <View style={{height:'100%', width:'50%'}}>
+
+      <KeyboardAvoidingView  enabled keyboardVerticalOffset={100}>
+    
+       <ScrollView> 
+       
+        <View style={{marginTop:'40%'}}>
+          <TextInput
+            style={styles.nameInput}
+            label="Nombre de usuario"
+            onChangeText={this.onChangeText}
+            value={this.state.name}
+            //mode='outlined'
+            
+          />
+
+        </View>
+
+        <View style={{marginTop:'10%', marginLeft:'26%', height:'40%', width:'100%'}}>
+            <TouchableOpacity onPress={
+              () => { this.onPress(); this.user()}
+            }
+            >
+            <Text style={styles.buttonText}>Chat aquí</Text>
+            </TouchableOpacity>
+        </View>
+
+        </ScrollView>
+        </KeyboardAvoidingView>
       </View>
-     
+      </ImageOverlay>
     );
   }
 }
@@ -87,18 +101,15 @@ export class Main extends React.Component {
 const offset = 24;
 
 const styles = StyleSheet.create({
-  title: {
-    marginTop: offset,
-    marginLeft: offset,
-    fontSize: offset,
-  },
+ 
   nameInput: {
     height: offset * 2,
-    margin: offset,
-    width:'80%',
+    marginLeft: '5%',
+    marginTop:'5%',
+    marginBottom:'5%',
+    width:'100%',
     paddingHorizontal: offset,
     backgroundColor: 'white',
-    
     fontSize: 15,
     fontWeight: 'bold',
     borderRadius: 2,
@@ -106,13 +117,14 @@ const styles = StyleSheet.create({
    
   },
   buttonText: {
-    marginLeft: 10,
-    marginTop:28,
+    marginLeft: '0%',
+    marginTop:0,
     fontSize: 20,
+    marginBottom:'10%',
     fontWeight:'bold',
     backgroundColor: '#DD650C',
-    width:'80%',
-    height:'22%',
+    width:'55%',
+    height:'45%',
     borderRadius: 10,
     textAlign:'center'
   },

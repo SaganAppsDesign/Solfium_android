@@ -1,17 +1,18 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Linking} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import logo from '../assets/logo.png'; 
-import fondo from '../assets/fondo.gif'; 
-import camara from '../assets/camara.jpg'; 
+import fondo from '../assets/screen1.jpg'; 
+import consumo from '../assets/ingrese_consumo.png'; 
+import ubicacion from '../assets/ubicacion.png'; 
+import calcular from '../assets/calcular.png'; 
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button} from 'react-native-elements';
 import * as React from 'react';
 import Fire, {db} from '../fire';
-
-
-
-
+import home from '../assets/home.png'; 
+import setting from '../assets/setting.png'; 
+import usuario from '../assets/usuario.png'; 
 
 var {height} = Dimensions.get('screen');
 var lat, lon, uri2
@@ -43,35 +44,22 @@ return (
      <View style={styles.container}>
 
 
-           <View>  
+           <View  >  
 
               <ImageOverlay 
 
                   source={fondo}
-                  height={height}
-                  resizeMode="stretch"
-                  style={styles.fondo} >
+                  height={"100%"}
+                  overlayAlpha={0}
+                    
+
+                  //resizeMode="stretch"
+                  //style={styles.fondo} 
+                  >
                        
-                <View>           
+                <View style={{marginTop:'20%', marginBottom:'80%', marginLeft:'25%', marginRight:'0%', width:'100%', height:'100%', flex:2, flexDirection:'column'}}>           
 
-                  <View style={[styles.box1]}> 
-
-                    <Image 
-
-                       source={logo} style={styles.logo}
-                     >
-
-
-                       
-                     </Image>
-                     
-
-
-
-                  </View>  
-
-
-                  <View style={[styles.box2]}> 
+              { /*    <View style={[styles.box2]}> 
 
                       <Text style={{ fontSize:13, fontWeight:'bold', width:300,  height: 40, borderColor: 'black', borderWidth: 2, 
                       color: 'black', marginTop: "6%",  marginLeft: "8%", marginRight: "8%",  backgroundColor:"white", padding:8, textAlign:'center'
@@ -82,12 +70,99 @@ return (
                       }}>O si lo prefiere, haga una foto a su factura</Text>
                    
                                  
-                  </View> 
+                  </View>  */}
 
                    
-                  <View style={{marginTop:'5%', marginBottom:'25%', marginLeft:'6%', marginRight:'0%', flex:2}}>  
+                   <View >  
+                                
+                       <TouchableOpacity 
+                                                                                  
+                            onPress={() => navigation.navigate('Ingresar Consumo', {
+
+                                costeInstalacion: 5500,
+                                ahorroOferta: 850
+ 
+                              }
+                              )}
+                              > 
+                              <View>
+                             
+                              <Image 
+                        
+                              source={consumo}
+                              style={{marginTop:'0%', marginBottom:'0%', marginLeft:'2%', marginRight:'0%', width:'70%', height:'95%'}}
+                              
+                              >    
+                             </Image> 
+
+                                </View>
+                           
+                       </TouchableOpacity> 
+
+                  </View> 
+
+                  <View>  
+                     <TouchableOpacity 
+                                                                                  
+                     onPress={() => navigation.navigate('Cálculos', {
+
+                         costeInstalacion: 5500,
+                         ahorroOferta: 850
+
+                       }
+                       )}
+                       > 
+                       <View>
+                      
+                       <Image 
+                      
+                          source={ubicacion}
+                          style={{marginTop:'0%', marginBottom:'0%', marginLeft:'2%', marginRight:'0%', width:'70%', height:'95%'}}
+                          
+                          >               
+                          </Image> 
+
+                        </View>
+                    
+                </TouchableOpacity> 
+
+                  </View> 
+
+                  <View >  
+                      <TouchableOpacity 
+                                                                                  
+                            onPress={() => navigation.navigate('Cálculos', {
+
+                                costeInstalacion: 5500,
+                                ahorroOferta: 850
+ 
+                              }
+                              )}
+                              > 
+                              <View>
+                             
+                              <Image 
+                                
+                                    source={calcular}
+                                    style={{marginTop:'0%', marginBottom:'0%', marginLeft:'2%', marginRight:'0%', width:'70%', height:'95%'}}
+                                    
+                                    />
+
+                                </View>
+                           
+                       </TouchableOpacity>
+
+
+                      
+
+                  </View> 
+
                   
-                   <ImageOverlay 
+
+
+
+
+             { /*      <ImageOverlay 
                       containerStyle={{marginTop:'0%', marginBottom:'0%', marginLeft:'2%', marginRight:'0%', width:'90%'}}
                       source={camara}
                       height= {210}
@@ -117,11 +192,11 @@ return (
 
                       </View> 
 
-                  </ImageOverlay> 
+                  </ImageOverlay>  */}
 
-                  </View> 
+               
 
-                   <View style={{marginTop:'25%', marginBottom:'5%', margin:'15%',flex:1}}> 
+                  { /* <View style={{marginTop:'25%', marginBottom:'5%', margin:'15%',flex:1}}> 
                               
                        <Button 
                              
@@ -182,6 +257,36 @@ return (
 
                   </View>
 
+                  <View style={[styles.box1]}> 
+
+                  <Image 
+
+                     source={logo} style={styles.logo}
+                   >
+
+
+                     
+                   </Image>
+                   
+                             */}
+                                    
+
+
+                </View>
+
+        
+                <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%',width:'55%', height:'45%', flex:1}}>  
+                         
+                    <Image 
+                      
+                      source={logo}
+                      style={{marginTop:'5%', marginBottom:'0%', marginLeft:'10%', marginRight:'0%', width:'80%', height:'50%'}}
+                      
+                      >    
+                     </Image>  
+
+                  </View> 
+
                </ImageOverlay>
 
             </View>  
@@ -200,15 +305,19 @@ return (
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#000',
-    flexDirection: 'column',
+    flex:1,
+     
+    width:'100%',
+    height:'100%',
+    
+    
+    
     
   },
 
        //header
     box1: {
-        flex: 2
+        flex: 1
         
     },
     //content
@@ -229,8 +338,8 @@ const styles = StyleSheet.create({
 
   logo: {
     
-    width: "40%",
-    height: "100%",
+    width: "20%",
+    height: "50%",
     marginBottom: "10%",
     marginTop: "2%",
     marginLeft: "59%",
