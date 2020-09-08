@@ -50,7 +50,7 @@ class MyStack extends Component {
 
       <Stack.Screen options={{headerShown: false}}  name="Solfium" component={HomeScreen} initialParams={{ Latitud:  0,  Longitud: 0,  URI: 0  }}/>
       <Stack.Screen name="Contacta con Solfium" component={ContactoInstalador} />
-      <Stack.Screen name="Cálculos" component={Calculos} />
+      <Stack.Screen options={{headerShown: false}}  name="Cálculos" component={Calculos} />
       <Stack.Screen options={{headerShown: false}} name="Ingresar Consumo" component={IngresarConsumo}  />
       <Stack.Screen options={{headerShown: false}} name="Confirma ubicación" component={ConfirmaUbicacion}  />
       <Stack.Screen name="Próxima visita" component={DatosInstalador} />
