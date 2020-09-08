@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, ScrollView, Animated, Keyboard, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, ToastAndroid, TextInput, ScrollView, Animated, Keyboard, KeyboardAvoidingView } from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import logo from '../assets/logo.png'; 
 import fondo from '../assets/fondo_ubicacion.jpg'; 
@@ -22,7 +22,10 @@ var lat, lon, uri2
 //var uid = Fire.getUid()
 //console.log('UID: ', uid)
 
-
+const ubicación = () => {
+  ToastAndroid.show("Busca tu ubicación", ToastAndroid.SHORT);
+ 
+};
 
 export function ConfirmaUbicacion({ route, navigation }) {
 
@@ -50,13 +53,7 @@ return (
                                 
                        <TouchableOpacity 
                                                                                   
-                            onPress={() => navigation.navigate('Cámara', {
-
-                                costeInstalacion: 5500,
-                                ahorroOferta: 850
- 
-                              }
-                              )}
+                            onPress={() => ubicación()}
                               > 
                               <View>
                              

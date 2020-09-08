@@ -61,7 +61,7 @@ export function Calculos({ route, navigation }) {
                                   <TouchableOpacity
                                         
                                         style={{ marginBottom:'0%', marginTop:'25%', flex:1}}
-                                        onPress={() => navigation.navigate('Nombre usuario')} 
+                                        onPress={() => navigation.navigate('Proceso de implemetación')} 
                                                             
                                         >
 
@@ -72,7 +72,7 @@ export function Calculos({ route, navigation }) {
                                 
                                       
                             </ImageOverlay >
-                            </View>
+                          </View>
 
 
             {/*Botones*/}     

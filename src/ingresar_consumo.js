@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, ScrollView, Animated, Keyboard, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, ToastAndroid, Animated, Keyboard, KeyboardAvoidingView } from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import logo from '../assets/logo.png'; 
 import fondo from '../assets/calculos1.jpg'; 
@@ -20,7 +20,10 @@ var lat, lon, uri2
 //var uid = Fire.getUid()
 //console.log('UID: ', uid)
 
-
+const escanearRecibo = () => {
+  ToastAndroid.show("Escanear recibo", ToastAndroid.SHORT);
+ 
+};
 
 export function IngresarConsumo({ route, navigation }) {
 
@@ -56,13 +59,7 @@ return (
                                 
                        <TouchableOpacity 
                                                                                   
-                            onPress={() => navigation.navigate('Cámara', {
-
-                                costeInstalacion: 5500,
-                                ahorroOferta: 850
- 
-                              }
-                              )}
+                            onPress={() => escanearRecibo()}
                               > 
                               <View>
                              

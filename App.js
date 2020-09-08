@@ -24,6 +24,7 @@ import { Chat } from './src/chat';
 import { Main } from './src/main'; 
 import { IngresarConsumo } from './src/ingresar_consumo'; 
 import {ConfirmaUbicacion } from './src/confirma_ubicacion'; 
+import {MeInteresa } from './src/me_interesa'; 
 import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
@@ -53,9 +54,10 @@ class MyStack extends Component {
       <Stack.Screen options={{headerShown: false}}  name="Cálculos" component={Calculos} />
       <Stack.Screen options={{headerShown: false}} name="Ingresar Consumo" component={IngresarConsumo}  />
       <Stack.Screen options={{headerShown: false}} name="Confirma ubicación" component={ConfirmaUbicacion}  />
-      <Stack.Screen name="Próxima visita" component={DatosInstalador} />
+      <Stack.Screen options={{headerShown: false}} name="Proceso de implemetación" component={MeInteresa}  />
+      <Stack.Screen options={{headerShown: false}} name="Próxima visita" component={DatosInstalador} />
       <Stack.Screen name="Viabilidad total" component={ViabilidadInstalacion1} />
-      <Stack.Screen name="Viabilidad a la baja" component={ViabilidadInstalacion2} />
+      <Stack.Screen options={{headerShown: false}} name="Viabilidad a la baja" component={ViabilidadInstalacion2} />
       <Stack.Screen name="Viabilidad 0" component={ViabilidadInstalacion3} />
       <Stack.Screen name="Proceso de pago" component={Payment} />
       <Stack.Screen name="Video Informativo" component={VideoInfo} />

@@ -57,8 +57,11 @@ return (
                   //style={styles.fondo} 
                   >
                        
-                <View style={{marginTop:'20%', marginBottom:'80%', marginLeft:'25%', marginRight:'0%', width:'100%', height:'100%', flex:2, flexDirection:'column'}}>           
-
+                <View style={{marginTop:'5%', marginBottom:'80%', marginLeft:'25%', marginRight:'0%', width:'100%', height:'100%', flex:2, flexDirection:'column'}}>           
+                    <Text 
+                    style={{textAlign:'center',  fontSize:15, width:'80%', height: '50%', fontWeight:'bold',
+                            color: 'white', marginBottom: "5%",  marginLeft: "0%", marginTop:'0%',  padding:5 }} 
+                    onPress={() => navigation.navigate('Video Informativo')}>¿Quiere saber cómo funciona Solfium App? Click aquí</Text>
               { /*    <View style={[styles.box2]}> 
 
                       <Text style={{ fontSize:13, fontWeight:'bold', width:300,  height: 40, borderColor: 'black', borderWidth: 2, 
@@ -104,7 +107,7 @@ return (
                   <View>  
                      <TouchableOpacity 
                                                                                   
-                     onPress={() => navigation.navigate('Cálculos', {
+                     onPress={() => navigation.navigate('Confirma ubicación', {
 
                          costeInstalacion: 5500,
                          ahorroOferta: 850
@@ -275,12 +278,12 @@ return (
                 </View>
 
         
-                <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%',width:'55%', height:'45%', flex:1}}>  
+                <View style={{marginTop:'20%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%',width:'55%', height:'50%', flex:1}}>  
                          
                     <Image 
                       
                       source={logo}
-                      style={{marginTop:'5%', marginBottom:'0%', marginLeft:'10%', marginRight:'0%', width:'80%', height:'50%'}}
+                      style={{marginTop:'5%', marginBottom:'0%', marginLeft:'10%', marginRight:'0%', width:'80%', height:'55%'}}
                       
                       >    
                      </Image>  
