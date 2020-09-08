@@ -25,10 +25,32 @@ export function DatosInstalador({ navigation }) {
                     height={height}  
                     overlayAlpha={0}                 
                     >
+                   
+                    <View style={{marginTop:'5%', marginBottom:'10%', marginLeft:'100%', marginRight:'0%', width:'50%', height:'60%', flex:2}}>
+                    <TouchableOpacity 
+                                                                                  
+                    onPress={() => navigation.navigate('Chat')}
+                      > 
+                      <View>
+                     
+                            <Image 
+                        
+                            source={chat}
+                            style={{marginTop:'1%', marginBottom:'1%', marginLeft:'0%', marginRight:'0%', width:'35%', height:'100%'}}
+                            
+                            >    
+                            </Image> 
+
+                      </View>
+                   
+               </TouchableOpacity> 
+
+
+               </View>
 
                     <View style={{alignItems: 'center'}}>
 
-               
+                 
                      
                       <Card containerStyle={{backgroundColor:'white', marginTop: '1%',  borderRadius: 10, 
                             width:'80%', height:'45%', marginBottom:'10%'}}>
@@ -89,7 +111,7 @@ export function DatosInstalador({ navigation }) {
                                            <Text>{`
                                                    `}</Text>
 
-                                           <Text style={{fontWeight: "bold", fontSize: 16}}>    Juan Carlos Díaz Aguirre</Text>
+                                           <Text style={{fontWeight: "bold", fontSize: 16}}>Juan Carlos Díaz Aguirre</Text>
                                            
                                     
                                     </Text>
