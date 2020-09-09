@@ -5,7 +5,13 @@ import chat from '../assets/chat.png';
 import ImageOverlay from "react-native-image-overlay";
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import home from '../assets/home.png'; 
+import setting from '../assets/setting.png'; 
+import usuario from '../assets/usuario.png'; 
+import ok from '../assets/ok.png'; 
 import { Button, Card } from 'react-native-elements';
+import logo from '../assets/logo.png'; 
+import codigo_qr from '../assets/codigo_qr.png'; 
 
 
 var {height} = Dimensions.get('window');
@@ -26,34 +32,37 @@ export function DatosInstalador({ navigation }) {
                     overlayAlpha={0}                 
                     >
                    
-                    <View style={{marginTop:'5%', marginBottom:'10%', marginLeft:'100%', marginRight:'0%', width:'50%', height:'60%', flex:2}}>
-                    <TouchableOpacity 
-                                                                                  
-                    onPress={() => navigation.navigate('Chat')}
-                      > 
-                      <View>
-                     
-                            <Image 
+         <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%'
+         , flex:1}}>
+                    
+                    <View style={{marginTop:'5%', marginBottom:'0%', marginLeft:'82%', flex:1}}>   
+                          
+                          <TouchableOpacity 
+                                                                                        
+                          onPress={() => navigation.navigate('Chat')}
+                            > 
+                            <View>
+                          
+                                  <Image 
+                              
+                                  source={chat}
+                                  style={{width:'80%', height:'90%'}}
+                                  
+                                  >    
+                                  </Image> 
+
+                            </View>
                         
-                            source={chat}
-                            style={{marginTop:'1%', marginBottom:'1%', marginLeft:'0%', marginRight:'0%', width:'35%', height:'100%'}}
-                            
-                            >    
-                            </Image> 
+                          </TouchableOpacity> 
 
-                      </View>
-                   
-               </TouchableOpacity> 
+                    </View>
 
 
-               </View>
+                    <View style={{alignItems: 'center', marginBottom:'0%', marginTop: '1%', flex:3, width:'100%', height:'100%'}}>
 
-                    <View style={{alignItems: 'center'}}>
-
-                 
-                     
-                      <Card containerStyle={{backgroundColor:'white', marginTop: '1%',  borderRadius: 10, 
-                            width:'80%', height:'45%', marginBottom:'10%'}}>
+                                      
+                      <Card containerStyle={{backgroundColor:'white', marginTop: '0%',  borderRadius: 15, 
+                            width:'80%', height:'90%', marginBottom:'0%'}}>
                             
                             <View >
 
@@ -79,70 +88,183 @@ export function DatosInstalador({ navigation }) {
                                     textAlign: 'center',
                                     fontWeight:'bold'
                                     }}>Sábado, 5 de Noviembre 2020, 10:00 am</Text>
+
+                                     {/*  Foto y descripción instalador */}
+
+                                    <View style={{flexDirection:'row', width:'90%', height:'80%', marginBottom:'0%'}}>
+                          
+                                    <View style={{flex:5}}>
+      
+                                        <Image
+                                        style={{borderRadius:60 , width:'65%', height:'30%', marginLeft:'20%', marginTop: 2, borderWidth:1, borderColor:'black'}}
+                                        source={require('../assets/yoda.jpg')}
+                                        />
+                                    </View> 
+      
+                                    <View style={{flex:5, marginRight:'5%'}}>
+                                            <Text style={{color: '#000',
+                                                  backgroundColor: 'white',
+                                                  marginTop: '5%',
+                                                  marginRight:'100%',
+                                                  marginLeft:'0%',
+                                                  height:'30%',
+                                                  width:'100%',
+                                                  padding: 0,
+                                                 }}>
+      
+                                                 <Text style={{marginBottom:'100%', fontSize: 15}}>Técnico asignado:</Text>
+                                                 <Text>{`
+                                                         `}</Text>
+      
+                                                 <Text style={{fontWeight: "bold", fontSize: 16}}>Juan Carlos Díaz Aguirre</Text>
+                                                 
+                                          
+                                          </Text>
+                                    
+                                    </View>
+      
+                                </View>
  
                           </View>
-                              
-                         {/*  Foto y descripción instalador */}
-                          
-                          <View style={{flexDirection:'row', flex:1}}>
-                          
-                              <View style={{flex:5}}>
-
-                                  <Image
-                                  style={{borderRadius:60 ,width:'60%', height:'80%', marginLeft:'20%', marginTop: 2, borderWidth:1, borderColor:'black'}}
-                                  source={require('../assets/yoda.jpg')}
-                                  />
-                              </View> 
-
-                              <View style={{flex:4, marginRight:'5%'}}>
-                                      <Text style={{color: '#000',
-                                            backgroundColor: 'white',
-                                            
-                                            //textAlign: 'center',
-                                            marginTop: 0,
-                                            marginRight:'100%',
-                                            marginLeft:'0%',
-                                            height:'100%',
-                                            width:'100%',
-                                            padding: 0,
-                                           }}>
-
-                                           <Text style={{marginBottom:'100%', fontSize: 15}}>Técnico asignado:</Text>
-                                           <Text>{`
-                                                   `}</Text>
-
-                                           <Text style={{fontWeight: "bold", fontSize: 16}}>Juan Carlos Díaz Aguirre</Text>
-                                           
-                                    
-                                    </Text>
-
-                                    
-                              
-                              </View>
-
-                          </View>
+                            
 
                          </Card>
+                              
 
+    </View>
+
+    {/*Botone QR*/} 
+
+    <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', 
+    height:'100%', flex:2, flexDirection:'row'}}>  
+    
+    <TouchableOpacity 
+                                             
+     onPress={() => navigation.navigate('Escanear QR Instalador')}
+       > 
+       <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'31%', marginRight:'0%', width:'100%', height:'100%', flex:1}}>
+       
+                 <Image 
+                 
+                 source={codigo_qr}
+                 style={{
+                 width:'100%', height:'100%'}}
+                 
+                 >    
+                 </Image> 
+
+     </View>
+     
+     </TouchableOpacity> 
+
+
+     <View style={{flex:3, marginRight:'5%'}}>
+     <Text style={{color: '#fff',
+          
+           marginTop: '10%',
+           marginRight:'100%',
+           marginLeft:'20%',
+           height:'80%',
+           width:'65%',
+           padding: 0,
+           fontWeight:'bold'
+          }}>
+
+          <Text style={{marginBottom:'100%', fontSize: 18}}>El día de la cita el técnico deberá presentar credencial con 
+          
+          código QR para confirmar.</Text>
+
+         </Text>
+
+       </View>
+
+   </View>
+    
+
+     {/*Botones*/}     
+    
+     <View style={{alignItems:'center', alignContent:'center',  marginTop:'0%', marginBottom:'0%', marginLeft:'4%', marginRight:'0%', width:'100%', 
+     height:'100%', flex:1, flexDirection:'row'}}>  
+                     
+               
+     <TouchableOpacity 
+                                                                  
+     onPress={() => navigation.navigate('Solfium')}
+       > 
+       <View style={{marginTop:'4%', marginBottom:'0%', marginLeft:'30%'}}>
+      
+                <Image 
                 
+                source={home}
+                style={{width:'78%', height:'93%'}}
+                
+                >    
+                </Image> 
 
-                   <View style={{marginBottom: '30%', marginLeft:'10%',marginRight:'10%', marginTop:'10%'}}>
-                   <Button title="   Instalador. Ha llegado al domicilio   " 
-                           onPress={() =>  navigation.navigate('Escanear QR Instalador')}
-                           icon={
-                                  <Icon
-                                    name="wrench"
-                                    size={25}
-                                    color="black"
-                                  />
-                                }
+      </View>
+    
+    </TouchableOpacity> 
 
+    <TouchableOpacity 
+                                                                  
+    onPress={() => navigation.navigate('Solfium')}
+      > 
+      <View style={{marginTop:'4%', marginBottom:'0%', marginLeft:'30%'}}>
+     
+            <Image 
+            
+            source={usuario}
+            style={{width:'78%', height:'93%'}}
+            
+            >    
+            </Image> 
 
-                         />
-                   </View>
+    </View>
+   
+   </TouchableOpacity> 
+   
+   <TouchableOpacity 
+                                                                  
+   onPress={() => navigation.navigate('Solfium')}
+     > 
+     <View style={{marginTop:'4%', marginBottom:'0%', marginLeft:'30%'}}>
+    
+     
+     <Image 
+      
+      source={setting}
+      style={{width:'78%', height:'93%'}}
+      
+      >    
+     </Image> 
 
-         </View>   
-      </ImageOverlay>
+   </View>
+  
+  </TouchableOpacity> 
+
+       
+
+</View> 
+ {/*FIN Botones*/}   
+ 
+{/*LOGO*/}    
+     
+<View style={{alignItems:'center', justifyContent:'center',  marginTop:'0%', marginBottom:'0%', width:'100%', flex:1, flexDirection:'row'}}>  
+            
+    <Image 
+      
+      source={logo}
+      style={{marginTop:'0%', marginBottom:'7%', width:'40%', height:'44%'}}
+      
+      >    
+    </Image>  
+
+</View>     
+{/*FIN LOGO*/}          
+         
+</View>
+
+</ImageOverlay>
    
 
   );
