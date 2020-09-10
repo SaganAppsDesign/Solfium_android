@@ -1,84 +1,99 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Dimensions} from 'react-native';
-import tec2 from '../assets/tec2.gif'; 
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Image} from 'react-native';
+import tec2 from '../assets/fondo2.jpg'; 
 import ImageOverlay from "react-native-image-overlay";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import 'react-native-gesture-handler';
 import {db} from '../fire';
 import Fire from '../fire';
 import { Button, Card } from 'react-native-elements';
+import chat from '../assets/chat.png';
+import logo from '../assets/logo.png'; 
+import codigo_qr from '../assets/codigo_qr.png'; 
+import qr2 from '../assets/qr2.png'; 
+import confirmado from '../assets/confirmado.png'; 
+import verResultado from '../assets/verResultado.png'; 
+import home from '../assets/home.png'; 
+import setting from '../assets/setting.png'; 
+import usuario from '../assets/usuario.png'
+import fondo from '../assets/fondo2.jpg';import { ContactoInstalador } from './contacto_instalador';
+  ; 
+
 
 var {height} = Dimensions.get('window');
-var viabilidad, viabilidad2, user
-var text,text1,text2,text3,color,opacity,backgroundcolor
+var viabilidad, user
+var text,text1,text2,text3,text4,text5,color,opacity,backgroundcolor, viable
 
 
 data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
  
-  //viabilidad1 = snapshot.Viabilidad;
-  //const key = snapshot.key 
-  
   user = snapshot.hasChild('name')
   viabilidad = snapshot.child("Viabilidad").val()
-  //console.warn(viabilidad)
-  
-  
-  
- //this.Viabilidad = userObj.name;
-  
-   //viabilidad2 = user.Viabilidad
-   //console.log('viabilidad: ' + viabilidad)
 
-  //console.warn('viabilidad: ' + userObj.Viabilidad)
+ // console.warn('viabilidad: ',viabilidad)
   
   if (viabilidad == '100%'){
+    viable = "VIABLE"
     text = '¡Felicidades! Se puede realizar en su hogar el ' + viabilidad + ' de la instalación' 
-    text1 = 'El coste total de la instalación será de 5500 $, impuestos incluidos. Se podría llevar a cabo con un pago único o con cómodas mensualidades de 458,33 $ en 12 mesesaaa' 
-    text2 = 'Desde la instalación ahorrarás 300$ al mes, lo que hará que tu inversión se rentabilizará en 12 mesesaaa' 
-    text3 = 'Con esta instalación, estarás contribuyendo a la protección del planeta, disminuyendo su huella de carbono en 70 Kg/añoaaa' 
-    color = 'green'
+    text1 = '$24,000' 
+    text2 = '$2,000' 
+    text3 = '$30,000' 
+    text4 = '540 Kg de carbono' 
+    text5 = '$600,000' 
+    color = '#5DCB31'
     opacity = 1
     backgroundcolor = 'white'
      
   } else if (viabilidad == 'evaluando'){
+    viable = "EVALUANDO INSTALACIÓN"
     text = 'Espere mientras se evalúa su posible instalación' 
-    text1 = 'En breve nos pondremos en contacto con usted' 
-    text2 = 'Muchas gracias por la espera' 
-    text3 = '' 
+    text1 = '$0' 
+    text2 = '$0' 
+    text3 = '$0' 
+    text4 = '$0' 
+    text5 = '$0' 
     color = 'grey'
     backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
 
   } else if (viabilidad == null){
+    viable = "VIABLE"
     text = 'En breve el personal de instalación se pondrá en contacto con usted.' 
-    text1 = 'Perdone la espera. Muchas gracias' 
-    text2 = 'Saludos' 
-    text3 = '' 
+    text1 = '$0' 
+    text2 = '$0' 
+    text3 = '$0' 
+    text4 = '$0' 
+    text5 = '$0' 
     color = 'yellow'
     backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
 
    
   } else if (viabilidad == '50%'){
+    viable = "VIABLE A LA BAJA"
     text = '¡Felicidades! Al menos se puede realizar un ' + viabilidad + ' de la instalación, lo cual supone el siguiente ahorro:' 
-    text1 = 'El coste total de la instalación será de 3025 $, impuestos incluidos. Se podría llevar a cabo con un pago único o con cómodas mensualidades de 252.08 $ en 12 meses' 
-    text2 = 'Desde la instalación ahorrarás 165$ al mes, lo que hará que tu inversión se rentabilizará en 10 meses.' 
-    text3 = 'Con esta instalación, estarás contribuyendo a la protección del planeta, disminuyendo su huella de carbono en 55 Kg/año' 
+    text1 = '$20,000' 
+    text2 = '$1,000' 
+    text3 = '$22,000' 
+    text4 = '210 Kg de carbono' 
+    text5 = '$250,000' 
     color = 'orange'
     opacity = 1
     backgroundcolor = 'white'
     
   } else {
+    viable = "NO ES VIABLE"
     text = 'Lo sentimos, no se puede realizar la instalación' 
-    text1 = 'Debido a problemas técnicos causados por la situación geográfica de su hogar, no es posible llevar a cabo la instalación.' 
-    text2 = 'Gracias por su tiempo.' 
-    text3 = 'Saludos' 
+    text1 = '$0' 
+    text2 = '$0' 
+    text3 = '$0' 
+    text4 = '$0' 
+    text5 = '$0'  
     color = 'red'
     opacity = 0
     backgroundcolor = 'white'
     
   }
-
 
 });
 
@@ -93,139 +108,280 @@ export class InfoResultInsta extends React.Component {
 
   return (  
 
+    <ImageOverlay source={fondo}
+    height={height}  
+    overlayAlpha={0}                 
+    >
+   
+    <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%'
+    , flex:1}}>
+
+     <View style={{marginTop:'5%', marginBottom:'0%', marginLeft:'80%', flex:1}}>   
+                    
+        <TouchableOpacity 
+                                                                    
+        onPress={() => navigation.navigate('Chat')}
+        > 
+        <View>
+        
+                <Image 
+            
+                source={chat}
+                style={{width:'60%', height:'95%'}}
+                
+                >    
+                </Image> 
+
+        </View>
+    
+        </TouchableOpacity> 
+
+   </View>
+    
+    
+    <View style={{alignItems: 'center', alignContent: 'center', marginBottom:'10%', marginTop: '0%', flex:10, width:'100%', height:'100%'}}>
+         
+      <Card containerStyle={{backgroundColor:'white', marginTop: '0%',  borderRadius: 50, 
+            width:'80%', height:'100%', marginBottom:'0%', alignContent: 'center'}}>
+    
+            <View style={{flexDirection:'column', width:'100%', height:'100%', marginBottom:'0%'}}>
+
+            
+              <View style={{width:'100%', height:'5%', marginBottom:'0%', marginTop:'0%', flex:2}}>
+                                    <Text style={{height: '100%', 
+                                    width:'100%',
+                                    borderRadius:50,
+                                    fontWeight:'bold',
+                                    fontSize:20,
+                                    color: 'white', 
+                                    marginBottom: "0%", 
+                                    marginTop: "0%", 
+                                    marginLeft: "0%", 
+                                    marginRight: "0%",
+                                    alignItems: "center",
+                                    textAlign:'center',
+                                    paddingLeft:"0%", 
+                                    paddingRight:"0%",
+                                    backgroundColor: color,
+                                    textAlignVertical:'center'
+                                  }}> {viable} </Text>
+              </View> 
+
+             {/*  texto viabilidad */}
+              <View style={{width:'100%', height:'10%', marginBottom:'5%', marginTop:'2%',flex:2}}>
+                      <Text style={{color: '#878787',
+                                     textAlign:'center',
+                                    fontSize:16,
+                                    marginTop: '2%',
+                                    marginRight:'0%',
+                                    marginLeft:'0%',
+                                    height:'100%',
+                                    width:'100%',
+                                    padding: 0,
+                                     }}> {text} </Text>
+             </View> 
+              
+            {/*  inversion total */}
+
+            
+            <View style={{backgroundColor:'red', flexDirection:'row', flex:3, width:'80%'}} >
+             
+                <View style={{flexDirection: 'row', flex:2, height:'90%', width:'70%'}}>
+                      <Image
+                      style={{width:'90%', height:'100%', marginBottom:0, marginRight:0, marginLeft:'10%', 
+                      marginTop: '0%'}}
+                      source={require('../assets/calculadora.png')}
+                      />
+                </View>
+            
+                <View style={{width:'80%', height:'35%', marginBottom:'0%',
+                 marginTop:'1%', alignContent:'center', flex:4, flexDirection: 'column'}}>
+                          <Text style={{color: '#878787',
+                                        alignItems:'center',
+                                        fontSize:16,
+                                        textAlign:'center',
+                                        marginTop: '0%',
+                                        marginRight:'100%',
+                                        marginLeft:'0%',
+                                        height:'100%',
+                                        width:'80%',
+                                        padding: 0,
+                                        
+                                        }}> Inversión total </Text>
+
+                                        <Text style={{color: 'black',
+                                          fontSize:24,
+                                          alignItems:'center',
+                                          marginTop: '0%',
+                                          marginRight:'0%',
+                                          marginLeft:'0%',
+                                          height:'100%',
+                                          width:'80%',
+                                          padding: 0,
+                                          fontWeight:'bold',
+                                          textAlign:'center',
+                                          
+                                          }}>{text1}</Text>
+                </View> 
+
+            </View>
+             {/*  mensualidad */}
+             <View style={{backgroundColor:'red', width:'100%', height:'3%', marginBottom:'0%', marginTop:'1%', alignContent:'center', flex:1}}>
+                      <Text style={{color: '#878787',
+                                    alignItems:'center',
+                                    fontSize:16,
+                                    textAlign:'center',
+                                    marginTop: '0%',
+                                    marginRight:'100%',
+                                    marginLeft:'0%',
+                                    height:'100%',
+                                    width:'100%',
+                                    padding: 0,
+                                    backgroundColor:'yellow'
+                                     }}> 12 pagos de: </Text>
+            </View> 
+
+            <View style={{width:'100%', height:'5%', marginBottom:'5%', marginTop:'0%', padding:'0%', alignContent:'center', flex:1}}>
+                      <Text style={{color: 'black',
+                                    fontSize:24,
+                                    alignItems:'center',
+                                    marginTop: '0%',
+                                    marginRight:'0%',
+                                    marginLeft:'0%',
+                                    height:'100%',
+                                    width:'100%',
+                                    padding: 0,
+                                    fontWeight:'bold',
+                                    textAlign:'center',
+                                    backgroundColor:'yellow'
+                                     }}>{text2}</Text>
+            </View> 
+            {/*  ahorro anual */}
+            <View style={{backgroundColor:'red', width:'100%', height:'3%', marginBottom:'0%', marginTop:'1%', alignContent:'center', flex:1}}>
+            <Text style={{color: '#878787',
+                          alignItems:'center',
+                          fontSize:16,
+                          textAlign:'center',
+                          marginTop: '0%',
+                          marginRight:'100%',
+                          marginLeft:'0%',
+                          height:'100%',
+                          width:'100%',
+                          padding: 0,
+                          backgroundColor:'yellow'
+                           }}>Ahorro anual</Text>
+            </View> 
+
+            <View style={{width:'100%', height:'3%', marginBottom:'0%', marginTop:'0%', padding:'0%', alignContent:'center', flex:1}}>
+                      <Text style={{color: '#5DCB31',
+                          fontSize:18,
+                          alignItems:'center',
+                          marginTop: '0%',
+                          marginRight:'0%',
+                          marginLeft:'0%',
+                          height:'100%',
+                          width:'100%',
+                          padding: 0,
+                          fontWeight:'bold',
+                          textAlign:'center',
+                          backgroundColor:'yellow'
+                          }}>{text3}</Text>
+            </View>  
+
+
+            {/*  Evitarás contaminar */}
+            <View style={{backgroundColor:'red', width:'100%', height:'3%', marginBottom:'0%', marginTop:'1%', alignContent:'center', flex:1}}>
+            <Text style={{color: '#878787',
+                          alignItems:'center',
+                          fontSize:16,
+                          textAlign:'center',
+                          marginTop: '0%',
+                          marginRight:'100%',
+                          marginLeft:'0%',
+                          height:'100%',
+                          width:'100%',
+                          padding: 0,
+                          backgroundColor:'yellow'
+                           }}>Evitarás contaminar:</Text>
+            </View> 
+
+            <View style={{width:'100%', height:'3%', marginBottom:'0%', marginTop:'0%', padding:'0%', alignContent:'center', flex:1}}>
+                      <Text style={{color: '#5DCB31',
+                          fontSize:18,
+                          alignItems:'center',
+                          marginTop: '0%',
+                          marginRight:'0%',
+                          marginLeft:'0%',
+                          height:'100%',
+                          width:'100%',
+                          padding: 0,
+                          fontWeight:'bold',
+                          textAlign:'center',
+                          backgroundColor:'yellow'
+                          }}>{text4}</Text>
+            </View>  
+
+            {/*  Ahorro a 20 años*/}
+            <View style={{backgroundColor:'red', width:'100%', height:'3%', marginBottom:'0%', marginTop:'1%', alignContent:'center', flex:1}}>
+            <Text style={{color: '#878787',
+                          alignItems:'center',
+                          fontSize:16,
+                          textAlign:'center',
+                          marginTop: '0%',
+                          marginRight:'100%',
+                          marginLeft:'0%',
+                          height:'100%',
+                          width:'100%',
+                          padding: 0,
+                          backgroundColor:'yellow'
+                           }}>Ahorro a 20 años:</Text>
+            </View> 
+
+            <View style={{width:'100%', height:'3%', marginBottom:'5%', marginTop:'0%', padding:'0%', alignContent:'center', flex:1}}>
+                      <Text style={{color: '#5DCB31',
+                          fontSize:18,
+                          alignItems:'center',
+                          marginTop: '0%',
+                          marginRight:'0%',
+                          marginLeft:'0%',
+                          height:'100%',
+                          width:'100%',
+                          padding: 0,
+                          fontWeight:'bold',
+                          textAlign:'center',
+                          backgroundColor:'yellow'
+                          }}>{text5}</Text>
+            </View>  
+
+               {/* Botón*/}
+               <View style={{marginBottom:'0%', marginTop:'0%', width:'100%', height:'100%', flex:2 }}>
+
+               <TouchableOpacity
+                     
+                     style={{ marginBottom:'0%'}}
+                     onPress={() => navigation.navigate('Proceso de implemetación')} 
+                                         
+                     >
+
+                     <Text style={styles.boton2}> HACER PEDIDO </Text>
+
+               </TouchableOpacity>
+             </View>
+
+            </View>  
+
+  </Card>
+              
+
+</View>
+
  
 
-    <ImageOverlay source={tec2}
-                    height={height}
-                     
-                    >
-       
-                 <View style={{ flex: 1,  marginTop:'0%', marginBottom:'0%', alignItems:'center'}}>
+     
 
-                             
-                 <View style={{flexDirection: 'row'}}>
-                               
-                   
-                    <Text style={{
-            
-                          flex:1,
-                          color: '#000',
-                          backgroundColor: color,
-                          fontSize: 20,
-                          marginHorizontal: 15,
-                          marginTop: '5%',
-                          marginBottom:'5%',
-                          marginRight:'5%',
-                          marginLeft:'5%',
-                          fontWeight: 'bold',
-                          padding: 10,
-                          alignItems:'center'
-                    
-                        }}>{text}</Text>
-                   
-                  
-                  <View
-                            style={{
-                            
-                            marginTop: '5%',
-                            marginBottom:'0%',
-                            marginRight:'2%',
-                            marginLeft:'0%',
-                            width:'20%',
-                            height:'50%',
-                           }}>
-                    <Button 
-                              onPress={() => this.props.navigation.navigate('Chat')}
-                              title='Chat'
-                              icon={
-                                          <Icon
-                                            name="comments"
-                                            size={40}
-                                            color="white"
-                                          />
-                                        }
-                                                            
-                                    >
-                             
-                    </Button>
-                   </View>
-                   </View>
+</View>
 
-                   
-                   <Text style={{color: '#000',
-                                backgroundColor: 'white',
-                                fontSize: 15,
-                                marginHorizontal: 15,
-                                marginTop: "1%",
-                                fontWeight: 'bold',
-                                padding: 10,
-                                textAlign: 'center',
-                                borderRadius:10}} >{text1}</Text>
-                   <Text style={{color: '#000',
-                                backgroundColor: 'white',
-                                fontSize: 15,
-                                marginHorizontal: 15,
-                                marginTop: 10,
-                                fontWeight: 'bold',
-                                padding: 10,
-                                textAlign: 'center',
-                                borderRadius:10}} h1>{text2}</Text>
-
-                
-
-                   <Text style={{color: '#000',
-                                backgroundColor: backgroundcolor,
-                                fontSize: 15,
-                                marginHorizontal: 15,
-                                marginTop: 10,
-                                marginBottom:'5%',
-                                fontWeight: 'bold',
-                                padding: 10,
-                                textAlign: 'center',
-                                borderRadius:10}} h1>{text3}</Text>
-   
-
-                  <View style={{ marginBottom: '5%'}}>
-
-                           <View style={{ marginBottom: 10, marginTop: 10, opacity:opacity}}>
-
-                            <Button title="   Acepto la oferta" onPress={() =>  this.props.navigation.navigate('Proceso de pago')} 
-                                                                  
-                                    icon={
-                                        <Icon
-                                          name="thumbs-up"
-                                          size={25}
-                                          color="black"
-                                        />
-                                      }/>
-                           
-                            </View>
-
-                           <View style={{opacity:opacity}}>
-           
-                            <Button 
-                              title="   Rechazo la oferta"
-                              onPress={() => this.props.navigation.navigate('Solfium')}
-                         
-                              icon={
-                                        <Icon
-                                          name="arrow-circle-left"
-                                          size={25}
-                                          color="black"
-                                        />
-                                      }
-                            
-                            />
-
-
-                            
-                           </View>
-                           
-                                
-                  </View> 
-
-                  </View>
-      </ImageOverlay>
+</ImageOverlay>
      
        
   )}
@@ -239,21 +395,48 @@ const styles = StyleSheet.create({
     width: '100%'
         
   },
-  btnContainer1: {
-    
-    justifyContent: 'center',
-    borderRadius: 15,
-    backgroundColor: 'green',
-    padding: 15,
+  boton: {
+        
+    height: '50%', 
+    width:'100%',
+    borderRadius:50,
+    fontWeight:'bold',
+    fontSize:25,
+    color: 'white', 
+    marginBottom: "0%", 
+    marginTop: "0%", 
+    marginLeft: "0%", 
+    marginRight: "0%",
+    alignItems: "center",
     textAlign:'center',
-    alignItems:'center',
-    flexDirection: 'column',
-    width:300,
-    height:100,
-    marginBottom:10, marginTop:30
-
-  
-  },
+    paddingLeft:40, 
+    paddingRight:40,
+    backgroundColor: color,
+    textAlignVertical:'center'
+   
+   
+ },
+ boton2: {
+        
+  height: '100%', 
+  width:'100%',
+  borderRadius:50,
+  fontWeight:'bold',
+  fontSize:25,
+  color: 'white', 
+  marginBottom: "0%", 
+  marginTop: "0%", 
+  marginLeft: "0%", 
+  marginRight: "0%",
+  alignItems: "center",
+  textAlign:'center',
+  paddingLeft:40, 
+  paddingRight:40,
+  backgroundColor: '#5DCB31',
+  textAlignVertical:'center'
+ 
+ 
+},
 
   texto:{
     

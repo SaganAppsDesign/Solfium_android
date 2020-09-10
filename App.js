@@ -6,7 +6,7 @@ import {HomeScreen} from './src/homeScreen';
 import {Calculos} from './src/calculos';  
 import {ContactoInstalador} from './src/contacto_instalador';  
 import {DatosInstalador} from './src/datos_qr_instalador';  
-import {DatosInstalador2} from './src/datos_qr_instalador2';  
+import {DatosInstalador2} from './src/test';  
 import {ViabilidadInstalacion1} from './src/viabilidadInstalacion1';  
 import {ViabilidadInstalacion2} from './src/viabilidadInstalacion2';  
 import {ViabilidadInstalacion3} from './src/viabilidadInstalacion3';  
@@ -61,10 +61,10 @@ class MyStack extends Component {
       <Stack.Screen name="Viabilidad 0" component={ViabilidadInstalacion3} />
       <Stack.Screen name="Proceso de pago" component={Payment} />
       <Stack.Screen name="Video Informativo" component={VideoInfo} />
-      <Stack.Screen name="Viabilidad Instalación" component={InfoResultInsta} />
+      <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />
       <Stack.Screen name="Instalación en proceso" component={Instalacion} />
       <Stack.Screen name="Rating" component={Ratings} />
-      <Stack.Screen name="Escanear QR Instalador" component={DatosInstalador2} />
+      <Stack.Screen options={{headerShown: false}} name="Escanear QR Instalador" component={DatosInstalador2} />
       <Stack.Screen name="QR Escaneado" component={QREscaneado} />
       <Stack.Screen name="QR correcto" component={QRCodeOk} />
       <Stack.Screen name="Ubicación" component={Mapbox2} />

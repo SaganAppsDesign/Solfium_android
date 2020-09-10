@@ -53,7 +53,8 @@ export function DatosInstalador2({ navigation }) {
 
                          <View style={{flexDirection: 'column'}}>
                          <Image
-                          style={{width:130, height:130, marginBottom:0, marginRight:0, marginLeft:2, marginTop: 2, borderWidth:4, borderColor:'black'}}
+                          style={{width:130, height:130, marginBottom:0, marginRight:0, marginLeft:2, 
+                          marginTop: 2, borderWidth:4, borderColor:'black'}}
                           source={require('../assets/yoda.jpg')}
                           />
 
