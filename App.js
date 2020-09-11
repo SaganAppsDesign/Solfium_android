@@ -15,6 +15,7 @@ import {InfoResultInsta} from './src/info_result_instalacion.js';
 import {Instalacion} from './src/instalacion_en_proceso.js';  
 import {Ratings} from './src/rating.js';  
 import {Payment} from './src/pago';  
+import {CompraConfirmada} from './src/compra_confirmada';  
 import {QREscaneado} from './src/qr_escaneado';  
 import {QRCodeOk} from './src/QR_OK.js'; 
 import { Mapbox2 } from './src/mapbox'; 
@@ -40,7 +41,7 @@ class MyStack extends Component {
 
         screenOptions={{
         headerStyle: {
-          backgroundColor: '#2196F3',
+          backgroundColor: 'orange',
         },
         headerTintColor: '#fff',
         
@@ -59,7 +60,7 @@ class MyStack extends Component {
       <Stack.Screen name="Viabilidad total" component={ViabilidadInstalacion1} />
       <Stack.Screen options={{headerShown: false}} name="Viabilidad a la baja" component={ViabilidadInstalacion2} />
       <Stack.Screen name="Viabilidad 0" component={ViabilidadInstalacion3} />
-      <Stack.Screen name="Proceso de pago" component={Payment} />
+      <Stack.Screen options={{headerShown: false}}  name="Proceso de pago" component={Payment} />
       <Stack.Screen name="Video Informativo" component={VideoInfo} />
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />
       <Stack.Screen name="Instalación en proceso" component={Instalacion} />
@@ -72,6 +73,7 @@ class MyStack extends Component {
       <Stack.Screen name="QR scan" component={QRscan}  />
       <Stack.Screen name="Chat" component={Chat}  />
       <Stack.Screen name="Nombre usuario" component={Main}  />
+      <Stack.Screen name="Confirmar compra" component={CompraConfirmada}  />
 
     </Stack.Navigator>
   )};

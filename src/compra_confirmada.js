@@ -22,7 +22,7 @@ var {width} = Dimensions.get('window');
 
 
 
-export class Payment extends React.Component {
+export class CompraConfirmada extends React.Component {
 
 
  render() {
@@ -73,12 +73,13 @@ export class Payment extends React.Component {
 
                     <View style={{alignItems: 'center', flex:10, flexDirection:'column', width:'100%', height:'100%'}}>     
                     <Card containerStyle={{backgroundColor:'rgba(0,0,0,1)',  marginTop: '0%', borderRadius: 10, 
-                          width:'65%', height:'40%', marginBottom:'0%', padding:0}}>
+                          width:'65%', height:'35%', marginBottom:'0%', padding:0}}>
 
-                        <ImageBackground source={require('../assets/fondo2.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
+                        <ImageBackground style={{backgroundColor:'#4EBD20', overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
                           <Text style={{
+                             
                           color: '#fff',
-                          marginTop: '5%',
+                          marginTop: '15%',
                           textAlign:'center',
                           fontWeight:'bold',
                           marginRight:'0%',
@@ -86,18 +87,8 @@ export class Payment extends React.Component {
                           height:'30%',
                           width:'100%',
                           fontSize:20,
-                          padding: 0}}>Total a pagar:</Text>
-                        <Text style={{
-                          color: '#fff',
-                          marginTop: '0%',
-                          textAlign:'center',
-                          fontWeight:'bold',
-                          marginRight:'0%',
-                          marginLeft:'0%',
-                          height:'35%',
-                          width:'100%',
-                          fontSize:25,
-                          padding: 0}}>$24,000.00</Text>
+                          padding: 0}}>COMPRA CONFIRMADA</Text>
+                        
                         </ImageBackground>
                       
                     </Card>
@@ -105,35 +96,7 @@ export class Payment extends React.Component {
                    </View>
                  </View>
                 
-                 <View style={{marginLeft:'0%', marginTop:'0%', width:'100%', height:'100%', flex:1}}>
-
-                 <TouchableOpacity
-                       
-                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'90%'}}
-                       onPress={() => this.props.navigation.navigate('Confirmar compra')} 
-                                           
-                       >
-  
-                       <Text style={{
-                       height: '100%', 
-                       width:'100%',
-                       borderRadius:50,
-                       fontWeight:'bold',
-                       fontSize:25,
-                       color: 'white', 
-                       marginBottom: "0%", 
-                       marginTop: "0%", 
-                       marginLeft: "0%", 
-                       marginRight: "0%",
-                       alignItems: "center",
-                       textAlign:'center',
-                       paddingLeft:40, 
-                       paddingRight:40,
-                       backgroundColor: '#5DCB31',
-                       textAlignVertical:'center'}}> PAGAR </Text>
-  
-                 </TouchableOpacity>
-               </View>
+                 
 
 
 

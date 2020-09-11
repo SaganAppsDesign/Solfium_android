@@ -65,7 +65,7 @@ export function MeInteresa({ navigation }) {
            
                  <TouchableOpacity 
                                                                               
-                 onPress={() => navigation.navigate('Confirma ubicación', {
+                 onPress={() => navigation.navigate('Escanear QR Instalador', {
 
                      costeInstalacion: 5500,
                      ahorroOferta: 850
@@ -92,13 +92,7 @@ export function MeInteresa({ navigation }) {
              
                   <TouchableOpacity 
                                                                               
-                        onPress={() => navigation.navigate('Cálculos', {
-
-                            costeInstalacion: 5500,
-                            ahorroOferta: 850
-
-                          }
-                          )}
+                        onPress={() => navigation.navigate('Viabilidad Instalación')}
                           > 
                           <View>
                          

@@ -54,6 +54,7 @@ state = {
 
       <View style={{marginBottom: '5%', marginLeft:'10%',marginRight:'10%', marginTop:'5%'}}>
       <Button title="  Cita con instalador   " 
+              color='orange'
               onPress={() =>  this.props.navigation.navigate('Próxima visita')}
               icon={
                      <Icon
@@ -139,7 +140,7 @@ function renderSend(props) {
   return (
     <Send {...props}>
       <View style={styles.sendingContainer}>
-        <IconButton icon='send-circle' size={32} color='#2296F3' />
+        <IconButton icon='send-circle' size={32} color='orange' />
       </View>
     </Send>
   );
@@ -154,7 +155,7 @@ function renderBubble(props) {
       wrapperStyle={{
         left: {
           // Here is the color change
-          backgroundColor: '#D6F1D1'
+          backgroundColor: '#F7BFA0'
         },
         right: {
           // Here is the color change
