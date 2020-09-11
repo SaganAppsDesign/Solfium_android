@@ -37,9 +37,9 @@ export class Payment extends React.Component {
           overlayAlpha={0}                 
           > 
                               
-        <View style={{flex:1,  marginTop:'0%', marginBottom:'0%', width:'100%', height:'100%'}}>
+            <View style={{flex:1,  marginTop:'0%', marginBottom:'0%', width:'100%', height:'100%'}}>
                     
-                  <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'80%', flex:2, width:'100%', height:'100%', justifyContent:'center'}}>   
+                  <View style={{marginTop:'4%', marginBottom:'0%', marginLeft:'80%', flex:2, width:'100%', height:'100%', justifyContent:'center'}}>   
                                     
                         <TouchableOpacity 
                                                                                     
@@ -48,7 +48,7 @@ export class Payment extends React.Component {
                             <Image 
                             
                                 source={chat}
-                                style={{width:'13%', height:'80%'}}
+                                style={{width:'12%', height:'80%'}}
                                 
                                 >    
                                 </Image> 
@@ -58,27 +58,19 @@ export class Payment extends React.Component {
                 </View>
                       
                           
-                <View style={{ alignItems: 'center', flexDirection:'column', marginBottom:'0%', marginTop: '0%', flex:11, width:'100%', height:'100%'}}>
+                <View style={{ alignItems: 'center', flexDirection:'column', marginBottom:'0%', marginTop: '0%', flex:12, width:'100%', height:'100%'}}>
                 
                 
                   <View style={{ alignItems: 'center', flexDirection:'column', flex:1,  width:'100%', height:'100%', margiTop:'0%'}}>
                    
-                    <View style={{alignItems: 'center', flex:3, width:'100%', height:'100%'}}>
-                          <Image
-                              style={{width:'30%', height:'100%', marginLeft:'0%', marginTop: '0%'}}
-                              source={require('../assets/carrito.png')}
-                              />
-                    </View>
-                    
-
-                    <View style={{alignItems: 'center', flex:10, flexDirection:'column', width:'100%', height:'100%'}}>     
-                    <Card containerStyle={{backgroundColor:'rgba(0,0,0,1)',  marginTop: '0%', borderRadius: 10, 
-                          width:'65%', height:'40%', marginBottom:'0%', padding:0}}>
+                    <View style={{backgroundColor:'rgba(0,0,0,0)', alignItems: 'center', flex:8, flexDirection:'column', width:'100%', height:'100%'}}>     
+                    <Card containerStyle={{backgroundColor:'rgba(0,0,0,0)',  marginTop: '20%', borderRadius: 10, 
+                          width:'65%', height:'35%', marginBottom:'0%', padding:0, flex:2}}>
 
                         <ImageBackground source={require('../assets/fondo2.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
                           <Text style={{
                           color: '#fff',
-                          marginTop: '5%',
+                          marginTop: '8%',
                           textAlign:'center',
                           fontWeight:'bold',
                           marginRight:'0%',
@@ -94,18 +86,66 @@ export class Payment extends React.Component {
                           fontWeight:'bold',
                           marginRight:'0%',
                           marginLeft:'0%',
-                          height:'35%',
+                          height:'30%',
                           width:'100%',
                           fontSize:25,
                           padding: 0}}>$24,000.00</Text>
                         </ImageBackground>
                       
                     </Card>
+
+                    <Card containerStyle={{marginTop: '10%', borderRadius: 10, 
+                    width:'50%', height:'10%', marginBottom:'0%', padding:0, flex:1}}>
+
+                    <ImageBackground source={require('../assets/fondo2.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
+                      
+                    <Text style={{
+                      color: '#fff',
+                      marginTop: '7%',
+                      textAlign:'center',
+                      fontWeight:'bold',
+                      marginRight:'0%',
+                      marginLeft:'0%',
+                      height:'100%',
+                      width:'100%',
+                      fontSize:15,
+                      padding: 0}}>PAGO ÚNICO</Text>
+                    </ImageBackground>
+                  
+                    </Card>
+
+                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
+                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
+
+                    <ImageBackground source={require('../assets/fondo2.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
+                      
+                    <Text style={{
+                      color: '#fff',
+                      marginTop: '7%',
+                      textAlign:'center',
+                      fontWeight:'bold',
+                      marginRight:'0%',
+                      marginLeft:'0%',
+                      height:'100%',
+                      width:'100%',
+                      fontSize:15,
+                      padding: 0}}>FINANCIAMIENTO</Text>
+                    </ImageBackground>
+                  
+                    </Card>
+
                     </View>
-                   </View>
+
+                      <View style={{alignItems: 'center', flex:2, width:'100%', height:'100%'}}>
+                      <Image
+                          style={{width:'27%', height:'100%', marginLeft:'0%', marginTop: '-80%'}}
+                          source={require('../assets/carrito.png')}
+                          />
+                    </View>
+                    </View>
                  </View>
                 
-                 <View style={{marginLeft:'0%', marginTop:'0%', width:'100%', height:'100%', flex:1}}>
+         { /*        <View style={{marginLeft:'20%', marginTop:'0%', width:'60%', height:'100%', flex:1}}>
 
                  <TouchableOpacity
                        
@@ -134,67 +174,73 @@ export class Payment extends React.Component {
   
                  </TouchableOpacity>
                </View>
-
-
-
+ */
+}
             {/*Botones*/}     
-            <View style={{marginTop:'0%', marginBottom:'2%', marginLeft:'3%', marginRight:'0%', width:'30%', height:'10%', flex:3, flexDirection:'row'}}>  
-              {/*HOME*/}         
+            <View style={{marginTop:'2%', marginBottom:'2%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:2, flexDirection:'row'}}>  
+              {/*HOME*/}  
+              
+              <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', width:'100%', height:'100%', marginRight:'0%', flex:1}}>      
                 <TouchableOpacity 
                                                                             
                 onPress={() => this.props.navigation.navigate('Solfium')}
                   > 
-                  <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'100%', height:'100%'}}>
-                
+                  
+                  <View style={{alignItems:'center'}}>
                           <Image 
                           
                           source={home}
-                          style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'52%', width:'57%', height:'75%'}}
-                          
+                          style={{ marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'52%', height:'100%'}}
                           >    
                           </Image> 
 
-                </View>
+                  </View>
               
               </TouchableOpacity> 
-           {/*USUARIO*/}     
+               </View>
+           {/*USUARIO*/} 
+           
+           <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:1}}>
               <TouchableOpacity 
                                                                             
               onPress={() => this.props.navigation.navigate('Solfium')            
                 }> 
-                <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'100%', height:'100%'}}>
-                
+               
+                <View style={{alignItems:'center'}}>
                       <Image 
                       
                       source={usuario}
-                      style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'52%', width:'57%', height:'75%'}}
+                      style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'52%', height:'100%'}}
                       
                       >    
                       </Image> 
 
-              </View>
-              
+                      </View>
               </TouchableOpacity> 
+            </View>
          
-          {/*SETTING*/}     
+          {/*SETTING*/}    
+          
+          <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:1}}>
               <TouchableOpacity 
                                                                             
               onPress={() => this.props.navigation.navigate('Solfium')}
                 > 
               
-                <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'100%', height:'100%'}}>
+                <View style={{alignItems:'center'}}>
                           
                 <Image 
                 
                 source={setting}
-                style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'52%', width:'57%', height:'75%'}}
+                style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'52%', height:'100%'}}
                 
                 >    
                 </Image> 
 
-              </View>
-            
+                </View>
+                         
             </TouchableOpacity> 
+            </View>
 
        </View> 
 
@@ -205,7 +251,7 @@ export class Payment extends React.Component {
            <Image 
              
              source={logo}
-             style={{alignItems:'center', marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'85%'}}
+             style={{alignItems:'center', marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'78%', height:'100%'}}
              
              >    
             </Image>  

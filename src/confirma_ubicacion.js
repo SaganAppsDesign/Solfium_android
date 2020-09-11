@@ -80,13 +80,7 @@ return (
  
                       <TouchableOpacity 
                                                                                     
-                        onPress={() => navigation.navigate('Cálculos', {
-
-                            costeInstalacion: 5500,
-                            ahorroOferta: 850
-
-                        }
-                        )}
+                        onPress={() => navigation.navigate('Pantalla de espera')}
                         > 
                         <View>
                         

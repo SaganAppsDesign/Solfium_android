@@ -16,7 +16,7 @@ import verResultado from '../assets/verResultado.png';
 import home from '../assets/home.png'; 
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'
-import fondo from '../assets/fondo2.jpg';import { ContactoInstalador } from './contacto_instalador';
+import fondo from '../assets/fondo2.jpg';
   ; 
 
 
@@ -30,7 +30,7 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
   user = snapshot.hasChild('name')
   viabilidad = snapshot.child("Viabilidad").val()
 
- console.warn('viabilidad: ',viabilidad)
+
   
   if (viabilidad == '100%'){
     viable = "VIABLE"

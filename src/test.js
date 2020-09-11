@@ -164,20 +164,20 @@ export function DatosInstalador2({ navigation }) {
        </View>
      
      <View style={{flex:2, marginRight:'5%'}}>
-     <Text style={{color: '#fff',
-          
-           marginTop: '30%',
-           marginRight:'100%',
-           marginLeft:'35%',
-           height:'80%',
-           width:'65%',
-           padding: 0,
-           fontWeight:'bold'
-          }}>
+          <Text style={{color: '#fff',
+                
+                marginTop: '30%',
+                marginRight:'100%',
+                marginLeft:'35%',
+                height:'80%',
+                width:'65%',
+                padding: 0,
+                fontWeight:'bold'
+                }}>
 
-          <Text style={{marginBottom:'100%', fontSize: 18}}>Ver resultado</Text>
+                <Text style={{marginBottom:'100%', fontSize: 18}}>Ver resultado</Text>
 
-         </Text>
+            </Text>
 
        </View>
 

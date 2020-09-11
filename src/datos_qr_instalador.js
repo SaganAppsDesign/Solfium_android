@@ -97,7 +97,7 @@ export function DatosInstalador({ navigation }) {
       
                                         <Image
                                         style={{borderRadius:60 , width:'65%', height:'30%', marginLeft:'20%', marginTop: 2, borderWidth:1, borderColor:'black'}}
-                                        source={require('../assets/yoda.jpg')}
+                                        source={require('../assets/tecnico.jpg')}
                                         />
                                     </View> 
       
@@ -116,7 +116,7 @@ export function DatosInstalador({ navigation }) {
                                                  <Text>{`
                                                          `}</Text>
       
-                                                 <Text style={{fontWeight: "bold", fontSize: 16}}>Juan Carlos Díaz Aguirre</Text>
+                                                 <Text style={{fontWeight: "bold", fontSize: 16}}>Juan Carlos Díaz</Text>
                                                  
                                           
                                           </Text>

@@ -19,7 +19,7 @@ var {width} = Dimensions.get('window');
 
 export function Calculos({ route, navigation }) {
 
- const { costeInstalacion } = route.params;
+ //const { costeInstalacion } = route.params;
 
 
   return (

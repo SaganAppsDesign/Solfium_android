@@ -4,12 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {HomeScreen} from './src/homeScreen';  
 import {Calculos} from './src/calculos';  
-import {ContactoInstalador} from './src/contacto_instalador';  
+import {PantallaEspera} from './src/pantalla_espera';  
 import {DatosInstalador} from './src/datos_qr_instalador';  
 import {DatosInstalador2} from './src/test';  
-import {ViabilidadInstalacion1} from './src/viabilidadInstalacion1';  
-import {ViabilidadInstalacion2} from './src/viabilidadInstalacion2';  
-import {ViabilidadInstalacion3} from './src/viabilidadInstalacion3';  
 import {VideoInfo} from './src/video_informativo';  
 import {InfoResultInsta} from './src/info_result_instalacion.js';  
 import {Instalacion} from './src/instalacion_en_proceso.js';  
@@ -51,15 +48,11 @@ class MyStack extends Component {
       }}>
 
       <Stack.Screen options={{headerShown: false}}  name="Solfium" component={HomeScreen} initialParams={{ Latitud:  0,  Longitud: 0,  URI: 0  }}/>
-      <Stack.Screen name="Contacta con Solfium" component={ContactoInstalador} />
       <Stack.Screen options={{headerShown: false}}  name="Cálculos" component={Calculos} />
       <Stack.Screen options={{headerShown: false}} name="Ingresar Consumo" component={IngresarConsumo}  />
       <Stack.Screen options={{headerShown: false}} name="Confirma ubicación" component={ConfirmaUbicacion}  />
       <Stack.Screen options={{headerShown: false}} name="Proceso de implemetación" component={MeInteresa}  />
       <Stack.Screen options={{headerShown: false}} name="Próxima visita" component={DatosInstalador} />
-      <Stack.Screen name="Viabilidad total" component={ViabilidadInstalacion1} />
-      <Stack.Screen options={{headerShown: false}} name="Viabilidad a la baja" component={ViabilidadInstalacion2} />
-      <Stack.Screen name="Viabilidad 0" component={ViabilidadInstalacion3} />
       <Stack.Screen options={{headerShown: false}}  name="Proceso de pago" component={Payment} />
       <Stack.Screen name="Video Informativo" component={VideoInfo} />
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />
@@ -74,6 +67,7 @@ class MyStack extends Component {
       <Stack.Screen name="Chat" component={Chat}  />
       <Stack.Screen name="Nombre usuario" component={Main}  />
       <Stack.Screen name="Confirmar compra" component={CompraConfirmada}  />
+      <Stack.Screen options={{headerShown: false}}  name="Pantalla de espera" component={PantallaEspera}  />
 
     </Stack.Navigator>
   )};
