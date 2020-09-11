@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Dimensions, ScrollView, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, View, Dimensions, ScrollView, Image, TouchableOpacity, StyleSheet, Settings, ToastAndroid} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 import ImageOverlay from "react-native-image-overlay";
@@ -16,10 +16,18 @@ var {height} = Dimensions.get('window');
 var {width} = Dimensions.get('window');
 
 
+ const user = () => {
+  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
+ 
+};
+
+const settings = () => {
+  ToastAndroid.show("Settings", ToastAndroid.SHORT);
+ 
+};
+
 
 export function Calculos({ route, navigation }) {
-
- //const { costeInstalacion } = route.params;
 
 
   return (
@@ -98,7 +106,7 @@ export function Calculos({ route, navigation }) {
            {/*USUARIO*/}     
            <TouchableOpacity 
                                                                          
-           onPress={() => navigation.navigate('Solfium')            
+           onPress={() => user()           
             }> 
              <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'67%', height:'95%'}}>
             
@@ -117,7 +125,7 @@ export function Calculos({ route, navigation }) {
           {/*SETTING*/}     
           <TouchableOpacity 
                                                                          
-          onPress={() => navigation.navigate('Solfium')}
+          onPress={() => settings()}
             > 
            
             <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'67%', height:'95%'}}>

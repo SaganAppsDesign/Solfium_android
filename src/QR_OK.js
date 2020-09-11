@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Fragment} from 'react';
-import { StyleSheet, Text, View,Dimensions} from 'react-native';
-import tec3 from '../assets/tec3.gif';  
+import { StyleSheet, Text, View,  Button, Dimensions} from 'react-native';
+import tec3 from '../assets/fondo2.jpg';  
 import ImageOverlay from "react-native-image-overlay";
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button, Card } from 'react-native-elements';
+import {Card } from 'react-native-elements';
 
 var {height} = Dimensions.get('window');
 
@@ -16,13 +16,14 @@ export function QRCodeOk({ navigation }) {
 
        
       <ImageOverlay source={tec3}
-                    height={height}                   
+                    height={height}
+                    overlayAlpha={0}                         
                     >
 
 
             <View>         
                     <Text style={{color: '#000',
-                                    backgroundColor: 'green',
+                                    backgroundColor: 'orange',
                                     fontSize: 30,
                                     marginHorizontal: 30,
                                     marginTop: 20,
@@ -38,7 +39,7 @@ export function QRCodeOk({ navigation }) {
                      <View style={{ marginBottom: 20, marginTop: 10}}>
 
                       <Button title="   Acepto la visita" onPress={() =>  navigation.navigate('Viabilidad Instalación')} 
-                                                            
+                              color='orange'                           
                               icon={
                                   <Icon
                                     name="thumbs-up"
@@ -54,7 +55,7 @@ export function QRCodeOk({ navigation }) {
                       <Button 
                         title="   No estoy de acuerdo con la visita"
                         onPress={() => navigation.navigate('Solfium')}
-                   
+                        color='orange'
                         icon={
                                   <Icon
                                     name="arrow-circle-left"

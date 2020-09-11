@@ -60,10 +60,10 @@ export function DatosInstalador2({ navigation }) {
                       <Card containerStyle={{backgroundColor:'white', marginTop: '0%',  borderRadius: 15, 
                             width:'80%', height:'100%', marginBottom:'0%'}}>
                             
-                            <View style={{flexDirection:'row', width:'100%', height:'50%', marginBottom:'0%'}}>   
+                            <View style={{flexDirection:'row', width:'100%', height:'48%', marginBottom:'0%'}}>   
                                 
 
-                                <View style={{flex:5, marginTop:'5%', marginBottom:'5%', marginLeft:'5%', width:'45%', height:'75%'}}>
+                                <View style={{flex:5, marginTop:'5%', marginBottom:'0%', marginLeft:'5%', width:'45%', height:'75%'}}>
 
 
                                 <TouchableOpacity 
@@ -88,7 +88,7 @@ export function DatosInstalador2({ navigation }) {
                                         marginTop: '30%',
                                         marginRight:'100%',
                                         marginLeft:'5%',
-                                        height:'40%',
+                                        height:'100%',
                                         width:'100%',
                                         padding: 0,
                                         }}>
@@ -110,8 +110,8 @@ export function DatosInstalador2({ navigation }) {
                     <View style={{flex:5}}>
 
                         <Image
-                        style={{borderRadius:60 , width:'65%', height:'40%', marginLeft:'15%', marginTop: '0%', borderWidth:1, borderColor:'black'}}
-                        source={require('../assets/yoda.jpg')}
+                        style={{borderRadius:60 , width:'65%', height:'40%', marginLeft:'15%', marginBottom: '2%', borderWidth:1, borderColor:'black'}}
+                        source={require('../assets/tecnico.jpg')}
                         />
                     </View> 
     

@@ -22,7 +22,7 @@ var {width} = Dimensions.get('window');
 
 
 
-export class Payment extends React.Component {
+export class PagoUnico extends React.Component {
 
 
  render() {
@@ -39,7 +39,7 @@ export class Payment extends React.Component {
                               
             <View style={{flex:1,  marginTop:'0%', marginBottom:'0%', width:'100%', height:'100%'}}>
                     
-                  <View style={{marginTop:'4%', marginBottom:'0%', marginLeft:'80%', flex:2, width:'100%', height:'100%', justifyContent:'center'}}>   
+                  <View style={{marginTop:'2%', marginBottom:'0%', marginLeft:'80%', flex:2, width:'100%', height:'100%', justifyContent:'center'}}>   
                                     
                         <TouchableOpacity 
                                                                                     
@@ -48,7 +48,7 @@ export class Payment extends React.Component {
                             <Image 
                             
                                 source={chat}
-                                style={{width:'12%', height:'80%'}}
+                                style={{width:'13%', height:'90%'}}
                                 
                                 >    
                                 </Image> 
@@ -64,32 +64,22 @@ export class Payment extends React.Component {
                   <View style={{ alignItems: 'center', flexDirection:'column', flex:1,  width:'100%', height:'100%', margiTop:'0%'}}>
                    
                     <View style={{backgroundColor:'rgba(0,0,0,0)', alignItems: 'center', flex:8, flexDirection:'column', width:'100%', height:'100%'}}>     
-                    <Card containerStyle={{backgroundColor:'rgba(0,0,0,0)',  marginTop: '20%', borderRadius: 10, 
-                          width:'65%', height:'35%', marginBottom:'0%', padding:0, flex:2}}>
+                    <Card containerStyle={{backgroundColor:'rgba(0,0,0,0)',  marginTop: '10%', borderRadius: 10, 
+                          width:'65%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
 
                         <ImageBackground source={require('../assets/fondo2.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
                           <Text style={{
                           color: '#fff',
-                          marginTop: '8%',
+                          marginTop: '10%',
                           textAlign:'center',
                           fontWeight:'bold',
                           marginRight:'0%',
                           marginLeft:'0%',
-                          height:'30%',
+                          height:'100%',
                           width:'100%',
                           fontSize:20,
-                          padding: 0}}>Total a pagar:</Text>
-                        <Text style={{
-                          color: '#fff',
-                          marginTop: '0%',
-                          textAlign:'center',
-                          fontWeight:'bold',
-                          marginRight:'0%',
-                          marginLeft:'0%',
-                          height:'30%',
-                          width:'100%',
-                          fontSize:25,
-                          padding: 0}}>$24,000.00</Text>
+                          padding: 0}}>PAGO ÚNICO</Text>
+                       
                         </ImageBackground>
                       
                     </Card>
@@ -104,11 +94,11 @@ export class Payment extends React.Component {
                        onPress={() => this.props.navigation.navigate('Pago único')} 
                                            
                        >
-                       <ImageBackground source={require('../assets/fondo5.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
+                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
                               
                             <Text style={{
                               color: '#fff',
-                              marginTop: '7%',
+                              marginTop: '9%',
                               textAlign:'center',
                               fontWeight:'bold',
                               marginRight:'0%',
@@ -116,14 +106,14 @@ export class Payment extends React.Component {
                               height:'100%',
                               width:'100%',
                               fontSize:15,
-                              padding: 0}}>PAGO ÚNICO</Text>
+                              padding: 0}}>TARJETA DE CRÉDITO</Text>
                             </ImageBackground>
                        </TouchableOpacity>
                   
                     </Card>
 
                     <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
-                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
+                    width:'55%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
 
                     <TouchableOpacity
                        
@@ -135,7 +125,7 @@ export class Payment extends React.Component {
                               
                             <Text style={{
                               color: '#fff',
-                              marginTop: '7%',
+                              marginTop: '9%',
                               textAlign:'center',
                               fontWeight:'bold',
                               marginRight:'0%',
@@ -143,7 +133,7 @@ export class Payment extends React.Component {
                               height:'100%',
                               width:'100%',
                               fontSize:15,
-                              padding: 0}}>FINANCIAMIENTO</Text>
+                              padding: 0}}>TRANSFERENCIA BANCARIA</Text>
                             </ImageBackground>
                        </TouchableOpacity>
                   
@@ -153,14 +143,14 @@ export class Payment extends React.Component {
 
                       <View style={{alignItems: 'center', flex:2, width:'100%', height:'100%'}}>
                       <Image
-                          style={{width:'27%', height:'100%', marginLeft:'0%', marginTop: '-80%'}}
+                          style={{width:'25%', height:'100%', marginLeft:'0%', marginTop: '-80%'}}
                           source={require('../assets/carrito.png')}
                           />
                     </View>
                     </View>
                  </View>
                 
-         { /*        <View style={{marginLeft:'20%', marginTop:'0%', width:'60%', height:'100%', flex:1}}>
+              <View style={{marginLeft:'20%', marginTop:'0%', width:'60%', height:'100%', flex:2}}>
 
                  <TouchableOpacity
                        
@@ -189,8 +179,7 @@ export class Payment extends React.Component {
   
                  </TouchableOpacity>
                </View>
- */
-}
+
             {/*Botones*/}     
             <View style={{marginTop:'2%', marginBottom:'2%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:2, flexDirection:'row'}}>  
               {/*HOME*/}  
@@ -205,7 +194,7 @@ export class Payment extends React.Component {
                           <Image 
                           
                           source={home}
-                          style={{ marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'52%', height:'100%'}}
+                          style={{ marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'48%', height:'100%'}}
                           >    
                           </Image> 
 
@@ -225,7 +214,7 @@ export class Payment extends React.Component {
                       <Image 
                       
                       source={usuario}
-                      style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'52%', height:'100%'}}
+                      style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'48%', height:'100%'}}
                       
                       >    
                       </Image> 
@@ -247,7 +236,7 @@ export class Payment extends React.Component {
                 <Image 
                 
                 source={setting}
-                style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'52%', height:'100%'}}
+                style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'48%', height:'100%'}}
                 
                 >    
                 </Image> 
@@ -261,12 +250,12 @@ export class Payment extends React.Component {
 
       {/*logo*/}  
 
-       <View style={{alignItems:'center',  marginTop:'0%', marginBottom:'10%', marginLeft:'25%', marginRight:'0%', width:'50%', height:'60%', flex:1}}>  
+       <View style={{alignItems:'center',  marginTop:'0%', marginBottom:'10%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:1}}>  
                 
            <Image 
              
              source={logo}
-             style={{alignItems:'center', marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'78%', height:'100%'}}
+             style={{alignItems:'center', marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'35%', height:'100%'}}
              
              >    
             </Image>  

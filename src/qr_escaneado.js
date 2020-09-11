@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Fragment} from 'react';
-import { StyleSheet, Text, View, Image, Dimensions} from 'react-native';
+import { StyleSheet, Text, View, Image, Button, Dimensions} from 'react-native';
 import tec3 from '../assets/tec3.gif';  
 import ImageOverlay from "react-native-image-overlay";
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button, Card } from 'react-native-elements';
+import { Card } from 'react-native-elements';
 
 var {height} = Dimensions.get('window');
 
@@ -27,7 +27,7 @@ export function QREscaneado({ navigation }) {
                     <View >      
 
                     <Image
-                    style={{width:'70%', height:'75%', marginTop:'5%', marginRight:'1%', marginLeft:'15%', marginBottom:'0%'}}
+                    style={{width:'70%', height:'75%', marginTop:'20%', marginRight:'1%', marginLeft:'15%', marginBottom:'0%'}}
                     source={require('../assets/foto_escaneo.jpg')}
                     />
 
@@ -37,10 +37,12 @@ export function QREscaneado({ navigation }) {
 
                      <View style={{marginBottom: '5%', marginLeft:'10%',marginRight:'10%', marginTop:'0%'}}>
 
-                      <Button title="  QR ESCANEADO" onPress={() =>  navigation.navigate('QR correcto')} 
-                                                            
-                              icon={
-                                  <Icon
+                      <Button 
+                      
+                      title="  QR ESCANEADO" 
+                      color='orange'   
+                      onPress={() =>  navigation.navigate('QR correcto')} 
+                      icon={    <Icon
                                     name="thumbs-up"
                                     size={25}
                                     color="black"
@@ -49,21 +51,9 @@ export function QREscaneado({ navigation }) {
                      
                       </View>
 
-                      <View style={{marginBottom: '5%', marginLeft:'10%',marginRight:'10%', marginTop:'0%'}}>
+       
 
-                      <Button title="  QR Prueba de escaneo" onPress={() =>  navigation.navigate('QR scan')} 
-                                                            
-                              icon={
-                                  <Icon
-                                    name="qrcode"
-                                    size={25}
-                                    color="black"
-                                  />
-                                }/>
-                     
-                      </View>
-
-                      
+                                      
 
                
     </View>

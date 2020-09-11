@@ -23,6 +23,8 @@ import { Main } from './src/main';
 import { IngresarConsumo } from './src/ingresar_consumo'; 
 import {ConfirmaUbicacion } from './src/confirma_ubicacion'; 
 import {MeInteresa } from './src/me_interesa'; 
+import {PagoUnico } from './src/pago_unico'; 
+import {Financiamiento } from './src/financiamiento'; 
 import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
@@ -66,8 +68,10 @@ class MyStack extends Component {
       <Stack.Screen name="QR scan" component={QRscan}  />
       <Stack.Screen name="Chat" component={Chat}  />
       <Stack.Screen name="Nombre usuario" component={Main}  />
-      <Stack.Screen name="Confirmar compra" component={CompraConfirmada}  />
+      <Stack.Screen options={{headerShown: false}}   name="Confirmar compra" component={CompraConfirmada}  />
       <Stack.Screen options={{headerShown: false}}  name="Pantalla de espera" component={PantallaEspera}  />
+      <Stack.Screen options={{headerShown: false}}  name="Pago único" component={PagoUnico}  />
+      <Stack.Screen options={{headerShown: false}}  name="Financiamiento" component={Financiamiento}  />
 
     </Stack.Navigator>
   )};

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, ToastAndroid} from 'react-native';
 import fondo from '../assets/fondo5.jpg';  
 import chat from '../assets/chat.png';
 import ImageOverlay from "react-native-image-overlay";
@@ -20,6 +20,16 @@ var {height} = Dimensions.get('window');
 var date = new Date().getDate(); //Current Date
 var month = new Date().getMonth() + 1; //Current Month
 var year = new Date().getFullYear(); //Current Year
+
+const user = () => {
+  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
+ 
+};
+
+const settings = () => {
+  ToastAndroid.show("Settings", ToastAndroid.SHORT);
+ 
+};
 
 
 
@@ -207,7 +217,7 @@ export function DatosInstalador({ navigation }) {
 
     <TouchableOpacity 
                                                                   
-    onPress={() => navigation.navigate('Solfium')}
+    onPress={() => user()}
       > 
       <View style={{marginTop:'4%', marginBottom:'0%', marginLeft:'30%'}}>
      
@@ -225,7 +235,7 @@ export function DatosInstalador({ navigation }) {
    
    <TouchableOpacity 
                                                                   
-   onPress={() => navigation.navigate('Solfium')}
+   onPress={() => settings()}
      > 
      <View style={{marginTop:'4%', marginBottom:'0%', marginLeft:'30%'}}>
     

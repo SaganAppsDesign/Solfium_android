@@ -22,10 +22,21 @@ var lat, lon, uri2
 //var uid = Fire.getUid()
 //console.log('UID: ', uid)
 
-const ubicación = () => {
+const ubicaciones = () => {
   ToastAndroid.show("Busca tu ubicación", ToastAndroid.SHORT);
  
 };
+
+const user = () => {
+  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
+ 
+};
+
+const settings = () => {
+  ToastAndroid.show("Settings", ToastAndroid.SHORT);
+ 
+};
+
 
 export function ConfirmaUbicacion({ route, navigation }) {
 
@@ -53,7 +64,7 @@ return (
                                 
                        <TouchableOpacity 
                                                                                   
-                            onPress={() => ubicación()}
+                            onPress={() => ubicaciones()}
                               > 
                               <View>
                              
@@ -104,13 +115,7 @@ return (
                    
                      <TouchableOpacity 
                                                                                   
-                     onPress={() => navigation.navigate('Solfium', {
-
-                         costeInstalacion: 5500,
-                         ahorroOferta: 850
-
-                       }
-                       )}
+                     onPress={() => navigation.navigate('Solfium')}
                        > 
                        <View style={{marginTop:'5%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'65%', height:'73%'}}>
                       
@@ -128,13 +133,8 @@ return (
 
                     <TouchableOpacity 
                                                                                   
-                    onPress={() => navigation.navigate('Solfium', {
-
-                        costeInstalacion: 5500,
-                        ahorroOferta: 850
-
+                    onPress={() => user()
                       }
-                      )}
                       > 
                       <View style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'50%', width:'61%', height:'73%'}}>
                      
@@ -152,13 +152,7 @@ return (
                    
                    <TouchableOpacity 
                                                                                   
-                   onPress={() => navigation.navigate('Solfium', {
-
-                       costeInstalacion: 5500,
-                       ahorroOferta: 850
-
-                     }
-                     )}
+                   onPress={() => settings()}
                      > 
                      <View style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'50%', width:'78%', height:'73%'}}>
                     

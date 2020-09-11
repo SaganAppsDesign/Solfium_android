@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Dimensions, ScrollView, Image, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, View, Dimensions, ScrollView, Image, ImageBackground,ToastAndroid, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button, Card} from 'react-native-elements';
 import ImageOverlay from "react-native-image-overlay";
@@ -19,10 +19,23 @@ import carrito from "../assets/carrito.svg"
 
 var {height} = Dimensions.get('window');
 var {width} = Dimensions.get('window');
+const user = () => {
+  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
+ 
+};
+
+const settings = () => {
+  ToastAndroid.show("Settings", ToastAndroid.SHORT);
+ 
+};
+
+const meses = () => {
+  ToastAndroid.show("Meses de financiación", ToastAndroid.SHORT);
+ 
+};
 
 
-
-export class Payment extends React.Component {
+export class Financiamiento extends React.Component {
 
 
  render() {
@@ -39,7 +52,7 @@ export class Payment extends React.Component {
                               
             <View style={{flex:1,  marginTop:'0%', marginBottom:'0%', width:'100%', height:'100%'}}>
                     
-                  <View style={{marginTop:'4%', marginBottom:'0%', marginLeft:'80%', flex:2, width:'100%', height:'100%', justifyContent:'center'}}>   
+                  <View style={{marginTop:'1%', marginBottom:'0%', marginLeft:'80%', flex:2, width:'100%', height:'100%', justifyContent:'center'}}>   
                                     
                         <TouchableOpacity 
                                                                                     
@@ -48,7 +61,7 @@ export class Payment extends React.Component {
                             <Image 
                             
                                 source={chat}
-                                style={{width:'12%', height:'80%'}}
+                                style={{width:'12%', height:'92%'}}
                                 
                                 >    
                                 </Image> 
@@ -58,77 +71,40 @@ export class Payment extends React.Component {
                 </View>
                       
                           
-                <View style={{ alignItems: 'center', flexDirection:'column', marginBottom:'0%', marginTop: '0%', flex:12, width:'100%', height:'100%'}}>
+                <View style={{ alignItems: 'center', flexDirection:'column', marginBottom:'0%', marginTop: '0%', flex:15, width:'100%', height:'100%'}}>
                 
                 
                   <View style={{ alignItems: 'center', flexDirection:'column', flex:1,  width:'100%', height:'100%', margiTop:'0%'}}>
                    
-                    <View style={{backgroundColor:'rgba(0,0,0,0)', alignItems: 'center', flex:8, flexDirection:'column', width:'100%', height:'100%'}}>     
-                    <Card containerStyle={{backgroundColor:'rgba(0,0,0,0)',  marginTop: '20%', borderRadius: 10, 
-                          width:'65%', height:'35%', marginBottom:'0%', padding:0, flex:2}}>
+                    <View style={{backgroundColor:'rgba(0,0,0,0)', alignItems: 'center', flex:12, flexDirection:'column', width:'100%', height:'100%'}}>     
+                    <Card containerStyle={{backgroundColor:'rgba(0,0,0,0)',  marginTop: '10%', borderRadius: 10, 
+                          width:'65%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
 
                         <ImageBackground source={require('../assets/fondo2.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
                           <Text style={{
                           color: '#fff',
-                          marginTop: '8%',
+                          marginTop: '2%',
                           textAlign:'center',
                           fontWeight:'bold',
                           marginRight:'0%',
                           marginLeft:'0%',
-                          height:'30%',
+                          height:'100%',
                           width:'100%',
                           fontSize:20,
-                          padding: 0}}>Total a pagar:</Text>
-                        <Text style={{
-                          color: '#fff',
-                          marginTop: '0%',
-                          textAlign:'center',
-                          fontWeight:'bold',
-                          marginRight:'0%',
-                          marginLeft:'0%',
-                          height:'30%',
-                          width:'100%',
-                          fontSize:25,
-                          padding: 0}}>$24,000.00</Text>
+                          padding: 0}}>FINANCIAMIENTO</Text>
+                       
                         </ImageBackground>
                       
                     </Card>
 
-                    <Card containerStyle={{marginTop: '12%', borderRadius: 10, 
+                    <Card containerStyle={{marginTop: '5%', borderRadius: 10, 
                     width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
 
                     
                      <TouchableOpacity
                        
                        style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
-                       onPress={() => this.props.navigation.navigate('Pago único')} 
-                                           
-                       >
-                       <ImageBackground source={require('../assets/fondo5.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
-                              
-                            <Text style={{
-                              color: '#fff',
-                              marginTop: '7%',
-                              textAlign:'center',
-                              fontWeight:'bold',
-                              marginRight:'0%',
-                              marginLeft:'0%',
-                              height:'100%',
-                              width:'100%',
-                              fontSize:15,
-                              padding: 0}}>PAGO ÚNICO</Text>
-                            </ImageBackground>
-                       </TouchableOpacity>
-                  
-                    </Card>
-
-                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
-                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
-
-                    <TouchableOpacity
-                       
-                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
-                       onPress={() => this.props.navigation.navigate('Financiamiento')} 
+                       onPress={() => meses()} 
                                            
                        >
                        <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
@@ -143,7 +119,86 @@ export class Payment extends React.Component {
                               height:'100%',
                               width:'100%',
                               fontSize:15,
-                              padding: 0}}>FINANCIAMIENTO</Text>
+                              padding: 0}}>3 MESES</Text>
+                            </ImageBackground>
+                       </TouchableOpacity>
+                  
+                    </Card>
+
+                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
+                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
+
+                    <TouchableOpacity
+                       
+                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
+                       onPress={() =>  meses()} 
+                                           
+                       >
+                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
+                              
+                            <Text style={{
+                              color: '#fff',
+                              marginTop: '7%',
+                              textAlign:'center',
+                              fontWeight:'bold',
+                              marginRight:'0%',
+                              marginLeft:'0%',
+                              height:'100%',
+                              width:'100%',
+                              fontSize:15,
+                              padding: 0}}>6 MESES</Text>
+                            </ImageBackground>
+                       </TouchableOpacity>
+                  
+                    </Card>
+                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
+                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
+
+                    <TouchableOpacity
+                       
+                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
+                       onPress={() =>  meses()} 
+                                           
+                       >
+                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
+                              
+                            <Text style={{
+                              color: '#fff',
+                              marginTop: '7%',
+                              textAlign:'center',
+                              fontWeight:'bold',
+                              marginRight:'0%',
+                              marginLeft:'0%',
+                              height:'100%',
+                              width:'100%',
+                              fontSize:15,
+                              padding: 0}}>12 MESES</Text>
+                            </ImageBackground>
+                       </TouchableOpacity>
+                  
+                    </Card>
+                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
+                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
+
+                    <TouchableOpacity
+                       
+                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
+                       onPress={() =>  meses()} 
+                                           
+                       >
+                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
+                              
+                            <Text style={{
+                              color: '#fff',
+                              marginTop: '7%',
+                              textAlign:'center',
+                              fontWeight:'bold',
+                              marginRight:'0%',
+                              marginLeft:'0%',
+                              height:'100%',
+                              width:'100%',
+                              fontSize:15,
+                              padding: 0}}>24 MESES</Text>
                             </ImageBackground>
                        </TouchableOpacity>
                   
@@ -153,14 +208,14 @@ export class Payment extends React.Component {
 
                       <View style={{alignItems: 'center', flex:2, width:'100%', height:'100%'}}>
                       <Image
-                          style={{width:'27%', height:'100%', marginLeft:'0%', marginTop: '-80%'}}
+                          style={{width:'19%', height:'100%', marginLeft:'0%', marginTop: '-95%'}}
                           source={require('../assets/carrito.png')}
                           />
                     </View>
                     </View>
                  </View>
                 
-         { /*        <View style={{marginLeft:'20%', marginTop:'0%', width:'60%', height:'100%', flex:1}}>
+              <View style={{marginLeft:'20%', marginTop:'0%', width:'60%', height:'100%', flex:2}}>
 
                  <TouchableOpacity
                        
@@ -189,8 +244,7 @@ export class Payment extends React.Component {
   
                  </TouchableOpacity>
                </View>
- */
-}
+
             {/*Botones*/}     
             <View style={{marginTop:'2%', marginBottom:'2%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:2, flexDirection:'row'}}>  
               {/*HOME*/}  
@@ -205,7 +259,7 @@ export class Payment extends React.Component {
                           <Image 
                           
                           source={home}
-                          style={{ marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'52%', height:'100%'}}
+                          style={{ marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'41%', height:'100%'}}
                           >    
                           </Image> 
 
@@ -218,14 +272,14 @@ export class Payment extends React.Component {
            <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:1}}>
               <TouchableOpacity 
                                                                             
-              onPress={() => this.props.navigation.navigate('Solfium')            
+              onPress={() => user()            
                 }> 
                
                 <View style={{alignItems:'center'}}>
                       <Image 
                       
                       source={usuario}
-                      style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'52%', height:'100%'}}
+                      style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'41%', height:'100%'}}
                       
                       >    
                       </Image> 
@@ -239,7 +293,7 @@ export class Payment extends React.Component {
           <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:1}}>
               <TouchableOpacity 
                                                                             
-              onPress={() => this.props.navigation.navigate('Solfium')}
+              onPress={() => settings()}
                 > 
               
                 <View style={{alignItems:'center'}}>
@@ -247,7 +301,7 @@ export class Payment extends React.Component {
                 <Image 
                 
                 source={setting}
-                style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'52%', height:'100%'}}
+                style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'41%', height:'100%'}}
                 
                 >    
                 </Image> 
@@ -261,12 +315,12 @@ export class Payment extends React.Component {
 
       {/*logo*/}  
 
-       <View style={{alignItems:'center',  marginTop:'0%', marginBottom:'10%', marginLeft:'25%', marginRight:'0%', width:'50%', height:'60%', flex:1}}>  
+       <View style={{alignItems:'center',  marginTop:'0%', marginBottom:'10%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:1}}>  
                 
            <Image 
              
              source={logo}
-             style={{alignItems:'center', marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'78%', height:'100%'}}
+             style={{alignItems:'center', marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'30%', height:'100%'}}
              
              >    
             </Image>  
