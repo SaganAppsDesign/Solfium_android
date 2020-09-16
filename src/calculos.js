@@ -9,9 +9,23 @@ import home from '../assets/home.png';
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
 import logo from '../assets/logo.png'; 
+import { Card } from 'react-native-elements';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import Fire, {db} from '../fire';
+
+
+var potenciaUbicacion
+
+
+potenciaFuncion = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
+  
+  potenciaUbicacion =  snapshot.child("potencia").val()})
 
 
 
+var viabilidad
+var text1 = '$ ' + parseFloat(potenciaUbicacion*26).toFixed(2)
+var text2='$ 2,000',text3='$ 30,000',text4='540 kg de carbono',text5='$ 600,000',color,opacity,backgroundcolor, viable
 var {height} = Dimensions.get('window');
 var {width} = Dimensions.get('window');
 
@@ -27,146 +41,365 @@ const settings = () => {
 };
 
 
-export function Calculos({ route, navigation }) {
+export class Calculos extends React.Component {
+
+  componentDidMount() {
+    
+    console.log('potenciaCalculo', potenciaUbicacion*26)
+    
+  }
+
+  render() {
+
+    potenciaFuncion()
 
 
   return (
-
-    <View style={styles.container}>
-
-    <ImageOverlay 
+    
+   
+      <ImageOverlay 
           source={tec3}
-          height={height}  
+          height={hp('100%')}  
           overlayAlpha={0}                 
           > 
+                 
+          <View style={{alignItem:'center', justifyContent:'center', flex:1, flexDirection:'column'}}>
+        
+            
+          <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('2%'), flex:8}}>
+         
+          <Card containerStyle={{backgroundColor:'white', marginTop: hp('0%'),  borderRadius: 50, 
+            width:wp('80%'), height:hp('65%'), alignItems: 'center'}}>
+    
+            <View style={{flexDirection:'column', width:wp('55%'), height:'100%'}}>
+          
+                        
+            {/*  inversion total */}
 
-                              
-        <View style={{ flex:1,  marginTop:'5%', marginBottom:'0%', width:'80%'}}>
-                    
-                     { /*  <Text style={{color: '#000',
-                                    backgroundColor: 'white',
-                                    fontSize: 15,
-                                    marginHorizontal: 15,
-                                    marginTop: 10,
-                                    fontWeight: 'bold',
-                                    padding: 10,
-                                    textAlign: 'center',
-                                    borderRadius:10}} >El coste total de la instalación será de {JSON.stringify(costeInstalacion)} $, impuestos incluidos. Se podría llevar a cabo con un pago único o con cómodas mensualidades de 458,33 $ en 12 meses</Text> */}
-                      
-                          
-                            <View style={{ marginBottom:'0%', marginTop:'0%', flex:10, alignItems:'center'}}>
-                            <ImageOverlay 
-                                  
-                                  containerStyle={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'95%', flex:1}}
-                                  source={calculos}
-                                  height={500}
-                                  overlayAlpha={0}                 
-                                  > 
-
-
-                              <View style={{ marginBottom:'0%', marginTop:'100%', flex:1}}>
-
-                                  <TouchableOpacity
-                                        
-                                        style={{ marginBottom:'0%', marginTop:'25%', flex:1}}
-                                        onPress={() => navigation.navigate('Proceso de implemetación')} 
-                                                            
-                                        >
-
-                                        <Text style={styles.boton}> ME INTERESA </Text>
-
-                                  </TouchableOpacity>
-                              </View>
-                                
-                                      
-                            </ImageOverlay >
-                          </View>
-
-
-            {/*Botones*/}     
-            <View style={{alignContent:'center', alignItems:'center',  marginTop:'15%', marginBottom:'2%', marginLeft:'3%', marginRight:'65%', width:'35%', height:'5%', flex:2, flexDirection:'row'}}>  
-              {/*HOME*/}         
-            <TouchableOpacity 
-                                                                         
-            onPress={() => navigation.navigate('Solfium')}
-              > 
-              <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'67%', height:'95%'}}>
+            <View style={{flexDirection:'row', flex:3, alignItems:'center'}} >
              
-                       <Image 
-                       
-                       source={home}
-                       style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'52%', width:'92%', height:'80%'}}
-                       
-                       >    
-                       </Image> 
+                <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+                      <Image
+                      style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
+                      marginTop: '0%'}}
+                      source={require('../assets/calculadora.png')}
+                      />
+                </View>
+            
+                <View style={{height:hp('4%'), marginBottom:wp('0%'),
+                    alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+                          
+                          <Text style={{color: '#878787',
+                            alignItems:'center',
+                            fontSize:hp('2%'),
+                            textAlign:'center',
+                            height:hp('3%'),
+                            width:wp('35%'),
+                            }}> Inversión total </Text>
+
+                          <Text style={{color: 'black',
+                            fontSize:hp('3.5%'),
+                            alignItems:'center',
+                            marginTop: '0%',
+                            marginRight:'0%',
+                            marginLeft:'0%',
+                            height:hp('5%'),
+                            width:wp('35%'),
+                            fontWeight:'bold',
+                            textAlign:'center',
+                            
+                            }}>{'$ ' + potenciaUbicacion*8000}</Text>
+                </View> 
 
             </View>
-           
-           </TouchableOpacity> 
-           {/*USUARIO*/}     
-           <TouchableOpacity 
-                                                                         
-           onPress={() => user()           
-            }> 
-             <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'67%', height:'95%'}}>
-            
-                   <Image 
-                   
-                   source={usuario}
-                   style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'52%', width:'92%', height:'80%'}}
-                   
-                   >    
-                   </Image> 
+             {/*  FIN inversion total */}
+
+            {/*  mensualidad */}
+
+            <View style={{flexDirection:'row', flex:3, alignItems:'center'}} >
+                        
+            <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+                  <Image
+                  style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
+                  marginTop: '0%'}}
+                  source={require('../assets/money.png')}
+                  />
+            </View>
+
+            <View style={{height:hp('4%'), marginBottom:wp('0%'),
+                alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+                      
+                      <Text style={{color: '#878787',
+                        alignItems:'center',
+                        fontSize:hp('2%'),
+                        textAlign:'center',
+                        height:hp('3%'),
+                        width:wp('35%'),
+                        }}>12 pagos de:</Text>
+
+                      <Text style={{color: 'black',
+                        fontSize:hp('3.5%'),
+                        alignItems:'center',
+                        marginTop: '0%',
+                        marginRight:'0%',
+                        marginLeft:'0%',
+                        height:hp('5%'),
+                        width:wp('35%'),
+                        fontWeight:'bold',
+                        textAlign:'center',
+                        
+                        }}>{'$ ' + parseFloat(potenciaUbicacion*8000/12).toFixed(1)}</Text>
+            </View> 
+
+            </View>
+        
+         {/*  FIN mensualidad */}
+       
+         {/*  ahorro anual */}
+     
+     <View style={{flexDirection:'row', flex:3, alignItems:'center'}} >
+                        
+            <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+                  <Image
+                  style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
+                  marginTop: '0%'}}
+                  source={require('../assets/hucha.png')}
+                  />
+            </View>
+
+            <View style={{height:hp('4%'), marginBottom:wp('0%'),
+                alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+                      
+                      <Text style={{color: '#878787',
+                        alignItems:'center',
+                        fontSize:hp('2%'),
+                        textAlign:'center',
+                        height:hp('3%'),
+                        width:wp('35%'),
+                        }}>Ahorro anual:</Text>
+
+                      <Text style={{color: '#5DCB31',
+                        fontSize:hp('3.5%'),
+                        alignItems:'center',
+                        marginTop: '0%',
+                        marginRight:'0%',
+                        marginLeft:'0%',
+                        height:hp('5%'),
+                        width:wp('35%'),
+                        fontWeight:'bold',
+                        textAlign:'center',
+                        
+                        }}>{'$ ' + (potenciaUbicacion*8000 + Number(6000))}</Text>
+            </View> 
+
+            </View>
+
+      {/*  Evitarás contaminar */}
+        
+        <View style={{flexDirection:'row', flex:3, alignItems:'center'}} >
+                            
+        <View style={{ flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+              <Image
+              style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
+              marginTop: '0%'}}
+              source={require('../assets/manos.png')}
+              />
+        </View>
+
+        <View style={{height:hp('4%'), marginBottom:wp('0%'),
+            alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+                  
+                  <Text style={{color: '#878787',
+                    alignItems:'center',
+                    fontSize:hp('2%'),
+                    textAlign:'center',
+                    height:hp('3%'),
+                    width:wp('35%'),
+                    }}>Evitarás contaminar:</Text>
+
+                  <Text style={{color: '#5DCB31',
+                    fontSize:hp('2%'),
+                    alignItems:'center',
+                    marginTop: '0%',
+                    marginRight:'0%',
+                    marginLeft:'0%',
+                    height:hp('5%'),
+                    width:wp('35%'),
+                    fontWeight:'bold',
+                    textAlign:'center',
+                    
+                    }}>{(potenciaUbicacion*8000 / Number(50))+ 'Kg de carbono '}</Text>
+        </View> 
+
+        </View>
+            {/*  Ahorro a 20 años*/}
+            <View style={{flexDirection:'row', flex:3, alignItems:'center'}} >
+                            
+        <View style={{ flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+              <Image
+              style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
+              marginTop: '0%'}}
+              source={require('../assets/saco.png')}
+              />
+        </View>
+
+        <View style={{height:hp('4%'), marginBottom:wp('0%'),
+            alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+                  
+                  <Text style={{color: '#878787',
+                    alignItems:'center',
+                    fontSize:hp('2%'),
+                    textAlign:'center',
+                    height:hp('3%'),
+                    width:wp('35%'),
+                    }}>Ahorro a 20 años:</Text>
+
+                  <Text style={{color: '#5DCB31',
+                    fontSize:hp('3.5%'),
+                    alignItems:'center',
+                    marginTop: '0%',
+                    marginRight:'0%',
+                    marginLeft:'0%',
+                    height:hp('5%'),
+                    width:wp('35%'),
+                    fontWeight:'bold',
+                    textAlign:'center',
+                    
+                    }}>{'$ ' + ((potenciaUbicacion*8000 + Number(6000))*20)}</Text>
+        </View> 
+
+        </View>
+
+               {/* Botón*/}
+               <View style={{flex:2}}>
+
+               <TouchableOpacity
+                     
+                     
+                     onPress={() => this.props.navigation.navigate('Proceso de implemetación')} 
+                                         
+                     >
+
+                     <Text style={{
+                     height: '68%', 
+                     width: wp('60%'),
+                     borderRadius:50,
+                     fontWeight:'bold',
+                     fontSize:20,
+                     color: 'white', 
+                     marginBottom: "0%", 
+                     marginTop: "5%", 
+                     marginLeft: "0%", 
+                     marginRight: "0%",
+                     alignItems: "center",
+                     textAlign:'center',
+                     paddingLeft:40, 
+                     paddingRight:40,
+                     backgroundColor: '#5DCB31',
+                     opacity:opacity,
+                     textAlignVertical:'center'}}> ME INTERESA </Text>
+
+               </TouchableOpacity>
+             </View>
+
+            </View>  
+
+  </Card>
+              
+
+</View>
+
+    {/*Botones*/}     
+           <View style={{alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row'}}>  
+                         
+           <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+               <TouchableOpacity 
+                                                                            
+               onPress={() => this.props.navigation.navigate('Solfium')}
+                 > 
+                                       
+                  <Image 
+                  
+                  source={home}
+                  style={{aspectRatio:1, height:hp('9%')}}
+                  
+                  >    
+                  </Image> 
+
+                                
+              </TouchableOpacity> 
 
            </View>
-          
-          </TouchableOpacity> 
-         
-          {/*SETTING*/}     
-          <TouchableOpacity 
-                                                                         
-          onPress={() => settings()}
-            > 
-           
-            <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'67%', height:'95%'}}>
-                      
-            <Image 
-             
-             source={setting}
-             style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'52%', width:'92%', height:'80%'}}
-             
-             >    
-            </Image> 
+
+          <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+              <TouchableOpacity 
+                                                                           
+              onPress={() => user()}
+                > 
+                                      
+                 <Image 
+                 
+                 source={usuario}
+                 style={{aspectRatio:1, height:hp('9%')}}
+                 
+                 >    
+                 </Image> 
+
+                               
+             </TouchableOpacity> 
+
+            </View>
+
+            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+            
+            <TouchableOpacity 
+                                                                           
+              onPress={() => settings()}
+                > 
+                                      
+                 <Image 
+                 
+                 source={setting}
+                 style={{aspectRatio:1, height:hp('9%')}}
+                 
+                 >    
+                 </Image> 
+
+                               
+             </TouchableOpacity> 
+
+            </View>
+
+                 
 
           </View>
-         
-         </TouchableOpacity> 
+          
+          
+          { /* LOGO*/}
+  
+          <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:2}}>  
+          
+          <Image 
+            
+            source={logo}
+            style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
+            
+            >    
+          </Image>  
 
-       </View> 
+         </View> 
 
-      {/*logo*/}  
-
-       <View style={{alignItems:'center',  marginTop:'0%', marginBottom:'10%', marginLeft:'25%', marginRight:'0%', width:'50%', height:'60%', flex:1}}>  
-                
-           <Image 
-             
-             source={logo}
-             style={{alignItems:'center', marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'85%'}}
-             
-             >    
-            </Image>  
-
-        </View> 
 
        
        </View>
 
 
     </ImageOverlay> 
-  </View> 
+ 
+
   );
 }
-
+}
 
 
 const styles = StyleSheet.create({

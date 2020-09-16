@@ -70,7 +70,7 @@ export class CompraConfirmada extends React.Component {
                 <View style={{ backgroundColor:'rgba(0,255,255,0)',alignItems: 'center', flexDirection:'column', marginBottom:'0%', marginTop: '0%', flex:10, width:'100%', height:'100%'}}>
                     
                     <View style={{backgroundColor:'rgba(0,255,0,0)', alignItems: 'center', flex:10,  width:'100%', height:'100%'}}>     
-                    <Card containerStyle={{marginTop: '15%', borderRadius: 10, 
+                    <Card containerStyle={{ marginTop: '15%', borderRadius: 10, 
                     width:'80%', height:'50%', marginBottom:'0%', padding:0}}>
                        <ImageBackground source={require('../assets/fondo_verde.png')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
                               

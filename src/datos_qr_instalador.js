@@ -12,7 +12,7 @@ import ok from '../assets/ok.png';
 import { Button, Card } from 'react-native-elements';
 import logo from '../assets/logo.png'; 
 import codigo_qr from '../assets/codigo_qr.png'; 
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 var {height} = Dimensions.get('window');
 
@@ -42,91 +42,80 @@ export function DatosInstalador({ navigation }) {
                     overlayAlpha={0}                 
                     >
                    
-         <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%'
-         , flex:1}}>
-                    
-                    <View style={{marginTop:'5%', marginBottom:'0%', marginLeft:'82%', flex:1}}>   
-                          
-                          <TouchableOpacity 
-                                                                                        
-                          onPress={() => navigation.navigate('Chat')}
-                            > 
-                            <View>
-                          
-                                  <Image 
+                  <View style={{width:wp('100%'), height:hp('100%'), flex:1}}>
                               
-                                  source={chat}
-                                  style={{width:'80%', height:'90%'}}
-                                  
-                                  >    
-                                  </Image> 
+                  <View style={{marginTop:hp('3%'), marginLeft:wp('75%'), flex:1}}>   
+                                          
+                  <TouchableOpacity 
+                                                                              
+                  onPress={() => navigation.navigate('Chat')}
+                  > 
+                  <View>
+                  
+                          <Image 
+                      
+                          source={chat}
+                          style={{aspectRatio:1, height:hp('10%')}}
+                          
+                          >    
+                          </Image> 
 
-                            </View>
-                        
-                          </TouchableOpacity> 
+                  </View>
+              
+                  </TouchableOpacity> 
 
-                    </View>
+                  </View>
 
 
-                    <View style={{alignItems: 'center', marginBottom:'0%', marginTop: '1%', flex:3, width:'100%', height:'100%'}}>
-
-                                      
-                      <Card containerStyle={{backgroundColor:'white', marginTop: '0%',  borderRadius: 15, 
-                            width:'80%', height:'90%', marginBottom:'0%'}}>
+                    <View style={{alignItems: 'center', marginTop: hp('1%'), flex:5}}>
+                         
+                      <Card containerStyle={{backgroundColor:'white', borderRadius: 15, 
+                            width:wp('75%'), height:hp('35%')}}>
                             
                             <View >
 
                             <Text style={{color: '#E53D18',
                                     backgroundColor: 'white',
-                                    fontSize: 20,
-                                    marginHorizontal: '10%',
-                                    marginTop: '0%',
-                                    marginBottom: '1%',
+                                    fontSize: hp('3%'),
+                                    marginBottom: hp('0.5%'),
                                     fontWeight: 'bold',
-                                    padding: 5,
+                                    padding: hp('0.5%'),
                                     textAlign: 'center',
                                      }}>CITA CONFIRMADA</Text>
 
                               <Text style={{color: 'black',
                                     backgroundColor: 'white',
-                                    fontSize:18,
-                                    marginHorizontal: '10%',
-                                    marginTop: '0%',
-                                    marginBottom: '1%',
+                                    fontSize:hp('2.5%'),
+                                    marginHorizontal:  wp('5%'),
+                                    marginBottom: hp('0.5%'),
                                     fontWeight: 'bold',
-                                    padding: 10,
+                                    padding: hp('1%'),
                                     textAlign: 'center',
-                                    fontWeight:'bold'
                                     }}>Sábado, 5 de Noviembre 2020, 10:00 am</Text>
 
                                      {/*  Foto y descripción instalador */}
 
-                                    <View style={{flexDirection:'row', width:'90%', height:'80%', marginBottom:'0%'}}>
+                                    <View style={{flexDirection:'row', width:wp('70%'), height:hp('45%')}}>
                           
                                     <View style={{flex:5}}>
       
                                         <Image
-                                        style={{borderRadius:60 , width:'65%', height:'30%', marginLeft:'20%', marginTop: 2, borderWidth:1, borderColor:'black'}}
+                                        style={{borderRadius:60 , aspectRatio:1, height:hp('15%'), marginLeft:wp('4%'), marginTop: hp('0%'), borderWidth:1, borderColor:'black'}}
                                         source={require('../assets/tecnico.jpg')}
                                         />
                                     </View> 
       
-                                    <View style={{flex:5, marginRight:'5%'}}>
+                                    <View style={{flex:4, marginRight:wp('4%')}}>
                                             <Text style={{color: '#000',
                                                   backgroundColor: 'white',
-                                                  marginTop: '5%',
-                                                  marginRight:'100%',
-                                                  marginLeft:'0%',
-                                                  height:'30%',
-                                                  width:'100%',
-                                                  padding: 0,
-                                                 }}>
+                                                  marginTop: hp('2%'),
+                                                  }}>
       
-                                                 <Text style={{marginBottom:'100%', fontSize: 15}}>Técnico asignado:</Text>
+                                                 <Text style={{fontSize:hp('2%')}}>Técnico asignado:</Text>
                                                  <Text>{`
                                                          `}</Text>
       
-                                                 <Text style={{fontWeight: "bold", fontSize: 16}}>Juan Carlos Díaz</Text>
+                                                 <Text style={{fontWeight: "bold", fontSize: hp('2%')}}>Juan Carlos Díaz</Text>
                                                  
                                           
                                           </Text>
@@ -145,21 +134,17 @@ export function DatosInstalador({ navigation }) {
 
     {/*Botone QR*/} 
 
-    <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', 
-    height:'100%', flex:2, flexDirection:'row'}}>  
+    <View style={{flex:2, flexDirection:'row'}}>  
     
     <TouchableOpacity 
                                              
      onPress={() => navigation.navigate('Escanear QR Instalador')}
        > 
-       <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'31%', marginRight:'0%', width:'100%', height:'100%', flex:1}}>
+       <View style={{marginLeft:hp('5%'), width:hp('22%'),flex:1}}>
        
                  <Image 
-                 
-                 source={codigo_qr}
-                 style={{
-                 width:'100%', height:'100%'}}
-                 
+                   source={codigo_qr}
+                               
                  >    
                  </Image> 
 
@@ -168,19 +153,15 @@ export function DatosInstalador({ navigation }) {
      </TouchableOpacity> 
 
 
-     <View style={{flex:3, marginRight:'5%'}}>
+     <View style={{flex:3, marginRight:wp('5%')}}>
      <Text style={{color: '#fff',
           
-           marginTop: '10%',
-           marginRight:'100%',
-           marginLeft:'20%',
-           height:'80%',
-           width:'65%',
-           padding: 0,
+           marginTop: hp('3%'),   
+                    
            fontWeight:'bold'
           }}>
 
-          <Text style={{marginBottom:'100%', fontSize: 18}}>El día de la cita el técnico deberá presentar credencial con 
+          <Text style={{fontSize: hp('2.5%')}}>El día de la cita el técnico deberá presentar credencial con 
           
           código QR para confirmar.</Text>
 
@@ -191,86 +172,87 @@ export function DatosInstalador({ navigation }) {
    </View>
     
 
-     {/*Botones*/}     
-    
-     <View style={{alignItems:'center', alignContent:'center',  marginTop:'0%', marginBottom:'0%', marginLeft:'4%', marginRight:'0%', width:'100%', 
-     height:'100%', flex:1, flexDirection:'row'}}>  
-                     
-               
-     <TouchableOpacity 
-                                                                  
-     onPress={() => navigation.navigate('Solfium')}
-       > 
-       <View style={{marginTop:'4%', marginBottom:'0%', marginLeft:'30%'}}>
-      
-                <Image 
-                
-                source={home}
-                style={{width:'78%', height:'93%'}}
-                
-                >    
-                </Image> 
+     
+      {/*Botones*/}     
+      <View style={{marginTop:hp('9%'),   alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row'}}>  
+                         
+      <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+          <TouchableOpacity 
+                                                                       
+          onPress={() => navigation.navigate('Solfium')}
+            > 
+                                  
+             <Image 
+             
+             source={home}
+             style={{aspectRatio:1, height:hp('9%')}}
+             
+             >    
+             </Image> 
+
+                           
+         </TouchableOpacity> 
 
       </View>
-    
-    </TouchableOpacity> 
 
-    <TouchableOpacity 
-                                                                  
-    onPress={() => user()}
-      > 
-      <View style={{marginTop:'4%', marginBottom:'0%', marginLeft:'30%'}}>
-     
+     <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+         <TouchableOpacity 
+                                                                      
+         onPress={() => user()}
+           > 
+                                 
             <Image 
             
             source={usuario}
-            style={{width:'78%', height:'93%'}}
+            style={{aspectRatio:1, height:hp('9%')}}
             
             >    
             </Image> 
 
-    </View>
-   
-   </TouchableOpacity> 
-   
-   <TouchableOpacity 
-                                                                  
-   onPress={() => settings()}
-     > 
-     <View style={{marginTop:'4%', marginBottom:'0%', marginLeft:'30%'}}>
-    
+                          
+        </TouchableOpacity> 
+
+       </View>
+
+       <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+       
+       <TouchableOpacity 
+                                                                      
+         onPress={() => settings()}
+           > 
+                                 
+            <Image 
+            
+            source={setting}
+            style={{aspectRatio:1, height:hp('9%')}}
+            
+            >    
+            </Image> 
+
+                          
+        </TouchableOpacity> 
+
+       </View>
+
+            
+
+     </View>
+     
+     
+     { /* LOGO*/}
+
+     <View style={{alignItems:'center', justifyContent:'center', flex:1}}>  
      
      <Image 
-      
-      source={setting}
-      style={{width:'78%', height:'93%'}}
-      
-      >    
-     </Image> 
-
-   </View>
-  
-  </TouchableOpacity> 
-
        
+       source={logo}
+       style={{aspectRatio:4.5, height:hp('5%'), marginBottom:hp('3.5%')}}
+       
+       >    
+     </Image>  
 
-</View> 
- {/*FIN Botones*/}   
- 
-{/*LOGO*/}    
-     
-<View style={{alignItems:'center', justifyContent:'center',  marginTop:'0%', marginBottom:'0%', width:'100%', flex:1, flexDirection:'row'}}>  
-            
-    <Image 
-      
-      source={logo}
-      style={{marginTop:'0%', marginBottom:'7%', width:'40%', height:'44%'}}
-      
-      >    
-    </Image>  
-
-</View>     
-{/*FIN LOGO*/}          
+    </View> 
+{/*FIN LOGO*/}      
          
 </View>
 

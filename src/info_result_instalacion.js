@@ -17,24 +17,30 @@ import home from '../assets/home.png';
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'
 import fondo from '../assets/fondo2.jpg';
-  ; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 
 var {height} = Dimensions.get('window');
-var viabilidad, user
+var viabilidad, user=''
 var text,text1,text2,text3,text4,text5,color,opacity,backgroundcolor, viable
+var potenciaUbicacion
+
+
+potenciaFuncion = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
+  
+  potenciaUbicacion =  snapshot.child("potencia").val()})
 
 
 data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
- 
-  user = snapshot.hasChild('name')
-  viabilidad = snapshot.child("Viabilidad").val()
-
-
   
+  user =  snapshot.child("name").val()
+  viabilidad = snapshot.child("Viabilidad").val()
+  console.log('viabilidad: ',viabilidad)
+   
   if (viabilidad == '100%'){
     viable = "VIABLE"
-    text = '¡Felicidades! Se puede realizar en su hogar el ' + viabilidad + ' de la instalación' 
+    text = '¡Felicidades ' + user + '! Se puede realizar en su hogar el ' + viabilidad + ' de la instalación' 
     text1 = '$24,000' 
     text2 = '$2,000' 
     text3 = '$30,000' 
@@ -46,7 +52,7 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
      
   } else if (viabilidad == 'evaluando'){
     viable = "EVALUANDO INSTALACIÓN"
-    text = 'Espere mientras se evalúa su posible instalación' 
+    text = user + ', espere mientras se evalúa su posible instalación' 
     text1 = '-' 
     text2 = '-' 
     text3 = '-' 
@@ -57,21 +63,21 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
     opacity = 0
 
   } else if (viabilidad == null){
-    viable = "VIABLE"
-    text = 'En breve el personal de instalación se pondrá en contacto con usted.' 
+    viable = "PENDIENTE CONTACTO CON INSTALADOR"
+    text = user + ', en breve el personal de instalación se pondrá en contacto con usted.' 
     text1 = '-' 
     text2 = '-' 
     text3 = '-' 
     text4 = '-' 
     text5 = '-' 
-    color = 'yellow'
+    color = 'grey'
     backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
 
    
   } else if (viabilidad == '50%'){
     viable = "VIABLE A LA BAJA"
-    text = '¡Felicidades! Al menos se puede realizar un ' + viabilidad + ' de la instalación, lo cual supone el siguiente ahorro:' 
+    text = '¡Felicidades ' + user + '! Al menos se puede realizar un ' + viabilidad + ' de la instalación, lo cual supone el siguiente ahorro:' 
     text1 = '$20,000' 
     text2 = '$1,000' 
     text3 = '$22,000' 
@@ -83,7 +89,7 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
     
   } else {
     viable = "NO ES VIABLE"
-    text = 'Lo sentimos, no se puede realizar la instalación' 
+    text = user + ', lo sentimos, no se puede realizar la instalación' 
     text1 = '-' 
     text2 = '-' 
     text3 = '-' 
@@ -92,131 +98,128 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
     color = 'red'
     opacity = 0
     backgroundcolor = 'white'
-    
+
+ 
+
   }
 
 });
 
 
-
 export class InfoResultInsta extends React.Component {
- 
+  
 
+    
+  componentDidMount() {
+    data()
+    
+  }
+  
+ 
   render() {
 
-      data()
+      
 
   return (  
 
-    <ImageOverlay source={fondo}
-    height={height}  
+  
+
+    <ImageOverlay 
+    
+    source={fondo}
+    height={hp('100%')}   
     overlayAlpha={0}                 
     >
    
-    <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%'
-    , flex:1}}>
+    <View style={{alignItem:'center', justifyContent:'center', flex:1, flexDirection:'column'}}>
 
-     <View style={{marginTop:'5%', marginBottom:'0%', marginLeft:'80%', flex:1}}>   
-                    
-        <TouchableOpacity 
-                                                                    
-        onPress={() => navigation.navigate('Chat')}
-        > 
-        <View>
-        
-                <Image 
-            
-                source={chat}
-                style={{width:'60%', height:'100%'}}
-                
-                >    
-                </Image> 
+                 <View style={{marginTop:hp('1%'), marginLeft:wp('75%'), flex:1}}>   
+                                          
+                  <TouchableOpacity 
+                                                                              
+                  onPress={() => this.props.navigation.navigate('Chat')}
+                  > 
+                  <View>
+                  
+                          <Image 
+                      
+                          source={chat}
+                          style={{aspectRatio:1, height:hp('8%')}}
+                          
+                          >    
+                          </Image> 
 
-        </View>
-    
-        </TouchableOpacity> 
+                  </View>
+              
+                  </TouchableOpacity> 
 
-    </View>
+                  </View>
     
     
-    <View style={{alignItems: 'center', alignContent: 'center', marginBottom:'10%', marginTop: '0%', flex:12, width:'100%', height:'100%'}}>
+    <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('2%'), flex:15}}>
          
-      <Card containerStyle={{backgroundColor:'white', marginTop: '0%',  borderRadius: 50, 
-            width:'80%', height:'100%', marginBottom:'0%', alignContent: 'center'}}>
+          <Card containerStyle={{backgroundColor:'white', marginTop: hp('0%'),  borderRadius: 50, 
+          width:wp('80%'), height:hp('85%'), alignItems: 'center'}}>
     
-            <View style={{flexDirection:'column', width:'100%', height:'100%', marginBottom:'0%', alignContent: 'center'}}>
+            <View style={{flexDirection:'column', width:wp('100%'), height:hp('100%'), alignItems: 'center'}}>
            
-              <View style={{width:'100%', height:'4%', marginBottom:'0%', marginTop:'0%', flex:2}}>
-                                    <Text style={{height: '80%', 
-                                    width:'100%',
+              <View style={{width:wp('100%'), height:hp('100%'), flex:0.8, alignItems:'center'}}>
+                                    <Text style={{height:'80%', 
+                                    width:wp('60%'),
                                     borderRadius:50,
                                     fontWeight:'bold',
-                                    fontSize:20,
+                                    fontSize:hp('3%'),
                                     color: 'white', 
-                                    marginBottom: "0%", 
-                                    marginTop: "0%", 
-                                    marginLeft: "0%", 
-                                    marginRight: "0%",
-                                    alignItems: "center",
+                                    alignItems: 'center',
                                     textAlign:'center',
-                                    paddingLeft:"0%", 
-                                    paddingRight:"0%",
                                     backgroundColor: color,
                                     textAlignVertical:'center'
                                   }}> {viable} </Text>
               </View> 
 
              {/*  texto viabilidad */}
-              <View style={{width:'100%', height:'10%', marginBottom:'5%', marginTop:'0%',flex:2}}>
+              <View style={{width:wp('100%'), height:hp('70%'), marginBottom:hp('0%'),alignItems:'center',flex:0.8}}>
                       <Text style={{color: '#878787',
-                                     textAlign:'center',
-                                    fontSize:16,
-                                    marginTop: '2%',
-                                    marginRight:'0%',
-                                    marginLeft:'0%',
-                                    height:'100%',
-                                    width:'100%',
-                                    padding: 0,
+                                    textAlign:'center',
+                                    fontSize:hp('2%'),
+                                    marginTop: hp('1%'),
+                                    height:hp('50%'),
+                                    width:wp('50%'),
+                                  
                                      }}> {text} </Text>
              </View> 
               
             {/*  inversion total */}
 
-            <View style={{ flexDirection:'row', flex:3, width:'100%', height:'50%' ,alignContent: 'center'}} >
+            <View style={{flexDirection:'row', flex:1, alignItems:'center',width:wp('55%')}} >
              
-                <View style={{flexDirection: 'row', flex:3, height:'100%', width:'100%', alignItems:'center'}}>
+                <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
                       <Image
-                      style={{width:'70%', height:'100%', marginBottom:0, marginRight:0, marginLeft:'40%', 
-                      marginTop: '0%',alignItems:'center'}}
+                      style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
+                      marginTop: '0%'}}
                       source={require('../assets/calculadora.png')}
                       />
                 </View>
             
-                <View style={{width:'80%', height:'35%', marginBottom:'0%',
-                 marginTop:'1%', alignContent:'center', flex:4, flexDirection: 'column'}}>
+                <View style={{height:hp('4%'), marginBottom:wp('0%'),
+                    alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
                           
                           <Text style={{color: '#878787',
                             alignItems:'center',
-                            fontSize:16,
+                            fontSize:hp('2%'),
                             textAlign:'center',
-                            marginTop: '0%',
-                            marginRight:'100%',
-                            marginLeft:'0%',
-                            height:'100%',
-                            width:'80%',
-                            padding: 0,
-                            
+                            height:hp('3%'),
+                            width:wp('35%'),
                             }}> Inversión total </Text>
 
                           <Text style={{color: 'black',
-                            fontSize:24,
+                            fontSize:hp('3.5%'),
                             alignItems:'center',
                             marginTop: '0%',
                             marginRight:'0%',
                             marginLeft:'0%',
-                            height:'100%',
-                            width:'80%',
-                            padding: 0,
+                            height:hp('5%'),
+                            width:wp('35%'),
                             fontWeight:'bold',
                             textAlign:'center',
                             
@@ -226,203 +229,185 @@ export class InfoResultInsta extends React.Component {
             </View>
              {/*  FIN inversion total */}
 
-              {/*  mensualidad */}
+            {/*  mensualidad */}
 
-            <View style={{ flexDirection:'row', flex:3, width:'100%', height:'50%' ,alignContent: 'center'}} >
-             
-            <View style={{flexDirection: 'row', flex:3, height:'100%', width:'100%', alignItems:'center'}}>
+            <View style={{flexDirection:'row', flex:1, alignItems:'center',width:wp('55%')}} >
+                        
+            <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
                   <Image
-                  style={{width:'70%', height:'100%', marginBottom:0, marginRight:0, marginLeft:'40%', 
-                  marginTop: '0%',alignItems:'center'}}
+                  style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
+                  marginTop: '0%'}}
                   source={require('../assets/money.png')}
                   />
             </View>
-        
-            <View style={{width:'80%', height:'35%', marginBottom:'0%',
-             marginTop:'1%', alignContent:'center', flex:4, flexDirection: 'column'}}>
+
+            <View style={{height:hp('4%'), marginBottom:wp('0%'),
+                alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
                       
                       <Text style={{color: '#878787',
                         alignItems:'center',
-                        fontSize:16,
+                        fontSize:hp('2%'),
                         textAlign:'center',
-                        marginTop: '0%',
-                        marginRight:'100%',
-                        marginLeft:'0%',
-                        height:'100%',
-                        width:'80%',
-                        padding: 0,
-                        
-                        }}> 12 pagos de: </Text>
+                        height:hp('3%'),
+                        width:wp('35%'),
+                        }}>12 pagos de:</Text>
 
                       <Text style={{color: 'black',
-                        fontSize:24,
+                        fontSize:hp('3.5%'),
                         alignItems:'center',
                         marginTop: '0%',
                         marginRight:'0%',
                         marginLeft:'0%',
-                        height:'100%',
-                        width:'80%',
-                        padding: 0,
+                        height:hp('5%'),
+                        width:wp('35%'),
                         fontWeight:'bold',
                         textAlign:'center',
                         
                         }}>{text2}</Text>
             </View> 
 
-        </View>
+            </View>
+        
          {/*  FIN mensualidad */}
-        {/*  ahorro anual */}
-            
-        <View style={{ flexDirection:'row', flex:2, width:'100%', height:'50%' ,alignContent: 'center', marginTop:'4%'}} >
-             
-          <View style={{flexDirection: 'row', flex:2, height:'100%', width:'100%', alignItems:'center'}}>
-                <Image
-                style={{width:'70%', height:'100%', marginBottom:0, marginRight:0, marginLeft:'50%', 
-                marginTop: '0%',alignItems:'center'}}
-                source={require('../assets/hucha.png')}
-                />
-          </View>
-    
-          <View style={{width:'80%', height:'35%', marginBottom:'0%',
-          marginTop:'1%', alignContent:'center', flex:4, flexDirection: 'column', fontSize:10}}>
-                    
-                    <Text style={{color: '#878787',
-                      alignItems:'center',
-                      textAlign:'center',
-                      marginTop: '0%',
-                      marginRight:'0%',
-                      marginLeft:'0%',
-                      height:'100%',
-                      width:'80%',
-                      padding: 0,
+       
+         {/*  ahorro anual */}
+     
+     <View style={{flexDirection:'row', flex:1, alignItems:'center',width:wp('50%')}} >
+                        
+            <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+                  <Image
+                  style={{ width:wp('18%'), height:hp('11%'), marginLeft:'0%', 
+                  marginTop: '0%'}}
+                  source={require('../assets/hucha.png')}
+                  />
+            </View>
+
+            <View style={{height:hp('4%'), marginBottom:wp('0%'),
+                alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
                       
-                      }}> Ahorro anual: </Text>
+                      <Text style={{color: '#878787',
+                        alignItems:'center',
+                        fontSize:hp('2%'),
+                        textAlign:'center',
+                        height:hp('3%'),
+                        width:wp('35%'),
+                        }}>Ahorro anual:</Text>
 
-                    <Text style={{color: '#5DCB31',
-                      
-                      alignItems:'center',
-                      marginTop: '0%',
-                      marginRight:'0%',
-                      marginLeft:'0%',
-                      height:'100%',
-                      width:'80%',
-                      padding: 0,
-                      fontWeight:'bold',
-                      textAlign:'center',
-                      fontSize:16,
-                     
-                      }}>{text3}</Text>
-          </View> 
+                      <Text style={{color: '#5DCB31',
+                        fontSize:hp('2.5%'),
+                        alignItems:'center',
+                        marginTop: '0%',
+                        marginRight:'0%',
+                        marginLeft:'0%',
+                        height:hp('5%'),
+                        width:wp('35%'),
+                        fontWeight:'bold',
+                        textAlign:'center',
+                        
+                        }}>{text3}</Text>
+            </View> 
 
-    </View>
-
+            </View>
 
       {/*  Evitarás contaminar */}
-      <View style={{ flexDirection:'row', flex:2, width:'100%', height:'100%' ,alignContent: 'center', marginTop:'4%'}} >
-             
-          <View style={{flexDirection: 'row', flex:2, height:'100%', width:'100%', alignItems:'center'}}>
-                <Image
-                style={{width:'70%', height:'100%', marginBottom:0, marginRight:0, marginLeft:'50%', 
-                marginTop: '0%',alignItems:'center'}}
-                source={require('../assets/manos.png')}
-                />
-          </View>
-    
-          <View style={{width:'80%', height:'35%', marginBottom:'0%', marginLeft:'0%',
-          marginTop:'1%', alignItems:'center', flex:4, flexDirection: 'column', fontSize:10}}>
-                    
-                    <Text style={{color: '#878787',
-                      
-                      marginTop: '0%',
-                      marginRight:'0%',
-                      marginLeft:'15%',
-                      height:'100%',
-                      width:'80%',
-                      padding: 0,
-                      
-                      }}>Evitarás contaminar: </Text>
-
-                    <Text style={{color: '#5DCB31',
-                      marginTop: '0%',
-                      marginRight:'0%',
-                      marginLeft:'15%',
-                      height:'100%',
-                      width:'80%',
-                      padding: 0,
-                      fontWeight:'bold',
-                      fontSize:15
-                      }}>{text4}</Text>
-             </View> 
-
-           </View>
-            {/*  Ahorro a 20 años*/}
-            <View style={{ flexDirection:'row', flex:2, width:'100%', height:'100%' ,alignContent: 'center', marginTop:'4%',marginBottom:'0%'}} >
-             
-              <View style={{flexDirection: 'row', flex:2, height:'100%', width:'100%', alignItems:'center'}}>
-                    <Image
-                    style={{width:'70%', height:'100%', marginBottom:0, marginRight:0, marginLeft:'50%', 
-                    marginTop: '0%',alignItems:'center'}}
-                    source={require('../assets/saco.png')}
-                    />
-              </View>
         
-              <View style={{ width:'80%', height:'35%', marginBottom:'0%',
-              marginTop:'1%', alignContent:'center', flex:4, flexDirection: 'column', fontSize:10, marginLeft:'0%'}}>
-                        
-                        <Text style={{color: '#878787',
-                         
-                          marginTop: '0%',
-                          marginRight:'100%',
-                          marginLeft:'15%',
-                          height:'100%',
-                          width:'80%',
-                          padding: 0,
-                          
-                          }}> Ahorro a 20 años: </Text>
+        <View style={{flexDirection:'row', flex:1, alignItems:'center',width:wp('50%')}} >
+                            
+        <View style={{ flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+              <Image
+              style={{ width:wp('18%'), height:hp('11%'), marginLeft:'0%', 
+              marginTop: '0%'}}
+              source={require('../assets/manos.png')}
+              />
+        </View>
 
-                        <Text style={{color: '#5DCB31',
-                                                  
-                          marginTop: '0%',
-                          marginRight:'0%',
-                          marginLeft:'27%',
-                          height:'100%',
-                          width:'80%',
-                          padding: 0,
-                          fontWeight:'bold',
-                          fontSize:16
-                          
-                          }}>{text5}</Text>
-                    </View> 
+        <View style={{height:hp('4%'), marginBottom:wp('0%'),
+            alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+                  
+                  <Text style={{color: '#878787',
+                    alignItems:'center',
+                    fontSize:hp('2%'),
+                    textAlign:'center',
+                    height:hp('3%'),
+                    width:wp('35%'),
+                    }}>Evitarás contaminar:</Text>
 
-                  </View>
+                  <Text style={{color: '#5DCB31',
+                    fontSize:hp('2.1%'),
+                    alignItems:'center',
+                    marginTop: '0%',
+                    marginRight:'0%',
+                    marginLeft:'0%',
+                    height:hp('5%'),
+                    width:wp('35%'),
+                    fontWeight:'bold',
+                    textAlign:'center',
+                    
+                    }}>{text4}</Text>
+        </View> 
+
+        </View>
+            {/*  Ahorro a 20 años*/}
+        <View style={{flexDirection:'row', flex:1, alignItems:'center',width:wp('50%')}} >
+                            
+        <View style={{ flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+              <Image
+              style={{width:wp('18%'), height:hp('11%'), marginLeft:'0%', 
+              marginTop: '0%'}}
+              source={require('../assets/saco.png')}
+              />
+        </View>
+
+        <View style={{height:hp('4%'), marginBottom:wp('0%'),
+            alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+                  
+                  <Text style={{color: '#878787',
+                    alignItems:'center',
+                    fontSize:hp('2%'),
+                    textAlign:'center',
+                    height:hp('3%'),
+                    width:wp('35%'),
+                    }}>Ahorro a 20 años:</Text>
+
+                  <Text style={{color: '#5DCB31',
+                    fontSize:hp('2.5%'),
+                    alignItems:'center',
+                    marginTop: '0%',
+                    marginRight:'0%',
+                    marginLeft:'0%',
+                    height:hp('5%'),
+                    width:wp('35%'),
+                    fontWeight:'bold',
+                    textAlign:'center',
+                    
+                    }}>{text5}</Text>
+        </View> 
+
+        </View>
 
                {/* Botón*/}
-               <View style={{marginBottom:'0%', marginTop:'0%', width:'100%', height:'90%', flex:2 }}>
+       <View style={{flex:2, alignItems:'center',width:wp('55%')}}>
 
                <TouchableOpacity
                      
-                     style={{ marginBottom:'0%'}}
+                     
                      onPress={() => this.props.navigation.navigate('Proceso de pago')} 
                                          
                      >
 
-                     <Text style={{height: '75%', 
-                     width:'100%',
+                     <Text style={{
+                     height: hp('5%'), 
+                     width: wp('64%'),
                      borderRadius:50,
                      fontWeight:'bold',
                      fontSize:20,
                      color: 'white', 
-                     marginBottom: "0%", 
-                     marginTop: "5%", 
-                     marginLeft: "0%", 
-                     marginRight: "0%",
-                     alignItems: "center",
                      textAlign:'center',
                      paddingLeft:40, 
                      paddingRight:40,
                      backgroundColor: '#5DCB31',
                      opacity:opacity,
-                     textAlignVertical:'center'}}> HACER PEDIDO </Text>
+                     textAlignVertical:'center'}}>HACER PEDIDO</Text>
 
                </TouchableOpacity>
              </View>

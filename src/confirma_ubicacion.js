@@ -15,15 +15,23 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button} from 'react-native-elements';
 import * as React from 'react';
 import Fire, {db} from '../fire';
-
-var {height} = Dimensions.get('screen');
+var {height, width} = Dimensions.get('screen');
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 var lat, lon, uri2
 
 //var uid = Fire.getUid()
 //console.log('UID: ', uid)
 
-const ubicaciones = () => {
-  ToastAndroid.show("Busca tu ubicación", ToastAndroid.SHORT);
+export var potenciaEstado, potenciaUbicacion, potencia
+
+potenciaFuncion = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
+  
+  potenciaUbicacion =  snapshot.child("potencia").val()})
+
+
+
+const ubicacionMensaje = () => {
+  ToastAndroid.show("Introduce ubicación", ToastAndroid.SHORT);
  
 };
 
@@ -38,158 +46,168 @@ const settings = () => {
 };
 
 
-export function ConfirmaUbicacion({ route, navigation }) {
+export class ConfirmaUbicacion extends React.Component {
 
   //uri2 = URI.uri
 
   //console.log('uri_home_screen: ', uri2)
 
 
-return (
+
+  render() {
+    return (
 
 
-    <View style={styles.container}>
-   
-    
               <ImageOverlay 
 
                   source={fondo}
-                  height={"100%"}
+                  height={hp('100%')}
                   overlayAlpha={0}
-                   
+                    
+                 >
+                
+                 <View style={{alignItem:'center', justifyContent:'center', width:wp('100%'), height:hp('100%'), flex:1, flexDirection:'column'}}>              
+                                
+                       <View style={{alignItem:'center', justifyContent:'center',marginTop:hp('20%') , width:wp('100%'), height:hp('100%'), flex:7, flexDirection:'column'}}>          
 
-                  >
-                   
-                <View style={{marginTop:'10%', marginBottom:'15%', marginLeft:'25%', marginRight:'0%', width:'100%', height:'50%', flex:4}}>           
-                                
-                       <TouchableOpacity 
-                                                                                  
-                            onPress={() => ubicaciones()}
-                              > 
-                              <View>
-                             
-                                    <Image 
-                                
-                                    source={ubicacion}
-                                    style={{marginTop:'0%', marginBottom:'0%', marginLeft:'7%', marginRight:'0%', width:'60%', height:'100%'}}
+                                 <View  style={{ alignItems:'center', flex:2,  justifyContent:'center'}}>
+                                                                 
+                                  <TouchableOpacity 
+                                                                                            
+                                      onPress={() => ubicacionMensaje() }
+                                        > 
+                                                                            
+                                              <Image 
+                                          
+                                              source={ubicacion}
+                                              style={{aspectRatio:1,   height:hp('40%')}}
+                                              
+                                              >    
+                                              </Image> 
+
+                                  
                                     
-                                    >    
-                                    </Image> 
+                                   </TouchableOpacity> 
 
-                              </View>
-                           
-                       </TouchableOpacity> 
-                       
-                        <View  style={{marginTop:'0%', marginBottom:'0%', marginLeft:'4%', marginRight:'5%', width:'92%', height:'30%'}}> 
-
-                                        <Text style={{ fontSize:20, fontWeight:'bold', width:'70%',  height: '80%',
-                                        color: 'grey', padding:8, textAlign:'center', marginLeft:'0%'
+                                   </View>  
+                                                                    
+                                  <View style={{alignItems:'center', width:wp('100%'), height:hp('15%'), flex:1, marginTop:hp('15%')}}>
+                                      <Text style={{ fontSize:17, fontWeight:'bold', color: 'grey', textAlign:'center'
                                         }}>Confirma tu ubicación</Text>
-                        
-                        </View> 
-                      
- 
-                      <TouchableOpacity 
-                                                                                    
-                        onPress={() => navigation.navigate('Pantalla de espera')}
-                        > 
-                        <View>
-                        
-                            <Image 
-                        
-                            source={calcular}
-                            style={{marginTop:'0%', marginBottom:'0%', marginLeft:'6%', marginRight:'0%', width:'62%', height:'77%'}}
-                            
-                            >               
-                            </Image> 
+                                                                
+                                  </View>     
 
-                            </View>
-                        
-                    </TouchableOpacity> 
+                                                          
+                                  <View  style={{ alignItems:'center', flex:2,  justifyContent:'center'}}>
+                                   <TouchableOpacity 
+                                                                                                    
+                                      onPress={() => this.props.navigation.navigate('Pantalla de espera'
+                                        )}
+                                        > 
+                                                                                
+                                          <Image 
+                                        
+                                            source={calcular}
+                                           style={{ aspectRatio:2.2, height:hp('18%')}}
+                                            
+                                            >               
+                                            </Image> 
 
-             </View> 
+                                      
+                                  </TouchableOpacity> 
+
+                                  </View>
+
+
+                                </View> 
             
            {/*Botones*/}     
-            <View style={{marginTop:'35%', marginBottom:'0%', marginLeft:'13%', marginRight:'65%', width:'30%', height:'80%', flex:2, flexDirection:'row'}}>  
+            <View style={{alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginTop:hp('5%')}}>  
                          
-                   
+                 <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                      <TouchableOpacity 
                                                                                   
-                     onPress={() => navigation.navigate('Solfium')}
+                     onPress={() => this.props.navigation.navigate('Solfium')}
                        > 
-                       <View style={{marginTop:'5%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'65%', height:'73%'}}>
-                      
-                                <Image 
-                                
-                                source={home}
-                                style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'52%', width:'92%', height:'80%'}}
-                                
-                                >    
-                                </Image> 
+                                             
+                        <Image 
+                        
+                        source={home}
+                        style={{aspectRatio:1, height:hp('9%')}}
+                        
+                        >    
+                        </Image> 
 
-                     </View>
-                    
+                                      
                     </TouchableOpacity> 
 
+                 </View>
+
+                <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                     <TouchableOpacity 
-                                                                                  
-                    onPress={() => user()
-                      }
+                                                                                 
+                    onPress={() => user()}
                       > 
-                      <View style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'50%', width:'61%', height:'73%'}}>
-                     
-                            <Image 
-                            
-                            source={usuario}
-                            style={{marginTop:'5%', marginBottom:'0%', marginLeft:'30%', marginRight:'50%', width:'92%', height:'80%'}}
-                            
-                            >    
-                            </Image> 
+                                            
+                       <Image 
+                       
+                       source={usuario}
+                       style={{aspectRatio:1, height:hp('9%')}}
+                       
+                       >    
+                       </Image> 
 
-                    </View>
-                   
+                                     
                    </TouchableOpacity> 
-                   
-                   <TouchableOpacity 
-                                                                                  
-                   onPress={() => settings()}
-                     > 
-                     <View style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'50%', width:'78%', height:'73%'}}>
-                    
-                     
-                     <Image 
-                      
-                      source={setting}
-                      style={{marginTop:'5%', marginBottom:'0%', marginLeft:'30%', marginRight:'5%', width:'92%', height:'80%'}}
-                      
-                      >    
-                     </Image> 
 
-                   </View>
+                  </View>
+
+                  <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                   
-                  </TouchableOpacity> 
+                  <TouchableOpacity 
+                                                                                 
+                    onPress={() => settings()}
+                      > 
+                                            
+                       <Image 
+                       
+                       source={setting}
+                       style={{aspectRatio:1, height:hp('9%')}}
+                       
+                       >    
+                       </Image> 
+
+                                     
+                   </TouchableOpacity> 
+
+                  </View>
 
                        
 
-                </View> 
+                </View>
+                
+                
+                { /* LOGO*/}
         
-                <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'60%', height:'55%', flex:1}}>  
-                         
-                    <Image 
-                      
-                      source={logo}
-                      style={{marginTop:'2%', marginBottom:'5%', marginLeft:'10%', marginRight:'0%', width:'80%', height:'75%'}}
-                      
-                      >    
-                     </Image>  
+                <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:2}}>  
+                
+                <Image 
+                  
+                  source={logo}
+                  style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
+                  
+                  >    
+                </Image>  
 
-                </View> 
+               </View> 
+
+            
+               </View> 
+               
               
                </ImageOverlay>
-              
-             
-               </View> 
-/* 
+        
+            /* 
                 </ScrollView>
              </KeyboardAvoidingView>
           */
@@ -197,41 +215,12 @@ return (
   );
   
 }
-
+}
 
 
 const styles = StyleSheet.create({
 
-  
-  container: {
-    flex:2,
-    width:'100%',
-    height:'100%',
-   
-    
-  },
-
-       //header
-    box1: {
-        flex: 1
-        
-    },
-    //content
-    box2: {
-        flex: 4,
-        alignItems: 'center'
-        
-    },
-    //footer
-    box3: {
-        flex: 10,
-        alignItems: 'center',
-        marginBottom:'5%',
-        marginTop:'0%'
-
-        
-    },
-
+ 
   logo: {
     
     width: "20%",
@@ -244,75 +233,10 @@ const styles = StyleSheet.create({
     
   },
 
-  boton: {
-    
-    
-     height: 40, 
-     width:'90%',
-     borderColor: 'black', 
-     borderWidth: 2, 
-     color: 'black', 
-     marginBottom: "0%", 
-     marginTop: "0%", 
-     marginLeft: 20, 
-     marginRight: 20,
-     alignItems: "center",
-     padding: 5, 
-     backgroundColor: 'orange'
-    
-    
-  },
-
-
-  texto: {
-    color: '#fff',
-    fontSize: 20,
-    marginHorizontal: 15,
-    marginBottom: 20,
-    fontWeight: 'bold'
-    
-    
-  },
- 
-  fondo: {
-    width: '100%'
-    
-    
-  },
-  btnContainer3: {
-   
-    justifyContent: 'center',
-    borderRadius: 10,
-    backgroundColor: '#2196F3',
-    padding: 5,
-    textAlign:'center',
-    alignItems:'center',
-    flexDirection: 'column',
-    width:310,
-    height:180,
-    marginBottom:2, marginTop:0
-  },
-
-  btnContainer4: {
-   
-    justifyContent: 'center',
-    borderRadius: 10,
-    backgroundColor: '#2196F3',
-    padding: 1,
-    textAlign:'center',
-    alignItems:'center',
-    flexDirection: 'column',
-    width:'90%',
-    height:'15%',
-    marginBottom:5, 
-    marginTop:0,
-    margin:'5%'
-  },
   nameInput: {
-    height: '55%',
-    marginRight: '2%',
-    marginBottom:'20%',
-    width:'72%',
+    height: hp('8%'),
+    marginBottom:'0%',
+    width:wp('60%'),
     paddingHorizontal: '0%',
     backgroundColor: 'white',
     fontSize: 20,
@@ -320,7 +244,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     paddingLeft: '10%'
    
-   
+
   }
   
 

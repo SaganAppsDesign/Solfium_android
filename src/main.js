@@ -13,8 +13,6 @@ import { TextInput } from 'react-native-paper';
 import ImageOverlay from "react-native-image-overlay";
 
 
-var fecha =  new Date()
-
 export class Main extends React.Component {
    
   state = {
@@ -25,10 +23,9 @@ export class Main extends React.Component {
   }
  
   user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
+    
     name: this.state.name
-  
-    //fecha: fecha,
-  
+    
     })
 
   

@@ -16,7 +16,6 @@ import carrito from "../assets/carrito.svg"
 
 
 
-
 var {height} = Dimensions.get('window');
 var {width} = Dimensions.get('window');
 

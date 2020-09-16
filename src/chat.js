@@ -1,28 +1,39 @@
 import * as React from 'react';
 import { GiftedChat, Bubble, Send, MessageText } from 'react-native-gifted-chat';
 import Fire from '../fire';
-import { StyleSheet, Text, View, Image, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, LogBox, Button, ActivityIndicator, ToastAndroid} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { IconButton } from 'react-native-paper';
+import {db} from '../fire';
 
 
+
+var name
+
+
+data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
+  
+  name =  snapshot.child("name").val()
+   
+
+});
 
 
 export class Chat extends React.Component {
 
 
-
 state = {
 
-    messages: []
+    messages: [],
+    name:''
     
 };
 
 
   render() {
-   
+   data()
 
-    const { name } = this.props.route.params;
+    //const { name } = this.props.route.params;
 
    
     return (

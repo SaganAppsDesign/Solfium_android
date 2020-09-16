@@ -26,15 +26,22 @@ import {MeInteresa } from './src/me_interesa';
 import {PagoUnico } from './src/pago_unico'; 
 import {Financiamiento } from './src/financiamiento'; 
 import 'react-native-gesture-handler';
+import {db} from './fire';
+import Fire from './fire';
 
 const Stack = createStackNavigator();
 
+console.disableYellowBox = true;
 
 class MyStack extends Component {
+
+    
  
  
   render(){ 
 
+
+  
   return (
     <Stack.Navigator
 

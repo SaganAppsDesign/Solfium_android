@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Dimensions, ScrollView, Image, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, View, Dimensions, ScrollView, Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button, Card} from 'react-native-elements';
 import ImageOverlay from "react-native-image-overlay";
@@ -14,12 +14,22 @@ import logo from '../assets/logo.png';
 import chat from '../assets/chat.png';
 import carrito from "../assets/carrito.svg"
 import verResultado from '../assets/verResultado.png'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 
 
 var {height} = Dimensions.get('window');
 var {width} = Dimensions.get('window');
+const user = () => {
+  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
+ 
+};
+
+const settings = () => {
+  ToastAndroid.show("Settings", ToastAndroid.SHORT);
+ 
+};
 
 
 
@@ -34,43 +44,41 @@ export class PantallaEspera extends React.Component {
 
     <ImageOverlay 
           source={fondo}
-          height={height}  
+          height={hp('100%')}  
           overlayAlpha={0}                 
           > 
                               
-        <View style={{flex:1,  marginTop:'0%', marginBottom:'0%', width:'100%', height:'100%'}}>
+          <View style={{alignItem:'center', justifyContent:'center', width:wp('100%'), height:hp('100%'), flex:1, flexDirection:'column'}}>  
                                                         
                           
-                <View style={{alignItems: 'center', flexDirection:'column', marginBottom:'0%', marginTop: '0%', flex:14, width:'100%', height:'100%'}}>
+                <View style={{alignItems: 'center', flexDirection:'column',flex:9, width:wp('100%'), height:hp('100%')}}>
                       
-                    <View style={{marginTop: '50%', alignItems: 'center', flex:3, width:'100%', height:'100%'}}>
+                    <View style={{marginTop: hp('25%'), alignItems: 'center', flex:2}}>
                           <Image
-                              style={{width:'30%', height:'100%',marginTop: '0%'}}
+                              style={{width:wp('35%'), height:hp('20%'),marginTop: '0%'}}
                               source={require('../assets/loader.gif')}
                               />
                     </View>
               
-                    <View style={{flex:2}}>
+                    <View style={{flex:1}}>
                         <Text style={{color: '#fff',
                             
-                            marginTop: '10%',
-                            marginLeft:'35%',
-                            height:'100%',
-                            width:'100%',
-                            padding: 0,
+                            marginLeft:wp('90%'),
+                            marginTop:wp('5%'),
+                            height:hp('100%'),
+                            width:wp('100%'),
                             fontWeight:'bold',
-                            marginBottom:'100%', 
-                            fontSize: 20
+                            fontSize: hp('3%'),
+                            
                             }}>
 
-                            Ver resultado
+                           Calculando...
 
                         </Text>
                        
                     </View>
                  
-                    <View style={{marginTop:'0%', marginBottom:'0%',
-                    marginLeft:'0%', marginRight:'0%', width:'0%', flex:2,width:'100%', height:'100%'}}>
+                    <View style={{flex:2}}>
                         
                                 <TouchableOpacity 
                                                                         
@@ -80,7 +88,7 @@ export class PantallaEspera extends React.Component {
                                             
                                             source={verResultado}
                                             style={{
-                                            width:'12%', height:'77%', marginLeft:'70%'}}
+                                            aspectRatio:1,  height:hp('6%'), marginLeft:wp('50%')}}
                                             
                                             >    
                                             </Image> 
@@ -94,80 +102,85 @@ export class PantallaEspera extends React.Component {
 
 
 
-            {/*Botones*/}     
-            <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'3%', marginRight:'0%', width:'30%', height:'10%', flex:3, flexDirection:'row'}}>  
-              {/*HOME*/}         
-                <TouchableOpacity 
+                {/*Botones*/}     
+           <View style={{alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginTop:hp('0%')}}>  
+                         
+           <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+               <TouchableOpacity 
                                                                             
-                onPress={() => this.props.navigation.navigate('Solfium')}
-                  > 
-                  <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'100%', height:'100%'}}>
-                
-                          <Image 
-                          
-                          source={home}
-                          style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'52%', width:'58%', height:'75%'}}
-                          
-                          >    
-                          </Image> 
+               onPress={() => this.props.navigation.navigate('Solfium')}
+                 > 
+                                       
+                  <Image 
+                  
+                  source={home}
+                  style={{aspectRatio:1, height:hp('9%')}}
+                  
+                  >    
+                  </Image> 
 
-                </View>
-              
+                                
               </TouchableOpacity> 
-           {/*USUARIO*/}     
-              <TouchableOpacity 
-                                                                            
-              onPress={() => this.props.navigation.navigate('Solfium')            
-                }> 
-                <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'100%', height:'100%'}}>
-                
-                      <Image 
-                      
-                      source={usuario}
-                      style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'52%', width:'58%', height:'75%'}}
-                      
-                      >    
-                      </Image> 
 
-              </View>
-              
-              </TouchableOpacity> 
-         
-          {/*SETTING*/}     
+           </View>
+
+          <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
               <TouchableOpacity 
-                                                                            
-              onPress={() => this.props.navigation.navigate('Solfium')}
+                                                                           
+              onPress={() => user()}
                 > 
-              
-                <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'10%', marginRight:'50%', width:'100%', height:'100%'}}>
-                          
-                <Image 
-                
-                source={setting}
-                style={{marginTop:'5%', marginBottom:'0%', marginLeft:'0%', marginRight:'52%', width:'58%', height:'75%'}}
-                
-                >    
-                </Image> 
+                                      
+                 <Image 
+                 
+                 source={usuario}
+                 style={{aspectRatio:1, height:hp('9%')}}
+                 
+                 >    
+                 </Image> 
 
-              </View>
+                               
+             </TouchableOpacity> 
+
+            </View>
+
+            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
             
-            </TouchableOpacity> 
+            <TouchableOpacity 
+                                                                           
+              onPress={() => settings()}
+                > 
+                                      
+                 <Image 
+                 
+                 source={setting}
+                 style={{aspectRatio:1, height:hp('9%')}}
+                 
+                 >    
+                 </Image> 
 
-       </View> 
+                               
+             </TouchableOpacity> 
 
-      {/*logo*/}  
+            </View>
 
-       <View style={{alignItems:'center',  marginTop:'0%', marginBottom:'2%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:2}}>  
-                
-           <Image 
-             
-             source={logo}
-             style={{alignItems:'center', marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'42%', height:'55%'}}
-             
-             >    
-            </Image>  
+                 
 
-        </View> 
+          </View>
+          
+          
+          { /* LOGO*/}
+  
+          <View style={{alignItems:'center', justifyContent:'center',flex:1}}>  
+          
+          <Image 
+            
+            source={logo}
+            style={{aspectRatio:4.5, width:wp('100%'), height:hp('4%'), marginBottom:hp('3%')}}
+            
+            >    
+          </Image>  
+
+         </View> 
 
        
        </View>

@@ -119,86 +119,86 @@ export class Financiamiento extends React.Component {
                               height:'100%',
                               width:'100%',
                               fontSize:15,
-                              padding: 0}}>3 MESES</Text>
-                            </ImageBackground>
-                       </TouchableOpacity>
-                  
-                    </Card>
-
-                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
-                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
-
-                    <TouchableOpacity
-                       
-                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
-                       onPress={() =>  meses()} 
-                                           
-                       >
-                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
-                              
-                            <Text style={{
-                              color: '#fff',
-                              marginTop: '7%',
-                              textAlign:'center',
-                              fontWeight:'bold',
-                              marginRight:'0%',
-                              marginLeft:'0%',
-                              height:'100%',
-                              width:'100%',
-                              fontSize:15,
-                              padding: 0}}>6 MESES</Text>
-                            </ImageBackground>
-                       </TouchableOpacity>
-                  
-                    </Card>
-                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
-                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
-
-                    <TouchableOpacity
-                       
-                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
-                       onPress={() =>  meses()} 
-                                           
-                       >
-                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
-                              
-                            <Text style={{
-                              color: '#fff',
-                              marginTop: '7%',
-                              textAlign:'center',
-                              fontWeight:'bold',
-                              marginRight:'0%',
-                              marginLeft:'0%',
-                              height:'100%',
-                              width:'100%',
-                              fontSize:15,
-                              padding: 0}}>12 MESES</Text>
-                            </ImageBackground>
-                       </TouchableOpacity>
-                  
-                    </Card>
-                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
-                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
-
-                    <TouchableOpacity
-                       
-                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
-                       onPress={() =>  meses()} 
-                                           
-                       >
-                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
-                              
-                            <Text style={{
-                              color: '#fff',
-                              marginTop: '7%',
-                              textAlign:'center',
-                              fontWeight:'bold',
-                              marginRight:'0%',
-                              marginLeft:'0%',
-                              height:'100%',
-                              width:'100%',
-                              fontSize:15,
                               padding: 0}}>24 MESES</Text>
+                            </ImageBackground>
+                       </TouchableOpacity>
+                  
+                    </Card>
+
+                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
+                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
+
+                    <TouchableOpacity
+                       
+                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
+                       onPress={() =>  meses()} 
+                                           
+                       >
+                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
+                              
+                            <Text style={{
+                              color: '#fff',
+                              marginTop: '7%',
+                              textAlign:'center',
+                              fontWeight:'bold',
+                              marginRight:'0%',
+                              marginLeft:'0%',
+                              height:'100%',
+                              width:'100%',
+                              fontSize:15,
+                              padding: 0}}>36 MESES</Text>
+                            </ImageBackground>
+                       </TouchableOpacity>
+                  
+                    </Card>
+                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
+                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
+
+                    <TouchableOpacity
+                       
+                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
+                       onPress={() =>  meses()} 
+                                           
+                       >
+                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
+                              
+                            <Text style={{
+                              color: '#fff',
+                              marginTop: '7%',
+                              textAlign:'center',
+                              fontWeight:'bold',
+                              marginRight:'0%',
+                              marginLeft:'0%',
+                              height:'100%',
+                              width:'100%',
+                              fontSize:15,
+                              padding: 0}}>48 MESES</Text>
+                            </ImageBackground>
+                       </TouchableOpacity>
+                  
+                    </Card>
+                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
+                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
+
+                    <TouchableOpacity
+                       
+                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
+                       onPress={() =>  meses()} 
+                                           
+                       >
+                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
+                              
+                            <Text style={{
+                              color: '#fff',
+                              marginTop: '7%',
+                              textAlign:'center',
+                              fontWeight:'bold',
+                              marginRight:'0%',
+                              marginLeft:'0%',
+                              height:'100%',
+                              width:'100%',
+                              fontSize:15,
+                              padding: 0}}>60 MESES</Text>
                             </ImageBackground>
                        </TouchableOpacity>
                   
