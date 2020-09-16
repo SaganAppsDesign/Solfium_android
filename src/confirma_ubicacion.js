@@ -22,13 +22,6 @@ var lat, lon, uri2
 //var uid = Fire.getUid()
 //console.log('UID: ', uid)
 
-export var potenciaEstado, potenciaUbicacion, potencia
-
-potenciaFuncion = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
-  
-  potenciaUbicacion =  snapshot.child("potencia").val()})
-
-
 
 const ubicacionMensaje = () => {
   ToastAndroid.show("Introduce ubicación", ToastAndroid.SHORT);
@@ -55,6 +48,11 @@ export class ConfirmaUbicacion extends React.Component {
 
 
   render() {
+
+   /*  potenciaFuncion()
+    console.log('potenciaUbicacion2: ', potenciaUbicacion) */
+
+
     return (
 
 

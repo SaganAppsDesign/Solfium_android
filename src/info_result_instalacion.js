@@ -109,16 +109,10 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
 export class InfoResultInsta extends React.Component {
   
 
-    
-  componentDidMount() {
-    data()
-    
-  }
-  
  
   render() {
 
-      
+    data()
 
   return (  
 

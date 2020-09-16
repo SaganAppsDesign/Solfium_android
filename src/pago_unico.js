@@ -13,14 +13,7 @@ import usuario from '../assets/usuario.png';
 import logo from '../assets/logo.png'; 
 import chat from '../assets/chat.png';
 import carrito from "../assets/carrito.svg"
-
-
-
-
-var {height} = Dimensions.get('window');
-var {width} = Dimensions.get('window');
-
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export class PagoUnico extends React.Component {
 
@@ -33,237 +26,213 @@ export class PagoUnico extends React.Component {
 
     <ImageOverlay 
           source={tec3}
-          height={height}  
+          height={hp('100%')}   
           overlayAlpha={0}                 
           > 
                               
-            <View style={{flex:1,  marginTop:'0%', marginBottom:'0%', width:'100%', height:'100%'}}>
+            <View style={{flex:1, width:wp('100%'), height:hp('100%')}}>
                     
-                  <View style={{marginTop:'2%', marginBottom:'0%', marginLeft:'80%', flex:2, width:'100%', height:'100%', justifyContent:'center'}}>   
-                                    
-                        <TouchableOpacity 
-                                                                                    
-                        onPress={() => this.props.navigation.navigate('Chat')}
-                        > 
-                            <Image 
-                            
-                                source={chat}
-                                style={{width:'13%', height:'90%'}}
-                                
-                                >    
-                                </Image> 
-                   
-                        </TouchableOpacity> 
-
-                </View>
+                 {/*Chat*/}
+                  <View style={{marginTop:hp('1%'), marginLeft:wp('80%'), flex:1}}>   
+                                                
+                      <TouchableOpacity 
+                                                                                  
+                      onPress={() => this.props.navigation.navigate('Chat')}
+                      > 
+                      <View>
                       
+                              <Image 
                           
-                <View style={{ alignItems: 'center', flexDirection:'column', marginBottom:'0%', marginTop: '0%', flex:12, width:'100%', height:'100%'}}>
-                
-                
-                  <View style={{ alignItems: 'center', flexDirection:'column', flex:1,  width:'100%', height:'100%', margiTop:'0%'}}>
-                   
-                    <View style={{backgroundColor:'rgba(0,0,0,0)', alignItems: 'center', flex:8, flexDirection:'column', width:'100%', height:'100%'}}>     
-                    <Card containerStyle={{backgroundColor:'rgba(0,0,0,0)',  marginTop: '10%', borderRadius: 10, 
-                          width:'65%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
-
-                        <ImageBackground source={require('../assets/fondo2.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
-                          <Text style={{
-                          color: '#fff',
-                          marginTop: '10%',
-                          textAlign:'center',
-                          fontWeight:'bold',
-                          marginRight:'0%',
-                          marginLeft:'0%',
-                          height:'100%',
-                          width:'100%',
-                          fontSize:20,
-                          padding: 0}}>PAGO ÚNICO</Text>
-                       
-                        </ImageBackground>
-                      
-                    </Card>
-
-                    <Card containerStyle={{marginTop: '12%', borderRadius: 10, 
-                    width:'50%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
-
-                    
-                     <TouchableOpacity
-                       
-                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
-                       onPress={() => this.props.navigation.navigate('Pago único')} 
-                                           
-                       >
-                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
+                              source={chat}
+                              style={{aspectRatio:1, height:hp('8%')}}
                               
-                            <Text style={{
-                              color: '#fff',
-                              marginTop: '9%',
-                              textAlign:'center',
-                              fontWeight:'bold',
-                              marginRight:'0%',
-                              marginLeft:'0%',
-                              height:'100%',
-                              width:'100%',
-                              fontSize:15,
-                              padding: 0}}>TARJETA DE CRÉDITO</Text>
-                            </ImageBackground>
-                       </TouchableOpacity>
-                  
-                    </Card>
-
-                    <Card containerStyle={{ marginTop: '5%', borderRadius: 10, 
-                    width:'55%', height:'0%', marginBottom:'0%', padding:0, flex:1}}>
-
-                    <TouchableOpacity
-                       
-                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'100%'}}
-                       onPress={() => this.props.navigation.navigate('Financiamiento')} 
-                                           
-                       >
-                       <ImageBackground source={require('../assets/fondo4.jpg')} style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
-                              
-                            <Text style={{
-                              color: '#fff',
-                              marginTop: '9%',
-                              textAlign:'center',
-                              fontWeight:'bold',
-                              marginRight:'0%',
-                              marginLeft:'0%',
-                              height:'100%',
-                              width:'100%',
-                              fontSize:15,
-                              padding: 0}}>TRANSFERENCIA BANCARIA</Text>
-                            </ImageBackground>
-                       </TouchableOpacity>
-                  
-                    </Card>
-
-                    </View>
-
-                      <View style={{alignItems: 'center', flex:2, width:'100%', height:'100%'}}>
-                      <Image
-                          style={{width:'25%', height:'100%', marginLeft:'0%', marginTop: '-80%'}}
-                          source={require('../assets/carrito.png')}
-                          />
-                    </View>
-                    </View>
-                 </View>
-                
-              <View style={{marginLeft:'20%', marginTop:'0%', width:'60%', height:'100%', flex:2}}>
-
-                 <TouchableOpacity
-                       
-                       style={{alignItems: 'center', marginBottom:'0%', width:'100%', height:'90%'}}
-                       onPress={() => this.props.navigation.navigate('Confirmar compra')} 
-                                           
-                       >
-  
-                       <Text style={{
-                       height: '100%', 
-                       width:'100%',
-                       borderRadius:50,
-                       fontWeight:'bold',
-                       fontSize:25,
-                       color: 'white', 
-                       marginBottom: "0%", 
-                       marginTop: "0%", 
-                       marginLeft: "0%", 
-                       marginRight: "0%",
-                       alignItems: "center",
-                       textAlign:'center',
-                       paddingLeft:40, 
-                       paddingRight:40,
-                       backgroundColor: '#5DCB31',
-                       textAlignVertical:'center'}}> PAGAR </Text>
-  
-                 </TouchableOpacity>
-               </View>
-
-            {/*Botones*/}     
-            <View style={{marginTop:'2%', marginBottom:'2%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:2, flexDirection:'row'}}>  
-              {/*HOME*/}  
-              
-              <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', width:'100%', height:'100%', marginRight:'0%', flex:1}}>      
-                <TouchableOpacity 
-                                                                            
-                onPress={() => this.props.navigation.navigate('Solfium')}
-                  > 
-                  
-                  <View style={{alignItems:'center'}}>
-                          <Image 
-                          
-                          source={home}
-                          style={{ marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'48%', height:'100%'}}
-                          >    
-                          </Image> 
-
-                  </View>
-              
-              </TouchableOpacity> 
-               </View>
-           {/*USUARIO*/} 
-           
-           <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:1}}>
-              <TouchableOpacity 
-                                                                            
-              onPress={() => this.props.navigation.navigate('Solfium')            
-                }> 
-               
-                <View style={{alignItems:'center'}}>
-                      <Image 
-                      
-                      source={usuario}
-                      style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'48%', height:'100%'}}
-                      
-                      >    
-                      </Image> 
+                              >    
+                              </Image> 
 
                       </View>
-              </TouchableOpacity> 
-            </View>
-         
-          {/*SETTING*/}    
-          
-          <View style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:1}}>
-              <TouchableOpacity 
-                                                                            
-              onPress={() => this.props.navigation.navigate('Solfium')}
-                > 
-              
-                <View style={{alignItems:'center'}}>
+                  
+                      </TouchableOpacity> 
+
+                  </View>
+                      
+                  {/*BODY*/}          
+             
+                                      
+                 <View style={{alignItems: 'center', flex:8, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
+                    
+                    <View style={{alignItems: 'center', flex:1.5, width:wp('100%'), height:hp('5%'), marginTop:hp('15%'), position: 'absolute' }}>
+                            <ImageBackground source={require('../assets/fondo2.jpg')} style={{alignItems:'center', overflow: 'hidden', resizeMode: "cover", width:wp('60%'), height:hp('15%'),  borderRadius: 10}}>
+                              <Text style={{
+                              color: '#fff',
+                              marginTop: hp('5%'),
+                              textAlign:'center',
+                              height:hp('5%'),
+                              fontSize:hp('4%'),
+                             
+                              }}>PAGO ÚNICO</Text>
                           
-                <Image 
-                
-                source={setting}
-                style={{marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'48%', height:'100%'}}
-                
-                >    
-                </Image> 
+                            </ImageBackground>
+                     
+                    </View>
 
-                </View>
+                    <View style={{alignItems: 'center', flex:2, width:wp('100%'), height:hp('15%') }}>
+                    <Image
+                        style={{aspectRatio:1, height:hp('20%'), marginTop:hp('2%')}}
+                        source={require('../assets/carrito.png')}
+                        />
+                    </View>
+
+                     <View style={{backgroundColor:'rgba(0,255,54,0)', alignItems: 'center', flex:2,  width:wp('100%'), height:hp('5%'), marginTop:hp('28%'), marginBottom:hp('5%')}}>
+                     <TouchableOpacity
+                       
+                      
+                                           
+                       >
+                       <ImageBackground source={require('../assets/boton_naranja.png')} style={{ justifyContent:'center',overflow: 'hidden', resizeMode: "cover", width:hp('30%'), height:hp('8%'),  borderRadius: 10}}>
+                              
+                            <Text style={{
+                              color: '#fff',
+                              textAlign:'center',
+                              fontWeight:'bold',
+                              fontSize:hp('2%'),
+                               }}>TARJETA DE CRÉDITO</Text>
+                            </ImageBackground>
+                       </TouchableOpacity>
+                  
+                       </View>
+
+                      <View style={{backgroundColor:'rgba(0,255,54,0)', alignItems: 'center', flex:2,  width:wp('100%'), height:hp('10%') }}>
+                        <TouchableOpacity
+                          
+                      
+                        
+                                              
+                          >
+                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{ justifyContent:'center',overflow: 'hidden', resizeMode: "cover", width:hp('30%'), height:hp('8%'),  borderRadius: 10}}>
+                                  
+                                <Text style={{
+                                  color: '#fff',
+                                  textAlign:'center',
+                                  fontWeight:'bold',
+                                  fontSize:hp('2%'),
+                                 }}>TRANSFERENCIA BANCARIA</Text>
+                                </ImageBackground>
+                          </TouchableOpacity>
+                          </View>
+
+
+                          <View style={{justifyContent:'center', alignItems:'center', marginTop:hp('5%'), width:hp('100%'), height:hp('100%'), flex:1.5}}>
+
+                          <TouchableOpacity
+                              
+                            
+                              onPress={() => this.props.navigation.navigate('Confirmar compra')} 
+                                                  
+                              >
+          
+                              <Text style={{backgroundColor:'blue',  
+                              
+                              borderRadius:50,
+                              fontWeight:'bold',
+                              fontSize:25,
+                              color: 'white', 
+                              textAlign:'center',
+                              paddingLeft:wp('20%'), 
+                              paddingRight:wp('20%'),
+                              backgroundColor: '#5DCB31',
+                              textAlignVertical:'center'}}> PAGAR </Text>
+          
+                          </TouchableOpacity>
+                     </View>
+
+
+                    </View>
+ 
+              </View>
+              
+            
+         
+            {/*Botones*/}     
+           <View style={{ marginTop:hp('2%'), alignItems:'center', flex:0.15,  justifyContent:'center', flexDirection:'row'}}>  
                          
-            </TouchableOpacity> 
+           <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+               <TouchableOpacity 
+                                                                            
+               onPress={() => this.props.navigation.navigate('Solfium')}
+                 > 
+                                       
+                  <Image 
+                  
+                  source={home}
+                  style={{aspectRatio:1, height:hp('9%')}}
+                  
+                  >    
+                  </Image> 
+
+                                
+              </TouchableOpacity> 
+
+           </View>
+
+          <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+              <TouchableOpacity 
+                                                                           
+              onPress={() => user()}
+                > 
+                                      
+                 <Image 
+                 
+                 source={usuario}
+                 style={{aspectRatio:1, height:hp('9%')}}
+                 
+                 >    
+                 </Image> 
+
+                               
+             </TouchableOpacity> 
+
             </View>
 
-       </View> 
+            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+            
+            <TouchableOpacity 
+                                                                           
+              onPress={() => settings()}
+                > 
+                                      
+                 <Image 
+                 
+                 source={setting}
+                 style={{aspectRatio:1, height:hp('9%')}}
+                 
+                 >    
+                 </Image> 
 
-      {/*logo*/}  
+                               
+             </TouchableOpacity> 
 
-       <View style={{alignItems:'center',  marginTop:'0%', marginBottom:'10%', marginLeft:'0%', marginRight:'0%', width:'100%', height:'100%', flex:1}}>  
-                
-           <Image 
-             
-             source={logo}
-             style={{alignItems:'center', marginTop:'0%', marginBottom:'0%', marginLeft:'0%', marginRight:'0%', width:'35%', height:'100%'}}
-             
-             >    
-            </Image>  
+            </View>
 
-        </View> 
+                 
 
+          </View>
+          
+          
+          { /* LOGO*/}
+  
+          <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:0.18}}>  
+          
+          <Image 
+            
+            source={logo}
+            style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
+            
+            >    
+          </Image>  
+
+         </View> 
        
-       </View>
+
 
 
     </ImageOverlay> 

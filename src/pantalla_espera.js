@@ -1,26 +1,17 @@
 import * as React from 'react';
 import {Text, View, Dimensions, ScrollView, Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button, Card} from 'react-native-elements';
 import ImageOverlay from "react-native-image-overlay";
 import fondo from '../assets/fondo3.jpg'; 
-import fondo2 from '../assets/fondo2.jpg';   
-import fondo6 from '../assets/fondo6.jpg'; 
-import calculos from '../assets/calculos_finales.png';  
 import home from '../assets/home.png'; 
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
 import logo from '../assets/logo.png'; 
-import chat from '../assets/chat.png';
-import carrito from "../assets/carrito.svg"
+import Fire, {db} from '../fire';
 import verResultado from '../assets/verResultado.png'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
+export var potenciaUbicacion
 
-
-
-var {height} = Dimensions.get('window');
-var {width} = Dimensions.get('window');
 const user = () => {
   ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
  
@@ -34,6 +25,21 @@ const settings = () => {
 
 
 export class PantallaEspera extends React.Component {
+
+  state = {
+
+    potencia: '',
+   
+  }
+   
+
+
+  
+siguiente = () =>  {
+    
+    
+      this.props.navigation.navigate('Cálculos')}
+  
 
 
  render() {
@@ -79,10 +85,12 @@ export class PantallaEspera extends React.Component {
                     </View>
                  
                     <View style={{flex:2}}>
+
+
                         
                                 <TouchableOpacity 
                                                                         
-                                    onPress={() => this.props.navigation.navigate('Cálculos')}
+                                    onPress={() => {this.siguiente()}}
                                     >
                                             <Image 
                                             
@@ -190,6 +198,9 @@ export class PantallaEspera extends React.Component {
 
   );
 }
+
+
+
 }
 
 

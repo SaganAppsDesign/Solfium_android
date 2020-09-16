@@ -56,24 +56,18 @@ return (
                    </View>
            
                   { /* Botones*/}
-                  <View  style={{ alignItems:'center', flex:4,  justifyContent:'center'}}>
+                      <View  style={{ alignItems:'center', flex:4,  justifyContent:'center'}}>
 
                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                             <TouchableOpacity 
                                                                                         
-                                  onPress={() => navigation.navigate('Nombre usuario', {
-
-                                      costeInstalacion: 5500,
-                                      ahorroOferta: 850
-      
-                                    }
-                                    )}
+                                  onPress={() => navigation.navigate('Nombre usuario')}
                                     > 
                                                               
                                     <Image 
                               
                                     source={visita}
-                                    style={{marginLeft:wp('0%'), width:wp('70%'), height:hp('18%')}}
+                                    style={{marginLeft:wp('0%'), width:wp('70%'), height:hp('16%')}}
                                     
                                     >    
                                   </Image> 

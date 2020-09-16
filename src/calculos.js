@@ -14,13 +14,6 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import Fire, {db} from '../fire';
 
 
-var potenciaUbicacion
-
-
-potenciaFuncion = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
-  
-  potenciaUbicacion =  snapshot.child("potencia").val()})
-
 
 
 var viabilidad
@@ -29,8 +22,19 @@ var text2='$ 2,000',text3='$ 30,000',text4='540 kg de carbono',text5='$ 600,000'
 var {height} = Dimensions.get('window');
 var {width} = Dimensions.get('window');
 
+var potenciaUbicacion = 0
+var potencia
 
- const user = () => {
+db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
+  
+  potenciaUbicacion =  snapshot.val().potencia
+    
+}
+)
+
+
+
+const user = () => {
   ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
  
 };
@@ -40,18 +44,26 @@ const settings = () => {
  
 };
 
-
 export class Calculos extends React.Component {
 
-  componentDidMount() {
-    
-    console.log('potenciaCalculo', potenciaUbicacion*26)
-    
-  }
+
+ state= {
+      
+  potencia:0
+
+ }
+  
 
   render() {
+    
+    
 
     potenciaFuncion()
+
+    //this.setState({potencia}) 
+   // console.log('funcion', this.state.potencia) 
+     
+    
 
 
   return (
@@ -228,7 +240,7 @@ export class Calculos extends React.Component {
                     fontWeight:'bold',
                     textAlign:'center',
                     
-                    }}>{(potenciaUbicacion*8000 / Number(50))+ 'Kg de carbono '}</Text>
+                    }}>{(potenciaUbicacion*8000 / Number(50))+ ' Kg de carbono '}</Text>
         </View> 
 
         </View>

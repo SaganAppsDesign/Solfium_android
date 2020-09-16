@@ -89,7 +89,7 @@ state = {
 
 componentDidMount() {
 
-  LogBox.ignoreLogs(["Setting a timer"]);
+ // LogBox.ignoreLogs(["Setting a timer"]);
   
     Fire.loadMessages((message) => {
         

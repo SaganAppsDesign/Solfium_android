@@ -15,6 +15,7 @@ export const db = app.database();
 
 
 
+
 export class Fire {
 
   uid = ''
@@ -63,8 +64,6 @@ export class Fire {
   }
 
   loadMessages(callback){
-
-      
 
     this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
