@@ -202,9 +202,9 @@ return (
 
          </View> 
 
-                </View>
+    </View>
 
-               </ImageOverlay>
+    </ImageOverlay>
 
   );
   

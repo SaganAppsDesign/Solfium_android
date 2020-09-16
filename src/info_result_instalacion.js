@@ -182,9 +182,9 @@ export class InfoResultInsta extends React.Component {
                       <Text style={{color: '#878787',
                                     textAlign:'center',
                                     fontSize:hp('2%'),
-                                    marginTop: hp('1%'),
-                                    height:hp('50%'),
-                                    width:wp('50%'),
+                                    marginTop: hp('0%'),
+                                    height:hp('45%'),
+                                    width:wp('60%'),
                                   
                                      }}> {text} </Text>
              </View> 
