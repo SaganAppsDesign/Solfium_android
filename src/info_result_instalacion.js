@@ -19,24 +19,12 @@ import usuario from '../assets/usuario.png'
 import fondo from '../assets/fondo2.jpg';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-
-
-var {height} = Dimensions.get('window');
-var viabilidad, user=''
+//var viabilidad, user=''
 var text,text1,text2,text3,text4,text5,color,opacity,backgroundcolor, viable
-var potenciaUbicacion
 
 
-potenciaFuncion = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
-  
-  potenciaUbicacion =  snapshot.child("potencia").val()})
-
-
-data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
-  
-  user =  snapshot.child("name").val()
-  viabilidad = snapshot.child("Viabilidad").val()
-  console.log('viabilidad: ',viabilidad)
+data = () =>  {
+   
    
   if (viabilidad == '100%'){
     viable = "VIABLE"
@@ -103,16 +91,84 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
 
   }
 
-});
+}
 
 
 export class InfoResultInsta extends React.Component {
   
+  state = {
+    viabilidad: '',
+    username: ''
+  }
 
  
   render() {
+    console.log('viabilidad componentDidMount',   this.state.viabilidad)
+    
 
-    data()
+  if (this.state.viabilidad == '100%'){
+    viable = "VIABLE"
+    text = '¡Felicidades ' + this.state.username + '! Se puede realizar en su hogar el ' + this.state.viabilidad + ' de la instalación' 
+    text1 = '$24,000' 
+    text2 = '$2,000' 
+    text3 = '$30,000' 
+    text4 = '540 Kg de carbono' 
+    text5 = '$600,000' 
+    color = '#5DCB31'
+    opacity = 1
+    backgroundcolor = 'white'
+     
+  } else if (this.state.viabilidad == 'evaluando'){
+    viable = "EVALUANDO INSTALACIÓN"
+    text = this.state.user + ', espere mientras se evalúa su posible instalación' 
+    text1 = '-' 
+    text2 = '-' 
+    text3 = '-' 
+    text4 = '-' 
+    text5 = '-' 
+    color = 'grey'
+    backgroundcolor = 'rgba(255, 255, 255, 0)'
+    opacity = 0
+
+  } else if (this.state.viabilidad == null){
+    viable = "PENDIENTE CONTACTO CON INSTALADOR"
+    text = this.state.user + ', en breve el personal de instalación se pondrá en contacto con usted.' 
+    text1 = '-' 
+    text2 = '-' 
+    text3 = '-' 
+    text4 = '-' 
+    text5 = '-' 
+    color = 'grey'
+    backgroundcolor = 'rgba(255, 255, 255, 0)'
+    opacity = 0
+
+   
+  } else if (this.state.viabilidad == '50%'){
+    viable = "VIABLE A LA BAJA"
+    text = '¡Felicidades ' + this.state.user + '! Al menos se puede realizar un ' + this.state.viabilidad + ' de la instalación, lo cual supone el siguiente ahorro:' 
+    text1 = '$20,000' 
+    text2 = '$1,000' 
+    text3 = '$22,000' 
+    text4 = '210 Kg de carbono' 
+    text5 = '$250,000' 
+    color = 'orange'
+    opacity = 1
+    backgroundcolor = 'white'
+    
+  } else {
+    viable = "NO ES VIABLE"
+    text = this.state.user + ', lo sentimos, no se puede realizar la instalación' 
+    text1 = '-' 
+    text2 = '-' 
+    text3 = '-' 
+    text4 = '-' 
+    text5 = '-' 
+    color = 'red'
+    opacity = 0
+    backgroundcolor = 'white'
+  
+  }
+    //data()
 
   return (  
 
@@ -423,6 +479,29 @@ export class InfoResultInsta extends React.Component {
      
        
   )}
+
+  componentDidMount() {
+
+
+    const ref = db.ref('/Usuarios/' +  Fire.getUid());
+
+    this.listener = ref.on("value", snapshot => {
+  
+    this.setState({viabilidad: snapshot.child("Viabilidad").val() || '',
+                   username: snapshot.child("name").val() || ''  })    
+ 
+   // this.setState({username: snapshot.child("name").val() || ''})
+  
+
+
+
+
+  
+  }
+  )
+
+}
+
 }
 
 

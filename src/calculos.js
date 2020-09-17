@@ -17,20 +17,11 @@ import Fire, {db} from '../fire';
 
 
 var viabilidad
-var text1 = '$ ' + parseFloat(potenciaUbicacion*26).toFixed(2)
+//var text1 = '$ ' + parseFloat(potenciaUbicacion*26).toFixed(2)
 var text2='$ 2,000',text3='$ 30,000',text4='540 kg de carbono',text5='$ 600,000',color,opacity,backgroundcolor, viable
 var {height} = Dimensions.get('window');
 var {width} = Dimensions.get('window');
 
-var potenciaUbicacion = 0
-var potencia
-
-db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
-  
-  potenciaUbicacion =  snapshot.val().potencia
-    
-}
-)
 
 
 
@@ -46,27 +37,19 @@ const settings = () => {
 
 export class Calculos extends React.Component {
 
+  state = {
+    potenciaUbicacion: 0
+  }
 
- state= {
-      
-  potencia:0
-
- }
-  
 
   render() {
+
     
-    
-
-    potenciaFuncion()
-
-    //this.setState({potencia}) 
-   // console.log('funcion', this.state.potencia) 
-     
-    
+    console.log('Valor en el render ', this.state.potenciaUbicacion)
 
 
-  return (
+    return (
+
     
    
       <ImageOverlay 
@@ -120,7 +103,7 @@ export class Calculos extends React.Component {
                             fontWeight:'bold',
                             textAlign:'center',
                             
-                            }}>{'$ ' + potenciaUbicacion*8000}</Text>
+                            }}>{'$ ' + this.state.potenciaUbicacion*8000}</Text>
                 </View> 
 
             </View>
@@ -160,7 +143,7 @@ export class Calculos extends React.Component {
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{'$ ' + parseFloat(potenciaUbicacion*8000/12).toFixed(1)}</Text>
+                        }}>{'$ ' + parseFloat(this.state.potenciaUbicacion*8000/12).toFixed(1)}</Text>
             </View> 
 
             </View>
@@ -201,7 +184,7 @@ export class Calculos extends React.Component {
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{'$ ' + (potenciaUbicacion*8000 + Number(6000))}</Text>
+                        }}>{'$ ' + (this.state.potenciaUbicacion*8000 + Number(6000))}</Text>
             </View> 
 
             </View>
@@ -240,7 +223,7 @@ export class Calculos extends React.Component {
                     fontWeight:'bold',
                     textAlign:'center',
                     
-                    }}>{(potenciaUbicacion*8000 / Number(50))+ ' Kg de carbono '}</Text>
+                    }}>{(this.state.potenciaUbicacion*8000 / Number(50))+ ' Kg de carbono '}</Text>
         </View> 
 
         </View>
@@ -277,7 +260,7 @@ export class Calculos extends React.Component {
                     fontWeight:'bold',
                     textAlign:'center',
                     
-                    }}>{'$ ' + ((potenciaUbicacion*8000 + Number(6000))*20)}</Text>
+                    }}>{'$ ' + ((this.state.potenciaUbicacion*8000 + Number(6000))*20)}</Text>
         </View> 
 
         </View>
@@ -411,49 +394,29 @@ export class Calculos extends React.Component {
 
   );
 }
+
+componentDidMount() {
+
+
+    const ref = db.ref('/Usuarios/' +  Fire.getUid());
+
+    this.listener = ref.on("value", snapshot => {
+  
+    this.setState({potenciaUbicacion: snapshot.val().potencia||''});
+  
+  }
+  )
+
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    width:'100%',
-    height:'100%',
-        
-  },
 
-  logo: {
-    
-    width: "20%",
-    height: "50%",
-    marginBottom: "10%",
-    marginTop: "2%",
-    marginLeft: "59%",
-    marginRight: "0%"
-    
-    
-  },
 
-  boton: {
-        
-     height: '55%', 
-     width:'100%',
-     borderRadius:20,
-     fontWeight:'bold',
-     fontSize:15,
-     color: 'white', 
-     marginBottom: "0%", 
-     marginTop: "0%", 
-     marginLeft: "0%", 
-     marginRight: "0%",
-     alignItems: "center",
-     paddingLeft:40, 
-     paddingRight:40,
-     backgroundColor: '#5DCB31',
-     textAlignVertical:'center'
-    
-    
-  },
+
+}
+
+
+
 
 
 
@@ -461,6 +424,3 @@ const styles = StyleSheet.create({
 
 
 
-  
-
-});
