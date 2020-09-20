@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Dimensions, ScrollView, Image, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, View, Dimensions, ScrollView, Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button, Card} from 'react-native-elements';
 import ImageOverlay from "react-native-image-overlay";
@@ -15,10 +15,26 @@ import chat from '../assets/chat.png';
 import carrito from "../assets/carrito.svg"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
+
+const user = () => {
+  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
+ 
+};
+
+const settings = () => {
+  ToastAndroid.show("Settings", ToastAndroid.SHORT);
+ 
+};
+
+
+
+
 export class CompraConfirmada extends React.Component {
 
 
  render() {
+
+
 
 
   return (

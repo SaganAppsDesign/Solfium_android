@@ -55,7 +55,7 @@ export class Camara extends React.Component {
   render() {
 
     uri = this.state.path
-    console.warn('uri_render: ', uri)
+    //console.warn('uri_render: ', uri)
 
     return (
       <View style={styles.container}>
@@ -125,7 +125,7 @@ export class Camara extends React.Component {
       const data = await this.camera.takePictureAsync(options);
       this.setState({ path: data });
      
-      console.log('data.uri: ', data);
+     // console.log('data.uri: ', data);
 
       this.props.onCapture && this.props.onCapture(data.base64, this.state.recognizedText)
     }
@@ -133,7 +133,7 @@ export class Camara extends React.Component {
 
     onTextRecognized(data) {
       if(this.props.enabledOCR) {
-        console.log('onTextRecognized: ', data);
+        //console.log('onTextRecognized: ', data);
         if(data && data.textBlocks && data.textBlocks.length > 0) {
           this.setState({recognizedText: data})
         }

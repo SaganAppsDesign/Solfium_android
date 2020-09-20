@@ -20,7 +20,7 @@ import fondo from '../assets/fondo2.jpg';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 //var viabilidad, user=''
-var text,text1,text2,text3,text4,text5,color,opacity,backgroundcolor, viable
+var text,text1,text2,text3,text4,text5,color,opacity,backgroundcolor, viable, viabilidad,user
 
 
 data = () =>  {

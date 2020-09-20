@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Dimensions, ScrollView, Image, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, View, Dimensions, ScrollView, Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button, Card} from 'react-native-elements';
 import ImageOverlay from "react-native-image-overlay";
@@ -19,6 +19,18 @@ export class Payment extends React.Component {
 
 
  render() {
+
+  
+const user = () => {
+  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
+ 
+};
+
+const settings = () => {
+  ToastAndroid.show("Settings", ToastAndroid.SHORT);
+ 
+};
+
 
 
   return (

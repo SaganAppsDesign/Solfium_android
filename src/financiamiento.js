@@ -22,6 +22,18 @@ const meses = () => {
  
 };
 
+  
+const user = () => {
+  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
+ 
+};
+
+const settings = () => {
+  ToastAndroid.show("Settings", ToastAndroid.SHORT);
+ 
+};
+
+
 
 
 export class Financiamiento extends React.Component {

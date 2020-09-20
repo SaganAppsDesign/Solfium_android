@@ -134,40 +134,41 @@ export function DatosInstalador({ navigation }) {
 
     {/*Botone QR*/} 
 
-    <View style={{flex:2, flexDirection:'row'}}>  
+    <View style={{ flex:2, flexDirection:'row', width:wp('100%')}}>  
     
-    <TouchableOpacity 
-                                             
-     onPress={() => navigation.navigate('Escanear QR Instalador')}
-       > 
-       <View style={{marginLeft:hp('5%'), width:hp('22%'),flex:1}}>
-       
-                 <Image 
-                   source={codigo_qr}
-                               
-                 >    
-                 </Image> 
+          <TouchableOpacity 
+                                                  
+          onPress={() => navigation.navigate('Escanear QR Instalador')}
+            > 
+            <View style={{marginLeft:hp('7%'),flex:1}}>
+            
+                      <Image 
+                        source={codigo_qr}
+                        style={{aspectRatio:1, height:hp('20%')}}
+                                    
+                      >    
+                      </Image> 
 
-     </View>
-     
-     </TouchableOpacity> 
-
-
-     <View style={{flex:3, marginRight:wp('5%')}}>
-     <Text style={{color: '#fff',
+          </View>
           
-           marginTop: hp('3%'),   
-                    
-           fontWeight:'bold'
-          }}>
+          </TouchableOpacity> 
 
-          <Text style={{fontSize: hp('2.5%')}}>El día de la cita el técnico deberá presentar credencial con 
-          
-          código QR para confirmar.</Text>
 
-         </Text>
+          <View style={{flex:1, marginRight:wp('5%')}}>
+          <Text style={{color: '#fff',
+                
+                marginTop: hp('3%'),   
+                          
+                fontWeight:'bold'
+                }}>
 
-       </View>
+                <Text style={{fontSize: hp('2.5%')}}>El día de la cita el técnico deberá presentar credencial con 
+                
+                código QR para confirmar.</Text>
+
+              </Text>
+
+            </View>
 
    </View>
     

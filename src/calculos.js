@@ -23,8 +23,6 @@ var {height} = Dimensions.get('window');
 var {width} = Dimensions.get('window');
 
 
-
-
 const user = () => {
   ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
  
