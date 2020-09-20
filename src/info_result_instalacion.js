@@ -492,11 +492,6 @@ export class InfoResultInsta extends React.Component {
  
    // this.setState({username: snapshot.child("name").val() || ''})
   
-
-
-
-
-  
   }
   )
 

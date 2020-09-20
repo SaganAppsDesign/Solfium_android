@@ -13,13 +13,10 @@ import { Button, Card } from 'react-native-elements';
 import logo from '../assets/logo.png'; 
 import codigo_qr from '../assets/codigo_qr.png'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import  Fire , {db} from '../fire';
+
 
 var {height} = Dimensions.get('window');
-
-
-var date = new Date().getDate(); //Current Date
-var month = new Date().getMonth() + 1; //Current Month
-var year = new Date().getFullYear(); //Current Year
 
 const user = () => {
   ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
@@ -33,8 +30,45 @@ const settings = () => {
 
 
 
-export function DatosInstalador({ navigation }) {
- return (
+export class CitaConfirmada extends React.Component {
+
+  state = {
+    cita: '',
+    username: '',
+    visita:''
+  }
+
+  
+  
+  render() {
+
+    //console.log( this.state.cita, this.state.username) 2020-09-19T08:00:26.306Z
+
+    var name = this.state.username
+    var nombre = name.toUpperCase()
+
+    var date = this.state.cita
+    var year = date.slice(0, 4)
+    var month = date.slice(5, 7)
+    var day = date.slice(8,10)
+    var hour = date.slice(11,16)
+
+    var visita = this.state.visita
+    var bool, opacity
+    
+    if (visita == '0'){
+            
+          bool=true
+          opacity=0
+    } else {
+
+          bool=false
+          opacity=1
+    }
+    
+   
+
+  return (
 
        
       <ImageOverlay source={fondo}
@@ -48,7 +82,7 @@ export function DatosInstalador({ navigation }) {
                                           
                   <TouchableOpacity 
                                                                               
-                  onPress={() => navigation.navigate('Chat')}
+                  onPress={() => this.props.navigation.navigate('Chat')}
                   > 
                   <View>
                   
@@ -76,22 +110,22 @@ export function DatosInstalador({ navigation }) {
 
                             <Text style={{color: '#E53D18',
                                     backgroundColor: 'white',
-                                    fontSize: hp('3%'),
+                                    fontSize: hp('2.5%'),
                                     marginBottom: hp('0.5%'),
                                     fontWeight: 'bold',
                                     padding: hp('0.5%'),
                                     textAlign: 'center',
-                                     }}>CITA CONFIRMADA</Text>
+                                     }}>CITA CONFIRMADA, {nombre}</Text>
 
                               <Text style={{color: 'black',
                                     backgroundColor: 'white',
-                                    fontSize:hp('2.5%'),
+                                    fontSize:hp('3%'),
                                     marginHorizontal:  wp('5%'),
                                     marginBottom: hp('0.5%'),
                                     fontWeight: 'bold',
                                     padding: hp('1%'),
                                     textAlign: 'center',
-                                    }}>Sábado, 5 de Noviembre 2020, 10:00 am</Text>
+                                    }}>El {day}-{month}-{year} a las {hour} h</Text>
 
                                      {/*  Foto y descripción instalador */}
 
@@ -134,11 +168,13 @@ export function DatosInstalador({ navigation }) {
 
     {/*Botone QR*/} 
 
-    <View style={{ flex:2, flexDirection:'row', width:wp('100%')}}>  
+    <View style={{ flex:2, flexDirection:'row', width:wp('100%'), opacity:opacity}}>  
     
           <TouchableOpacity 
+
+          disabled={bool} 
                                                   
-          onPress={() => navigation.navigate('Escanear QR Instalador')}
+          onPress={() => this.props.navigation.navigate('Escanear QR Instalador')}
             > 
             <View style={{marginLeft:hp('7%'),flex:1}}>
             
@@ -180,7 +216,7 @@ export function DatosInstalador({ navigation }) {
       <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
           <TouchableOpacity 
                                                                        
-          onPress={() => navigation.navigate('Solfium')}
+          onPress={() => this.props.navigation.navigate('Solfium')}
             > 
                                   
              <Image 
@@ -260,7 +296,24 @@ export function DatosInstalador({ navigation }) {
 </ImageOverlay>
    
 
-  );
+  )}
+
+  componentDidMount() {
+
+
+    const ref = db.ref('/Usuarios/' +  Fire.getUid());
+
+    this.listener = ref.on("value", snapshot => {
+  
+    this.setState({cita: snapshot.child("cita").val() || '' ,
+                   username: snapshot.child("name").val() || '',
+                   visita: snapshot.child("visita").val() || '' })    
+ 
+   
+  }
+  )
+
+}
 }
 
 

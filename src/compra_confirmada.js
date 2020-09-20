@@ -12,7 +12,7 @@ import setting from '../assets/setting.png';
 import usuario from '../assets/usuario.png'; 
 import logo from '../assets/logo.png'; 
 import chat from '../assets/chat.png';
-import carrito from "../assets/carrito.svg"
+import  Fire , {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
@@ -30,12 +30,21 @@ const settings = () => {
 
 
 export class CompraConfirmada extends React.Component {
-
+  state = {
+    fecha: '',
+    username: ''
+  }
 
  render() {
 
+  var name = this.state.username
+  var nombre = name.toUpperCase();
 
-
+  var date = this.state.fecha
+  var year = date.slice(0, 4);
+  var month = date.slice(5, 7);
+  var day = date.slice(8,10);
+  var hour = date.slice(11,16);
 
   return (
 
@@ -102,25 +111,20 @@ export class CompraConfirmada extends React.Component {
                      
 
                      <Card containerStyle={{ marginTop: hp('0%'), borderRadius: 10, 
-                     width:wp('70%'), height:hp('20%'), padding:0}}>
+                     width:wp('70%'), height:hp('20%')}}>
  
-                   
-                        <ImageBackground  style={{overflow: 'hidden', resizeMode: "cover", width:'100%', height:'100%',  borderRadius: 10}}>
                                
                              <Text style={{
                                color: '#000',
-                               padding:'3%',
-                               marginTop: '10%',
+                               marginTop: hp('1%'),
                                textAlign:'center',
                                fontWeight:'bold',
-                               marginRight:'0%',
-                               marginLeft:'0%',
-                               height:'100%',
-                               width:'100%',
-                               fontSize:20
+                               height:hp('100%'),
+                               width:wp('60%'),
+                               fontSize:hp('3%')
                        
-                              }}>Su equipo se instalará el día 29 de septiembre 11:00 am</Text>
-                        </ImageBackground>
+                              }}>{nombre}, su equipo se instalará el {day}-{month}-{year} a las {hour} h</Text>
+                       
                      
                      </Card>
 
@@ -224,7 +228,23 @@ export class CompraConfirmada extends React.Component {
 
     </ImageOverlay> 
 
-  );
+  )
+}
+
+componentDidMount() {
+
+
+  const ref = db.ref('/Usuarios/' +  Fire.getUid());
+
+  this.listener = ref.on("value", snapshot => {
+
+  this.setState({fecha: snapshot.child("fechaInstalacion").val() || '' ,
+                 username: snapshot.child("name").val() || '' })    
+
+ 
+}
+)
+
 }
 }
 

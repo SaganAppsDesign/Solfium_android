@@ -93,13 +93,7 @@ return (
 
                             disabled={true} 
                                                                                   
-                            onPress={() => navigation.navigate('Proceso de pago', {
-
-                                costeInstalacion: 5500,
-                                ahorroOferta: 850
- 
-                              }
-                              )}
+                            onPress={() => navigation.navigate('Proceso de pago')}
                               > 
                            
                              

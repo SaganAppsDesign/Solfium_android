@@ -24,7 +24,13 @@ export class Main extends React.Component {
  
   user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
-    name: this.state.name
+    name: this.state.name,
+    Viabilidad:'',
+    cita:'0',
+    fechaInstalacion:'0',
+    visita:'0'
+ 
+
     
     })
 

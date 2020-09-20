@@ -31,7 +31,7 @@ const settings = () => {
 };
                         
 
-export function DatosInstalador2({ navigation }) {
+export function IdentidadConfirmada({ navigation }) {
  return (
 
        

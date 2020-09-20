@@ -5,8 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {HomeScreen} from './src/homeScreen';  
 import {Calculos} from './src/calculos';  
 import {PantallaEspera} from './src/pantalla_espera';  
-import {DatosInstalador} from './src/datos_qr_instalador';  
-import {DatosInstalador2} from './src/test';  
+import {CitaConfirmada} from './src/cita_confirmada';  
+import {IdentidadConfirmada} from './src/identidad_confirmada';  
 import {VideoInfo} from './src/video_informativo';  
 import {InfoResultInsta} from './src/info_result_instalacion.js';  
 import {Instalacion} from './src/instalacion_en_proceso.js';  
@@ -26,8 +26,6 @@ import {MeInteresa } from './src/me_interesa';
 import {PagoUnico } from './src/pago_unico'; 
 import {Financiamiento } from './src/financiamiento'; 
 import 'react-native-gesture-handler';
-import {db} from './fire';
-import Fire from './fire';
 
 const Stack = createStackNavigator();
 
@@ -61,13 +59,13 @@ class MyStack extends Component {
       <Stack.Screen options={{headerShown: false}} name="Ingresar Consumo" component={IngresarConsumo}  />
       <Stack.Screen options={{headerShown: false}} name="Confirma ubicación" component={ConfirmaUbicacion}  />
       <Stack.Screen options={{headerShown: false}} name="Proceso de implemetación" component={MeInteresa}  />
-      <Stack.Screen options={{headerShown: false}} name="Próxima visita" component={DatosInstalador} />
+      <Stack.Screen options={{headerShown: false}} name="Próxima visita" component={CitaConfirmada} />
       <Stack.Screen options={{headerShown: false}}  name="Proceso de pago" component={Payment} />
       <Stack.Screen name="Video Informativo" component={VideoInfo} />
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />
       <Stack.Screen name="Instalación en proceso" component={Instalacion} />
       <Stack.Screen name="Rating" component={Ratings} />
-      <Stack.Screen options={{headerShown: false}} name="Escanear QR Instalador" component={DatosInstalador2} />
+      <Stack.Screen options={{headerShown: false}} name="Escanear QR Instalador" component={IdentidadConfirmada} />
       <Stack.Screen name="QR Escaneado" component={QREscaneado} />
       <Stack.Screen name="QR correcto" component={QRCodeOk} />
       <Stack.Screen name="Ubicación" component={Mapbox2} />

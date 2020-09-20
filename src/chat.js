@@ -5,18 +5,23 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, LogBox, Button, Activi
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { IconButton } from 'react-native-paper';
 import {db} from '../fire';
+import visita from '../assets/visita.png';  
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 
-var name
+var name, cita
 
 
 data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
   
   name =  snapshot.child("name").val()
+  cita = snapshot.child("cita").val()
    
 
 });
+
+
 
 
 export class Chat extends React.Component {
@@ -25,7 +30,8 @@ export class Chat extends React.Component {
 state = {
 
     messages: [],
-    name:''
+    name:'',
+    cita:''
     
 };
 
@@ -33,14 +39,24 @@ state = {
   render() {
    data()
 
-    //const { name } = this.props.route.params;
+   var cita = this.state.cita
+   var bool, opacity
+   
+   if (cita == '0'){
+          
+         bool=true
+         opacity=0.2
+   } else {
+
+        bool=false
+        opacity=1
+   }
+
+   console.log('bool', bool)
 
    
     return (
      
-     
-    <View style={styles.container}>
-   
      
     <View style={styles.container}>	
         <GiftedChat
@@ -63,24 +79,29 @@ state = {
         }}
       />
 
-      <View style={{marginBottom: '5%', marginLeft:'10%',marginRight:'10%', marginTop:'5%'}}>
-      <Button title="  Cita con instalador   " 
-              color='orange'
-              onPress={() =>  this.props.navigation.navigate('Próxima visita')}
-              icon={
-                     <Icon
-                       name="wrench"
-                       size={25}
-                       color="black"
-                     />
-                   }
+    
+
+      <View  style={{opacity:opacity, alignItems:'center', justifyContent:'center'}}>
+      <TouchableOpacity 
+
+            disabled={bool} 
+                                                                  
+            onPress={() => this.props.navigation.navigate('Próxima visita')}
+              > 
+           
+             
+              <Image 
+                    source={visita}
+                    style={{marginTop:'0%', marginBottom:'0%', marginLeft:wp('0%'), marginRight:'0%', width:wp('70%'), height:hp('16%')}}
+                    
+                    />
+
+       </TouchableOpacity>
+       </View>
 
 
-            />
+
       </View>
-    </View>
-
-    </View>
 
     
 )
@@ -89,8 +110,19 @@ state = {
 
 componentDidMount() {
 
- // LogBox.ignoreLogs(["Setting a timer"]);
+
   
+      const ref = db.ref('/Usuarios/' +  Fire.getUid());
+
+      this.listener = ref.on("value", snapshot => {
+
+      this.setState({cita: snapshot.child("cita").val() || '' })    
+
+  
+    }
+    )
+
+ 
     Fire.loadMessages((message) => {
         
         this.setState(previousState => {
@@ -104,10 +136,21 @@ componentDidMount() {
         })
       
     }
+  
         
     )
 
+
+
+
 }
+
+
+
+
+
+
+
 componentWillUnmount() {
   Fire.closeChat();
 }
