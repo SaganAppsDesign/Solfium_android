@@ -16,9 +16,8 @@ import qr2 from '../assets/qr2.png';
 import confirmado from '../assets/confirmado.png'; 
 import verResultado from '../assets/verResultado.png'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import  Fire , {db} from '../fire';
 
-
-var {height} = Dimensions.get('window');
 
 const user = () => {
   ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
@@ -31,8 +30,34 @@ const settings = () => {
 };
                         
 
-export function IdentidadConfirmada({ navigation }) {
- return (
+export class IdentidadConfirmada extends React.Component {
+
+  state = {
+ 
+    nombre_instalador:'',
+    viabilidad:''
+  }
+
+  
+  render() {
+
+    var viabilidad = this.state.viabilidad
+    var bool, opacity
+
+    if (viabilidad == ''){
+            
+      bool=true
+      opacity=0
+      } else {
+
+            bool=false
+            opacity=1
+      }
+
+
+
+
+     return (
 
        
       <ImageOverlay source={fondo}
@@ -46,7 +71,7 @@ export function IdentidadConfirmada({ navigation }) {
                                 
                         <TouchableOpacity 
                                                                                     
-                        onPress={() => navigation.navigate('Chat')}
+                        onPress={() => this.props.navigation.navigate('Chat')}
                         > 
                         <View>
                         
@@ -78,7 +103,7 @@ export function IdentidadConfirmada({ navigation }) {
 
                                 <TouchableOpacity 
                                              
-                                    onPress={() => navigation.navigate('QR Escaneado')}
+                                    onPress={() => this.props.navigation.navigate('QR Escaneado')}
                                     >
                                     <Image 
                                 
@@ -139,11 +164,11 @@ export function IdentidadConfirmada({ navigation }) {
 
 `}</Text>
 
-                                      <Text style={{ fontWeight: "bold", fontSize: hp('2%'),marginTop: hp('5%'),
+                                      <Text style={{ fontWeight: "bold", fontSize: hp('2.5%'),marginTop: hp('5%'),
                                       marginRight:wp('3%'),
                                       marginLeft:wp('2%'),
                                       height:hp('10%'),
-                                      width:wp('30%'),}}>Juan Carlos Díaz</Text>
+                                      width:wp('30%'),}}>{this.state.nombre_instalador}</Text>
                                       
                               
                               </Text>
@@ -180,7 +205,8 @@ export function IdentidadConfirmada({ navigation }) {
                 marginLeft:hp('10%'),
                 height:hp('10%'),
                 width:wp('50%'),
-                fontWeight:'bold'
+                fontWeight:'bold',
+                opacity:opacity
                 }}>
 
                 <Text style={{fontSize: hp('2.5%')}}>Ver resultado</Text>
@@ -215,13 +241,14 @@ export function IdentidadConfirmada({ navigation }) {
               
             <TouchableOpacity 
                                                     
-              onPress={() => navigation.navigate('Viabilidad Instalación')}
+              onPress={() => this.props.navigation.navigate('Viabilidad Instalación')}
+              disabled={bool}
               >
                         <Image 
                         
                         source={verResultado}
                         style={{
-                        width:wp('10%'), height:wp('10%'), marginLeft:wp('20%')}}
+                        width:wp('10%'), height:wp('10%'), marginLeft:wp('20%'),opacity: opacity}}
                         
                         >    
                         </Image> 
@@ -238,7 +265,7 @@ export function IdentidadConfirmada({ navigation }) {
       <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
           <TouchableOpacity 
                                                                        
-          onPress={() => navigation.navigate('Solfium')}
+          onPress={() => this.props.navigation.navigate('Solfium')}
             > 
                                   
              <Image 
@@ -319,6 +346,26 @@ export function IdentidadConfirmada({ navigation }) {
    
 
   );
+}
+
+
+componentDidMount() {
+
+
+  const ref = db.ref('/Usuarios/' +  Fire.getUid());
+
+  this.listener = ref.on("value", snapshot => {
+
+  this.setState({ nombre_instalador: snapshot.child("nombre_instalador").val() || '',
+                  viabilidad: snapshot.child("Viabilidad").val() || ''
+                                
+                })    
+
+ 
+}
+)
+
+}
 }
 
 

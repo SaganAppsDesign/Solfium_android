@@ -42,7 +42,7 @@ export class InfoResultInsta extends React.Component {
     console.log('viabilidad número',  typeof(viab))
     
 
-  if (viabInt == 100){
+  if (viabInt >= 95 && viabInt < 100){
     viable = "VIABLE"
     text = '¡Felicidades ' + this.state.username + '! Se puede realizar en su hogar el ' + viab + ' de la instalación' 
     text1 = '$24,000' 
@@ -55,9 +55,9 @@ export class InfoResultInsta extends React.Component {
     backgroundcolor = 'white'
     
    
-  } else if ( viabInt >= 5 && viabInt < 100){
+  } else if ( viabInt >= 5 && viabInt < 90){
     viable = "VIABLE A LA BAJA"
-    text = '¡Felicidades ' + this.state.user + '! Al menos se puede realizar un ' + viab + '% de la instalación, lo cual supone el siguiente ahorro:' 
+    text = '¡Felicidades ' + this.state.username + '! Al menos se puede realizar un ' + viab + '% de la instalación, lo cual supone el siguiente ahorro:' 
     text1 = '$20,000' 
     text2 = '$1,000' 
     text3 = '$22,000' 
@@ -69,7 +69,7 @@ export class InfoResultInsta extends React.Component {
 
   } else if (viab == 'evaluando'){
     viable = "EVALUANDO INSTALACIÓN"
-    text = this.state.user + ', espere mientras se evalúa su posible instalación' 
+    text = this.state.username + ', espere mientras se evalúa su posible instalación' 
     text1 = '-' 
     text2 = '-' 
     text3 = '-' 
@@ -81,7 +81,7 @@ export class InfoResultInsta extends React.Component {
     
   } else if ( viabInt >= 0 && viabInt < 5){
     viable = "NO ES VIABLE"
-    text = this.state.user + ', lo sentimos, no se puede realizar la instalación' 
+    text = this.state.username + ', lo sentimos, no se puede realizar la instalación' 
     text1 = '-' 
     text2 = '-' 
     text3 = '-' 
@@ -93,7 +93,7 @@ export class InfoResultInsta extends React.Component {
   
   } else {
     viable = "PENDIENTE CONTACTO CON INSTALADOR"
-    text = this.state.user + ', en breve el personal de instalación se pondrá en contacto con usted.' 
+    text = this.state.username + ', en breve el personal de instalación se pondrá en contacto con usted.' 
     text1 = '-' 
     text2 = '-' 
     text3 = '-' 

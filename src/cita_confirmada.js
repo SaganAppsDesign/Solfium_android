@@ -35,14 +35,15 @@ export class CitaConfirmada extends React.Component {
   state = {
     cita: '',
     username: '',
-    visita:''
+    visita:'',
+    nombre_instalador:''
   }
 
   
   
   render() {
 
-    //console.log( this.state.cita, this.state.username) 2020-09-19T08:00:26.306Z
+    //console.log('this.state.nombre_instalador', this.state.nombre_instalador)
 
     var name = this.state.username
     var nombre = name.toUpperCase()
@@ -149,7 +150,7 @@ export class CitaConfirmada extends React.Component {
                                                  <Text>{`
                                                          `}</Text>
       
-                                                 <Text style={{fontWeight: "bold", fontSize: hp('2%')}}>Juan Carlos Díaz</Text>
+                                                 <Text style={{fontWeight: "bold", fontSize: hp('2%')}}>{this.state.nombre_instalador}</Text>
                                                  
                                           
                                           </Text>
@@ -307,7 +308,11 @@ export class CitaConfirmada extends React.Component {
   
     this.setState({cita: snapshot.child("cita").val() || '' ,
                    username: snapshot.child("name").val() || '',
-                   visita: snapshot.child("visita").val() || '' })    
+                   visita: snapshot.child("visita").val() || '',
+                   nombre_instalador: snapshot.child("nombre_instalador").val() || ''
+                  
+                  
+                  })    
  
    
   }
