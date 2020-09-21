@@ -42,7 +42,7 @@ state = {
    var cita = this.state.cita
    var bool, opacity
    
-   if (cita == '0'){
+   if (cita == 'Cita sin acordar'){
           
          bool=true
          opacity=0.2
@@ -91,7 +91,7 @@ state = {
              
               <Image 
                     source={visita}
-                    style={{marginTop:'0%', marginBottom:'0%', marginLeft:wp('0%'), marginRight:'0%', width:wp('70%'), height:hp('16%')}}
+                    style={{width:wp('60%'), height:hp('16%')}}
                     
                     />
 

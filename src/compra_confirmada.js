@@ -1,12 +1,8 @@
 import * as React from 'react';
-import {Text, View, Dimensions, ScrollView, Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {Text, View,Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
 import { Button, Card} from 'react-native-elements';
 import ImageOverlay from "react-native-image-overlay";
 import tec3 from '../assets/fondo6.jpg'; 
-import fondo2 from '../assets/fondo2.jpg';   
-import fondo6 from '../assets/fondo6.jpg'; 
-import calculos from '../assets/calculos_finales.png';  
 import home from '../assets/home.png'; 
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
@@ -46,6 +42,18 @@ export class CompraConfirmada extends React.Component {
   var day = date.slice(8,10);
   var hour = date.slice(11,16);
 
+  var opacity
+
+    if (date == ''){
+    
+      opacity=0
+     
+    } else {
+
+      opacity=1
+      }
+
+    
   return (
 
 
@@ -111,7 +119,7 @@ export class CompraConfirmada extends React.Component {
                      
 
                      <Card containerStyle={{ marginTop: hp('0%'), borderRadius: 10, 
-                     width:wp('70%'), height:hp('20%')}}>
+                     width:wp('70%'), height:hp('20%'), opacity: opacity}}>
  
                                
                              <Text style={{
@@ -121,7 +129,8 @@ export class CompraConfirmada extends React.Component {
                                fontWeight:'bold',
                                height:hp('100%'),
                                width:wp('60%'),
-                               fontSize:hp('3%')
+                               fontSize:hp('3%'),
+                               opacity: opacity
                        
                               }}>{nombre}, su equipo se instalará el {day}-{month}-{year} a las {hour} h</Text>
                        

@@ -11,6 +11,7 @@ import fondo from '../assets/fondo5.jpg';
 
 import { TextInput } from 'react-native-paper';
 import ImageOverlay from "react-native-image-overlay";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 export class Main extends React.Component {
@@ -26,9 +27,9 @@ export class Main extends React.Component {
     
     name: this.state.name,
     Viabilidad:'',
-    cita:'0',
-    fechaInstalacion:'0',
-    visita:'0'
+    cita:'Cita sin acordar',
+    fechaInstalacion:'',
+    visita:'Sin estado'
  
 
     
@@ -54,10 +55,12 @@ export class Main extends React.Component {
 
      
     return (
+      
+      
       <ImageOverlay 
 
       source={fondo}
-      height={"100%"}
+      height={ hp('100%')}
       overlayAlpha={0}
         
 

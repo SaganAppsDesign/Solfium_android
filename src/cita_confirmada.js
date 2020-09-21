@@ -57,7 +57,7 @@ export class CitaConfirmada extends React.Component {
     var visita = this.state.visita
     var bool, opacity
     
-    if (visita == '0'){
+    if (visita == 'Sin estado'){
             
           bool=true
           opacity=0

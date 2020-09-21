@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, Image, Dimensions} from 'react-native';
-import tec4 from '../assets/tec4.gif'; 
+import tec4 from '../assets/fondo6.jpg'; 
 import ImageOverlay from "react-native-image-overlay";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
@@ -65,14 +65,7 @@ export function Instalacion({navigation }) {
 
            </View>
 
-           <View style={{ marginBottom: '10%', marginTop:'5%', alignItems:'center'}}>
-
-                <Image
-                          style={{width:130, height:130, marginBottom:0, marginRight:0, marginLeft:0, marginTop: 0, borderWidth:4, borderColor:'black'}}
-                          source={require('../assets/reloj.gif')}
-                          />
-
-            </View>
+        
                    
 
          

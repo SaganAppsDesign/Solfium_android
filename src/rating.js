@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Text, View, Dimensions, LogBox,  ToastAndroid} from 'react-native';
-import tec3 from '../assets/tec3.gif';  
+import tec3 from '../assets/fondo6.jpg';  
 import ImageOverlay from "react-native-image-overlay";
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';

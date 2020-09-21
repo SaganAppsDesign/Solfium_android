@@ -1,10 +1,7 @@
 import * as React from 'react';
 import {Text, View, Dimensions, ScrollView, Image, TouchableOpacity, StyleSheet, Settings, ToastAndroid} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button } from 'react-native-elements';
 import ImageOverlay from "react-native-image-overlay";
 import tec3 from '../assets/fondo3.png';  
-import calculos from '../assets/calculos_finales.png';  
 import home from '../assets/home.png'; 
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
