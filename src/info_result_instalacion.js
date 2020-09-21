@@ -20,78 +20,8 @@ import fondo from '../assets/fondo2.jpg';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 //var viabilidad, user=''
-var text,text1,text2,text3,text4,text5,color,opacity,backgroundcolor, viable, viabilidad,user
+var text,text1,text2,text3,text4,text5,color,opacity,backgroundcolor, viable
 
-
-data = () =>  {
-   
-   
-  if (viabilidad == '100%'){
-    viable = "VIABLE"
-    text = '¡Felicidades ' + user + '! Se puede realizar en su hogar el ' + viabilidad + ' de la instalación' 
-    text1 = '$24,000' 
-    text2 = '$2,000' 
-    text3 = '$30,000' 
-    text4 = '540 Kg de carbono' 
-    text5 = '$600,000' 
-    color = '#5DCB31'
-    opacity = 1
-    backgroundcolor = 'white'
-     
-  } else if (viabilidad == 'evaluando'){
-    viable = "EVALUANDO INSTALACIÓN"
-    text = user + ', espere mientras se evalúa su posible instalación' 
-    text1 = '-' 
-    text2 = '-' 
-    text3 = '-' 
-    text4 = '-' 
-    text5 = '-' 
-    color = 'grey'
-    backgroundcolor = 'rgba(255, 255, 255, 0)'
-    opacity = 0
-
-  } else if (viabilidad == null){
-    viable = "PENDIENTE CONTACTO CON INSTALADOR"
-    text = user + ', en breve el personal de instalación se pondrá en contacto con usted.' 
-    text1 = '-' 
-    text2 = '-' 
-    text3 = '-' 
-    text4 = '-' 
-    text5 = '-' 
-    color = 'grey'
-    backgroundcolor = 'rgba(255, 255, 255, 0)'
-    opacity = 0
-
-   
-  } else if (viabilidad == '50%'){
-    viable = "VIABLE A LA BAJA"
-    text = '¡Felicidades ' + user + '! Al menos se puede realizar un ' + viabilidad + ' de la instalación, lo cual supone el siguiente ahorro:' 
-    text1 = '$20,000' 
-    text2 = '$1,000' 
-    text3 = '$22,000' 
-    text4 = '210 Kg de carbono' 
-    text5 = '$250,000' 
-    color = 'orange'
-    opacity = 1
-    backgroundcolor = 'white'
-    
-  } else {
-    viable = "NO ES VIABLE"
-    text = user + ', lo sentimos, no se puede realizar la instalación' 
-    text1 = '-' 
-    text2 = '-' 
-    text3 = '-' 
-    text4 = '-' 
-    text5 = '-' 
-    color = 'red'
-    opacity = 0
-    backgroundcolor = 'white'
-
- 
-
-  }
-
-}
 
 
 export class InfoResultInsta extends React.Component {
@@ -103,12 +33,18 @@ export class InfoResultInsta extends React.Component {
 
  
   render() {
-    console.log('viabilidad componentDidMount',   this.state.viabilidad)
+    //console.log('viabilidad componentDidMount',   this.state.viabilidad)
     
 
-  if (this.state.viabilidad == '100%'){
+    var viab = this.state.viabilidad
+    var  viabInt = parseInt(viab)
+
+    console.log('viabilidad número',  typeof(viab))
+    
+
+  if (viabInt == 100){
     viable = "VIABLE"
-    text = '¡Felicidades ' + this.state.username + '! Se puede realizar en su hogar el ' + this.state.viabilidad + ' de la instalación' 
+    text = '¡Felicidades ' + this.state.username + '! Se puede realizar en su hogar el ' + viab + ' de la instalación' 
     text1 = '$24,000' 
     text2 = '$2,000' 
     text3 = '$30,000' 
@@ -117,8 +53,21 @@ export class InfoResultInsta extends React.Component {
     color = '#5DCB31'
     opacity = 1
     backgroundcolor = 'white'
-     
-  } else if (this.state.viabilidad == 'evaluando'){
+    
+   
+  } else if ( viabInt >= 5 && viabInt < 100){
+    viable = "VIABLE A LA BAJA"
+    text = '¡Felicidades ' + this.state.user + '! Al menos se puede realizar un ' + viab + '% de la instalación, lo cual supone el siguiente ahorro:' 
+    text1 = '$20,000' 
+    text2 = '$1,000' 
+    text3 = '$22,000' 
+    text4 = '210 Kg de carbono' 
+    text5 = '$250,000' 
+    color = 'orange'
+    opacity = 1
+    backgroundcolor = 'white'
+
+  } else if (viab == 'evaluando'){
     viable = "EVALUANDO INSTALACIÓN"
     text = this.state.user + ', espere mientras se evalúa su posible instalación' 
     text1 = '-' 
@@ -129,33 +78,8 @@ export class InfoResultInsta extends React.Component {
     color = 'grey'
     backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
-
-  } else if (this.state.viabilidad == null){
-    viable = "PENDIENTE CONTACTO CON INSTALADOR"
-    text = this.state.user + ', en breve el personal de instalación se pondrá en contacto con usted.' 
-    text1 = '-' 
-    text2 = '-' 
-    text3 = '-' 
-    text4 = '-' 
-    text5 = '-' 
-    color = 'grey'
-    backgroundcolor = 'rgba(255, 255, 255, 0)'
-    opacity = 0
-
-   
-  } else if (this.state.viabilidad == '50%'){
-    viable = "VIABLE A LA BAJA"
-    text = '¡Felicidades ' + this.state.user + '! Al menos se puede realizar un ' + this.state.viabilidad + ' de la instalación, lo cual supone el siguiente ahorro:' 
-    text1 = '$20,000' 
-    text2 = '$1,000' 
-    text3 = '$22,000' 
-    text4 = '210 Kg de carbono' 
-    text5 = '$250,000' 
-    color = 'orange'
-    opacity = 1
-    backgroundcolor = 'white'
     
-  } else {
+  } else if ( viabInt >= 0 && viabInt < 5){
     viable = "NO ES VIABLE"
     text = this.state.user + ', lo sentimos, no se puede realizar la instalación' 
     text1 = '-' 
@@ -167,8 +91,19 @@ export class InfoResultInsta extends React.Component {
     opacity = 0
     backgroundcolor = 'white'
   
+  } else {
+    viable = "PENDIENTE CONTACTO CON INSTALADOR"
+    text = this.state.user + ', en breve el personal de instalación se pondrá en contacto con usted.' 
+    text1 = '-' 
+    text2 = '-' 
+    text3 = '-' 
+    text4 = '-' 
+    text5 = '-' 
+    color = 'grey'
+    backgroundcolor = 'rgba(255, 255, 255, 0)'
+    opacity = 0
   }
-    //data()
+ 
 
   return (  
 
@@ -203,7 +138,7 @@ export class InfoResultInsta extends React.Component {
               
                   </TouchableOpacity> 
 
-                  </View>
+                </View>
     
     
     <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('2%'), flex:15}}>

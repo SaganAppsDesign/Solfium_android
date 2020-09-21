@@ -54,7 +54,7 @@ export class Fire {
 
   setUid(value){
       this.uid = value;
-      console.log(this.uid)
+ 
       
 
   }
@@ -65,10 +65,11 @@ export class Fire {
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('/Mensajes/');
+    this.messagesRef = firebase.database().ref('/Usuarios/'+ this.uid + '/Mensajes/');
     this.messagesRef.off();
 
     const onReceive = (data) => {
+      
       const message = data.val()
       
       callback({

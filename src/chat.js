@@ -52,7 +52,6 @@ state = {
         opacity=1
    }
 
-   console.log('bool', bool)
 
    
     return (
@@ -74,7 +73,7 @@ state = {
           placeholder={"Chatea aquí " + name}
           user={{
             _id: Fire.getUid(),
-            name: name,
+            name: name
            
         }}
       />
