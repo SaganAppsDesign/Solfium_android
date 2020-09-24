@@ -209,7 +209,7 @@ export class Financiamiento extends React.Component {
            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                <TouchableOpacity 
                                                                             
-               onPress={() => this.props.navigation.navigate('Solfium')}
+               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
                  > 
                                        
                   <Image 

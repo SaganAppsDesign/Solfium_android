@@ -20,18 +20,19 @@ import { Camara } from './src/camara2';
 import { QRscan } from './src/qr_scan'; 
 import { Chat } from './src/chat'; 
 import { Main } from './src/main'; 
-import { IngresarConsumo } from './src/ingresar_consumo'; 
+import { IngresarConsumo } from './src/ingresar_consumo2'; 
 import {ConfirmaUbicacion } from './src/confirma_ubicacion'; 
 import {MeInteresa } from './src/me_interesa'; 
 import {PagoUnico } from './src/pago_unico'; 
 import {Financiamiento } from './src/financiamiento'; 
+import {SplashScreen } from './src/splash_screen'; 
 import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
 
 console.disableYellowBox = true;
 
-class MyStack extends Component {
+class MainScreen extends Component {
 
     
  
@@ -54,9 +55,15 @@ class MyStack extends Component {
         }
       }}>
 
-      <Stack.Screen options={{headerShown: false}}  name="Solfium" component={HomeScreen} initialParams={{ Latitud:  0,  Longitud: 0,  URI: 0  }}/>
-      <Stack.Screen options={{headerShown: false}}  name="Cálculos" component={Calculos} />
+
+      <Stack.Screen options={{headerShown: false}}  name="SplahScreen" component={SplashScreen}/>
       <Stack.Screen options={{headerShown: false}} name="Ingresar Consumo" component={IngresarConsumo}  />
+      
+  {/* <Stack.Screen options={{headerShown: false}}  name="Solfium" component={HomeScreen} initialParams={{ Latitud:  0,  Longitud: 0,  URI: 0  }}/> */}
+
+
+      <Stack.Screen options={{headerShown: false}}  name="Cálculos" component={Calculos} />
+ 
       <Stack.Screen options={{headerShown: false}} name="Confirma ubicación" component={ConfirmaUbicacion}  />
       <Stack.Screen options={{headerShown: false}} name="Proceso de implemetación" component={MeInteresa}  />
       <Stack.Screen options={{headerShown: false}} name="Próxima visita" component={CitaConfirmada} />
@@ -66,13 +73,13 @@ class MyStack extends Component {
       <Stack.Screen name="Instalación en proceso" component={Instalacion} />
       <Stack.Screen name="Rating" component={Ratings} />
       <Stack.Screen options={{headerShown: false}} name="Escanear QR Instalador" component={IdentidadConfirmada} />
-      <Stack.Screen name="QR Escaneado" component={QREscaneado} />
-      <Stack.Screen name="QR correcto" component={QRCodeOk} />
+      <Stack.Screen options={{headerShown: false}}name="QR Escaneado" component={QREscaneado} />
+      <Stack.Screen options={{headerShown: false}}name="QR correcto" component={QRCodeOk} />
       <Stack.Screen name="Ubicación" component={Mapbox2} />
       <Stack.Screen name="Cámara" component={Camara}  />
       <Stack.Screen name="QR scan" component={QRscan}  />
       <Stack.Screen name="Chat" component={Chat}  />
-      <Stack.Screen name="Nombre usuario" component={Main}  />
+      <Stack.Screen options={{headerShown: false}}   name="Nombre usuario" component={Main}  />
       <Stack.Screen options={{headerShown: false}}   name="Confirmar compra" component={CompraConfirmada}  />
       <Stack.Screen options={{headerShown: false}}  name="Pantalla de espera" component={PantallaEspera}  />
       <Stack.Screen options={{headerShown: false}}  name="Pago único" component={PagoUnico}  />
@@ -89,7 +96,7 @@ export default function App()  {
    <Fragment>
  
       <NavigationContainer>
-          <MyStack />
+          <MainScreen />
       </NavigationContainer>
 
     

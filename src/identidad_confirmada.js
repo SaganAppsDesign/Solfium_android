@@ -35,23 +35,34 @@ export class IdentidadConfirmada extends React.Component {
   state = {
  
     nombre_instalador:'',
-    viabilidad:''
+    viabilidad:'',
+    QR:''
   }
 
   
   render() {
 
     var viabilidad = this.state.viabilidad
-    var bool, opacity
+    var QR = this.state.QR
+    var bool, opacity, opacity2
 
-    if (viabilidad == ''){
+     if (viabilidad == ''){
             
       bool=true
       opacity=0
       } else {
 
-            bool=false
-            opacity=1
+      bool=false
+      opacity=1
+      }
+
+    
+      if (QR == ''){
+       
+      opacity2=0
+      } else {
+           
+      opacity2=1
       }
 
 
@@ -191,7 +202,7 @@ export class IdentidadConfirmada extends React.Component {
                  
                  source={confirmado}
                  style={{
-                 aspectRatio:0.9, height:hp('11%')}}
+                 aspectRatio:0.9, height:hp('11%'),opacity:opacity2}}
                  
                  >    
                  </Image> 
@@ -228,7 +239,8 @@ export class IdentidadConfirmada extends React.Component {
               width:wp('26%'),
               fontWeight:'bold',
               textAlign:'center', 
-              fontSize: hp('2.5%')
+              fontSize: hp('2.5%'),
+              opacity:opacity2
               }}>
 
               Identidad confirmada
@@ -265,7 +277,7 @@ export class IdentidadConfirmada extends React.Component {
       <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
           <TouchableOpacity 
                                                                        
-          onPress={() => this.props.navigation.navigate('Solfium')}
+          onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
             > 
                                   
              <Image 
@@ -357,7 +369,8 @@ componentDidMount() {
   this.listener = ref.on("value", snapshot => {
 
   this.setState({ nombre_instalador: snapshot.child("nombre_instalador").val() || '',
-                  viabilidad: snapshot.child("Viabilidad").val() || ''
+                  viabilidad: snapshot.child("Viabilidad").val() || '',
+                  QR: snapshot.child("QR_instalador").val() || ''
                                 
                 })    
 

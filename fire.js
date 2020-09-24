@@ -13,13 +13,16 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 export const db = app.database();
 
-
+var d =new Date ()
+var n = d.getTime()
 
 
 export class Fire {
 
   uid = ''
   messagesRef = null
+
+
   
  
   constructor ()  {
@@ -27,6 +30,8 @@ export class Fire {
     
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
+
+      
     }
 
       firebase.auth().onAuthStateChanged((user) => {
@@ -65,7 +70,7 @@ export class Fire {
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('/Usuarios/'+ this.uid + '/Mensajes/');
+    this.messagesRef = firebase.database().ref('/Chats/' +  n + '/' + this.uid);
     this.messagesRef.off();
 
     const onReceive = (data) => {
@@ -78,7 +83,7 @@ export class Fire {
           createdAt: new Date(message.createdAt),
           user: {
             id: message.user._id,
-            name: message.user.name,
+            name: message.user.name
             
         },
 
@@ -95,9 +100,12 @@ export class Fire {
           this.messagesRef.push({
             text: message[i].text,
             user: message[i].user,
-            createdAt: firebase.database.ServerValue.TIMESTAMP,
+            createdAt: firebase.database.ServerValue.TIMESTAMP
+            
+            
           })
       }
+      console.log('message.length',message[0].user)
   }
 
   closeChat(){

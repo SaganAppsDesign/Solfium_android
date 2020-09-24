@@ -199,9 +199,7 @@ export class CitaConfirmada extends React.Component {
                 fontWeight:'bold'
                 }}>
 
-                <Text style={{fontSize: hp('2.5%')}}>El día de la cita el técnico deberá presentar credencial con 
-                
-                código QR para confirmar.</Text>
+                <Text style={{fontSize: hp('2.5%')}}>Escanee código QR presentado por el técnico para confirmar su identidad.</Text>
 
               </Text>
 
@@ -217,7 +215,7 @@ export class CitaConfirmada extends React.Component {
       <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
           <TouchableOpacity 
                                                                        
-          onPress={() => this.props.navigation.navigate('Solfium')}
+          onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
             > 
                                   
              <Image 

@@ -26,6 +26,20 @@ const settings = () => {
 
 export class PantallaEspera extends React.Component {
 
+  constructor(props){
+    super(props)
+    setTimeout(()=>{
+      this.props.navigation.navigate('Cálculos')
+
+    }, 1000
+
+    )
+
+  }
+
+
+
+
   state = {
 
     potencia: '',
@@ -83,7 +97,7 @@ siguiente = () =>  {
                         </Text>
                        
                     </View>
-                 
+                 {/* 
                     <View style={{flex:2}}>
 
 
@@ -102,7 +116,7 @@ siguiente = () =>  {
                                             </Image> 
                                 </TouchableOpacity>
                     
-                    </View>
+                 </View> */}
        
     </View>
                 
@@ -116,7 +130,7 @@ siguiente = () =>  {
            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                <TouchableOpacity 
                                                                             
-               onPress={() => this.props.navigation.navigate('Solfium')}
+               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
                  > 
                                        
                   <Image 

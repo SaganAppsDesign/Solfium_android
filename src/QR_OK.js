@@ -1,17 +1,26 @@
 import * as React from 'react';
-import {Fragment} from 'react';
-import { StyleSheet, Text, View,  Button, Dimensions} from 'react-native';
+import { StyleSheet, Text, View,  Button, Dimensions, TouchableOpacity, Image} from 'react-native';
 import tec3 from '../assets/fondo2.jpg';  
 import ImageOverlay from "react-native-image-overlay";
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Card } from 'react-native-elements';
+import Fire, {db} from '../fire';
+import logo from '../assets/logo.png'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 var {height} = Dimensions.get('window');
 
+const confirmadoQR = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+  QR_instalador: 'OK',
+      
+  })
 
 
 export function QRCodeOk({ navigation }) {
+   
+  
+
  return (
 
        
@@ -21,53 +30,69 @@ export function QRCodeOk({ navigation }) {
                     >
 
 
-            <View>         
-                    <Text style={{color: '#000',
-                                    backgroundColor: 'orange',
-                                    fontSize: 30,
-                                    marginHorizontal: 30,
-                                    marginTop: 20,
+            <View style={{alignItems:'center', flex:1 }}> 
+            
+                      <View style={{ marginTop:hp('4.5%'),alignItems:'center', marginBottom:'0%', flex:3}}> 
+                                    <Text style={{color: '#000',
+                                    backgroundColor: 'green',
+                                    fontSize: hp('4.5%'),
+                                    marginHorizontal: wp('9%'),
+                                    marginTop:hp('9%'),
                                     fontWeight: 'bold',
-                                    padding: 10,
+                                    padding: hp('1%'),
                                     textAlign: 'center',
                                     borderRadius:10}} h1>El código QR escaneado es correcto</Text>
                   
-              
+                      </View>
 
-                   <View style={{marginTop:'25%', marginRight:'5%', marginLeft:'5%', marginBottom:'0%' }}>
+                   <View style={{marginTop:hp('0%'),  marginBottom:'0%', flex:2 }}>
 
-                     <View style={{ marginBottom: 20, marginTop: 10}}>
 
-                      <Button title="   Acepto la visita" onPress={() =>  navigation.navigate('Viabilidad Instalación')} 
-                              color='orange'                           
-                              icon={
-                                  <Icon
-                                    name="thumbs-up"
-                                    size={25}
-                                    color="black"
-                                  />
-                                }/>
+
+                     <View style={{marginBottom: '0%', marginTop: '0%', width:wp('100%'), height:hp('30%'), alignItems:'center', alignContent:'center', justifyContent:'center'}}>
+
+                          <TouchableOpacity onPress={
+                            () => { navigation.navigate('Escanear QR Instalador'); confirmadoQR()}
+                          }
+                          >
+                               <Text style={styles.buttonOK}>Acepto la visita</Text>
+
+                          
+                          </TouchableOpacity>
+                     
+
+                          <TouchableOpacity onPress={
+                            () => { navigation.navigate('Ingresar Consumo')}
+                          }
+                          >
+                              <Text style={styles. buttonNOoK}>No estoy de acuerdo con la visita</Text>
+                          </TouchableOpacity>
+                     
                      
                       </View>
 
-                     <View >
+                    
      
-                      <Button 
-                        title="   No estoy de acuerdo con la visita"
-                        onPress={() => navigation.navigate('Solfium')}
-                        color='orange'
-                        icon={
-                                  <Icon
-                                    name="arrow-circle-left"
-                                    size={25}
-                                    color="black"
-                                  />
-                                }
-                      
-                      />
+                   
                       </View>
+
+                      <View >
                   
                 </View> 
+
+                { /* LOGO*/}
+        
+                <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:2}}>  
+                
+                <Image 
+                  
+                  source={logo}
+                  style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
+                  
+                  >    
+                </Image>  
+
+               </View>
              
  
         </View>   
@@ -82,37 +107,40 @@ export function QRCodeOk({ navigation }) {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    flexDirection: 'column',
+
+
+
+  buttonOK: {
     
+  
+    fontSize: hp('3%'),
+    marginBottom:hp('4.5%'),
+    fontWeight:'bold',
+    backgroundColor: 'green',
+    width:hp('30%'),
+    height:hp('10%'),
+    borderRadius: 10,
+    textAlign:'center',
+    justifyContent:'center',
+    alignContent:'center',
+    padding:hp('2%')
+    
+   
   },
 
-       //header
-    box1: {
-      flexDirection:'row',
-      width: 300,
-      height: 250,
-      backgroundColor: 'orange',
-      borderRadius: 5,
-      shadowColor: 'rgba(255,255,0,0.5)',
-      shadowOffset: {
-        width: 0,
-        height: 1
-      },
-      shadowOpacity:0.5,
-      borderWidth:2, 
-      borderColor:'black'
-    },
+  buttonNOoK: {
+    
    
+    fontSize: hp('3%'),
+    marginBottom:hp('4.5%'),
+    fontWeight:'bold',
+    backgroundColor: 'red',
+    width:hp('30%'),
+    height:hp('10%'),
+    borderRadius: 10,
+    textAlign:'center',
+    padding:hp('1%')
 
-
-
-  fondo: {
-    width: '100%'
-    
-    
   },
 
 });

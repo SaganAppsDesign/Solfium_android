@@ -155,7 +155,7 @@ const settings = () => {
            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                <TouchableOpacity 
                                                                             
-               onPress={() => navigation.navigate('Solfium')}
+               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
                  > 
                                        
                   <Image 

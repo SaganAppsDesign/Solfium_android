@@ -116,7 +116,7 @@ return (
            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                <TouchableOpacity 
                                                                             
-               onPress={() => navigation.navigate('Solfium')}
+               onPress={() => navigation.navigate('Ingresar Consumo')}
                  > 
                                        
                   <Image 

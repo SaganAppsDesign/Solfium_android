@@ -4,11 +4,11 @@ import {
   Text,
   ScrollView, Animated, Keyboard, KeyboardAvoidingView,
   TouchableOpacity,
-  View,
+  View, Image
 } from 'react-native';
 import Fire, {db} from '../fire';
 import fondo from '../assets/fondo5.jpg'; 
-
+import logo from '../assets/logo.png'; 
 import { TextInput } from 'react-native-paper';
 import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -26,11 +26,7 @@ export class Main extends React.Component {
   user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
     name: this.state.name,
-    Viabilidad:'',
-    cita:'Cita sin acordar',
-    fechaInstalacion:'',
-    visita:'Sin estado'
- 
+    
 
     
     })
@@ -67,44 +63,69 @@ export class Main extends React.Component {
       //resizeMode="stretch"
       //style={styles.fondo} 
       >
-    
-      <View style={{height:'100%', width:'100%', alignItems:'center', flex:1}}>
 
-      <KeyboardAvoidingView  enabled keyboardVerticalOffset={50}
-      style={{height:'100%', width:'100%', flex:5}}>
-    
-       <ScrollView style={{marginTop:'0%', height:'100%', width:'100%'}}> 
-       
-              <View style={{marginTop:'30%', height:'100%', width:'100%', flex:1}}>
-                <TextInput
-                  style={styles.nameInput}
-                  label="Usuario"
-                  onChangeText={this.onChangeText}
-                  value={this.state.name}
-                  //mode='outlined'
-                  theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
+      <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:1}}> 
                   
+      <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:4, height:hp('3%')}}> 
+      
+          <View style={{width:hp('50%'), borderRadius:10, marginTop:hp('5%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:2, height:hp('2%'), justifyContent:'center'}}> 
+              <Text style={{color: 'white',
+                
+                fontSize: hp('3%'),
+                marginHorizontal: wp('9%'),
+                marginTop:hp('0%'),
+                fontWeight: 'bold',
+                padding: hp('1%'),
+                textAlign: 'center',
+                borderRadius:10}} h1>Contacte por chat con el personal de evaluación. Sólo tiene que introducir un nombre de usuario.</Text>
+           </View>
 
-                  
-                />
+    
+            <View style={{height:hp('100%'), width:hp('100%'), alignItems:'center', flex:5}}>
 
-                <TouchableOpacity onPress={
-                  () => { this.onPress(); this.user()}
-                }
-                >
-                <Text style={styles.buttonText}>Chat aquí</Text>
-                </TouchableOpacity>
+                          
+                      <TextInput
+                        style={styles.nameInput}
+                        label="Usuario"
+                        onChangeText={this.onChangeText}
+                        value={this.state.name}
+                        //mode='outlined'
+                        theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
+                        
+
+                        
+                      />
+                    
+
+                      <TouchableOpacity onPress={
+                        () => { this.onPress(); this.user()}
+                      }
+                      >
+                      <Text style={styles.buttonText}>Siguiente</Text>
+                      </TouchableOpacity>
 
               </View>
           
 
-         </ScrollView>
-        </KeyboardAvoidingView>
-      </View>
+              </View>
 
-    
+              { /* LOGO*/}
+
+                  <View style={{alignItems:'center', justifyContent:'center', flex:1}}>  
+                  
+                  <Image 
+                    
+                    source={logo}
+                    style={{aspectRatio:4.5, height:hp('5%'), marginBottom:hp('3.5%')}}
+                    
+                    >    
+                  </Image>  
+
+                  </View> 
+
+              </View>
       </ImageOverlay>
-    );
+    )
   }
 }
 
@@ -115,30 +136,30 @@ const styles = StyleSheet.create({
  
   nameInput: {
     height: 70,
-    marginLeft: '10%',
-    marginTop:'5%',
-    marginBottom:'5%',
-    width:'80%',
-    paddingHorizontal: '25%',
+    marginLeft: hp('5%'),
+    marginTop:hp('5%'),
+    marginBottom:hp('5%'),
+    width:wp('80%'),
+    paddingHorizontal: wp('5%'),
     backgroundColor: 'white',
-    fontSize:20,
+    fontSize:hp('2%'),
     fontWeight: 'bold',
     borderRadius: 2,
    
    
   },
   buttonText: {
-    marginLeft: '10%',
-    marginTop:'0%',
-    fontSize: 20,
-    marginBottom:'5%',
+    marginLeft: hp('40%'),
+    marginTop:hp('0%'),
+    fontSize: hp('2%'),
+    marginBottom:hp('0%'),
     fontWeight:'bold',
     backgroundColor: '#DD650C',
-    width:'40%',
-    height:'100%',
+    width:wp('20%'),
+    height:hp('3%'),
     borderRadius: 10,
-    textAlign:'center',
-    flex:1
+    textAlign:'center'
+    
   },
 });
 
