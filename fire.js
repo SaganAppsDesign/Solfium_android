@@ -1,5 +1,6 @@
 import firebase from 'firebase'; 
 
+
 const firebaseConfig = {
   apiKey: 'AIzaSyCmFh0zidLXHhW9x2o-xVVLMEtNjVueP6g',
   authDomain: 'solfium.firebaseapp.com',
@@ -13,8 +14,6 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 export const db = app.database();
 
-var d =new Date ()
-var n = d.getTime()
 
 
 export class Fire {
@@ -70,7 +69,7 @@ export class Fire {
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('/Chats/' +  n + '/' + this.uid);
+    this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
 
     const onReceive = (data) => {
@@ -83,7 +82,8 @@ export class Fire {
           createdAt: new Date(message.createdAt),
           user: {
             id: message.user._id,
-            name: message.user.name
+            name: message.user.name,
+            avatar:message.user.avatar
             
         },
 

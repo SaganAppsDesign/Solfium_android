@@ -71,7 +71,7 @@ class MainScreen extends Component {
       <Stack.Screen name="Video Informativo" component={VideoInfo} />
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />
       <Stack.Screen name="Instalación en proceso" component={Instalacion} />
-      <Stack.Screen name="Rating" component={Ratings} />
+      <Stack.Screen options={{headerShown: false}} name="Rating" component={Ratings} />
       <Stack.Screen options={{headerShown: false}} name="Escanear QR Instalador" component={IdentidadConfirmada} />
       <Stack.Screen options={{headerShown: false}}name="QR Escaneado" component={QREscaneado} />
       <Stack.Screen options={{headerShown: false}}name="QR correcto" component={QRCodeOk} />

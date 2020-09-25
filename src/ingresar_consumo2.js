@@ -41,20 +41,6 @@ export class IngresarConsumo extends React.Component {
  
 
   
-    
-  potencia = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
-     
-           potencia: this.state.potenciaEstado,
-           name:'Por confirmar',
-           Viabilidad:'Por confirmar',
-           cita:'Por confirmar',
-           fechaInstalacion:'Por confirmar',
-           visita:'Por confirmar'
-         
-    }   
-    )
-
-  
   onChangeText = potenciaEstado => this.setState({ potenciaEstado });
   
 
@@ -65,7 +51,9 @@ export class IngresarConsumo extends React.Component {
 
 render() {
 
-    
+    console.log('potencia:  ', this.state.potenciaEstado)
+
+    potencia = this.state.potenciaEstado
    
     const escanearRecibo = () => {
     ToastAndroid.show("Escanear recibo", ToastAndroid.SHORT);
@@ -130,9 +118,10 @@ return (
                                   <TextInput
                                       style={styles.nameInput}
                                       placeholder="MXN"
+                                      placeholderTextColor = "#74ECE5"
                                       keyboardType='numeric'
                                       onChangeText={this.onChangeText}
-                                      value={this.state.potencia}
+                                      value={this.state.potenciaEstado}
                                   
                                       //inlineImageLeft='icono.'
                                       //label="KWh"
@@ -167,8 +156,7 @@ return (
                                   <View  style={{alignItems:'center', flex:1, justifyContent:'center', width:wp('100%'), height:hp('100%'), marginTop:hp('0.5%')}}>
                                         <TouchableOpacity 
                                                                                                         
-                                          onPress={() => this.props.navigation.navigate('Pantalla de espera', this.potencia()
-                                            )}
+                                          onPress={() => this.props.navigation.navigate('Pantalla de espera')}
                                            
                                             > 
                                                                                     
@@ -295,7 +283,8 @@ const styles = StyleSheet.create({
     fontSize: hp('3%'),
     fontWeight: 'bold',
     borderRadius: 30,
-    textAlign:'center'
+    textAlign:'center',
+    color:'#74ECE5'
     
    
 

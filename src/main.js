@@ -7,11 +7,12 @@ import {
   View, Image
 } from 'react-native';
 import Fire, {db} from '../fire';
-import fondo from '../assets/fondo5.jpg'; 
-import logo from '../assets/logo.png'; 
-import { TextInput } from 'react-native-paper';
-import ImageOverlay from "react-native-image-overlay";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import fondo from '../assets/fondo5.jpg'
+import logo from '../assets/logo.png'
+import { TextInput } from 'react-native-paper'
+import ImageOverlay from "react-native-image-overlay"
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
+import {potencia} from './ingresar_consumo2'
 
 
 export class Main extends React.Component {
@@ -26,8 +27,8 @@ export class Main extends React.Component {
   user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
     name: this.state.name,
+    potencia: potencia
     
-
     
     })
 
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
  
   nameInput: {
     height: 70,
-    marginLeft: hp('5%'),
+    marginLeft: hp('0%'),
     marginTop:hp('5%'),
     marginBottom:hp('5%'),
     width:wp('80%'),
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
    
   },
   buttonText: {
-    marginLeft: hp('40%'),
+    marginLeft: hp('35%'),
     marginTop:hp('0%'),
     fontSize: hp('2%'),
     marginBottom:hp('0%'),

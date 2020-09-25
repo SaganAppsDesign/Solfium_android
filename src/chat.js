@@ -7,6 +7,7 @@ import { IconButton } from 'react-native-paper';
 import {db} from '../fire';
 import visita from '../assets/visita.png';  
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import icono from '../assets/icono2.png'; 
 
 
 
@@ -42,7 +43,7 @@ state = {
    var cita = this.state.cita
    var bool, opacity
    
-   if (cita == 'Cita sin acordar'){
+   if (cita == ''){
           
          bool=true
          opacity=0.2
@@ -70,10 +71,12 @@ state = {
           renderUsernameOnMessage  = {true}
           showAvatarForEveryMessage = {true}
           scrollToBottom
+          isTyping={true}
           placeholder={"Chatea aquí " + name}
           user={{
             _id: Fire.getUid(),
-            name: name
+            name: name,
+            avatar: 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/45.png'
            
         }}
       />
@@ -141,20 +144,12 @@ componentDidMount() {
 
 
 
-
 }
-
-
-
-
-
 
 
 componentWillUnmount() {
   Fire.closeChat();
 }
-
-
 
 
 }

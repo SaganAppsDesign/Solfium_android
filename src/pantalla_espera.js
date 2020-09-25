@@ -38,16 +38,6 @@ export class PantallaEspera extends React.Component {
   }
 
 
-
-
-  state = {
-
-    potencia: '',
-   
-  }
-   
-
-
   
 siguiente = () =>  {
     

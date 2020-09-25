@@ -7,9 +7,11 @@ import home from '../assets/home.png';
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
 import logo from '../assets/logo.png'; 
+import star from '../assets/star.png'; 
 import chat from '../assets/chat.png';
 import  Fire , {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 
 const user = () => {
@@ -121,32 +123,76 @@ export class CompraConfirmada extends React.Component {
                      <Card containerStyle={{ marginTop: hp('0%'), borderRadius: 10, 
                      width:wp('70%'), height:hp('20%'), opacity: opacity}}>
  
-                               
-                             <Text style={{
-                               color: '#000',
-                               marginTop: hp('1%'),
-                               textAlign:'center',
-                               fontWeight:'bold',
-                               height:hp('100%'),
-                               width:wp('60%'),
-                               fontSize:hp('3%'),
-                               opacity: opacity
-                       
-                              }}>{nombre}, su equipo se instalará el {day}-{month}-{year} a las {hour} h</Text>
-                       
-                     
-                     </Card>
+                             <View style={{ marginTop:hp('0%'), marginLeft:wp('0%'), flex:1}}>      
+                                    <Text style={{
+                                      color: '#000',
+                                      marginTop: hp('1%'),
+                                      textAlign:'center',
+                                      fontWeight:'bold',
+                                      height:hp('15%'),
+                                      width:wp('60%'),
+                                      fontSize:hp('3%'),
+                                      opacity: opacity,
+                                      
+                              
+                                      }}>{nombre}, su equipo se instalará el {day}-{month}-{year} a las {hour} h</Text>
+                              </View>
 
-                  
+                              
                      
+                      </Card>
+
                      
                      </View>
 
-                      
-
-
 
                     </View>
+
+                    <View style={{ marginTop:hp('1%'), marginLeft:wp('0%'), flex:1, flexDirection:'row'}}> 
+                                    
+                                      <View style={{marginTop:hp('0%'), marginLeft:wp('0%'), flex:3}}> 
+                                            
+                                          <Text style={{
+                                              color: '#000',
+                                              marginTop: hp('1%'),
+                                              textAlign:'center',
+                                              fontWeight:'bold',
+                                              height:hp('5%'),
+                                              width:wp('15%'),
+                                              fontSize:hp('1.8%'),
+                                              marginLeft:wp('60%'),
+                                            
+                                      
+                                            }}>Valore a su instalador</Text>
+
+                                        </View>
+                                            
+                   
+                                                  
+                                        <TouchableOpacity 
+                                                                                                    
+                                                onPress={() => this.props.navigation.navigate('Rating')}
+                                                style={{alignItems:'center',marginTop:hp('0%'), marginLeft:wp('-50%'),width:wp('40%'), height:hp('5%'), flex:1}}
+                                        > 
+
+                                        
+                                          <View> 
+
+                                            <Image 
+                                        
+                                            source={star}
+                                            style={{aspectRatio:1, height:hp('8%')}}
+                                            
+                                            >    
+                                            </Image> 
+                      
+                                        </View>
+                                    
+                                        </TouchableOpacity> 
+ 
+                                      
+                               </View>
+
  
               </View>
               

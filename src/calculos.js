@@ -9,15 +9,12 @@ import logo from '../assets/logo.png';
 import { Card } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fire, {db} from '../fire';
+import {potencia} from './ingresar_consumo2'
 
 
 
+var color,opacity,backgroundcolor, viable
 
-var viabilidad
-//var text1 = '$ ' + parseFloat(potenciaUbicacion*26).toFixed(2)
-var text2='$ 2,000',text3='$ 30,000',text4='540 kg de carbono',text5='$ 600,000',color,opacity,backgroundcolor, viable
-var {height} = Dimensions.get('window');
-var {width} = Dimensions.get('window');
 
 
 const user = () => {
@@ -40,7 +37,7 @@ export class Calculos extends React.Component {
   render() {
 
     
-    console.log('Valor en el render ', this.state.potenciaUbicacion)
+    console.log('Valor en el render ', potencia)
 
 
     return (
@@ -98,7 +95,7 @@ export class Calculos extends React.Component {
                             fontWeight:'bold',
                             textAlign:'center',
                             
-                            }}>{'$ ' + this.state.potenciaUbicacion*8000}</Text>
+                            }}>{'$ ' + potencia*8000}</Text>
                 </View> 
 
             </View>
@@ -138,7 +135,7 @@ export class Calculos extends React.Component {
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{'$ ' + parseFloat(this.state.potenciaUbicacion*8000/12).toFixed(1)}</Text>
+                        }}>{'$ ' + parseFloat(potencia*8000/12).toFixed(1)}</Text>
             </View> 
 
             </View>
@@ -179,7 +176,7 @@ export class Calculos extends React.Component {
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{'$ ' + (this.state.potenciaUbicacion*8000 + Number(6000))}</Text>
+                        }}>{'$ ' + (potencia*8000 + Number(6000))}</Text>
             </View> 
 
             </View>
@@ -218,7 +215,7 @@ export class Calculos extends React.Component {
                     fontWeight:'bold',
                     textAlign:'center',
                     
-                    }}>{(this.state.potenciaUbicacion*8000 / Number(50))+ ' Kg de carbono '}</Text>
+                    }}>{(potencia*8000 / Number(50))+ ' Kg de carbono '}</Text>
         </View> 
 
         </View>
@@ -255,7 +252,7 @@ export class Calculos extends React.Component {
                     fontWeight:'bold',
                     textAlign:'center',
                     
-                    }}>{'$ ' + ((this.state.potenciaUbicacion*8000 + Number(6000))*20)}</Text>
+                    }}>{'$ ' + ((potencia*8000 + Number(6000))*20)}</Text>
         </View> 
 
         </View>
@@ -390,19 +387,7 @@ export class Calculos extends React.Component {
   );
 }
 
-componentDidMount() {
 
-
-    const ref = db.ref('/Usuarios/' +  Fire.getUid());
-
-    this.listener = ref.on("value", snapshot => {
-  
-    this.setState({potenciaUbicacion: snapshot.val().potencia||''});
-  
-  }
-  )
-
-}
 
 
 
