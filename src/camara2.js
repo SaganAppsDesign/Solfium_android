@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { AppRegistry, StyleSheet, Text, TouchableOpacity, View, LogBox, Button } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import PropTypes from 'prop-types'
-import RNMlKit from 'react-native-firebase-mlkit';
+
 
 
 var uri,text, text2, text3, text4, text5, text6

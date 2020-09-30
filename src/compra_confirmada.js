@@ -68,7 +68,7 @@ export class CompraConfirmada extends React.Component {
             <View style={{flex:1, width:wp('100%'), height:hp('100%')}}>
                     
                  {/*Chat*/}
-                  <View style={{marginTop:hp('1%'), marginLeft:wp('80%'), flex:1}}>   
+                  <View style={{marginTop:hp('5%'), marginLeft:wp('80%'), flex:1}}>   
                                                 
                       <TouchableOpacity 
                                                                                   
@@ -154,13 +154,13 @@ export class CompraConfirmada extends React.Component {
                                             
                                           <Text style={{
                                               color: '#000',
-                                              marginTop: hp('1%'),
+                                              marginTop: hp('2%'),
                                               textAlign:'center',
                                               fontWeight:'bold',
                                               height:hp('5%'),
-                                              width:wp('15%'),
+                                              width:wp('25%'),
                                               fontSize:hp('1.8%'),
-                                              marginLeft:wp('60%'),
+                                              marginLeft:wp('50%'),
                                             
                                       
                                             }}>Valore a su instalador</Text>

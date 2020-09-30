@@ -118,7 +118,7 @@ export class InfoResultInsta extends React.Component {
    
     <View style={{alignItem:'center', justifyContent:'center', flex:1, flexDirection:'column'}}>
 
-                 <View style={{marginTop:hp('1%'), marginLeft:wp('75%'), flex:1}}>   
+                 <View style={{marginTop:hp('4%'), marginLeft:wp('75%'), flex:0.9}}>   
                                           
                   <TouchableOpacity 
                                                                               
@@ -129,7 +129,7 @@ export class InfoResultInsta extends React.Component {
                           <Image 
                       
                           source={chat}
-                          style={{aspectRatio:1, height:hp('8%')}}
+                          style={{aspectRatio:1, height:hp('7.5%')}}
                           
                           >    
                           </Image> 
@@ -141,24 +141,24 @@ export class InfoResultInsta extends React.Component {
                 </View>
     
     
-    <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('2%'), flex:15}}>
+    <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('1%'), flex:15}}>
          
-          <Card containerStyle={{backgroundColor:'white', marginTop: hp('0%'),  borderRadius: 50, 
-          width:wp('80%'), height:hp('85%'), alignItems: 'center'}}>
+          <Card containerStyle={{backgroundColor:'white', marginTop: hp('1%'),  borderRadius: 50, 
+          width:wp('80%'), height:hp('84%'), alignItems: 'center'}}>
     
             <View style={{flexDirection:'column', width:wp('100%'), height:hp('100%'), alignItems: 'center'}}>
            
-              <View style={{width:wp('100%'), height:hp('100%'), flex:0.8, alignItems:'center'}}>
+              <View style={{textAlignVertical:'center',backgroundColor:color, borderRadius:50, width:wp('70%'), height:hp('100%'), flex:0.4, alignItems:'center'}}>
                                     <Text style={{height:'80%', 
                                     width:wp('60%'),
-                                    borderRadius:50,
+                                    marginTop:hp('0.5%'),
                                     fontWeight:'bold',
                                     fontSize:hp('3%'),
                                     color: 'white', 
-                                    alignItems: 'center',
+                                    
                                     textAlign:'center',
-                                    backgroundColor: color,
-                                    textAlignVertical:'center'
+                                    
+                                   
                                   }}> {viable} </Text>
               </View> 
 
@@ -167,7 +167,7 @@ export class InfoResultInsta extends React.Component {
                       <Text style={{color: '#878787',
                                     textAlign:'center',
                                     fontSize:hp('2%'),
-                                    marginTop: hp('0%'),
+                                    marginTop: hp('1%'),
                                     height:hp('45%'),
                                     width:wp('60%'),
                                   
@@ -176,7 +176,7 @@ export class InfoResultInsta extends React.Component {
               
             {/*  inversion total */}
 
-            <View style={{flexDirection:'row', flex:1, alignItems:'center',width:wp('55%')}} >
+            <View style={{flexDirection:'row', flex:1, alignItems:'center',width:wp('55%'), marginTop:hp('2%')}} >
              
                 <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
                       <Image
@@ -371,7 +371,7 @@ export class InfoResultInsta extends React.Component {
         </View>
 
                {/* Botón*/}
-       <View style={{flex:2, alignItems:'center',width:wp('55%')}}>
+               <View style={{backgroundColor:'#5DCB31', borderRadius:50, width:wp('60%'), height:hp('0,5%'), flex:0.5, alignItems:'center', marginBottom:hp('20%')}}>
 
                <TouchableOpacity
                      
@@ -383,16 +383,13 @@ export class InfoResultInsta extends React.Component {
                      <Text style={{
                      height: hp('5%'), 
                      width: wp('64%'),
-                     borderRadius:50,
                      fontWeight:'bold',
                      fontSize:20,
                      color: 'white', 
                      textAlign:'center',
-                     paddingLeft:40, 
-                     paddingRight:40,
-                     backgroundColor: '#5DCB31',
                      opacity:opacity,
-                     textAlignVertical:'center'}}>HACER PEDIDO</Text>
+                     marginTop:hp('1.5%')
+                    }}>HACER PEDIDO</Text>
 
                </TouchableOpacity>
              </View>

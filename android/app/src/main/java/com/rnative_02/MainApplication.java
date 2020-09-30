@@ -6,6 +6,9 @@ import androidx.multidex.MultiDexApplication;
 import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.mlkit.RNMlKitPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -40,7 +43,10 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
           // packages.add(new MyReactNativePackage());
   
           new VectorIconsPackage();
-          new MainReactPackage();
+          new MainReactPackage(),
+            new VectorIconsPackage(),
+            new VectorIconsPackage(),
+            new RNMlKitPackage();
           new ReactVideoPackage();
           new AsyncStoragePackage();
           new OrientationPackage();

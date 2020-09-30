@@ -40,7 +40,7 @@ const settings = () => {
             <View style={{flex:1, width:wp('100%'), height:hp('100%')}}>
                     
                  {/*Chat*/}
-                  <View style={{marginTop:hp('1%'), marginLeft:wp('80%'), flex:1}}>   
+                  <View style={{marginTop:hp('5%'), marginLeft:wp('80%'), flex:1}}>   
                                                 
                       <TouchableOpacity 
                                                                                   
@@ -128,7 +128,7 @@ const settings = () => {
                           </View>
 
 
-                          <View style={{justifyContent:'center', alignItems:'center', marginTop:hp('5%'), width:hp('100%'), height:hp('100%'), flex:1.5}}>
+                          <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('5%'), width:hp('30%'), height:hp('100%'), flex:1.5}}>
 
                           <TouchableOpacity
                               
@@ -137,20 +137,19 @@ const settings = () => {
                                                   
                               >
           
-                              <Text style={{backgroundColor:'blue',  
+                              <Text style={{
                               
-                              borderRadius:50,
+                              
                               fontWeight:'bold',
                               fontSize:25,
                               color: 'white', 
                               textAlign:'center',
-                              paddingLeft:wp('20%'), 
-                              paddingRight:wp('20%'),
-                              backgroundColor: '#5DCB31',
+                              
+                              
                               textAlignVertical:'center'}}> PAGAR </Text>
           
                           </TouchableOpacity>
-                     </View>
+                         </View>
 
 
                     </View>

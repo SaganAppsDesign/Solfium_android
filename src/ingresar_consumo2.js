@@ -3,7 +3,6 @@ import ImageOverlay from "react-native-image-overlay";
 import logo from '../assets/logo.png'; 
 import fondo from '../assets/calculos1.jpg'; 
 import escanear_recibo from '../assets/click_escaneo_recibo.png'; 
-import siguiente_paso from '../assets/siguiente_paso.png'; 
 import ubicacion from '../assets/ubicacion.png'; 
 import home from '../assets/home.png'; 
 import setting from '../assets/setting.png'; 
@@ -11,7 +10,7 @@ import usuario from '../assets/usuario.png';
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import calcular from '../assets/calcular3.png'; 
-
+import Toast from 'react-native-simple-toast';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fire, {db} from '../fire';
 
@@ -21,7 +20,9 @@ export var potenciaEstado, potencia2, potencia
   
 
 const ubicacionMensaje = () => {
-  ToastAndroid.show("Introduce ubicación", ToastAndroid.SHORT);
+  
+  Toast.show('Introduce ubicación', Toast.SHORT);
+
  
 };
 
@@ -51,22 +52,26 @@ export class IngresarConsumo extends React.Component {
 
 render() {
 
-    console.log('potencia:  ', this.state.potenciaEstado)
+    //console.log('potencia:  ', this.state.potenciaEstado)
 
     potencia = this.state.potenciaEstado
    
     const escanearRecibo = () => {
-    ToastAndroid.show("Escanear recibo", ToastAndroid.SHORT);
+    
+    Toast.show('Escanear recibo', Toast.SHORT)
+    
    
   };
   
     const user = () => {
-      ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
+      
+      Toast.show('Perfil usuario', Toast.SHORT);
     
     };
     
     const settings = () => {
-      ToastAndroid.show("Settings", ToastAndroid.SHORT);
+      
+      Toast.show('Settings', Toast.SHORT);
     
     };
 
@@ -83,9 +88,18 @@ return (
                  >
                 
                  <View style={{alignItem:'center', justifyContent:'center', width:wp('100%'), height:hp('100%'), flex:1, flexDirection:'column'}}>              
-                                
-                       <View style={{alignItem:'center', justifyContent:'center',marginTop:hp('19%') , width:wp('100%'), height:hp('100%'), flex:7, flexDirection:'column'}}>          
+                      <View  style={{alignItems:'center', flex:1}}>
+                      <Text 
+                          style={{backgroundColor:'orange',  textAlign:'center',  fontSize:15, width:wp('100%'), height: hp('2%'), fontWeight:'bold',
+                                  color: 'white', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('5%')}} 
+                          onPress={() => this.props.navigation.navigate('Video Informativo')}>¿Quiere saber cómo funciona Solfium App? Click aquí</Text>
+                      </View>      
+                      <View style={{alignItem:'center', justifyContent:'center',marginTop:hp('10%') , width:wp('100%'), height:hp('100%'), flex:7, flexDirection:'column'}}>          
 
+             
+                                 
+                                 
+                                 
                                  <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                                                                  
                                   <TouchableOpacity 
@@ -163,7 +177,7 @@ return (
                                               <Image 
                                             
                                                 source={calcular}
-                                                style={{width:wp('43%'), height:hp('7%')}}
+                                                style={{aspectRatio:3.7, height:hp('7%')}}
                                                 
                                                 >               
                                                 </Image> 
@@ -216,6 +230,8 @@ return (
                    </TouchableOpacity> 
 
                   </View>
+
+
 
                   <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                   

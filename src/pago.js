@@ -39,7 +39,7 @@ const settings = () => {
             <View style={{flex:1, width:wp('100%'), height:hp('100%')}}>
                     
                  {/*Chat*/}
-                  <View style={{marginTop:hp('1%'), marginLeft:wp('80%'), flex:0.1}}>   
+                  <View style={{marginTop:hp('5%'), marginLeft:wp('80%'), flex:0.1}}>   
                                                 
                       <TouchableOpacity 
                                                                                   

@@ -32,34 +32,38 @@ export function QRCodeOk({ navigation }) {
 
             <View style={{alignItems:'center', flex:1 }}> 
             
-                      <View style={{ marginTop:hp('4.5%'),alignItems:'center', marginBottom:'0%', flex:3}}> 
+                      <View style={{backgroundColor:'green', width:wp('80%'), height:hp('100%'), borderRadius:20,marginTop:hp('20%'),alignItems:'center', marginBottom:'0%', flex:2}}> 
                                     <Text style={{color: '#000',
                                     backgroundColor: 'green',
-                                    fontSize: hp('4.5%'),
-                                    marginHorizontal: wp('9%'),
-                                    marginTop:hp('9%'),
+                                    fontSize: hp('3.8%'),
+                                    marginHorizontal: wp('5%'),
+                                    marginTop:hp('4%'),
                                     fontWeight: 'bold',
                                     padding: hp('1%'),
                                     textAlign: 'center',
-                                    borderRadius:10}} h1>El código QR escaneado es correcto</Text>
+                                    height:hp('16%')
+                                    }} h1>El código QR escaneado es correcto</Text>
                   
                       </View>
 
-                   <View style={{marginTop:hp('0%'),  marginBottom:'0%', flex:2 }}>
+                   <View style={{marginTop:hp('5%'),  marginBottom:'0%', flex:3 }}>
 
 
 
                      <View style={{marginBottom: '0%', marginTop: '0%', width:wp('100%'), height:hp('30%'), alignItems:'center', alignContent:'center', justifyContent:'center'}}>
+                        
+                          <View style={{backgroundColor:'green', width:wp('70%'), height:hp('100%'), borderRadius:20,marginTop:hp('5%'),alignItems:'center', marginBottom:'0%', flex:2}}> 
+                                <TouchableOpacity onPress={
+                                  () => { navigation.navigate('Escanear QR Instalador'); confirmadoQR()}
+                                }
+                                >
+                                    <Text style={styles.buttonOK}>Acepto la visita</Text>
 
-                          <TouchableOpacity onPress={
-                            () => { navigation.navigate('Escanear QR Instalador'); confirmadoQR()}
-                          }
-                          >
-                               <Text style={styles.buttonOK}>Acepto la visita</Text>
+                                
+                                </TouchableOpacity>
+                          </View>
 
-                          
-                          </TouchableOpacity>
-                     
+                          <View style={{backgroundColor:'red', width:wp('70%'), height:hp('100%'), borderRadius:20,marginTop:hp('3%'),alignItems:'center', marginBottom:'0%', flex:2}}> 
 
                           <TouchableOpacity onPress={
                             () => { navigation.navigate('Ingresar Consumo')}
@@ -67,6 +71,7 @@ export function QRCodeOk({ navigation }) {
                           >
                               <Text style={styles. buttonNOoK}>No estoy de acuerdo con la visita</Text>
                           </TouchableOpacity>
+                          </View>
                      
                      
                       </View>
@@ -114,11 +119,11 @@ const styles = StyleSheet.create({
     
   
     fontSize: hp('3%'),
-    marginBottom:hp('4.5%'),
+    marginTop:hp('1%'),
     fontWeight:'bold',
     backgroundColor: 'green',
     width:hp('30%'),
-    height:hp('10%'),
+    height:hp('8%'),
     borderRadius: 10,
     textAlign:'center',
     justifyContent:'center',

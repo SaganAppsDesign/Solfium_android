@@ -1,13 +1,10 @@
 import * as React from 'react';
 import { GiftedChat, Bubble, Send, MessageText } from 'react-native-gifted-chat';
 import Fire from '../fire';
-import { StyleSheet, Text, View, Image, TouchableOpacity, LogBox, Button, ActivityIndicator, ToastAndroid} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { StyleSheet, View, Image, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
 import { IconButton } from 'react-native-paper';
 import {db} from '../fire';
-import visita from '../assets/visita.png';  
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import icono from '../assets/icono2.png'; 
 
 
 
@@ -81,25 +78,15 @@ state = {
         }}
       />
 
-    
+        <View style={{marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('20%'), marginRight:wp('20%')}}>
 
-      <View  style={{opacity:opacity, alignItems:'center', justifyContent:'center'}}>
-      <TouchableOpacity 
+        <Button title="Cita" onPress={() => this.props.navigation.navigate('Próxima visita')}
+                color='orange'/>
+                        
+        </View>
 
-            disabled={bool} 
-                                                                  
-            onPress={() => this.props.navigation.navigate('Próxima visita')}
-              > 
-           
-             
-              <Image 
-                    source={visita}
-                    style={{width:wp('60%'), height:hp('16%')}}
-                    
-                    />
 
-       </TouchableOpacity>
-       </View>
+      
 
 
 

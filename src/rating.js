@@ -58,7 +58,7 @@ export class Ratings extends React.Component{
           <View style={{width:wp('100%'), height:hp('100%'), flex:1, alignItems:'center'}}>
                     
           
-                  <View style={{marginTop:hp('3%'), marginLeft:wp('75%'), flex:1}}>   
+                  <View style={{marginTop:hp('5%'), marginLeft:wp('75%'), flex:1}}>   
                                                     
                           <TouchableOpacity 
                                                                                       
@@ -81,21 +81,22 @@ export class Ratings extends React.Component{
                     </View>
                       
                    
-                <View style={{ flex: 2, marginBottom: hp('0%'),  marginTop: hp('10%'), width:wp('75%')}}>
+                <View style={{  backgroundColor: '#F1C40E', borderRadius:10,flex: 3, marginBottom: hp('0%'),  marginTop: hp('10%'), width:wp('75%'), height:hp('15%')}}>
                                         
                     <Text style={{color: 'black',
-                            backgroundColor: '#F1C40E',
+                           
                             fontSize: hp('2.5%'),
                             marginBottom: hp('0%'),
                             fontWeight: 'bold',
                             padding: hp('2%'),
                             textAlign:'center',
-                            borderRadius:5}}>Evalúe a su instalador, por favor</Text>
+                            marginTop: hp('2%')
+                            }}>Evalúe a su instalador, por favor</Text>
 
                 </View>
 
                   
-                  <View style={{ marginBottom: hp('10%'), marginTop: hp('5%'), flex: 3}}>
+                  <View style={{ marginBottom: hp('3%'), marginTop: hp('5%'), flex: 3}}>
 
                                       
                       <AirbnbRating
@@ -113,19 +114,35 @@ export class Ratings extends React.Component{
                 
                   </View> 
 
-                  <View style={{ marginBottom: hp('5%'), marginTop:hp('0%'), flex: 1}}>
 
-                        <Button title="Enviar rating" onPress={this.ratingFire} 
-                                color='green'/>
-                                            
-                   </View>
+                   <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('2%'), width:hp('20%'), height:hp('100%'), flex:1}}>
+
+                          <TouchableOpacity
+                              
+                            
+                              onPress={() => this.ratingFire} 
+                                                  
+                              >
+          
+                              <Text style={{
+                              
+                              
+                              fontWeight:'bold',
+                              fontSize:hp('2%'),
+                              color: 'white', 
+                              textAlign:'center',
+                                         
+                              textAlignVertical:'center'}}>Enviar rating</Text>
+          
+                          </TouchableOpacity>
+                  </View>
 
 
                   <KeyboardAvoidingView  enabled keyboardVerticalOffset={80} behavior='position'
-                       style={{alignItems:'center', height:hp('100%'), width:hp('100%'), flex:5}}>
+                       style={{alignItems:'center', height:hp('0%'), width:hp('100%'), flex:5, alignContent:'center', justifyContent:'center'}}>
                 
                    
-                    <View style={{marginBottom: hp('0%'), marginTop: hp('0%'), flex: 1}}>
+                    <View style={{marginBottom: hp('0%'), marginTop: hp('5%'), flex:0.5}}>
                                            
                             <TextInput
                             style={styles.nameInput}
@@ -135,7 +152,7 @@ export class Ratings extends React.Component{
                             numberOfLines={5}
                             onChangeText={this.onChangeText}
                             value={this.state.comentarios}
-                        0
+                        
                             //inlineImageLeft='icono.'
                             //label="KWh"
                             //onChangeText={this.onChangeText}
@@ -146,33 +163,58 @@ export class Ratings extends React.Component{
 
                     </View>
 
+                    
+
               </KeyboardAvoidingView>
 
-              <View style={{ marginBottom: hp('0%'), marginTop:hp('0%'), flex: 1}}>
-
-              <Button title="Enviar Comentarios" onPress={this.comentarios} 
-                      color='grey'/>
-                              
-             </View>
 
 
+              <View style={{backgroundColor: 'grey',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('0%'), width:hp('35%'), height:hp('100%'), flex:1}}>
 
-                 
+                    <TouchableOpacity
+                        
+                      
+                        onPress={() => this.comentarios } 
+                                            
+                        >
 
-                 <View style={{  marginBottom: hp('10%'), marginTop:hp('5%'), flex: 1}}>      
-           
-                            <Button 
-                              title="Menú principal"
-                              color='orange'
-                              onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-                         
-                            
-                            />
-                            
-                </View>
+                        <Text style={{
+                        
+                        
+                        fontWeight:'bold',
+                        fontSize:hp('2%'),
+                        color: 'white', 
+                        textAlign:'center',
+                        
+                        
+                        textAlignVertical:'center'}}>Enviar comentarios</Text>
 
-                              
-                  
+                    </TouchableOpacity>
+                    </View>
+
+
+
+
+                    <View style={{backgroundColor: 'orange',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('5%'),marginBottom:hp('5%'), width:hp('35%'), height:hp('100%'), flex:1}}>
+
+                    <TouchableOpacity
+                        
+                      
+                        onPress={() => this.props.navigation.navigate('Ingresar Consumo')} 
+                                            
+                        >
+
+                        <Text style={{
+                        
+                        
+                        fontWeight:'bold',
+                        fontSize:hp('2%'),
+                        color: 'white', 
+                        textAlign:'center',
+                        }}>Regresa al inicio</Text>
+
+                    </TouchableOpacity>
+                    </View>
 
           </View>
       </ImageOverlay>
@@ -186,9 +228,9 @@ const styles = StyleSheet.create({
 
  
   nameInput: {
-    height: hp('15%'),
+    height: hp('10%'),
     marginBottom:hp('0%'),
-    width:wp('70%'),
+    width:wp('80%'),
     backgroundColor: 'white',
     fontSize: hp('2%'),
     fontWeight: 'bold',

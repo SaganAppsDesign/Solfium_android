@@ -1,0 +1,57 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+target 'rnative_02' do
+
+  config = use_native_modules!
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  pod 'react-native-video', :path => '../node_modules/react-native-video'
+
+  #pod 'react-native-orientation', :path => '../node_modules/react-native-orientation'
+
+  #pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
+  pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  # add the Firebase pod for Google Analytics
+  #pod 'Firebase/Analytics'
+  # add pods for any other desired Firebase products
+  # https://firebase.google.com/docs/ios/setup#available-pods
+
+  #pod 'Firebase/Core'
+  #pod 'Firebase/MLVision'
+  #pod 'Firebase/MLVisionTextModel'
+  #pod 'Firebase/MLVisionBarcodeModel'
+
+  #pod 'RNMlKit', :path => '../node_modules/react-native-firebase-mlkit'
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for rnative_02
+
+  target 'rnative_02-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'rnative_02Tests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'rnative_02-tvOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  
+
+end

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, ToastAndroid} from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity} from 'react-native';
+import Toast from 'react-native-simple-toast';
 import fondo from '../assets/fondo5.jpg';  
 import chat from '../assets/chat.png';
 import ImageOverlay from "react-native-image-overlay";
@@ -19,14 +20,18 @@ import  Fire , {db} from '../fire';
 var {height} = Dimensions.get('window');
 
 const user = () => {
-  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
- 
+      
+  Toast.show('Perfil usuario', Toast.SHORT);
+
 };
 
 const settings = () => {
-  ToastAndroid.show("Settings", ToastAndroid.SHORT);
- 
+  
+  Toast.show('Settings', Toast.SHORT);
+
 };
+
+
 
 
 
@@ -79,7 +84,7 @@ export class CitaConfirmada extends React.Component {
                    
                   <View style={{width:wp('100%'), height:hp('100%'), flex:1}}>
                               
-                  <View style={{marginTop:hp('3%'), marginLeft:wp('75%'), flex:1}}>   
+                  <View style={{marginTop:hp('5%'), marginLeft:wp('75%'), flex:1}}>   
                                           
                   <TouchableOpacity 
                                                                               
@@ -135,12 +140,12 @@ export class CitaConfirmada extends React.Component {
                                     <View style={{flex:5}}>
       
                                         <Image
-                                        style={{borderRadius:60 , aspectRatio:1, height:hp('15%'), marginLeft:wp('4%'), marginTop: hp('0%'), borderWidth:1, borderColor:'black'}}
+                                        style={{borderRadius:60 , aspectRatio:1, height:hp('14%'), marginLeft:wp('4%'), marginTop: hp('0%'), borderWidth:1, borderColor:'black'}}
                                         source={require('../assets/tecnico.jpg')}
                                         />
                                     </View> 
       
-                                    <View style={{flex:4, marginRight:wp('4%')}}>
+                                    <View style={{flex:4, marginRight:wp('2%')}}>
                                             <Text style={{color: '#000',
                                                   backgroundColor: 'white',
                                                   marginTop: hp('2%'),
@@ -199,7 +204,7 @@ export class CitaConfirmada extends React.Component {
                 fontWeight:'bold'
                 }}>
 
-                <Text style={{fontSize: hp('2.5%')}}>Escanee código QR presentado por el técnico para confirmar su identidad.</Text>
+                <Text style={{fontSize: hp('2.2%')}}>Escanee código QR presentado por el técnico para confirmar su identidad.</Text>
 
               </Text>
 

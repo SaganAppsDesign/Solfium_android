@@ -55,8 +55,8 @@ export class Calculos extends React.Component {
             
           <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('2%'), flex:8}}>
          
-          <Card containerStyle={{backgroundColor:'white', marginTop: hp('0%'),  borderRadius: 50, 
-            width:wp('80%'), height:hp('65%'), alignItems: 'center'}}>
+          <Card containerStyle={{backgroundColor:'white', marginTop: hp('3%'),  borderRadius: 50, 
+            width:wp('82%'), height:hp('65%'), alignItems: 'center'}}>
     
             <View style={{flexDirection:'column', width:wp('55%'), height:'100%'}}>
           
@@ -85,13 +85,10 @@ export class Calculos extends React.Component {
                             }}> Inversión total </Text>
 
                           <Text style={{color: 'black',
-                            fontSize:hp('3.5%'),
+                            fontSize:hp('3%'),
                             alignItems:'center',
-                            marginTop: '0%',
-                            marginRight:'0%',
-                            marginLeft:'0%',
                             height:hp('5%'),
-                            width:wp('35%'),
+                            width:wp('40%'),
                             fontWeight:'bold',
                             textAlign:'center',
                             
@@ -125,13 +122,13 @@ export class Calculos extends React.Component {
                         }}>12 pagos de:</Text>
 
                       <Text style={{color: 'black',
-                        fontSize:hp('3.5%'),
+                        fontSize:hp('3%'),
                         alignItems:'center',
                         marginTop: '0%',
                         marginRight:'0%',
                         marginLeft:'0%',
                         height:hp('5%'),
-                        width:wp('35%'),
+                        width:wp('40%'),
                         fontWeight:'bold',
                         textAlign:'center',
                         
@@ -166,13 +163,13 @@ export class Calculos extends React.Component {
                         }}>Ahorro anual:</Text>
 
                       <Text style={{color: '#5DCB31',
-                        fontSize:hp('3.5%'),
+                        fontSize:hp('2%'),
                         alignItems:'center',
                         marginTop: '0%',
                         marginRight:'0%',
                         marginLeft:'0%',
                         height:hp('5%'),
-                        width:wp('35%'),
+                        width:wp('40%'),
                         fontWeight:'bold',
                         textAlign:'center',
                         
@@ -198,7 +195,7 @@ export class Calculos extends React.Component {
                   
                   <Text style={{color: '#878787',
                     alignItems:'center',
-                    fontSize:hp('2%'),
+                    fontSize:hp('1.8%'),
                     textAlign:'center',
                     height:hp('3%'),
                     width:wp('35%'),
@@ -222,7 +219,7 @@ export class Calculos extends React.Component {
             {/*  Ahorro a 20 años*/}
             <View style={{flexDirection:'row', flex:3, alignItems:'center'}} >
                             
-        <View style={{ flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+        <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
               <Image
               style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
               marginTop: '0%'}}
@@ -231,10 +228,9 @@ export class Calculos extends React.Component {
         </View>
 
         <View style={{height:hp('4%'), marginBottom:wp('0%'),
-            alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+            alignItems:'center', justifyContent:'center', flex:4}}>
                   
                   <Text style={{color: '#878787',
-                    alignItems:'center',
                     fontSize:hp('2%'),
                     textAlign:'center',
                     height:hp('3%'),
@@ -242,13 +238,9 @@ export class Calculos extends React.Component {
                     }}>Ahorro a 20 años:</Text>
 
                   <Text style={{color: '#5DCB31',
-                    fontSize:hp('3.5%'),
-                    alignItems:'center',
-                    marginTop: '0%',
-                    marginRight:'0%',
-                    marginLeft:'0%',
+                    fontSize:hp('2%'),
                     height:hp('5%'),
-                    width:wp('35%'),
+                    width:wp('40%'),
                     fontWeight:'bold',
                     textAlign:'center',
                     
@@ -257,8 +249,9 @@ export class Calculos extends React.Component {
 
         </View>
 
-               {/* Botón*/}
-               <View style={{flex:2}}>
+               {/* Botón -me intresa-*/}
+           <View style={{height: hp('0%'), 
+                     width: wp('58%'),backgroundColor: '#5DCB31', flex:1, borderRadius:100, justifyContent:'center'}}>
 
                <TouchableOpacity
                      
@@ -268,28 +261,20 @@ export class Calculos extends React.Component {
                      >
 
                      <Text style={{
-                     height: '68%', 
-                     width: wp('60%'),
-                     borderRadius:50,
+                     height: hp('3%'),
+                     
+                     width: wp('100%'),
                      fontWeight:'bold',
-                     fontSize:20,
+                     fontSize:hp('2.5%'),
                      color: 'white', 
-                     marginBottom: "0%", 
-                     marginTop: "5%", 
-                     marginLeft: "0%", 
-                     marginRight: "0%",
-                     alignItems: "center",
-                     textAlign:'center',
-                     paddingLeft:40, 
-                     paddingRight:40,
-                     backgroundColor: '#5DCB31',
+                     marginLeft:wp('13.5%'),
                      opacity:opacity,
-                     textAlignVertical:'center'}}> ME INTERESA </Text>
+                     }}>ME INTERESA</Text>
 
                </TouchableOpacity>
              </View>
 
-            </View>  
+          </View>  
 
   </Card>
               

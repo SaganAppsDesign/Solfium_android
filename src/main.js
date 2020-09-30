@@ -69,14 +69,14 @@ export class Main extends React.Component {
                   
       <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:4, height:hp('3%')}}> 
       
-          <View style={{width:hp('50%'), borderRadius:10, marginTop:hp('5%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:2, height:hp('2%'), justifyContent:'center'}}> 
+          <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('10%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:2, height:hp('2%'), justifyContent:'center'}}> 
               <Text style={{color: 'white',
                 
                 fontSize: hp('3%'),
-                marginHorizontal: wp('9%'),
+                marginHorizontal: wp('0%'),
                 marginTop:hp('0%'),
                 fontWeight: 'bold',
-                padding: hp('1%'),
+                padding: hp('2%'),
                 textAlign: 'center',
                 borderRadius:10}} h1>Contacte por chat con el personal de evaluación. Sólo tiene que introducir un nombre de usuario.</Text>
            </View>
@@ -97,13 +97,15 @@ export class Main extends React.Component {
                         
                       />
                     
-
+                    <View style={{width:hp('20%'),height:hp('5%'), borderRadius:15, marginTop:hp('2%'), backgroundColor: '#DD650C', alignItems:'center', marginBottom:'0%', justifyContent:'center'}}> 
                       <TouchableOpacity onPress={
                         () => { this.onPress(); this.user()}
                       }
                       >
                       <Text style={styles.buttonText}>Siguiente</Text>
                       </TouchableOpacity>
+
+                      </View>
 
               </View>
           
@@ -150,15 +152,15 @@ const styles = StyleSheet.create({
    
   },
   buttonText: {
-    marginLeft: hp('35%'),
-    marginTop:hp('0%'),
+// marginLeft: hp('30%'),
+    marginTop:hp('2%'),
     fontSize: hp('2%'),
     marginBottom:hp('0%'),
     fontWeight:'bold',
-    backgroundColor: '#DD650C',
-    width:wp('20%'),
-    height:hp('3%'),
-    borderRadius: 10,
+    
+    width:wp('25%'),
+    height:hp('4%'),
+    
     textAlign:'center'
     
   },

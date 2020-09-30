@@ -50,8 +50,8 @@ return (
                    <View  style={{alignItems:'center', flex:1}}>
 
                       <Text 
-                          style={{textAlign:'center',  fontSize:hp('2.5%'), width:wp('70%'), height: hp('10%'), fontWeight:'bold',
-                                  color: 'white', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('3%')}} 
+                          style={{textAlign:'center',  fontSize:hp('2%'), width:wp('70%'), height: hp('10%'), fontWeight:'bold',
+                                  color: 'white', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('6%')}} 
                          >El proceso para implementar el sistema en su hogar es el siguiente:</Text>
                    </View>
            
