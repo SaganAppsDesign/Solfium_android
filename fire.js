@@ -105,7 +105,7 @@ export class Fire {
             
           })
       }
-      console.log('message.length',message[0].user)
+      
   }
 
   closeChat(){

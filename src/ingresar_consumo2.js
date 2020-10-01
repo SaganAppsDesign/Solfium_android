@@ -87,12 +87,12 @@ return (
                     
                  >
                 
-                 <View style={{alignItem:'center', justifyContent:'center', width:wp('100%'), height:hp('100%'), flex:1, flexDirection:'column'}}>              
-                      <View  style={{alignItems:'center', flex:1}}>
-                      <Text 
-                          style={{backgroundColor:'orange',  textAlign:'center',  fontSize:15, width:wp('100%'), height: hp('2%'), fontWeight:'bold',
-                                  color: 'white', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('5%')}} 
-                          onPress={() => this.props.navigation.navigate('Video Informativo')}>¿Quiere saber cómo funciona Solfium App? Click aquí</Text>
+                 <View style={{alignItem:'center', justifyContent:'center', width:wp('95%'), height:hp('100%'), flex:1, flexDirection:'column'}}>              
+                      <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('5%')}}>
+                        <Text 
+                            style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
+                                    color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
+                            onPress={() => this.props.navigation.navigate('Video Informativo')}>¿Quiere saber cómo funciona Solfium App? Click aquí</Text>
                       </View>      
                       <View style={{alignItem:'center', justifyContent:'center',marginTop:hp('10%') , width:wp('100%'), height:hp('100%'), flex:7, flexDirection:'column'}}>          
 
@@ -100,11 +100,11 @@ return (
                                  
                                  
                                  
-                                 <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                                 <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.7}}>
                                                                  
                                   <TouchableOpacity 
                                                                                             
-                                      onPress={() => escanearRecibo()}
+                                      //onPress={() => escanearRecibo()}
                                         > 
                                                                             
                                               <Image 
@@ -148,10 +148,10 @@ return (
                                   </View>
 
                                
-                                  <View  style={{alignItems:'center', flex:2,  justifyContent:'center',marginTop:hp('0%')}}>
+                                  <View  style={{alignItems:'center', flex:2,  justifyContent:'center',marginTop:hp('0%'),  opacity:0.5}}>
                                    <TouchableOpacity 
                                                                                                     
-                                      onPress={() => ubicacionMensaje() }
+                                      //onPress={() => ubicacionMensaje() }
                                         > 
                                                                                                      
                                           <Image 
@@ -193,10 +193,10 @@ return (
            {/*Botones*/}     
             <View style={{alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('5%'),marginTop:hp('3%')}}>  
                          
-                 <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                 <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
                      <TouchableOpacity 
                                                                                   
-                     onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                     //onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
                        > 
                                              
                         <Image 
@@ -212,10 +212,10 @@ return (
 
                  </View>
 
-                <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
                     <TouchableOpacity 
                                                                                  
-                    onPress={() => user()}
+                    //onPress={() => user()}
                       > 
                                             
                        <Image 
@@ -233,11 +233,11 @@ return (
 
 
 
-                  <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                  <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
                   
                   <TouchableOpacity 
                                                                                  
-                    onPress={() => settings()}
+                    //onPress={() => settings()}
                       > 
                                             
                        <Image 

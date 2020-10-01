@@ -224,10 +224,10 @@ export class Financiamiento extends React.Component {
 
            </View>
 
-          <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+          <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
               <TouchableOpacity 
                                                                            
-              onPress={() => user()}
+              //onPress={() => user()}
                 > 
                                       
                  <Image 
@@ -243,11 +243,11 @@ export class Financiamiento extends React.Component {
 
             </View>
 
-            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+            <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
             
             <TouchableOpacity 
                                                                            
-              onPress={() => settings()}
+              //onPress={() => settings()}
                 > 
                                       
                  <Image 

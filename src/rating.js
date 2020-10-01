@@ -25,9 +25,11 @@ export class Ratings extends React.Component{
 
   }
 
-  
+ 
+
   onChangeText = comentarios => this.setState({ comentarios });
   rating = rating => this.setState({ rating });
+  
   ratingFire = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
     rating:this.state.rating
@@ -44,7 +46,8 @@ export class Ratings extends React.Component{
 
  
   render() {
-
+    console.log('this.state.rating: ', this.state.rating)
+    console.log('this.state.comentarios: ', this.state.comentarios)
  
 
     return (
@@ -120,7 +123,7 @@ export class Ratings extends React.Component{
                           <TouchableOpacity
                               
                             
-                              onPress={() => this.ratingFire} 
+                              onPress={() => this.ratingFire()} 
                                                   
                               >
           
@@ -174,7 +177,7 @@ export class Ratings extends React.Component{
                     <TouchableOpacity
                         
                       
-                        onPress={() => this.comentarios } 
+                        onPress={() => this.comentarios() } 
                                             
                         >
 

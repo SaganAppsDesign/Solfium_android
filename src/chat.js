@@ -60,7 +60,7 @@ state = {
           messages={this.state.messages}
           onSend={(message) => Fire.sendMessage(message)}
          // renderBubble = {this.renderBubble.bind(this) }
-          renderSend={renderSend}
+          //renderSend={renderSend}
           renderBubble={renderBubble}
           renderLoading={renderLoading}
           showUserAvatar
@@ -78,9 +78,10 @@ state = {
         }}
       />
 
-        <View style={{marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('20%'), marginRight:wp('20%')}}>
+        <View style={{opacity:opacity, marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('20%'), marginRight:wp('20%')}}>
 
-        <Button title="Cita" onPress={() => this.props.navigation.navigate('Próxima visita')}
+        <Button disabled={bool}
+                title="Cita" onPress={() => this.props.navigation.navigate('Próxima visita')}
                 color='orange'/>
                         
         </View>

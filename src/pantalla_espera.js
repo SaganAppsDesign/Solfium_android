@@ -31,7 +31,7 @@ export class PantallaEspera extends React.Component {
     setTimeout(()=>{
       this.props.navigation.navigate('Cálculos')
 
-    }, 1000
+    }, 2500
 
     )
 
@@ -61,7 +61,7 @@ siguiente = () =>  {
           <View style={{alignItem:'center', justifyContent:'center', width:wp('100%'), height:hp('100%'), flex:1, flexDirection:'column'}}>  
                                                         
                           
-                <View style={{alignItems: 'center', flexDirection:'column',flex:9, width:wp('100%'), height:hp('100%')}}>
+                <View style={{alignItems: 'center', flexDirection:'column',flex:10, width:wp('100%'), height:hp('100%')}}>
                       
                     <View style={{marginTop: hp('25%'), alignItems: 'center', flex:2}}>
                           <Image
@@ -114,68 +114,7 @@ siguiente = () =>  {
 
 
 
-                {/*Botones*/}     
-           <View style={{alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginTop:hp('0%')}}>  
-                         
-           <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-               <TouchableOpacity 
-                                                                            
-               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-                 > 
-                                       
-                  <Image 
-                  
-                  source={home}
-                  style={{aspectRatio:1, height:hp('9%')}}
-                  
-                  >    
-                  </Image> 
-
-                                
-              </TouchableOpacity> 
-
-           </View>
-
-          <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-              <TouchableOpacity 
-                                                                           
-              onPress={() => user()}
-                > 
-                                      
-                 <Image 
-                 
-                 source={usuario}
-                 style={{aspectRatio:1, height:hp('9%')}}
-                 
-                 >    
-                 </Image> 
-
-                               
-             </TouchableOpacity> 
-
-            </View>
-
-            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-            
-            <TouchableOpacity 
-                                                                           
-              onPress={() => settings()}
-                > 
-                                      
-                 <Image 
-                 
-                 source={setting}
-                 style={{aspectRatio:1, height:hp('9%')}}
-                 
-                 >    
-                 </Image> 
-
-                               
-             </TouchableOpacity> 
-
-            </View>
-
-                 
+                           
 
           </View>
           
@@ -187,7 +126,7 @@ siguiente = () =>  {
           <Image 
             
             source={logo}
-            style={{aspectRatio:4.5, width:wp('100%'), height:hp('4%'), marginBottom:hp('3%')}}
+            style={{aspectRatio:4.5, width:wp('100%'), height:hp('4%'), marginBottom:hp('0%')}}
             
             >    
           </Image>  
@@ -195,7 +134,7 @@ siguiente = () =>  {
          </View> 
 
        
-       </View>
+  
 
 
     </ImageOverlay> 
