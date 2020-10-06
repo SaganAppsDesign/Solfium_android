@@ -87,7 +87,7 @@ return (
                     
                  >
                 
-                 <View style={{alignItem:'center', justifyContent:'center', width:wp('95%'), height:hp('100%'), flex:1, flexDirection:'column'}}>              
+                 <View style={{alignItem:'center', justifyContent:'center', width:wp('100%'), height:hp('100%'), flex:1, flexDirection:'column'}}>              
                       <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('5%')}}>
                         <Text 
                             style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
