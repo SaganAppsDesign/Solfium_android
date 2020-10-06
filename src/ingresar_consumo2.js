@@ -136,6 +136,7 @@ return (
                                       keyboardType='numeric'
                                       onChangeText={this.onChangeText}
                                       value={this.state.potenciaEstado}
+                                      returnKeyType={ 'done' }
                                   
                                       //inlineImageLeft='icono.'
                                       //label="KWh"

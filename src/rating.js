@@ -155,8 +155,9 @@ export class Ratings extends React.Component{
                             numberOfLines={5}
                             onChangeText={this.onChangeText}
                             value={this.state.comentarios}
+                            returnKeyType={ 'done' }
                         
-                            //inlineImageLeft='icono.'
+                            //inlineImagesLeft='icono.'
                             //label="KWh"
                             //onChangeText={this.onChangeText}
                             //value={this.state.name}

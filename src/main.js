@@ -90,7 +90,7 @@ export class Main extends React.Component {
                         label="Usuario"
                         onChangeText={this.onChangeText}
                         value={this.state.name}
-                        //mode='outlined'
+                        returnKeyType={ 'done' }
                         theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
                         
 

@@ -44,9 +44,8 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
   
           new VectorIconsPackage();
           new MainReactPackage(),
-            new VectorIconsPackage(),
-            new VectorIconsPackage(),
-            new RNMlKitPackage();
+                 
+          new RNMlKitPackage();
           new ReactVideoPackage();
           new AsyncStoragePackage();
           new OrientationPackage();
