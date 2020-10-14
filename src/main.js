@@ -72,13 +72,13 @@ export class Main extends React.Component {
           <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('10%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:2, height:hp('2%'), justifyContent:'center'}}> 
               <Text style={{color: 'white',
                 
-                fontSize: hp('3%'),
+                fontSize: hp('2.9%'),
                 marginHorizontal: wp('0%'),
                 marginTop:hp('0%'),
                 fontWeight: 'bold',
                 padding: hp('2%'),
                 textAlign: 'center',
-                borderRadius:10}} h1>Contacte por chat con el personal de evaluación. Sólo tiene que introducir un nombre de usuario.</Text>
+                borderRadius:10}} h1>Contacte por chat con el personal de evaluación. Sólo tiene que introducir un nombre de usuario</Text>
            </View>
 
     
@@ -114,7 +114,7 @@ export class Main extends React.Component {
 
               { /* LOGO*/}
 
-                  <View style={{alignItems:'center', justifyContent:'center', flex:1}}>  
+                  <View style={{alignItems:'center', justifyContent:'center', flex:1.5}}>  
                   
                   <Image 
                     

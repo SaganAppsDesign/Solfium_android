@@ -84,7 +84,7 @@ export class CitaConfirmada extends React.Component {
                    
                   <View style={{width:wp('100%'), height:hp('100%'), flex:1}}>
                               
-                  <View style={{marginTop:hp('5%'), marginLeft:wp('75%'), flex:1}}>   
+                  <View style={{marginTop:hp('2%'), marginLeft:wp('75%'), flex:0.5}}>   
                                           
                   <TouchableOpacity 
                                                                               
@@ -95,7 +95,7 @@ export class CitaConfirmada extends React.Component {
                           <Image 
                       
                           source={chat}
-                          style={{aspectRatio:1, height:hp('10%')}}
+                          style={{aspectRatio:1, height:hp('7%')}}
                           
                           >    
                           </Image> 
@@ -107,7 +107,7 @@ export class CitaConfirmada extends React.Component {
                   </View>
 
 
-                    <View style={{alignItems: 'center', marginTop: hp('1%'), flex:5}}>
+                    <View style={{alignItems: 'center', marginTop: hp('1%'), flex:3.5}}>
                          
                       <Card containerStyle={{backgroundColor:'white', borderRadius: 15, 
                             width:wp('75%'), height:hp('35%')}}>
@@ -174,7 +174,7 @@ export class CitaConfirmada extends React.Component {
 
     {/*Botone QR*/} 
 
-    <View style={{ flex:2, flexDirection:'row', width:wp('100%'), opacity:opacity}}>  
+    <View style={{flex:2, flexDirection:'row', width:wp('100%'), opacity:opacity, alignItems:'center'}}>  
     
           <TouchableOpacity 
 
@@ -182,7 +182,7 @@ export class CitaConfirmada extends React.Component {
                                                   
           onPress={() => this.props.navigation.navigate('Escanear QR Instalador')}
             > 
-            <View style={{marginLeft:hp('7%'),flex:1}}>
+            <View style={{flex:1}}>
             
                       <Image 
                         source={codigo_qr}
@@ -215,7 +215,7 @@ export class CitaConfirmada extends React.Component {
 
      
       {/*Botones*/}     
-      <View style={{marginTop:hp('9%'),   alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row'}}>  
+      <View style={{ marginTop:hp('1%'),   alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row'}}>  
                          
       <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
           <TouchableOpacity 
@@ -226,7 +226,7 @@ export class CitaConfirmada extends React.Component {
              <Image 
              
              source={home}
-             style={{aspectRatio:1, height:hp('9%')}}
+             style={{aspectRatio:1, height:hp('8%')}}
              
              >    
              </Image> 
@@ -245,7 +245,7 @@ export class CitaConfirmada extends React.Component {
             <Image 
             
             source={usuario}
-            style={{aspectRatio:1, height:hp('9%')}}
+            style={{aspectRatio:1, height:hp('8%')}}
             
             >    
             </Image> 
@@ -265,7 +265,7 @@ export class CitaConfirmada extends React.Component {
             <Image 
             
             source={setting}
-            style={{aspectRatio:1, height:hp('9%')}}
+            style={{aspectRatio:1, height:hp('8%')}}
             
             >    
             </Image> 
@@ -282,12 +282,12 @@ export class CitaConfirmada extends React.Component {
      
      { /* LOGO*/}
 
-     <View style={{alignItems:'center', justifyContent:'center', flex:1}}>  
+     <View style={{alignItems:'center', flex:1.5}}>  
      
      <Image 
        
        source={logo}
-       style={{aspectRatio:4.5, height:hp('5%'), marginBottom:hp('3.5%')}}
+       style={{aspectRatio:4.5, height:hp('3.5%')}}
        
        >    
      </Image>  

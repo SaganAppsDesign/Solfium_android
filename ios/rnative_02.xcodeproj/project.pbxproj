@@ -10,6 +10,7 @@
 		00E356F31AD99517003FC87E /* rnative_02Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* rnative_02Tests.m */; };
 		037D82B1E7459670FB7133A9 /* libPods-rnative_02.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2ED12F408777282EF52E1C /* libPods-rnative_02.a */; };
 		0391FA0525231C1000A6459B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0391FA0425231C1000A6459B /* GoogleService-Info.plist */; };
+		03B4E68E2537060000330E96 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		0A6C13EE89BA1F84D0CF5526 /* libPods-rnative_02Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4169C8AFCEEFAFEA1AC61B2B /* libPods-rnative_02Tests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -351,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03B4E68E2537060000330E96 /* Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				0391FA0525231C1000A6459B /* GoogleService-Info.plist in Resources */,
@@ -709,8 +711,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LFH8KSBM5M;
 				INFOPLIST_FILE = rnative_02/Info.plist;
@@ -722,7 +724,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.soologic.solfium-cli";
 				PRODUCT_NAME = Solfium;
-				PROVISIONING_PROFILE_SPECIFIER = "Distribuc-Solfium-CLI";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

@@ -78,7 +78,7 @@ export class IdentidadConfirmada extends React.Component {
                    
                 <View style={{width:wp('100%'), height:hp('100%'), flex:1}}>
 
-                <View style={{marginTop:hp('3%'), marginLeft:wp('75%'), flex:1}}>   
+                <View style={{marginTop:hp('3%'), marginLeft:wp('80%'), flex:1}}>   
                                 
                         <TouchableOpacity 
                                                                                     
@@ -89,7 +89,7 @@ export class IdentidadConfirmada extends React.Component {
                                 <Image 
                             
                                 source={chat}
-                                style={{aspectRatio:1, height:hp('10%')}}
+                                style={{aspectRatio:1, height:hp('7%')}}
                                 
                                 >    
                                 </Image> 
@@ -173,7 +173,7 @@ export class IdentidadConfirmada extends React.Component {
                                       <Text style={{fontSize:hp('2%')}}>Técnico asignado:</Text>
                                       <Text>{`
 
-`}</Text>
+  `}</Text>
 
                                       <Text style={{ fontWeight: "bold", fontSize: hp('2.5%'),marginTop: hp('5%'),
                                       marginRight:wp('3%'),
@@ -186,8 +186,8 @@ export class IdentidadConfirmada extends React.Component {
                         
                     </View>
       
-                            </View>
-                          </Card>
+                  </View>
+                </Card>
                               
 
             </View>
@@ -196,13 +196,13 @@ export class IdentidadConfirmada extends React.Component {
 
     <View style={{flex:1, flexDirection:'row'}}>  
     
-       <View style={{marginTop:hp('8%'), marginLeft:wp('15%'), flex:1}}>
+       <View style={{marginTop:hp('0%'), marginLeft:wp('15%'), flex:1}}>
        
                  <Image 
                  
                  source={confirmado}
                  style={{
-                 aspectRatio:0.9, height:hp('11%'),opacity:opacity2}}
+                 aspectRatio:0.9, height:hp('9%'),opacity:opacity2}}
                  
                  >    
                  </Image> 
@@ -212,8 +212,8 @@ export class IdentidadConfirmada extends React.Component {
      <View style={{flex:2, marginRight:wp('10%')}}>
           <Text style={{color: '#fff',
                 
-                marginTop: hp('10%'),
-                marginLeft:hp('10%'),
+                marginTop: hp('5%'),
+                marginLeft:hp('8%'),
                 height:hp('10%'),
                 width:wp('50%'),
                 fontWeight:'bold',
@@ -228,18 +228,18 @@ export class IdentidadConfirmada extends React.Component {
 
    </View>
 
-   <View style={{marginTop:hp('5%'), flex:1, flexDirection:'row'}}>  
+   <View style={{marginTop:hp('0%'), flex:1, flexDirection:'row'}}>  
    
         <View style={{flex:1}}>
         <Text style={{color: '#28F33D',
                            
-              marginLeft:wp('12%'),
-              marginTop:hp('5%'),
+              marginLeft:wp('9%'),
+              marginTop:hp('1%'),
               height:hp('10%'),
               width:wp('30%'),
               fontWeight:'bold',
               textAlign:'center', 
-              fontSize: hp('2.5%'),
+              fontSize: hp('2%'),
               opacity:opacity2
               }}>
 
@@ -272,9 +272,9 @@ export class IdentidadConfirmada extends React.Component {
     
 
       {/*Botones*/}     
-      <View style={{marginTop:hp('9%'),   alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row'}}>  
+      <View style={{marginTop:hp('0%'),   alignItems:'center', flex:1,   flexDirection:'row'}}>  
                          
-      <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+      <View  style={{alignItems:'center', flex:1}}>
           <TouchableOpacity 
                                                                        
           onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
@@ -283,7 +283,7 @@ export class IdentidadConfirmada extends React.Component {
              <Image 
              
              source={home}
-             style={{aspectRatio:1, height:hp('9%')}}
+             style={{aspectRatio:1, height:hp('8%')}}
              
              >    
              </Image> 
@@ -302,7 +302,7 @@ export class IdentidadConfirmada extends React.Component {
             <Image 
             
             source={usuario}
-            style={{aspectRatio:1, height:hp('9%')}}
+            style={{aspectRatio:1, height:hp('8%')}}
             
             >    
             </Image> 
@@ -322,7 +322,7 @@ export class IdentidadConfirmada extends React.Component {
             <Image 
             
             source={setting}
-            style={{aspectRatio:1, height:hp('9%')}}
+            style={{aspectRatio:1, height:hp('8%')}}
             
             >    
             </Image> 
@@ -339,12 +339,12 @@ export class IdentidadConfirmada extends React.Component {
      
      { /* LOGO*/}
 
-     <View style={{alignItems:'center', justifyContent:'center', flex:1}}>  
+     <View style={{alignItems:'center', flex:1.6}}>  
      
      <Image 
        
        source={logo}
-       style={{aspectRatio:4.5, height:hp('5%'), marginBottom:hp('3.5%')}}
+       style={{aspectRatio:4.5, height:hp('3.5%')}}
        
        >    
      </Image>  

@@ -376,7 +376,7 @@ export class InfoResultInsta extends React.Component {
                <TouchableOpacity
                      
                      
-                     onPress={() => this.props.navigation.navigate('Proceso de pago')} 
+                     onPress={() => this.props.navigation.navigate('Pago')} 
                                          
                      >
 

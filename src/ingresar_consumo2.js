@@ -110,7 +110,7 @@ return (
                                               <Image 
                                           
                                               source={escanear_recibo}
-                                              style={{aspectRatio:1.5,   height:hp('26%')}}
+                                              style={{aspectRatio:1.5,   height:hp('22%')}}
                                               
                                               >    
                                               </Image> 
@@ -121,7 +121,7 @@ return (
 
                                    </View>  
                                                                     
-                                  <View style={{justifyContent:'center',alignItems:'center', width:wp('100%'), height:hp('15%'), flex:1, marginTop:hp('8%')}}>
+                                  <View style={{justifyContent:'center',alignItems:'center', width:wp('100%'), height:hp('15%'), flex:1, marginTop:hp('5%')}}>
                                       <Text style={{ fontSize:17, fontWeight:'bold', color: 'grey', textAlign:'center'
                                         }}>O ingresa aquí tu consumo en MXN</Text>
                                                                 
@@ -158,7 +158,7 @@ return (
                                           <Image 
                                         
                                           source={ubicacion}
-                                           style={{ aspectRatio:2.2, height:hp('17%')}}
+                                           style={{ aspectRatio:2.2, height:hp('15%')}}
                                             
                                             >               
                                             </Image> 
@@ -171,14 +171,14 @@ return (
                                   <View  style={{alignItems:'center', flex:1, justifyContent:'center', width:wp('100%'), height:hp('100%'), marginTop:hp('0.5%')}}>
                                         <TouchableOpacity 
                                                                                                         
-                                          onPress={() => this.props.navigation.navigate('Pantalla de espera')}
+                                          onPress={() => this.props.navigation.navigate('Calculando')}
                                            
                                             > 
                                                                                     
                                               <Image 
                                             
                                                 source={calcular}
-                                                style={{aspectRatio:3.7, height:hp('7%')}}
+                                                style={{aspectRatio:3.7, height:hp('6%')}}
                                                 
                                                 >               
                                                 </Image> 
@@ -192,7 +192,7 @@ return (
                                 </View> 
             
            {/*Botones*/}     
-            <View style={{alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('5%'),marginTop:hp('3%')}}>  
+            <View style={{alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('4%'),marginTop:hp('3%')}}>  
                          
                  <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
                      <TouchableOpacity 
@@ -203,7 +203,7 @@ return (
                         <Image 
                         
                         source={home}
-                        style={{aspectRatio:1, height:hp('9%')}}
+                        style={{aspectRatio:1, height:hp('8%')}}
                         
                         >    
                         </Image> 
@@ -222,7 +222,7 @@ return (
                        <Image 
                        
                        source={usuario}
-                       style={{aspectRatio:1, height:hp('9%')}}
+                       style={{aspectRatio:1, height:hp('8%')}}
                        
                        >    
                        </Image> 
@@ -244,7 +244,7 @@ return (
                        <Image 
                        
                        source={setting}
-                       style={{aspectRatio:1, height:hp('9%')}}
+                       style={{aspectRatio:1, height:hp('8%')}}
                        
                        >    
                        </Image> 
@@ -266,7 +266,7 @@ return (
                 <Image 
                   
                   source={logo}
-                  style={{aspectRatio:4.5, width:wp('100%'), height:hp('5.5%'), marginBottom: hp('6.5%')}}
+                  style={{aspectRatio:4.5, width:wp('100%'), height:hp('5%'), marginBottom: hp('6%')}}
                   
                   >    
                 </Image>  

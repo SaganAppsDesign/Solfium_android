@@ -62,28 +62,28 @@ class MainScreen extends Component {
   {/* <Stack.Screen options={{headerShown: false}}  name="Solfium" component={HomeScreen} initialParams={{ Latitud:  0,  Longitud: 0,  URI: 0  }}/> */}
 
 
-      <Stack.Screen options={{headerShown: false}}  name="Cálculos" component={Calculos} />
+      <Stack.Screen  name="Cálculos" component={Calculos} />
  
-      <Stack.Screen options={{headerShown: false}} name="Confirma ubicación" component={ConfirmaUbicacion}  />
-      <Stack.Screen options={{headerShown: false}} name="Proceso de implemetación" component={MeInteresa}  />
-      <Stack.Screen options={{headerShown: false}} name="Próxima visita" component={CitaConfirmada} />
-      <Stack.Screen options={{headerShown: false}}  name="Proceso de pago" component={Payment} />
-      <Stack.Screen name="Video Informativo" component={VideoInfo} />
+      <Stack.Screen  name="Confirma ubicación" component={ConfirmaUbicacion}  />
+      <Stack.Screen  name="Implementación" component={MeInteresa}  />
+      <Stack.Screen  name="Próxima visita" component={CitaConfirmada} />
+      <Stack.Screen  name="Pago" component={Payment} />
+      <Stack.Screen  name="Video Informativo" component={VideoInfo} />
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />
       <Stack.Screen name="Instalación en proceso" component={Instalacion} />
-      <Stack.Screen options={{headerShown: false}} name="Rating" component={Ratings} />
-      <Stack.Screen options={{headerShown: false}} name="Escanear QR Instalador" component={IdentidadConfirmada} />
-      <Stack.Screen options={{headerShown: false}}name="QR Escaneado" component={QREscaneado} />
-      <Stack.Screen options={{headerShown: false}}name="QR correcto" component={QRCodeOk} />
+      <Stack.Screen name="Rating" component={Ratings} />
+      <Stack.Screen name="Escanear QR Instalador" component={IdentidadConfirmada} />
+      <Stack.Screen name="QR Escaneado" component={QREscaneado} />
+      <Stack.Screen name="QR correcto" component={QRCodeOk} />
       <Stack.Screen name="Ubicación" component={Mapbox2} />
       <Stack.Screen name="Cámara" component={Camara}  />
       <Stack.Screen name="QR scan" component={QRscan}  />
       <Stack.Screen name="Chat" component={Chat}  />
-      <Stack.Screen options={{headerShown: false}}   name="Nombre usuario" component={Main}  />
-      <Stack.Screen options={{headerShown: false}}   name="Confirmar compra" component={CompraConfirmada}  />
-      <Stack.Screen options={{headerShown: false}}  name="Pantalla de espera" component={PantallaEspera}  />
-      <Stack.Screen options={{headerShown: false}}  name="Pago único" component={PagoUnico}  />
-      <Stack.Screen options={{headerShown: false}}  name="Financiamiento" component={Financiamiento}  />
+      <Stack.Screen name="Nombre usuario" component={Main}  />
+      <Stack.Screen name="Confirmar compra" component={CompraConfirmada}  />
+      <Stack.Screen  name="Calculando" component={PantallaEspera}  />
+      <Stack.Screen  name="Pago único" component={PagoUnico}  />
+      <Stack.Screen  name="Financiamiento" component={Financiamiento}  />
 
     </Stack.Navigator>
   )};

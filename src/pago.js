@@ -39,7 +39,7 @@ const settings = () => {
             <View style={{flex:1, width:wp('100%'), height:hp('100%')}}>
                     
                  {/*Chat*/}
-                  <View style={{marginTop:hp('5%'), marginLeft:wp('80%'), flex:0.1}}>   
+                  <View style={{marginTop:hp('2%'), marginLeft:wp('80%'), flex:0.1}}>   
                                                 
                       <TouchableOpacity 
                                                                                   
@@ -100,7 +100,7 @@ const settings = () => {
                        onPress={() => this.props.navigation.navigate('Pago único')} 
                                            
                        >
-                       <ImageBackground source={require('../assets/boton_naranja.png')} style={{overflow: 'hidden', resizeMode: "cover", width:hp('30%'), height:hp('8%'),  borderRadius: 10}}>
+                       <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('6.5%'),   borderRadius: 10}}>
                               
                             <Text style={{
                               color: '#fff',
@@ -109,7 +109,7 @@ const settings = () => {
                               fontWeight:'bold',
                               marginRight:'0%',
                               marginLeft:'0%',
-                              height:'100%',
+                              height:'50%',
                               width:'100%',
                               fontSize:15,
                               padding: 0}}>PAGO ÚNICO</Text>
@@ -125,7 +125,7 @@ const settings = () => {
                           onPress={() => this.props.navigation.navigate('Financiamiento')} 
                                               
                           >
-                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{overflow: 'hidden', resizeMode: "cover", width:hp('30%'), height:hp('8%'),  borderRadius: 10}}>
+                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('6.5%'),  borderRadius: 10}}>
                                   
                                 <Text style={{
                                   color: '#fff',
@@ -134,7 +134,7 @@ const settings = () => {
                                   fontWeight:'bold',
                                   marginRight:'0%',
                                   marginLeft:'0%',
-                                  height:'100%',
+                                  height:'50%',
                                   width:'100%',
                                   fontSize:15,
                                   padding: 0}}>FINANCIAMIENTO</Text>
@@ -150,7 +150,7 @@ const settings = () => {
             
          
             {/*Botones*/}     
-           <View style={{ marginTop:hp('8%'), alignItems:'center', flex:0.1,  justifyContent:'center', flexDirection:'row'}}>  
+           <View style={{marginTop:hp('6%'), alignItems:'center', flex:0.2, justifyContent:'center', flexDirection:'row', marginBottom:hp('3%')}}>  
                          
            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                <TouchableOpacity 
@@ -161,7 +161,7 @@ const settings = () => {
                   <Image 
                   
                   source={home}
-                  style={{aspectRatio:1, height:hp('9%')}}
+                  style={{aspectRatio:1, height:hp('8%')}}
                   
                   >    
                   </Image> 
@@ -180,7 +180,7 @@ const settings = () => {
                  <Image 
                  
                  source={usuario}
-                 style={{aspectRatio:1, height:hp('9%')}}
+                 style={{aspectRatio:1, height:hp('8%')}}
                  
                  >    
                  </Image> 
@@ -200,7 +200,7 @@ const settings = () => {
                  <Image 
                  
                  source={setting}
-                 style={{aspectRatio:1, height:hp('9%')}}
+                 style={{aspectRatio:1, height:hp('8%')}}
                  
                  >    
                  </Image> 
@@ -217,12 +217,12 @@ const settings = () => {
           
           { /* LOGO*/}
   
-          <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:0.3}}>  
+          <View style={{alignItems:'center', width:wp('100%'), height:hp('100%'), flex:0.3}}>  
           
           <Image 
             
             source={logo}
-            style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
+            style={{aspectRatio:4.5, width:wp('100%'), height:hp('4%')}}
             
             >    
           </Image>  

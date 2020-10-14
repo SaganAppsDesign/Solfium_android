@@ -47,16 +47,16 @@ return (
                    
 
 
-                   <View  style={{alignItems:'center', flex:1}}>
+                   <View  style={{alignItems:'center', flex:0.5}}>
 
                       <Text 
-                          style={{textAlign:'center',  fontSize:hp('2%'), width:wp('70%'), height: hp('10%'), fontWeight:'bold',
-                                  color: 'white', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('6%')}} 
+                          style={{textAlign:'center',  fontSize:hp('2%'), width:wp('75%'), height: hp('5%'), fontWeight:'bold',
+                                  color: 'white', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('3%')}} 
                          >El proceso para implementar el sistema en su hogar es el siguiente:</Text>
                    </View>
            
                   { /* Botones*/}
-                      <View  style={{ alignItems:'center', flex:4,  justifyContent:'center'}}>
+                      <View  style={{ alignItems:'center', flex:3,  justifyContent:'center'}}>
 
                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                             <TouchableOpacity 
@@ -111,7 +111,7 @@ return (
 
                                  
     {/*Botones*/}     
-           <View style={{marginTop:hp('9%'),   alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row'}}>  
+           <View style={{ marginTop:hp('3%'),   alignItems:'center', flex:0.6, flexDirection:'row'}}>  
                          
            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                <TouchableOpacity 
@@ -122,7 +122,7 @@ return (
                   <Image 
                   
                   source={home}
-                  style={{aspectRatio:1, height:hp('9%')}}
+                  style={{aspectRatio:1, height:hp('8%')}}
                   
                   >    
                   </Image> 
@@ -141,7 +141,7 @@ return (
                  <Image 
                  
                  source={usuario}
-                 style={{aspectRatio:1, height:hp('9%')}}
+                 style={{aspectRatio:1, height:hp('8%')}}
                  
                  >    
                  </Image> 
@@ -161,7 +161,7 @@ return (
                  <Image 
                  
                  source={setting}
-                 style={{aspectRatio:1, height:hp('9%')}}
+                 style={{aspectRatio:1, height:hp('8%')}}
                  
                  >    
                  </Image> 
@@ -178,12 +178,12 @@ return (
           
           { /* LOGO*/}
   
-          <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:1}}>  
+          <View style={{alignItems:'center', width:wp('100%'), height:hp('100%'), flex:1}}>  
           
           <Image 
             
             source={logo}
-            style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
+            style={{aspectRatio:4.5, width:wp('100%'), height:hp('4%')}}
             
             >    
           </Image>  

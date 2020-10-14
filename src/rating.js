@@ -46,8 +46,8 @@ export class Ratings extends React.Component{
 
  
   render() {
-    console.log('this.state.rating: ', this.state.rating)
-    console.log('this.state.comentarios: ', this.state.comentarios)
+    //console.log('this.state.rating: ', this.state.rating)
+    //console.log('this.state.comentarios: ', this.state.comentarios)
  
 
     return (
@@ -61,7 +61,7 @@ export class Ratings extends React.Component{
           <View style={{width:wp('100%'), height:hp('100%'), flex:1, alignItems:'center'}}>
                     
           
-                  <View style={{marginTop:hp('5%'), marginLeft:wp('75%'), flex:1}}>   
+                  <View style={{marginTop:hp('2%'), marginLeft:wp('75%'), flex:1}}>   
                                                     
                           <TouchableOpacity 
                                                                                       
@@ -84,11 +84,11 @@ export class Ratings extends React.Component{
                     </View>
                       
                    
-                <View style={{  backgroundColor: '#F1C40E', borderRadius:10,flex: 3, marginBottom: hp('0%'),  marginTop: hp('10%'), width:wp('75%'), height:hp('15%')}}>
+                <View style={{  backgroundColor: '#F1C40E', borderRadius:10,flex: 3.4, marginBottom: hp('0%'),  marginTop: hp('5%'), width:wp('76%')}}>
                                         
                     <Text style={{color: 'black',
                            
-                            fontSize: hp('2.5%'),
+                            fontSize: hp('3%'),
                             marginBottom: hp('0%'),
                             fontWeight: 'bold',
                             padding: hp('2%'),
@@ -128,13 +128,10 @@ export class Ratings extends React.Component{
                               >
           
                               <Text style={{
-                              
-                              
                               fontWeight:'bold',
                               fontSize:hp('2%'),
                               color: 'white', 
                               textAlign:'center',
-                                         
                               textAlignVertical:'center'}}>Enviar rating</Text>
           
                           </TouchableOpacity>
@@ -173,7 +170,7 @@ export class Ratings extends React.Component{
 
 
 
-              <View style={{backgroundColor: 'grey',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('0%'), width:hp('35%'), height:hp('100%'), flex:1}}>
+              <View style={{backgroundColor: 'grey',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('5%'), width:hp('25%'), height:hp('100%'), flex:1}}>
 
                     <TouchableOpacity
                         
@@ -184,13 +181,10 @@ export class Ratings extends React.Component{
 
                         <Text style={{
                         
-                        
                         fontWeight:'bold',
                         fontSize:hp('2%'),
                         color: 'white', 
                         textAlign:'center',
-                        
-                        
                         textAlignVertical:'center'}}>Enviar comentarios</Text>
 
                     </TouchableOpacity>
@@ -199,7 +193,7 @@ export class Ratings extends React.Component{
 
 
 
-                    <View style={{backgroundColor: 'orange',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('5%'),marginBottom:hp('5%'), width:hp('35%'), height:hp('100%'), flex:1}}>
+                    <View style={{justifyContent:'center',  backgroundColor: 'orange',borderRadius:50, alignItems:'center', marginTop:hp('5%'),marginBottom:hp('13%'), width:hp('25%'), height:hp('100%'), flex:1}}>
 
                     <TouchableOpacity
                         

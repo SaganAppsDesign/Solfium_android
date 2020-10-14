@@ -37,7 +37,7 @@ export class Calculos extends React.Component {
   render() {
 
     
-    console.log('Valor en el render ', potencia)
+    //console.log('Valor en el render ', potencia)
 
 
     return (
@@ -50,12 +50,12 @@ export class Calculos extends React.Component {
           overlayAlpha={0}                 
           > 
                  
-          <View style={{alignItem:'center', justifyContent:'center', flex:1, flexDirection:'column'}}>
+          <View style={{alignContent: 'center', alignItem:'center', justifyContent:'center', flex:1, flexDirection:'column'}}>
         
             
-          <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('2%'), flex:8}}>
+          <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('0%'), flex:5}}>
          
-          <Card containerStyle={{backgroundColor:'white', marginTop: hp('3%'),  borderRadius: 50, 
+          <Card containerStyle={{backgroundColor:'white', marginTop: hp('1%'),  borderRadius: 50, 
             width:wp('82%'), height:hp('65%'), alignItems: 'center'}}>
     
             <View style={{flexDirection:'column', width:wp('55%'), height:'100%'}}>
@@ -256,7 +256,7 @@ export class Calculos extends React.Component {
                <TouchableOpacity
                      
                      
-                     onPress={() => this.props.navigation.navigate('Proceso de implemetación')} 
+                     onPress={() => this.props.navigation.navigate('Implementación')} 
                                          
                      >
 
@@ -293,7 +293,7 @@ export class Calculos extends React.Component {
                   <Image 
                   
                   source={home}
-                  style={{aspectRatio:1, height:hp('9%')}}
+                  style={{aspectRatio:1, height:hp('8%')}}
                   
                   >    
                   </Image> 
@@ -312,7 +312,7 @@ export class Calculos extends React.Component {
                  <Image 
                  
                  source={usuario}
-                 style={{aspectRatio:1, height:hp('9%')}}
+                 style={{aspectRatio:1, height:hp('8%')}}
                  
                  >    
                  </Image> 
@@ -332,7 +332,7 @@ export class Calculos extends React.Component {
                  <Image 
                  
                  source={setting}
-                 style={{aspectRatio:1, height:hp('9%')}}
+                 style={{aspectRatio:1, height:hp('8%')}}
                  
                  >    
                  </Image> 
@@ -349,12 +349,12 @@ export class Calculos extends React.Component {
           
           { /* LOGO*/}
   
-          <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:2}}>  
+          <View style={{alignContent:'center', alignItems:'center', width:wp('100%'), height:hp('0%'), flex:1.2}}>  
           
           <Image 
             
             source={logo}
-            style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
+            style={{aspectRatio:4.5, width:wp('100%'), height:hp('4%'), justifyContent:'center'}}
             
             >    
           </Image>  

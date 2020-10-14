@@ -68,7 +68,7 @@ export class CompraConfirmada extends React.Component {
             <View style={{flex:1, width:wp('100%'), height:hp('100%')}}>
                     
                  {/*Chat*/}
-                  <View style={{marginTop:hp('5%'), marginLeft:wp('80%'), flex:1}}>   
+                  <View style={{marginTop:hp('2%'), marginLeft:wp('80%'), flex:1}}>   
                                                 
                       <TouchableOpacity 
                                                                                   
@@ -93,7 +93,7 @@ export class CompraConfirmada extends React.Component {
                   {/*BODY*/}          
              
                                       
-                 <View style={{alignItems: 'center', flex:8, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
+                 <View style={{alignItems: 'center', flex:6, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
                     
                     <View style={{alignItems: 'center', flex:1.5, width:wp('100%'), height:hp('5%'), marginTop:hp('13%'), position: 'absolute' }}>
                             <ImageBackground source={require('../assets/fondo_verde.png')} style={{alignItems:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:2.2 , height:hp('19%'),  borderRadius: 10}}>
@@ -117,7 +117,7 @@ export class CompraConfirmada extends React.Component {
                         />
                     </View>
 
-                     <View style={{backgroundColor:'rgba(0,255,54,0)', alignItems: 'center', flex:4,  width:wp('100%'), height:hp('5%'), marginTop:hp('28%'), marginBottom:hp('5%')}}>
+                     <View style={{backgroundColor:'rgba(0,255,54,0)', alignItems: 'center', flex:3,  width:wp('100%'), height:hp('5%'), marginTop:hp('28%'), marginBottom:hp('5%')}}>
                      
 
                      <Card containerStyle={{ marginTop: hp('0%'), borderRadius: 10, 
@@ -154,7 +154,7 @@ export class CompraConfirmada extends React.Component {
                                             
                                           <Text style={{
                                               color: '#000',
-                                              marginTop: hp('2%'),
+                                              marginTop: hp('5%'),
                                               textAlign:'center',
                                               fontWeight:'bold',
                                               height:hp('5%'),
@@ -194,12 +194,12 @@ export class CompraConfirmada extends React.Component {
                                </View>
 
  
-              </View>
+         
               
             
          
             {/*Botones*/}     
-           <View style={{ marginTop:hp('2%'), alignItems:'center', flex:0.15,  justifyContent:'center', flexDirection:'row'}}>  
+           <View style={{ marginTop:hp('2%'), alignItems:'center', flex:1.5,   flexDirection:'row'}}>  
                          
            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                <TouchableOpacity 
@@ -210,7 +210,7 @@ export class CompraConfirmada extends React.Component {
                   <Image 
                   
                   source={home}
-                  style={{aspectRatio:1, height:hp('9%')}}
+                  style={{aspectRatio:1, height:hp('8%')}}
                   
                   >    
                   </Image> 
@@ -229,7 +229,7 @@ export class CompraConfirmada extends React.Component {
                  <Image 
                  
                  source={usuario}
-                 style={{aspectRatio:1, height:hp('9%')}}
+                 style={{aspectRatio:1, height:hp('8%')}}
                  
                  >    
                  </Image> 
@@ -249,7 +249,7 @@ export class CompraConfirmada extends React.Component {
                  <Image 
                  
                  source={setting}
-                 style={{aspectRatio:1, height:hp('9%')}}
+                 style={{aspectRatio:1, height:hp('8%')}}
                  
                  >    
                  </Image> 
@@ -266,12 +266,12 @@ export class CompraConfirmada extends React.Component {
           
           { /* LOGO*/}
   
-          <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:0.18}}>  
+          <View style={{alignItems:'center', flex:2}}>  
           
           <Image 
             
             source={logo}
-            style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
+            style={{aspectRatio:4.5,  height:hp('4%')}}
             
             >    
           </Image>  
@@ -279,7 +279,7 @@ export class CompraConfirmada extends React.Component {
          </View> 
        
 
-
+         </View>
 
     </ImageOverlay> 
 

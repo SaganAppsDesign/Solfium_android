@@ -40,7 +40,7 @@ const settings = () => {
             <View style={{flex:1, width:wp('100%'), height:hp('100%')}}>
                     
                  {/*Chat*/}
-                  <View style={{marginTop:hp('5%'), marginLeft:wp('80%'), flex:1}}>   
+                  <View style={{marginTop:hp('1%'), marginLeft:wp('80%'), flex:1}}>   
                                                 
                       <TouchableOpacity 
                                                                                   
@@ -65,7 +65,7 @@ const settings = () => {
                   {/*BODY*/}          
              
                                       
-                 <View style={{alignItems: 'center', flex:8, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
+                 <View style={{alignItems: 'center', flex:5, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
                     
                     <View style={{alignItems: 'center', flex:1.5, width:wp('100%'), height:hp('5%'), marginTop:hp('15%'), position: 'absolute' }}>
                             <ImageBackground source={require('../assets/fondo2.jpg')} style={{alignItems:'center', overflow: 'hidden', resizeMode: "cover", width:wp('60%'), height:hp('15%'),  borderRadius: 10}}>
@@ -89,10 +89,14 @@ const settings = () => {
                         />
                     </View>
 
-                     <View style={{backgroundColor:'rgba(0,255,54,0)', alignItems: 'center', flex:2,  width:wp('100%'), height:hp('5%'), marginTop:hp('28%'), marginBottom:hp('5%')}}>
+                     
+
+                    </View>
+ 
+              </View>
+
+              <View style={{backgroundColor:'rgba(0,255,54,0)', alignItems: 'center', flex:1,  width:wp('100%'), height:hp('5%'), marginTop:hp('28%'), marginBottom:hp('5%')}}>
                      <TouchableOpacity
-                       
-                      
                                            
                        >
                        <ImageBackground source={require('../assets/boton_naranja.png')} style={{ justifyContent:'center',overflow: 'hidden', resizeMode: "cover", width:hp('30%'), height:hp('8%'),  borderRadius: 10}}>
@@ -108,12 +112,10 @@ const settings = () => {
                   
                        </View>
 
-                      <View style={{backgroundColor:'rgba(0,255,54,0)', alignItems: 'center', flex:2,  width:wp('100%'), height:hp('10%') }}>
+                      <View style={{backgroundColor:'rgba(0,255,54,0)', alignItems: 'center', flex:1,  width:wp('100%'), height:hp('10%') }}>
                         <TouchableOpacity
                           
-                      
-                        
-                                              
+                                         
                           >
                           <ImageBackground source={require('../assets/boton_naranja.png')} style={{ justifyContent:'center',overflow: 'hidden', resizeMode: "cover", width:hp('30%'), height:hp('8%'),  borderRadius: 10}}>
                                   
@@ -128,7 +130,7 @@ const settings = () => {
                           </View>
 
 
-                          <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('5%'), width:hp('30%'), height:hp('100%'), flex:1.5}}>
+                          <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('5%'), width:hp('28%'), height:hp('100%'), flex:0.7}}>
 
                           <TouchableOpacity
                               
@@ -151,15 +153,11 @@ const settings = () => {
                           </TouchableOpacity>
                          </View>
 
-
-                    </View>
- 
-              </View>
               
             
          
             {/*Botones*/}     
-           <View style={{ marginTop:hp('2%'), alignItems:'center', flex:0.15,  justifyContent:'center', flexDirection:'row'}}>  
+           <View style={{marginTop:hp('2%'), alignItems:'center', flex:2,  flexDirection:'row'}}>  
                          
            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                <TouchableOpacity 
@@ -170,7 +168,7 @@ const settings = () => {
                   <Image 
                   
                   source={home}
-                  style={{aspectRatio:1, height:hp('9%')}}
+                  style={{aspectRatio:1, height:hp('8%')}}
                   
                   >    
                   </Image> 
@@ -189,7 +187,7 @@ const settings = () => {
                  <Image 
                  
                  source={usuario}
-                 style={{aspectRatio:1, height:hp('9%')}}
+                 style={{aspectRatio:1, height:hp('8%')}}
                  
                  >    
                  </Image> 
@@ -209,7 +207,7 @@ const settings = () => {
                  <Image 
                  
                  source={setting}
-                 style={{aspectRatio:1, height:hp('9%')}}
+                 style={{aspectRatio:1, height:hp('8%')}}
                  
                  >    
                  </Image> 
@@ -226,12 +224,12 @@ const settings = () => {
           
           { /* LOGO*/}
   
-          <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:0.18}}>  
+          <View style={{alignItems:'center',width:wp('100%'), height:hp('100%'), flex:2.5}}>  
           
           <Image 
             
             source={logo}
-            style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
+            style={{aspectRatio:4.5, height:hp('4%')}}
             
             >    
           </Image>  
