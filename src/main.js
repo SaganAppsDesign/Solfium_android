@@ -40,7 +40,8 @@ export class Main extends React.Component {
 
       this.props.navigation.navigate('Chat', { 
         
-        name: this.state.name
+        name: this.state.name,
+        valor:2
        
     }
       
@@ -72,7 +73,7 @@ export class Main extends React.Component {
           <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('10%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:2, height:hp('2%'), justifyContent:'center'}}> 
               <Text style={{color: 'white',
                 
-                fontSize: hp('2.9%'),
+                fontSize: hp('2.7%'),
                 marginHorizontal: wp('0%'),
                 marginTop:hp('0%'),
                 fontWeight: 'bold',

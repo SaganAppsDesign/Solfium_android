@@ -122,7 +122,7 @@ export class InfoResultInsta extends React.Component {
                                           
                   <TouchableOpacity 
                                                                               
-                  onPress={() => this.props.navigation.navigate('Chat')}
+                  onPress={() => this.props.navigation.navigate('Chat', {valor:3})}
                   > 
                   <View>
                   

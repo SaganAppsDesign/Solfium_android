@@ -43,7 +43,7 @@ const settings = () => {
                                                 
                       <TouchableOpacity 
                                                                                   
-                      onPress={() => this.props.navigation.navigate('Chat')}
+                      onPress={() => this.props.navigation.navigate('Chat', {valor:4})}
                       > 
                       <View>
                       
@@ -136,7 +136,7 @@ const settings = () => {
                                   marginLeft:'0%',
                                   height:'50%',
                                   width:'100%',
-                                  fontSize:15,
+                                  fontSize:13,
                                   padding: 0}}>FINANCIAMIENTO</Text>
                                 </ImageBackground>
                           </TouchableOpacity>

@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { GiftedChat, Bubble, Send, MessageText } from 'react-native-gifted-chat';
 import Fire from '../fire';
-import { StyleSheet, View, Image, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
 import { IconButton } from 'react-native-paper';
 import {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 
-var name, cita
+var name, cita, uid, name2, title, screen
+
 
 
 data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
@@ -19,23 +20,91 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
 
 });
 
+//Nuevo código
+data2 = () => db.ref('/Instaladores/' +  Fire.getUid()).on('value', (snapshot) => {
+  
+  name2 =  snapshot.child("name").val()
+  uid = snapshot.child("uid").val()
+   
+ 
+});
+
 
 
 
 export class Chat extends React.Component {
 
 
+
+
+
 state = {
 
     messages: [],
     name:'',
-    cita:''
+    cita:'',
+    name2: ''
     
 };
 
 
   render() {
+
+    const { valor } = this.props.route.params;
+  
+    var valor2 = valor
+
+    //valor = JSON.stringi∫fy(navigation.getParam('valor', ''))
+    //const {valor } = route.params;
+    console.log("valorCitacondfirmada", valor)
+ //Recibir valores de screens relacionadas con Chat∫
+    
+    switch (valor) {
+      case 0:
+        title = "Volver atrás"
+        screen = "Próxima visita"
+        break;
+      case 1:
+        title = "Volver atrás"
+        screen = "Escanear QR Instalador"
+        break;
+      case 2:
+        title = "Cita"
+        screen = "Próxima visita"
+        break;
+      case 3:
+        title = "Volver atrás"
+        screen = "Viabilidad Instalación"
+        break;
+      case 4:
+        title = "Volver atrás"
+        screen = "Pago"
+        break;
+      case 5:
+        title = "Volver atrás"
+        screen = "Pago único"
+        break;
+      case 6:
+        title = "Volver atrás"
+        screen = "Financiamiento"
+        break;
+      case 7:
+        title = "Volver atrás"
+        screen = "Confirmar compra"
+        break;
+      case 8:
+        title = "Volver atrás"
+        screen = "Rating"
+        break;
+
+
+      default:
+        text = "No value found";
+    }
+
+    console.log("screen: ", screen)
    data()
+   data2()
 
    var cita = this.state.cita
    var bool, opacity
@@ -79,9 +148,9 @@ state = {
       />
 
         <View style={{opacity:opacity, marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('20%'), marginRight:wp('20%')}}>
-
+        
         <Button disabled={bool}
-                title="Cita" onPress={() => this.props.navigation.navigate('Próxima visita')}
+                title={title} onPress={() => this.props.navigation.navigate(screen)}
                 color='orange'/>
                         
         </View>
@@ -129,7 +198,6 @@ componentDidMount() {
   
         
     )
-
 
 
 }

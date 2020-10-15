@@ -11,23 +11,12 @@ import usuario from '../assets/usuario.png';
 import ok from '../assets/ok.png'; 
 import { Button, Card } from 'react-native-elements';
 import logo from '../assets/logo.png'; 
-import codigo_qr from '../assets/codigo_qr.png'; 
 import qr2 from '../assets/qr2.png'; 
 import confirmado from '../assets/confirmado.png'; 
 import verResultado from '../assets/verResultado.png'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import  Fire , {db} from '../fire';
 
-
-const user = () => {
-  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
- 
-};
-
-const settings = () => {
-  ToastAndroid.show("Settings", ToastAndroid.SHORT);
- 
-};
                         
 
 export class IdentidadConfirmada extends React.Component {
@@ -82,7 +71,7 @@ export class IdentidadConfirmada extends React.Component {
                                 
                         <TouchableOpacity 
                                                                                     
-                        onPress={() => this.props.navigation.navigate('Chat')}
+                            onPress={() => this.props.navigation.navigate('Chat',  {valor: 1})}
                         > 
                         <View>
                         

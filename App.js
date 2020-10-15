@@ -34,17 +34,16 @@ console.disableYellowBox = true;
 
 class MainScreen extends Component {
 
-    
- 
+     
  
   render(){ 
-
 
   
   return (
     <Stack.Navigator
-
+    
         screenOptions={{
+        //headerLeft: null,
         headerStyle: {
           backgroundColor: 'orange',
         },
@@ -52,18 +51,21 @@ class MainScreen extends Component {
         
         headerTitleStyle: {
           fontWeight: 'bold'
+        },
+        
+        topBar: {
+          
+          hideBackButtonTitle: true,
+          backButton: {
+            showTitle:false
+          }
         }
       }}>
 
 
       <Stack.Screen options={{headerShown: false}}  name="SplahScreen" component={SplashScreen}/>
       <Stack.Screen options={{headerShown: false}} name="Ingresar Consumo" component={IngresarConsumo}  />
-      
-  {/* <Stack.Screen options={{headerShown: false}}  name="Solfium" component={HomeScreen} initialParams={{ Latitud:  0,  Longitud: 0,  URI: 0  }}/> */}
-
-
       <Stack.Screen  name="Cálculos" component={Calculos} />
- 
       <Stack.Screen  name="Confirma ubicación" component={ConfirmaUbicacion}  />
       <Stack.Screen  name="Implementación" component={MeInteresa}  />
       <Stack.Screen  name="Próxima visita" component={CitaConfirmada} />
@@ -72,7 +74,7 @@ class MainScreen extends Component {
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />
       <Stack.Screen name="Instalación en proceso" component={Instalacion} />
       <Stack.Screen name="Rating" component={Ratings} />
-      <Stack.Screen name="Escanear QR Instalador" component={IdentidadConfirmada} />
+      <Stack.Screen name="Escanear QR Instalador" component={IdentidadConfirmada}/>
       <Stack.Screen name="QR Escaneado" component={QREscaneado} />
       <Stack.Screen name="QR correcto" component={QRCodeOk} />
       <Stack.Screen name="Ubicación" component={Mapbox2} />

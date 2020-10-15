@@ -88,7 +88,7 @@ export class CitaConfirmada extends React.Component {
                                           
                   <TouchableOpacity 
                                                                               
-                  onPress={() => this.props.navigation.navigate('Chat')}
+                  onPress={() => this.props.navigation.navigate('Chat',  {valor: 0})}
                   > 
                   <View>
                   

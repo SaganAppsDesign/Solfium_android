@@ -74,7 +74,7 @@ siguiente = () =>  {
                         <Text style={{color: '#fff',
                             
                             marginLeft:wp('90%'),
-                            marginTop:wp('5%'),
+                            marginTop:hp('7%'),
                             height:hp('100%'),
                             width:wp('100%'),
                             fontWeight:'bold',

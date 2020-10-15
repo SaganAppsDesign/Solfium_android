@@ -15,18 +15,6 @@ export class PagoUnico extends React.Component {
  render() {
 
 
-    
-const user = () => {
-  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
- 
-};
-
-const settings = () => {
-  ToastAndroid.show("Settings", ToastAndroid.SHORT);
- 
-};
-
-
 
   return (
 
@@ -40,14 +28,13 @@ const settings = () => {
             <View style={{flex:1, width:wp('100%'), height:hp('100%')}}>
                     
                  {/*Chat*/}
-                  <View style={{marginTop:hp('1%'), marginLeft:wp('80%'), flex:1}}>   
+                  <View style={{marginTop:hp('1%'), marginLeft:wp('80%'), height:hp('8%')}}>   
                                                 
                       <TouchableOpacity 
                                                                                   
-                      onPress={() => this.props.navigation.navigate('Chat')}
+                      onPress={() => this.props.navigation.navigate('Chat', {valor:5})}
                       > 
-                      <View>
-                      
+                              
                               <Image 
                           
                               source={chat}
@@ -55,9 +42,6 @@ const settings = () => {
                               
                               >    
                               </Image> 
-
-                      </View>
-                  
                       </TouchableOpacity> 
 
                   </View>
@@ -65,13 +49,13 @@ const settings = () => {
                   {/*BODY*/}          
              
                                       
-                 <View style={{alignItems: 'center', flex:5, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
+                 <View style={{backgroundColor:'pink', alignItems: 'center', flex:1, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
                     
-                    <View style={{alignItems: 'center', flex:1.5, width:wp('100%'), height:hp('5%'), marginTop:hp('15%'), position: 'absolute' }}>
+                    <View style={{alignItems: 'center', flex:1.5, width:wp('100%'), height:hp('5%'), marginTop:hp('10%'), position: 'absolute' }}>
                             <ImageBackground source={require('../assets/fondo2.jpg')} style={{alignItems:'center', overflow: 'hidden', resizeMode: "cover", width:wp('60%'), height:hp('15%'),  borderRadius: 10}}>
                               <Text style={{
                               color: '#fff',
-                              marginTop: hp('5%'),
+                              marginTop: hp('7.5%'),
                               textAlign:'center',
                               height:hp('5%'),
                               fontSize:hp('4%'),
@@ -82,9 +66,9 @@ const settings = () => {
                      
                     </View>
 
-                    <View style={{alignItems: 'center', flex:2, width:wp('100%'), height:hp('15%') }}>
+                    <View style={{alignItems: 'center', flex:1, width:wp('100%'), height:hp('15%') }}>
                     <Image
-                        style={{aspectRatio:1, height:hp('20%'), marginTop:hp('2%')}}
+                        style={{aspectRatio:1, height:hp('20%'), marginTop:hp('0%')}}
                         source={require('../assets/carrito.png')}
                         />
                     </View>
@@ -95,7 +79,7 @@ const settings = () => {
  
               </View>
 
-              <View style={{backgroundColor:'rgba(0,255,54,0)', alignItems: 'center', flex:1,  width:wp('100%'), height:hp('5%'), marginTop:hp('28%'), marginBottom:hp('5%')}}>
+              <View style={{backgroundColor:'rgba(0,255,54)', alignItems: 'center', flex:1,  width:wp('100%'), height:hp('5%'), marginTop:hp('30%'), marginBottom:hp('5%')}}>
                      <TouchableOpacity
                                            
                        >
@@ -112,7 +96,7 @@ const settings = () => {
                   
                        </View>
 
-                      <View style={{backgroundColor:'rgba(0,255,54,0)', alignItems: 'center', flex:1,  width:wp('100%'), height:hp('10%') }}>
+                      <View style={{backgroundColor:'rgba(0,255,54)', alignItems: 'center', flex:1,  width:wp('100%'), height:hp('10%') }}>
                         <TouchableOpacity
                           
                                          
@@ -140,14 +124,11 @@ const settings = () => {
                               >
           
                               <Text style={{
-                              
-                              
+                                                           
                               fontWeight:'bold',
                               fontSize:25,
                               color: 'white', 
                               textAlign:'center',
-                              
-                              
                               textAlignVertical:'center'}}> PAGAR </Text>
           
                           </TouchableOpacity>

@@ -47,8 +47,7 @@ export class Ratings extends React.Component{
  
   render() {
     //console.log('this.state.rating: ', this.state.rating)
-    //console.log('this.state.comentarios: ', this.state.comentarios)
- 
+
 
     return (
 
@@ -65,7 +64,7 @@ export class Ratings extends React.Component{
                                                     
                           <TouchableOpacity 
                                                                                       
-                          onPress={() => this.props.navigation.navigate('Chat')}
+                          onPress={() => this.props.navigation.navigate('Chat', {valor:8})}
                           > 
                           <View>
                           
@@ -84,11 +83,11 @@ export class Ratings extends React.Component{
                     </View>
                       
                    
-                <View style={{  backgroundColor: '#F1C40E', borderRadius:10,flex: 3.4, marginBottom: hp('0%'),  marginTop: hp('5%'), width:wp('76%')}}>
+                <View style={{  backgroundColor: '#F1C40E', borderRadius:10, flex: 3, marginBottom: hp('0%'),  marginTop: hp('5%'), width:wp('76%')}}>
                                         
                     <Text style={{color: 'black',
                            
-                            fontSize: hp('3%'),
+                            fontSize: hp('2.5%'),
                             marginBottom: hp('0%'),
                             fontWeight: 'bold',
                             padding: hp('2%'),

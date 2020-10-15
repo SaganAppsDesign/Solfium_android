@@ -25,6 +25,23 @@ export class Fire {
   
  
   constructor ()  {
+    
+    //Nuevo código
+    const ref = db.ref('Instaladores/');
+ 
+    this.listener = ref.on("value",  (snapshot) =>{
+          
+              
+          snapshot.forEach((child)=>{
+        
+            key = child.key
+                
+        
+        })
+ 
+     
+ 
+      })
 
     
     if (!firebase.apps.length) {
@@ -69,7 +86,10 @@ export class Fire {
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('/Mensajes/');
+    //Nuevo código
+    this.messagesRef = firebase.database().ref('/Chat/' + this.uid + '-' + key + '/');
+
+    //this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
 
     const onReceive = (data) => {
