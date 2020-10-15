@@ -102,7 +102,6 @@ state = {
         text = "No value found";
     }
 
-    console.log("screen: ", screen)
    data()
    data2()
 

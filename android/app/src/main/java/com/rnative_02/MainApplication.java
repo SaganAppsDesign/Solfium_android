@@ -6,9 +6,9 @@ import androidx.multidex.MultiDexApplication;
 import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+
 import com.oblador.vectoricons.VectorIconsPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
-import com.mlkit.RNMlKitPackage;
+
 import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -18,9 +18,9 @@ import com.facebook.soloader.SoLoader;
 import com.github.yamill.orientation.OrientationPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
-import com.mlkit.RNMlKitPackage;
 
-import org.reactnative.camera.RNCameraPackage;
+
+//import org.reactnative.camera.RNCameraPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -40,17 +40,14 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
           @SuppressWarnings("UnnecessaryLocalVariable")
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
-          // packages.add(new MyReactNativePackage());
-  
+            
           new VectorIconsPackage();
-          new MainReactPackage(),
-                 
-          new RNMlKitPackage();
+          new MainReactPackage();
           new ReactVideoPackage();
           new AsyncStoragePackage();
           new OrientationPackage();
-          new RNCameraPackage();   
-          new RNMlKitPackage();  
+          //new RNCameraPackage();   
+        
               
          
           return packages;

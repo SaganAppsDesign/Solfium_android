@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-apply plugin: 'com.google.gms.google-services'
+
 
 import com.android.build.OutputFile
 
@@ -138,7 +138,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        missingDimensionStrategy 'react-native-camera', 'mlkit' 
+        //missingDimensionStrategy 'react-native-camera', 'mlkit' 
         multiDexEnabled true
     }
     splits {
@@ -199,12 +199,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:18.0.0'
     implementation project(':@react-native-community_async-storage')
     implementation 'com.android.support:multidex:1.0.3'
-    //implementation 'com.google.firebase:firebase-core:16.0.1'
+   /*  implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-ml-vision:17.0.0'
 
     implementation (project(':react-native-firebase-mlkit')) {
         exclude group: 'com.google.firebase'
-    }
+    } */
 
  
 
@@ -242,6 +242,6 @@ apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle");
 applyNativeModulesAppBuildGradle(project)
 
-
+//apply plugin: 'com.google.gms.google-services'
 // Work around for onesignal-gradle-plugin compatibility
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

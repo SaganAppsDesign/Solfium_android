@@ -16,16 +16,7 @@ import usuario from '../assets/usuario.png';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
-const user = () => {
-  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
- 
-};
-
-const settings = () => {
-  ToastAndroid.show("Settings", ToastAndroid.SHORT);
- 
-};
-       
+     
 
 
 export function MeInteresa({ route, navigation }) {
@@ -74,7 +65,7 @@ return (
           
                             </TouchableOpacity> 
                        </View>
-                       <View  style={{opacity:0.8, alignItems:'center', flex:1,  justifyContent:'center'}}>
+                       <View  style={{opacity:0.5, alignItems:'center', flex:1,  justifyContent:'center'}}>
                           <TouchableOpacity 
                             disabled={true}> 
                                                    
@@ -88,7 +79,7 @@ return (
                           
                           </TouchableOpacity> 
                        </View>
-                      <View  style={{opacity:0.8, alignItems:'center', flex:1,  justifyContent:'center'}}>
+                      <View  style={{opacity:0.5, alignItems:'center', flex:1,  justifyContent:'center'}}>
                       <TouchableOpacity 
 
                             disabled={true} 

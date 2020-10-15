@@ -16,7 +16,7 @@ import {CompraConfirmada} from './src/compra_confirmada';
 import {QREscaneado} from './src/qr_escaneado';  
 import {QRCodeOk} from './src/QR_OK.js'; 
 import { Mapbox2 } from './src/mapbox'; 
-import { Camara } from './src/camara2'; 
+//import { Camara } from './src/camara2'; 
 import { QRscan } from './src/qr_scan'; 
 import { Chat } from './src/chat'; 
 import { Main } from './src/main'; 
@@ -78,7 +78,7 @@ class MainScreen extends Component {
       <Stack.Screen name="QR Escaneado" component={QREscaneado} />
       <Stack.Screen name="QR correcto" component={QRCodeOk} />
       <Stack.Screen name="Ubicación" component={Mapbox2} />
-      <Stack.Screen name="Cámara" component={Camara}  />
+    {/*   <Stack.Screen name="Cámara" component={Camara}  /> */}
       <Stack.Screen name="QR scan" component={QRscan}  />
       <Stack.Screen name="Chat" component={Chat}  />
       <Stack.Screen name="Nombre usuario" component={Main}  />

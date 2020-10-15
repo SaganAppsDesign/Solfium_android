@@ -123,7 +123,7 @@ return (
                                                                     
                                   <View style={{justifyContent:'center',alignItems:'center', width:wp('100%'), height:hp('15%'), flex:1, marginTop:hp('5%')}}>
                                       <Text style={{ fontSize:17, fontWeight:'bold', color: 'grey', textAlign:'center'
-                                        }}>O ingresa aquí tu consumo en MXN</Text>
+                                        }}>O ingresa aquí tu consumo mensual en MXN</Text>
                                                                 
                                    </View>     
 

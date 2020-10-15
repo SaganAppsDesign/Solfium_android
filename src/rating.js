@@ -12,7 +12,7 @@ import { AirbnbRating} from 'react-native-ratings';
 
 
 var {height} = Dimensions.get('window');
-
+var bool, opacity
 
 export class Ratings extends React.Component{
 
@@ -20,21 +20,27 @@ export class Ratings extends React.Component{
   state = {
 
     comentarios: '',
-    rating:''
-   
-
+    rating:'',
+    ratingFire:''
   }
-
- 
 
   onChangeText = comentarios => this.setState({ comentarios });
   rating = rating => this.setState({ rating });
   
-  ratingFire = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
+  ratingFire = () =>  {
+
+
+    
+    db.ref('Usuarios/' +  Fire.getUid()).update({
     
     rating:this.state.rating
          
     })
+
+    
+   }
+ 
+   
 
   comentarios = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
   
@@ -46,8 +52,22 @@ export class Ratings extends React.Component{
 
  
   render() {
-    //console.log('this.state.rating: ', this.state.rating)
+    
 
+  
+
+    if (this.state.ratingFire == "") {
+
+      opacity = 1
+      bool=false
+
+    } else {
+
+      opacity = 0.1
+      bool=true
+
+    }
+  
 
     return (
 
@@ -117,12 +137,13 @@ export class Ratings extends React.Component{
                   </View> 
 
 
-                   <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('2%'), width:hp('20%'), height:hp('100%'), flex:1}}>
+                   <View style={{opacity:opacity, backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('2%'), width:hp('20%'), height:hp('100%'), flex:1}}>
 
                           <TouchableOpacity
                               
                             
                               onPress={() => this.ratingFire()} 
+                              disabled={bool}
                                                   
                               >
           
@@ -147,8 +168,8 @@ export class Ratings extends React.Component{
                             style={styles.nameInput}
                             placeholder="Deje un comentario acerca de su valoración"
                             placeholderTextColor = "grey"
-                            multiline
-                            numberOfLines={5}
+                            //multiline
+                            //numberOfLines={5}
                             onChangeText={this.onChangeText}
                             value={this.state.comentarios}
                             returnKeyType={ 'done' }
@@ -217,8 +238,29 @@ export class Ratings extends React.Component{
       </ImageOverlay>
 
 
-  );
-}}
+  )
+
+ 
+}
+
+componentDidMount() {
+
+
+  const ref = db.ref('/Usuarios/' +  Fire.getUid());
+
+  this.listener = ref.on("value", snapshot => {
+
+  this.setState({ ratingFire: snapshot.child("rating").val() || '',
+                       
+                })    
+
+ 
+}
+)
+
+
+}
+}
 
 
 const styles = StyleSheet.create({

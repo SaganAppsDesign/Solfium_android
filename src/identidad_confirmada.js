@@ -16,6 +16,7 @@ import confirmado from '../assets/confirmado.png';
 import verResultado from '../assets/verResultado.png'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import  Fire , {db} from '../fire';
+import { and } from 'react-native-reanimated';
 
                         
 
@@ -33,7 +34,9 @@ export class IdentidadConfirmada extends React.Component {
 
     var viabilidad = this.state.viabilidad
     var QR = this.state.QR
-    var bool, opacity, opacity2
+    var bool,opacity, opacity2, opacity3
+
+    //console.log(QR)
 
      if (viabilidad == ''){
             
@@ -44,7 +47,6 @@ export class IdentidadConfirmada extends React.Component {
       bool=false
       opacity=1
       }
-
     
       if (QR == ''){
        
@@ -52,7 +54,16 @@ export class IdentidadConfirmada extends React.Component {
       } else {
            
       opacity2=1
+      
       }
+
+      if (QR == 'OK' && viabilidad==''){
+       
+        opacity3=1
+        } else {
+        
+        opacity3=0
+        }
 
 
 
@@ -199,17 +210,24 @@ export class IdentidadConfirmada extends React.Component {
        </View>
      
      <View style={{flex:2, marginRight:wp('10%')}}>
+
           <Text style={{color: '#fff',
-                
                 marginTop: hp('5%'),
                 marginLeft:hp('8%'),
                 height:hp('10%'),
                 width:wp('50%'),
+                fontWeight:'bold',opacity:opacity3, fontSize: hp('5%')}}>En Revisión...</Text>
+          <Text style={{color: '#fff',
+                marginTop: hp('-9%'),
+                marginLeft:hp('7%'),
+                height:hp('10%'),
+                width:wp('50%'),
                 fontWeight:'bold',
-                opacity:opacity
+                opacity:opacity,
+                fontSize: hp('4%')
                 }}>
-
-                <Text style={{fontSize: hp('2.5%')}}>Ver resultado</Text>
+                
+                <Text style={{fontSize: hp('2.5%')}}>VER RESULTADO</Text>
 
             </Text>
 
