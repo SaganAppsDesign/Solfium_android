@@ -126,7 +126,7 @@ siguiente = () =>  {
           <Image 
             
             source={logo}
-            style={{aspectRatio:4.5, width:wp('100%'), height:hp('4%'), marginBottom:hp('0%')}}
+            style={{aspectRatio:4.5, height:hp('6%'), marginTop:hp('20%')}}
             
             >    
           </Image>  

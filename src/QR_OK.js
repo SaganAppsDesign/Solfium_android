@@ -3,7 +3,6 @@ import { StyleSheet, Text, View,  Button, Dimensions, TouchableOpacity, Image} f
 import tec3 from '../assets/fondo2.jpg';  
 import ImageOverlay from "react-native-image-overlay";
 import 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import Fire, {db} from '../fire';
 import logo from '../assets/logo.png'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';

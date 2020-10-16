@@ -1,32 +1,48 @@
 import * as React from 'react';
-import {Text, View, Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
+import {Text, View,Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
+import { Button, Card} from 'react-native-elements';
 import ImageOverlay from "react-native-image-overlay";
 import tec3 from '../assets/fondo6.jpg'; 
 import home from '../assets/home.png'; 
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
 import logo from '../assets/logo.png'; 
+import star from '../assets/star.png'; 
 import chat from '../assets/chat.png';
+import  Fire , {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-export class Payment extends React.Component {
 
+
+export class CompraConfirmadaFinan extends React.Component {
+  state = {
+    fecha: '',
+    username: ''
+  }
 
  render() {
 
-  
-const user = () => {
-  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
- 
-};
+  var name = this.state.username
+  var nombre = name.toUpperCase();
 
-const settings = () => {
-  ToastAndroid.show("Settings", ToastAndroid.SHORT);
- 
-};
+  var date = this.state.fecha
+  var year = date.slice(0, 4);
+  var month = date.slice(5, 7);
+  var day = date.slice(8,10);
+  var hour = date.slice(11,16);
 
+  var opacity
 
+    if (date == ''){
+    
+      opacity=0
+     
+    } else {
 
+      opacity=1
+      }
+
+    
   return (
 
 
@@ -36,7 +52,7 @@ const settings = () => {
           overlayAlpha={0}                 
           > 
                               
-          <View style={{flex:1, width:wp('100%'), height:hp('100%')}}>
+            <View style={{flex:1, width:wp('100%'), height:hp('100%')}}>
                     
            {/* header */}              
            {/*Botones*/}     
@@ -46,7 +62,7 @@ const settings = () => {
                          <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), backgroundColor:'#E36239', alignItems:'center',justifyContent:'center', flex:0.5,  opacity:1}}>
                             <TouchableOpacity 
                                                                                          
-                               onPress={() => this.props.navigation.navigate('Viabilidad Instalación')}
+                               onPress={() => this.props.navigation.navigate('Pago único')}
                               > 
                                                     
                               {/*  <Image 
@@ -135,7 +151,7 @@ const settings = () => {
                                           
                                           <TouchableOpacity 
                                                                                                       
-                                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 4})}
+                                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 7})}
                                           > 
                                           <View>
                                           
@@ -161,109 +177,219 @@ const settings = () => {
                      {/* FIN header */}  
                       
                   {/*BODY*/}          
-                  {/* TOTAL */}     
+             
                                       
-                 <View style={{alignItems: 'center', flex: 8, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
+                 <View style={{alignItems: 'center', flex:6, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
                     
-                    <View style={{alignItems: 'center', flex:1, width:wp('100%'), height:hp('5%'), marginTop:hp('18%'), position: 'absolute' }}>
-                            <ImageBackground source={require('../assets/fondo2.jpg')} style={{alignItems:'center', overflow: 'hidden', resizeMode: "cover", width:wp('60%'), height:hp('15%'),  borderRadius: 10}}>
+                    <View style={{alignItems: 'center', flex:1.5, width:wp('100%'), height:hp('5%'), marginTop:hp('13%'), position: 'absolute' }}>
+                            <ImageBackground source={require('../assets/fondo_verde.png')} style={{alignItems:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:2.2 , height:hp('19%'),  borderRadius: 10}}>
                               <Text style={{
                               color: '#fff',
-                              marginTop: hp('5%'),
+                              marginTop: hp('8%'),
                               textAlign:'center',
-                              height:hp('4%'),
+                              height:hp('5%'),
                               fontSize:hp('3%'),
-                              }}>Total a pagar:</Text>
+                             
+                              }}>COMPRA CONFIRMADA</Text>
+
                             <Text style={{
                               color: '#fff',
+                              marginTop: hp('0%'),
                               textAlign:'center',
-                              fontWeight:'bold',
                               height:hp('5%'),
-                              width:wp('100%'),
-                              fontSize:hp('4%'),
-                              }}>$24,000.00</Text>
+                              fontSize:hp('2%'),
+                             
+                              }}>Financiamiento</Text>
+                          
                             </ImageBackground>
                      
                     </View>
 
                     <View style={{alignItems: 'center', flex:2, width:wp('100%'), height:hp('15%') }}>
                     <Image
-                        style={{aspectRatio:1, height:hp('20%'), marginTop:hp('5%')}}
+                        style={{aspectRatio:1, height:hp('20%'), marginTop:hp('2%')}}
                         source={require('../assets/carrito.png')}
                         />
                     </View>
 
-                    <View style={{alignItems: 'center', flex:2,  width:wp('100%'), height:hp('100%')}}>
+                     <View style={{backgroundColor:'rgba(0,255,54,0)', alignItems: 'center', flex:3,  width:wp('100%'), height:hp('5%'), marginTop:hp('28%'), marginBottom:hp('5%')}}>
                      
-                        <View style={{alignItems: 'center', flex:1,  width:wp('100%'), height:hp('100%')}}>
-                        <TouchableOpacity
-                          
-                          onPress={() => this.props.navigation.navigate('Pago único')} 
-                                              
-                          >
-                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('6.5%'),   borderRadius: 10}}>
-                                  
-                                <Text style={{
-                                  color: '#fff',
-                                  textAlign:'center',
-                                  fontWeight:'bold',
-                                  fontSize:wp('4%'),
-                                 }}>PAGO ÚNICO</Text>
-                                </ImageBackground>
-                          </TouchableOpacity>
-                          </View>
-                          
 
-                          <View style={{alignItems: 'center', flex:3,  width:wp('100%'), height:hp('100%') }}>
-                          <TouchableOpacity
-                            
-                        
-                            onPress={() => this.props.navigation.navigate('Financiamiento')} 
-                                                
-                            >
-                            <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('6.5%'),  borderRadius: 10}}>
+                     <Card containerStyle={{ marginTop: hp('0%'), borderRadius: 10, 
+                     width:wp('70%'), height:hp('20%'), opacity: opacity}}>
+ 
+                             <View style={{ marginTop:hp('0%'), marginLeft:wp('0%'), flex:1}}>      
+                                    <Text style={{
+                                      color: '#000',
+                                      marginTop: hp('1%'),
+                                      textAlign:'center',
+                                      fontWeight:'bold',
+                                      height:hp('15%'),
+                                      width:wp('60%'),
+                                      fontSize:hp('3%'),
+                                      opacity: opacity,
+                                      
+                              
+                                      }}>{nombre}, su equipo se instalará el {day}-{month}-{year} a las {hour} h</Text>
+                              </View>
+
+                              
+                     
+                      </Card>
+
+                     
+                     </View>
+
+
+                    </View>
+
+                    <View style={{ marginTop:hp('0%'), marginLeft:wp('0%'), flex:2, flexDirection:'row'}}> 
                                     
-                                  <Text style={{
-                                    color: '#fff',
-                                    textAlign:'center',
-                                    fontWeight:'bold',
-                                    fontSize:wp('3.5%')}}>FINANCIAMIENTO</Text>
-                                  </ImageBackground>
-                            </TouchableOpacity>
-                            </View>
+                                      <View style={{marginTop:hp('0%'), marginLeft:wp('0%'), flex:3}}> 
+                                            
+                                          <Text style={{
+                                              color: '#000',
+                                              marginTop: hp('5%'),
+                                              textAlign:'center',
+                                              fontWeight:'bold',
+                                              height:hp('5%'),
+                                              width:wp('25%'),
+                                              fontSize:hp('1.8%'),
+                                              marginLeft:wp('50%'),
+                                            
+                                      
+                                            }}>Valore a su instalador</Text>
 
-                        </View>
+                                        </View>
+                                            
+                   
+                                                  
+                                        <TouchableOpacity 
+                                                                                                    
+                                                onPress={() => this.props.navigation.navigate('Rating')}
+                                                style={{alignItems:'center',marginTop:hp('0%'), marginLeft:wp('-50%'),width:wp('40%'), height:hp('5%'), flex:1}}
+                                        > 
 
-                    </View>
+                                        
+                                          <View> 
 
-                     
-                    </View>
+                                            <Image 
+                                        
+                                            source={star}
+                                            style={{aspectRatio:1, height:hp('8%')}}
+                                            
+                                            >    
+                                            </Image> 
+                      
+                                        </View>
+                                    
+                                        </TouchableOpacity> 
+ 
+                                      
+                               </View>
+
+ 
+         
               
             
          
             
-                    { /* LOGO*/}
+          
+          
+          { /* LOGO*/}
+  
+          <View style={{alignItems:'center', flex:1}}>  
+          
+          <Image 
+            
+            source={logo}
+            style={{aspectRatio:4.5,  height:hp('6%')}}
+            
+            >    
+          </Image>  
 
-                    <View style={{alignItems:'center', flex:0.1, marginTop:hp('1%')}}>  
-
-                    <Image 
-                      
-                      source={logo}
-                      style={{aspectRatio:4.5, height:hp('6%')}}
-                      
-                      >    
-                    </Image>  
-
-                    </View> 
-                    {/*FIN LOGO*/}   
+         </View> 
        
 
-
+         </View>
 
     </ImageOverlay> 
 
-  );
+  )
+}
+
+componentDidMount() {
+
+
+  const ref = db.ref('/Usuarios/' +  Fire.getUid());
+
+  this.listener = ref.on("value", snapshot => {
+
+  this.setState({fecha: snapshot.child("fechaInstalacion").val() || '' ,
+                 username: snapshot.child("name").val() || '' })    
+
+ 
+}
+)
+
 }
 }
 
 
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    width:'100%',
+    height:'100%',
+        
+  },
+
+  logo: {
+    
+    width: "20%",
+    height: "50%",
+    marginBottom: "10%",
+    marginTop: "2%",
+    marginLeft: "59%",
+    marginRight: "0%"
+    
+    
+  },
+
+  boton: {
+        
+     height: '55%', 
+     width:'100%',
+     borderRadius:20,
+     fontWeight:'bold',
+     fontSize:15,
+     color: 'white', 
+     marginBottom: "0%", 
+     marginTop: "0%", 
+     marginLeft: "0%", 
+     marginRight: "0%",
+     alignItems: "center",
+     paddingLeft:40, 
+     paddingRight:40,
+     backgroundColor: '#5DCB31',
+     textAlignVertical:'center'
+    
+    
+  },
+
+  checkbox: {
+    alignSelf: "center",
+  },
+  label: {
+    margin: 8,
+  },
+
+
+
+ 
+
+
+
+  
+
+});

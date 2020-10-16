@@ -18,16 +18,6 @@ import Fire, {db} from '../fire';
 
 export var potenciaEstado, potencia2, potencia
   
-
-const ubicacionMensaje = () => {
-  
-  Toast.show('Introduce ubicación', Toast.SHORT);
-
- 
-};
-
-
-
 export class IngresarConsumo extends React.Component {
 
  
@@ -38,45 +28,14 @@ export class IngresarConsumo extends React.Component {
 
   }
 
-
- 
-
   
-  onChangeText = potenciaEstado => this.setState({ potenciaEstado });
+onChangeText = potenciaEstado => this.setState({ potenciaEstado });
   
-
-   
-
-   
-
-
 render() {
-
-    //console.log('potencia:  ', this.state.potenciaEstado)
 
     potencia = this.state.potenciaEstado
    
-    const escanearRecibo = () => {
-    
-    Toast.show('Escanear recibo', Toast.SHORT)
-    
-   
-  };
-  
-    const user = () => {
-      
-      Toast.show('Perfil usuario', Toast.SHORT);
-    
-    };
-    
-    const settings = () => {
-      
-      Toast.show('Settings', Toast.SHORT);
-    
-    };
-
-
-  
+     
 return (
 
               <ImageOverlay 
@@ -88,7 +47,83 @@ return (
                  >
                 
                  <View style={{alignItem:'center', justifyContent:'center', width:wp('100%'), height:hp('100%'), flex:1, flexDirection:'column'}}>              
-                      <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('5%')}}>
+                      
+                      
+                      
+           {/* header */}              
+           {/*Botones*/}     
+            <View style={{backgroundColor:"orange", opacity: 0.8, alignItems:'center', flex:0.8,  justifyContent:'center', flexDirection:'row', marginBottom:hp('1%'),marginTop:hp('3%')}}>  
+                         
+                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
+                             <TouchableOpacity 
+                                                                                          
+                             //onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                               > 
+                                                     
+                                <Image 
+                                
+                                source={home}
+                                style={{aspectRatio:1, height:hp('5%')}}
+                                
+                                >    
+                                </Image> 
+        
+                                              
+                            </TouchableOpacity> 
+        
+                         </View>
+        
+                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                            <TouchableOpacity 
+                                                                                         
+                            //onPress={() => user()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={usuario}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+        
+        
+                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                          
+                          <TouchableOpacity 
+                                                                                         
+                            //onPress={() => settings()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={setting}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+                               
+        
+                        </View>
+                      
+                      
+                      {/* FIN header */}      
+
+                      {/* Video */}
+                      
+                      <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('0%')}}>
                         <Text 
                             style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
                                     color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
@@ -122,7 +157,7 @@ return (
                                    </View>  
                                                                     
                                   <View style={{justifyContent:'center',alignItems:'center', width:wp('100%'), height:hp('15%'), flex:1, marginTop:hp('5%')}}>
-                                      <Text style={{ fontSize:17, fontWeight:'bold', color: 'grey', textAlign:'center'
+                                      <Text style={{ fontSize:hp('2%'), fontWeight:'bold', color: 'grey', textAlign:'center'
                                         }}>O ingresa aquí tu consumo mensual en MXN</Text>
                                                                 
                                    </View>     
@@ -168,7 +203,7 @@ return (
 
                                   </View>
 
-                                  <View  style={{alignItems:'center', flex:1, justifyContent:'center', width:wp('100%'), height:hp('100%'), marginTop:hp('0.5%')}}>
+                                  <View  style={{alignItems:'center', flex:1, justifyContent:'center', width:wp('100%'), height:hp('100%'), marginBottom:hp('1%')}}>
                                         <TouchableOpacity 
                                                                                                         
                                           onPress={() => this.props.navigation.navigate('Calculando')}
@@ -178,7 +213,7 @@ return (
                                               <Image 
                                             
                                                 source={calcular}
-                                                style={{aspectRatio:3.7, height:hp('6%')}}
+                                                style={{aspectRatio:3.7, height:hp('8%')}}
                                                 
                                                 >               
                                                 </Image> 
@@ -190,73 +225,7 @@ return (
 
 
                                 </View> 
-            
-           {/*Botones*/}     
-            <View style={{alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('4%'),marginTop:hp('3%')}}>  
-                         
-                 <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
-                     <TouchableOpacity 
-                                                                                  
-                     //onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-                       > 
-                                             
-                        <Image 
-                        
-                        source={home}
-                        style={{aspectRatio:1, height:hp('8%')}}
-                        
-                        >    
-                        </Image> 
-
-                                      
-                    </TouchableOpacity> 
-
-                 </View>
-
-                <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                    <TouchableOpacity 
-                                                                                 
-                    //onPress={() => user()}
-                      > 
-                                            
-                       <Image 
-                       
-                       source={usuario}
-                       style={{aspectRatio:1, height:hp('8%')}}
-                       
-                       >    
-                       </Image> 
-
-                                     
-                   </TouchableOpacity> 
-
-                  </View>
-
-
-
-                  <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                  
-                  <TouchableOpacity 
-                                                                                 
-                    //onPress={() => settings()}
-                      > 
-                                            
-                       <Image 
-                       
-                       source={setting}
-                       style={{aspectRatio:1, height:hp('8%')}}
-                       
-                       >    
-                       </Image> 
-
-                                     
-                   </TouchableOpacity> 
-
-                  </View>
-
-                       
-
-                </View>
+           
                 
                 
                 { /* LOGO*/}
@@ -266,7 +235,7 @@ return (
                 <Image 
                   
                   source={logo}
-                  style={{aspectRatio:4.5, width:wp('100%'), height:hp('5%'), marginBottom: hp('6%')}}
+                  style={{aspectRatio:4.5, height:hp('4%'), marginBottom: hp('6%')}}
                   
                   >    
                 </Image>  

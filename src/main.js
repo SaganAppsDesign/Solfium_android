@@ -13,6 +13,9 @@ import { TextInput } from 'react-native-paper'
 import ImageOverlay from "react-native-image-overlay"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 import {potencia} from './ingresar_consumo2'
+import home from '../assets/home.png'; 
+import setting from '../assets/setting.png'; 
+import usuario from '../assets/usuario.png'; 
 
 
 export class Main extends React.Component {
@@ -67,6 +70,107 @@ export class Main extends React.Component {
       >
 
       <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:1}}> 
+
+              
+           {/* header */}              
+           {/*Botones*/}     
+           <View style={{backgroundColor:"orange", opacity: 1, alignItems:'center', flex:0.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
+                         
+
+                          <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), backgroundColor:'#E36239', alignItems:'center',justifyContent:'center', flex:0.5,  opacity:1}}>
+                             <TouchableOpacity 
+                                                                                          
+                                onPress={() => this.props.navigation.navigate('Implementación')}
+                               > 
+                                                     
+                               {/*  <Image 
+                                
+                                source={home}
+                                style={{aspectRatio:1, height:hp('5%')}}
+                                
+                                >    
+                                </Image>  */}
+
+                                <Text style={{color: 'black',
+                               
+                                fontSize:hp('2.2%'),
+                                textAlign:'center',
+                                height:hp('3%'),
+                                width:wp('100%'),
+                                }}>Back</Text>
+
+        
+                                              
+                            </TouchableOpacity> 
+        
+                         </View>
+
+                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                             <TouchableOpacity 
+                                                                                          
+                                onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                               > 
+                                                     
+                                <Image 
+                                
+                                source={home}
+                                style={{aspectRatio:1, height:hp('5%')}}
+                                
+                                >    
+                                </Image> 
+        
+                                              
+                            </TouchableOpacity> 
+        
+                         </View>
+        
+                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                            <TouchableOpacity 
+                                                                                         
+                            //onPress={() => user()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={usuario}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+        
+        
+                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                          
+                          <TouchableOpacity 
+                                                                                         
+                            //onPress={() => settings()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={setting}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+                               
+        
+                        </View>
+                      
+                      
+                      {/* FIN header */}  
                   
       <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:4, height:hp('3%')}}> 
       

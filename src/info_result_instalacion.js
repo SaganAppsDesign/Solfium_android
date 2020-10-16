@@ -116,30 +116,132 @@ export class InfoResultInsta extends React.Component {
     overlayAlpha={0}                 
     >
    
-    <View style={{alignItem:'center', justifyContent:'center', flex:1, flexDirection:'column'}}>
+    <View style={{width:wp('100%'), height:hp('100%'),alignItem:'center', justifyContent:'center', flex:1}}>
 
-                 <View style={{marginTop:hp('4%'), marginLeft:wp('75%'), flex:0.9}}>   
+
+        {/* header */}              
+           {/*Botones*/}     
+           <View style={{backgroundColor:"orange", opacity: 1, alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row',marginTop:hp('3%')}}>  
+                         
+
+                         <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), backgroundColor:'#E36239', alignItems:'center',justifyContent:'center', flex:0.5,  opacity:1}}>
+                            <TouchableOpacity 
+                                                                                         
+                               onPress={() => this.props.navigation.navigate('Escanear QR Instalador')}
+                              > 
+                                                    
+                              {/*  <Image 
+                               
+                               source={home}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image>  */}
+
+                               <Text style={{color: 'black',
+                              
+                               fontSize:hp('2.2%'),
+                               textAlign:'center',
+                               height:hp('3%'),
+                               width:wp('100%'),
+                               }}>Back</Text>
+
+       
+                                             
+                           </TouchableOpacity> 
+       
+                        </View>
+
+                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                            <TouchableOpacity 
+                                                                                         
+                               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={home}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+       
+                                             
+                           </TouchableOpacity> 
+       
+                        </View>
+       
+                       <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                           <TouchableOpacity 
+                                                                                        
+                           //onPress={() => user()}
+                             > 
+                                                   
+                              <Image 
+                              
+                              source={usuario}
+                              style={{aspectRatio:1, height:hp('5%')}}
+                              
+                              >    
+                              </Image> 
+       
+                                            
+                          </TouchableOpacity> 
+       
+                         </View>
+       
+       
+       
+                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                         
+                         <TouchableOpacity 
+                                                                                        
+                           //onPress={() => settings()}
+                             > 
+                                                   
+                              <Image 
+                              
+                              source={setting}
+                              style={{aspectRatio:1, height:hp('5%')}}
+                              
+                              >    
+                              </Image> 
+       
+                                            
+                          </TouchableOpacity> 
+       
+                         </View>
+
+                         <View style={{alignItems:'center', flex:1,  justifyContent:'center'}}>   
                                           
-                  <TouchableOpacity 
-                                                                              
-                  onPress={() => this.props.navigation.navigate('Chat', {valor:3})}
-                  > 
-                  <View>
-                  
-                          <Image 
-                      
-                          source={chat}
-                          style={{aspectRatio:1, height:hp('7.5%')}}
-                          
-                          >    
-                          </Image> 
+                                          <TouchableOpacity 
+                                                                                                      
+                                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 3})}
+                                          > 
+                                          <View>
+                                          
+                                                  <Image 
+                                              
+                                                  source={chat}
+                                                  style={{aspectRatio:1, height:hp('5%')}}
+                                                  
+                                                  >    
+                                                  </Image> 
+                        
+                                          </View>
+                                      
+                                          </TouchableOpacity> 
+                        
+                                          </View>
+       
+                              
+       
+                       </View>
+                     
+                     
+                     {/* FIN header */}  
 
-                  </View>
-              
-                  </TouchableOpacity> 
-
-                </View>
-    
+                   
     
     <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('1%'), flex:15}}>
          

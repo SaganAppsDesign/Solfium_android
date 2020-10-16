@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Linking, ToastAndroid} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import logo from '../assets/logo.png'; 
 import fondo4 from '../assets/fondo4.jpg';  
@@ -6,8 +6,6 @@ import instalador from '../assets/instalador.png';
 import pago from '../assets/pago.png';  
 import visita from '../assets/visita.png';  
 import 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button} from 'react-native-elements';
 import * as React from 'react';
 import Fire, {db} from '../fire';
 import home from '../assets/home.png'; 
@@ -17,16 +15,39 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 
      
+var screen
 
+export class MeInteresa extends React.Component {
 
-export function MeInteresa({ route, navigation }) {
+  state = {
+ 
+    name:''
+    
+  }
+
+render (){
+
+  var name = this.state.name
+
+  console.log(name)
+  
+  if (name){
+
+     //var valor
+            
+     screen = 'Chat'     
+         
+    } else {
+
+      screen = 'Nombre usuario'
+    }
 
 return (
 
          <ImageOverlay 
 
                   source={fondo4}
-                  height={hp('100%')}
+                  height={hp('110%')}
                   overlayAlpha={0}
                     
 
@@ -34,63 +55,161 @@ return (
                   //style={styles.fondo} 
                   >
                        
-                <View style={{alignItem:'center', justifyContent:'center', width:wp('100%'), height:hp('100%'), flex:1, flexDirection:'column'}}>           
+          <View style={{alignItem:'center', justifyContent:'center', width:wp('100%'), height:hp('100%'), flex:1, flexDirection:'column'}}>           
                    
+           {/* header */}              
+           {/*Botones*/}     
+           <View style={{backgroundColor:"orange", opacity: 1, alignItems:'center', flex:0.25,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
+                         
 
+                          <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), backgroundColor:'#E36239', alignItems:'center',justifyContent:'center', flex:0.5,  opacity:1}}>
+                             <TouchableOpacity 
+                                                                                          
+                                onPress={() => this.props.navigation.navigate('Cálculos')}
+                               > 
+                                                     
+                               {/*  <Image 
+                                
+                                source={home}
+                                style={{aspectRatio:1, height:hp('5%')}}
+                                
+                                >    
+                                </Image>  */}
 
-                   <View  style={{alignItems:'center', flex:0.5}}>
+                                <Text style={{color: 'black',
+                               
+                                fontSize:hp('2.2%'),
+                                textAlign:'center',
+                                height:hp('3%'),
+                                width:wp('100%'),
+                                }}>Back</Text>
+
+        
+                                              
+                            </TouchableOpacity> 
+        
+                         </View>
+
+                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                             <TouchableOpacity 
+                                                                                          
+                                onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                               > 
+                                                     
+                                <Image 
+                                
+                                source={home}
+                                style={{aspectRatio:1, height:hp('5%')}}
+                                
+                                >    
+                                </Image> 
+        
+                                              
+                            </TouchableOpacity> 
+        
+                         </View>
+        
+                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                            <TouchableOpacity 
+                                                                                         
+                            //onPress={() => user()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={usuario}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+        
+        
+                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                          
+                          <TouchableOpacity 
+                                                                                         
+                            //onPress={() => settings()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={setting}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+                               
+        
+                        </View>
+                      
+                      
+                      {/* FIN header */}  
+
+                   <View  style={{alignItems:'center', flex:0.1}}>
 
                       <Text 
-                          style={{textAlign:'center',  fontSize:hp('2%'), width:wp('75%'), height: hp('5%'), fontWeight:'bold',
-                                  color: 'white', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('3%')}} 
+                          style={{textAlign:'center', fontSize:hp('2%'), width:wp('75%'), height: hp('5%'), fontWeight:'bold',
+                                  color: 'brown', marginTop:hp('2%')}} 
                          >El proceso para implementar el sistema en su hogar es el siguiente:</Text>
                    </View>
            
                   { /* Botones*/}
-                      <View  style={{ alignItems:'center', flex:3,  justifyContent:'center'}}>
+                      <View  style={{alignItems:'center', flex:3,  justifyContent:'center'}}>
 
-                       <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                       <View  style={{alignItems:'center', flex:0.3,  justifyContent:'center'}}>
                             <TouchableOpacity 
                                                                                         
-                                  onPress={() => navigation.navigate('Nombre usuario')}
+                                  onPress={() => this.props.navigation.navigate(screen, { name: this.state.name, valor:2 })}
                                     > 
                                                               
                                     <Image 
                               
                                     source={visita}
-                                    style={{marginLeft:wp('0%'), width:wp('70%'), height:hp('16%')}}
+                                    style={{aspectRatio:2.5, height:hp('13%')}}
                                     
                                     >    
                                   </Image> 
           
                             </TouchableOpacity> 
                        </View>
-                       <View  style={{opacity:0.5, alignItems:'center', flex:1,  justifyContent:'center'}}>
+                       <View  style={{opacity:0.5, alignItems:'center', flex:0.3,  justifyContent:'center'}}>
                           <TouchableOpacity 
                             disabled={true}> 
                                                    
                           <Image 
                           
                               source={instalador}
-                              style={{marginTop:'0%', marginBottom:'0%', marginLeft:wp('0%'), marginRight:'0%', width:wp('70%'), height:hp('16%')}}
+                              style={{aspectRatio:2.5, height:hp('13%')}}
                               
                               >               
                               </Image> 
                           
                           </TouchableOpacity> 
                        </View>
-                      <View  style={{opacity:0.5, alignItems:'center', flex:1,  justifyContent:'center'}}>
+                      <View  style={{opacity:0.5, alignItems:'center', flex:0.3,  justifyContent:'center', marginBottom:hp('15%')}}>
                       <TouchableOpacity 
 
                             disabled={true} 
                                                                                   
-                            onPress={() => navigation.navigate('Proceso de pago')}
+                            onPress={() => this.props.navigation.navigate(screen)}
                               > 
                            
                              
                               <Image 
                                     source={pago}
-                                    style={{marginTop:'0%', marginBottom:'0%', marginLeft:wp('0%'), marginRight:'0%', width:wp('70%'), height:hp('16%')}}
+                                    style={{aspectRatio:2.5, height:hp('13%')}}
                                     
                                     />
 
@@ -101,80 +220,16 @@ return (
 
 
                                  
-    {/*Botones*/}     
-           <View style={{ marginTop:hp('3%'),   alignItems:'center', flex:0.6, flexDirection:'row'}}>  
-                         
-           <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-               <TouchableOpacity 
-                                                                            
-               onPress={() => navigation.navigate('Ingresar Consumo')}
-                 > 
-                                       
-                  <Image 
-                  
-                  source={home}
-                  style={{aspectRatio:1, height:hp('8%')}}
-                  
-                  >    
-                  </Image> 
-
-                                
-              </TouchableOpacity> 
-
-           </View>
-
-          <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
-              <TouchableOpacity 
-                                                                           
-              //onPress={() => user()}
-                > 
-                                      
-                 <Image 
-                 
-                 source={usuario}
-                 style={{aspectRatio:1, height:hp('8%')}}
-                 
-                 >    
-                 </Image> 
-
-                               
-             </TouchableOpacity> 
-
-            </View>
-
-            <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
-            
-            <TouchableOpacity 
-                                                                           
-              //onPress={() => settings()}
-                > 
-                                      
-                 <Image 
-                 
-                 source={setting}
-                 style={{aspectRatio:1, height:hp('8%')}}
-                 
-                 >    
-                 </Image> 
-
-                               
-             </TouchableOpacity> 
-
-            </View>
-
-                 
-
-          </View>
-          
+    
           
           { /* LOGO*/}
   
-          <View style={{alignItems:'center', width:wp('100%'), height:hp('100%'), flex:1}}>  
+          <View style={{alignItems:'center', width:wp('100%'), height:hp('100%'), flex:0.7}}>  
           
           <Image 
             
             source={logo}
-            style={{aspectRatio:4.5, width:wp('100%'), height:hp('4%')}}
+            style={{aspectRatio:4.5,  height:hp('5%')}}
             
             >    
           </Image>  
@@ -185,8 +240,24 @@ return (
 
     </ImageOverlay>
 
-  );
-  
+  )
+}
+
+componentDidMount() {
+
+
+  const ref = db.ref('/Usuarios/' +  Fire.getUid());
+
+  this.listener = ref.on("value", snapshot => {
+
+  this.setState({ name: snapshot.child("name").val() || '' }) 
+                 
+
+ 
+}
+)
+
+}
 }
 
 

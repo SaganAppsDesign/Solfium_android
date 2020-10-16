@@ -19,22 +19,6 @@ import  Fire , {db} from '../fire';
 
 var {height} = Dimensions.get('window');
 
-const user = () => {
-      
-  Toast.show('Perfil usuario', Toast.SHORT);
-
-};
-
-const settings = () => {
-  
-  Toast.show('Settings', Toast.SHORT);
-
-};
-
-
-
-
-
 export class CitaConfirmada extends React.Component {
 
   state = {
@@ -82,32 +66,134 @@ export class CitaConfirmada extends React.Component {
                     overlayAlpha={0}                 
                     >
                    
-                  <View style={{width:wp('100%'), height:hp('100%'), flex:1}}>
+            <View style={{width:wp('100%'), height:hp('100%'), flex:1}}>
+
+           {/* header */}              
+           {/*Botones*/}     
+           <View style={{backgroundColor:"orange", opacity: 1, alignItems:'center', flex:0.6,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
+                         
+
+                         <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), backgroundColor:'#E36239', alignItems:'center',justifyContent:'center', flex:0.5,  opacity:1}}>
+                            <TouchableOpacity 
+                                                                                         
+                               onPress={() => this.props.navigation.navigate('Chat')}
+                              > 
+                                                    
+                              {/*  <Image 
+                               
+                               source={home}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image>  */}
+
+                               <Text style={{color: 'black',
                               
-                  <View style={{marginTop:hp('2%'), marginLeft:wp('75%'), flex:0.5}}>   
+                               fontSize:hp('2.2%'),
+                               textAlign:'center',
+                               height:hp('3%'),
+                               width:wp('100%'),
+                               }}>Back</Text>
+
+       
+                                             
+                           </TouchableOpacity> 
+       
+                        </View>
+
+                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                            <TouchableOpacity 
+                                                                                         
+                               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={home}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+       
+                                             
+                           </TouchableOpacity> 
+       
+                        </View>
+       
+                       <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                           <TouchableOpacity 
+                                                                                        
+                           //onPress={() => user()}
+                             > 
+                                                   
+                              <Image 
+                              
+                              source={usuario}
+                              style={{aspectRatio:1, height:hp('5%')}}
+                              
+                              >    
+                              </Image> 
+       
+                                            
+                          </TouchableOpacity> 
+       
+                         </View>
+       
+       
+       
+                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                         
+                         <TouchableOpacity 
+                                                                                        
+                           //onPress={() => settings()}
+                             > 
+                                                   
+                              <Image 
+                              
+                              source={setting}
+                              style={{aspectRatio:1, height:hp('5%')}}
+                              
+                              >    
+                              </Image> 
+       
+                                            
+                          </TouchableOpacity> 
+       
+                         </View>
+
+                         <View style={{alignItems:'center', flex:1,  justifyContent:'center'}}>   
                                           
-                  <TouchableOpacity 
-                                                                              
-                  onPress={() => this.props.navigation.navigate('Chat',  {valor: 0})}
-                  > 
-                  <View>
-                  
-                          <Image 
-                      
-                          source={chat}
-                          style={{aspectRatio:1, height:hp('7%')}}
-                          
-                          >    
-                          </Image> 
+                                          <TouchableOpacity 
+                                                                                                      
+                                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 0})}
+                                          > 
+                                          <View>
+                                          
+                                                  <Image 
+                                              
+                                                  source={chat}
+                                                  style={{aspectRatio:1, height:hp('5%')}}
+                                                  
+                                                  >    
+                                                  </Image> 
+                        
+                                          </View>
+                                      
+                                          </TouchableOpacity> 
+                        
+                                          </View>
+       
+                              
+       
+                       </View>
+                     
+                     
+                     {/* FIN header */}  
+                              
+                 
 
-                  </View>
-              
-                  </TouchableOpacity> 
 
-                  </View>
-
-
-                    <View style={{alignItems: 'center', marginTop: hp('1%'), flex:3.5}}>
+                    <View style={{alignItems: 'center', marginTop: hp('4%'), flex:3.5}}>
                          
                       <Card containerStyle={{backgroundColor:'white', borderRadius: 15, 
                             width:wp('75%'), height:hp('35%')}}>
@@ -214,80 +300,16 @@ export class CitaConfirmada extends React.Component {
     
 
      
-      {/*Botones*/}     
-      <View style={{ marginTop:hp('1%'),   alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row'}}>  
-                         
-      <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-          <TouchableOpacity 
-                                                                       
-          onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-            > 
-                                  
-             <Image 
-             
-             source={home}
-             style={{aspectRatio:1, height:hp('8%')}}
-             
-             >    
-             </Image> 
-
-                           
-         </TouchableOpacity> 
-
-      </View>
-
-     <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
-         <TouchableOpacity 
-                                                                      
-         //onPress={() => user()}
-           > 
-                                 
-            <Image 
-            
-            source={usuario}
-            style={{aspectRatio:1, height:hp('8%')}}
-            
-            >    
-            </Image> 
-
-                          
-        </TouchableOpacity> 
-
-       </View>
-
-       <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
-       
-       <TouchableOpacity 
-                                                                      
-         //onPress={() => settings()}
-           > 
-                                 
-            <Image 
-            
-            source={setting}
-            style={{aspectRatio:1, height:hp('8%')}}
-            
-            >    
-            </Image> 
-
-                          
-        </TouchableOpacity> 
-
-       </View>
-
-            
-
-     </View>
-     
+          
      
      { /* LOGO*/}
 
-     <View style={{alignItems:'center', flex:1.5}}>  
+     <View style={{alignItems:'center', flex:1, marginTop:hp('10%')}}>  
      
      <Image 
        
        source={logo}
-       style={{aspectRatio:4.5, height:hp('3.5%')}}
+       style={{aspectRatio:4.5, height:hp('6%')}}
        
        >    
      </Image>  

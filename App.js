@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Component, Fragment} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { StackActions, NavigationActions } from 'react-navigation';
 import {HomeScreen} from './src/homeScreen';  
 import {Calculos} from './src/calculos';  
 import {PantallaEspera} from './src/pantalla_espera';  
@@ -13,6 +14,7 @@ import {Instalacion} from './src/instalacion_en_proceso.js';
 import {Ratings} from './src/rating.js';  
 import {Payment} from './src/pago';  
 import {CompraConfirmada} from './src/compra_confirmada';  
+import {CompraConfirmadaFinan} from './src/compra_confirmada_finan';  
 import {QREscaneado} from './src/qr_escaneado';  
 import {QRCodeOk} from './src/QR_OK.js'; 
 import { Mapbox2 } from './src/mapbox'; 
@@ -27,16 +29,24 @@ import {PagoUnico } from './src/pago_unico';
 import {Financiamiento } from './src/financiamiento'; 
 import {SplashScreen } from './src/splash_screen'; 
 import 'react-native-gesture-handler';
+import { HeaderBackButton } from '@react-navigation/stack';
+import { StyleSheet, View, Text, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
 
 const Stack = createStackNavigator();
 
+
 console.disableYellowBox = true;
 
-class MainScreen extends Component {
 
-     
+   
+
+export class MainScreen extends React.Component {
+
+ 
  
   render(){ 
+
+    
 
   
   return (
@@ -65,27 +75,27 @@ class MainScreen extends Component {
 
       <Stack.Screen options={{headerShown: false}}  name="SplahScreen" component={SplashScreen}/>
       <Stack.Screen options={{headerShown: false}} name="Ingresar Consumo" component={IngresarConsumo}  />
-      <Stack.Screen  name="Cálculos" component={Calculos} />
-      <Stack.Screen  name="Confirma ubicación" component={ConfirmaUbicacion}  />
-      <Stack.Screen  name="Implementación" component={MeInteresa}  />
-      <Stack.Screen  name="Próxima visita" component={CitaConfirmada} />
-      <Stack.Screen  name="Pago" component={Payment} />
-      <Stack.Screen  name="Video Informativo" component={VideoInfo} />
+      <Stack.Screen  options={{headerShown: false}} name="Cálculos" component={Calculos} />
+      <Stack.Screen  options={{headerShown: false}} name="Confirma ubicación" component={ConfirmaUbicacion}  />
+      <Stack.Screen  options={{headerShown: false}} name="Implementación" component={MeInteresa}  />
+      <Stack.Screen  options={{headerShown: false}} name="Próxima visita" component={CitaConfirmada} />
+      <Stack.Screen  options={{headerShown: false}} name="Pago" component={Payment} />
+      <Stack.Screen options={{headerShown: false}} name="Video Informativo" component={VideoInfo} />
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />
-      <Stack.Screen name="Instalación en proceso" component={Instalacion} />
-      <Stack.Screen name="Rating" component={Ratings} />
-      <Stack.Screen name="Escanear QR Instalador" component={IdentidadConfirmada}/>
-      <Stack.Screen name="QR Escaneado" component={QREscaneado} />
-      <Stack.Screen name="QR correcto" component={QRCodeOk} />
-      <Stack.Screen name="Ubicación" component={Mapbox2} />
-    {/*   <Stack.Screen name="Cámara" component={Camara}  /> */}
-      <Stack.Screen name="QR scan" component={QRscan}  />
-      <Stack.Screen name="Chat" component={Chat}  />
-      <Stack.Screen name="Nombre usuario" component={Main}  />
-      <Stack.Screen name="Confirmar compra" component={CompraConfirmada}  />
-      <Stack.Screen  name="Calculando" component={PantallaEspera}  />
-      <Stack.Screen  name="Pago único" component={PagoUnico}  />
-      <Stack.Screen  name="Financiamiento" component={Financiamiento}  />
+      <Stack.Screen options={{headerShown: false}}name="Instalación en proceso" component={Instalacion} />
+      <Stack.Screen options={{headerShown: false}}  name="Rating" component={Ratings} />
+      <Stack.Screen options={{headerShown: false}}name="Escanear QR Instalador" component={IdentidadConfirmada}/>
+      <Stack.Screen options={{headerShown: false}} name="QR Escaneado" component={QREscaneado} />
+      <Stack.Screen options={{headerShown: false}}name="QR correcto" component={QRCodeOk} />
+      <Stack.Screen  options={{headerShown: false}} name="Ubicación" component={Mapbox2} />
+      <Stack.Screen  options={{headerShown: false}} name="QR scan" component={QRscan}  />
+      <Stack.Screen  options={{headerShown: false}} name="Chat" component={Chat}  />
+      <Stack.Screen  options={{headerShown: false}} name="Nombre usuario" component={Main}  />
+      <Stack.Screen  options={{headerShown: false}} name="Confirmar compra" component={CompraConfirmada}  />
+      <Stack.Screen  options={{headerShown: false}} name="Calculando" component={PantallaEspera}  />
+      <Stack.Screen  options={{headerShown: false}} name="Pago único" component={PagoUnico}  />
+      <Stack.Screen  options={{headerShown: false}} name="Financiamiento" component={Financiamiento}  />
+      <Stack.Screen  options={{headerShown: false}} name="Compra Finan" component={CompraConfirmadaFinan}  />
 
     </Stack.Navigator>
   )};

@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { GiftedChat, Bubble, Send, MessageText } from 'react-native-gifted-chat';
 import Fire from '../fire';
-import { StyleSheet, View, Text, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
+import { StyleSheet, View, Image, Text, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
 import { IconButton } from 'react-native-paper';
 import {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
+import home from '../assets/home.png'; 
+import setting from '../assets/setting.png'; 
+import usuario from '../assets/usuario.png'; 
 
 
 var name, cita, uid, name2, title, screen
@@ -124,33 +126,134 @@ state = {
      
      
     <View style={styles.container}>	
-        <GiftedChat
-          messages={this.state.messages}
-          onSend={(message) => Fire.sendMessage(message)}
-         // renderBubble = {this.renderBubble.bind(this) }
-          //renderSend={renderSend}
-          renderBubble={renderBubble}
-          renderLoading={renderLoading}
-          showUserAvatar
-          alwaysShowSend
-          renderUsernameOnMessage  = {true}
-          showAvatarForEveryMessage = {true}
-          scrollToBottom
-          isTyping={true}
-          placeholder={"Chatea aquí " + name}
-          user={{
-            _id: Fire.getUid(),
-            name: name,
-            avatar: 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/45.png'
-           
-        }}
-      />
+    {/* header */}              
+    {/*Botones*/}     
+           <View style={{backgroundColor:"orange", opacity: 1, alignItems:'center', flex:0.6,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
+                         
 
-        <View style={{opacity:opacity, marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('20%'), marginRight:wp('20%')}}>
+                          <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), backgroundColor:'#E36239', alignItems:'center',justifyContent:'center', flex:0.5,  opacity:1}}>
+                             <TouchableOpacity 
+                                                                                          
+                                onPress={() => this.props.navigation.navigate('Implementación')}
+                               > 
+                                                     
+                               {/*  <Image 
+                                
+                                source={home}
+                                style={{aspectRatio:1, height:hp('5%')}}
+                                
+                                >    
+                                </Image>  */}
+
+                                <Text style={{color: 'black',
+                               
+                                fontSize:hp('2.2%'),
+                                textAlign:'center',
+                                height:hp('3%'),
+                                width:wp('100%'),
+                                }}>Back</Text>
+
+        
+                                              
+                            </TouchableOpacity> 
+        
+                         </View>
+
+                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                             <TouchableOpacity 
+                                                                                          
+                                onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                               > 
+                                                     
+                                <Image 
+                                
+                                source={home}
+                                style={{aspectRatio:1, height:hp('5%')}}
+                                
+                                >    
+                                </Image> 
+        
+                                              
+                            </TouchableOpacity> 
+        
+                         </View>
+        
+                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                            <TouchableOpacity 
+                                                                                         
+                            //onPress={() => user()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={usuario}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+        
+        
+                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                          
+                          <TouchableOpacity 
+                                                                                         
+                            //onPress={() => settings()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={setting}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+                               
+        
+                        </View>
+                      
+                      
+                      {/* FIN header */}  
+            <View style={{flex:7}}>
+            <GiftedChat
+              messages={this.state.messages}
+              onSend={(message) => Fire.sendMessage(message)}
+            // renderBubble = {this.renderBubble.bind(this) }
+              //renderSend={renderSend}
+              renderBubble={renderBubble}
+              renderLoading={renderLoading}
+              showUserAvatar
+              alwaysShowSend
+              renderUsernameOnMessage  = {true}
+              showAvatarForEveryMessage = {true}
+              scrollToBottom
+              isTyping={true}
+              placeholder={"Chatea aquí " + name}
+              user={{
+                _id: Fire.getUid(),
+                name: name,
+                avatar: 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/45.png'
+              
+            }}
+          />
+       </View>
+        <View style={{borderRadius:10, backgroundColor:'orange',  opacity:opacity, marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('20%'), marginRight:wp('20%'), flex:0.5}}>
         
         <Button disabled={bool}
-                title={title} onPress={() => this.props.navigation.navigate(screen)}
-                color='orange'/>
+                title={title} 
+                onPress={() => this.props.navigation.navigate(screen)}
+                color='white'/>
                         
         </View>
 

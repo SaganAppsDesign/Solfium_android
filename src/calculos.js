@@ -51,6 +51,106 @@ export class Calculos extends React.Component {
           > 
                  
           <View style={{alignContent: 'center', alignItem:'center', justifyContent:'center', flex:1, flexDirection:'column'}}>
+
+           {/* header */}              
+           {/*Botones*/}     
+           <View style={{backgroundColor:"orange", opacity: 0.8, alignItems:'center', flex:0.6,  justifyContent:'center', flexDirection:'row', marginBottom:hp('3%'),marginTop:hp('3%')}}>  
+                         
+
+                          <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), backgroundColor:'#E36239', alignItems:'center',justifyContent:'center', flex:0.5,  opacity:1}}>
+                             <TouchableOpacity 
+                                                                                          
+                                onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                               > 
+                                                     
+                               {/*  <Image 
+                                
+                                source={home}
+                                style={{aspectRatio:1, height:hp('5%')}}
+                                
+                                >    
+                                </Image>  */}
+
+                                <Text style={{color: 'black',
+                               
+                                fontSize:hp('2.2%'),
+                                textAlign:'center',
+                                height:hp('3%'),
+                                width:wp('100%'),
+                                }}>Back</Text>
+
+        
+                                              
+                            </TouchableOpacity> 
+        
+                         </View>
+
+                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                             <TouchableOpacity 
+                                                                                          
+                                onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                               > 
+                                                     
+                                <Image 
+                                
+                                source={home}
+                                style={{aspectRatio:1, height:hp('5%')}}
+                                
+                                >    
+                                </Image> 
+        
+                                              
+                            </TouchableOpacity> 
+        
+                         </View>
+        
+                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                            <TouchableOpacity 
+                                                                                         
+                            //onPress={() => user()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={usuario}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+        
+        
+                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                          
+                          <TouchableOpacity 
+                                                                                         
+                            //onPress={() => settings()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={setting}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+                               
+        
+                        </View>
+                      
+                      
+          {/* FIN header */}      
         
             
           <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('0%'), flex:5}}>
@@ -281,80 +381,17 @@ export class Calculos extends React.Component {
 
 </View>
 
-    {/*Botones*/}     
-           <View style={{alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row'}}>  
-                         
-           <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-               <TouchableOpacity 
-                                                                            
-               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-                 > 
-                                       
-                  <Image 
-                  
-                  source={home}
-                  style={{aspectRatio:1, height:hp('8%')}}
-                  
-                  >    
-                  </Image> 
-
-                                
-              </TouchableOpacity> 
-
-           </View>
-
-          <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
-              <TouchableOpacity 
-                                                                           
-              //onPress={() => user()}
-                > 
-                                      
-                 <Image 
-                 
-                 source={usuario}
-                 style={{aspectRatio:1, height:hp('8%')}}
-                 
-                 >    
-                 </Image> 
-
-                               
-             </TouchableOpacity> 
-
-            </View>
-
-            <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
-            
-            <TouchableOpacity 
-                                                                           
-              //onPress={() => settings()}
-                > 
-                                      
-                 <Image 
-                 
-                 source={setting}
-                 style={{aspectRatio:1, height:hp('8%')}}
-                 
-                 >    
-                 </Image> 
-
-                               
-             </TouchableOpacity> 
-
-            </View>
-
-                 
-
-          </View>
+   
           
           
           { /* LOGO*/}
   
-          <View style={{alignContent:'center', alignItems:'center', width:wp('100%'), height:hp('0%'), flex:1.2}}>  
+          <View style={{alignContent:'center', alignItems:'center', width:wp('100%'), height:hp('0%'), flex:1}}>  
           
           <Image 
             
             source={logo}
-            style={{aspectRatio:4.5, width:wp('100%'), height:hp('4%'), justifyContent:'center'}}
+            style={{aspectRatio:4.5, height:hp('4%'), justifyContent:'center'}}
             
             >    
           </Image>  
