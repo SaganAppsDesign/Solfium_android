@@ -86,7 +86,7 @@ export function QRCodeOk({ navigation }) {
 
                 { /* LOGO*/}
         
-                <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:2}}>  
+                <View style={{backgroundColor:"white", alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:2}}>  
                 
                 <Image 
                   

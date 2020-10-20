@@ -8,6 +8,7 @@ import usuario from '../assets/usuario.png';
 import logo from '../assets/logo.png'; 
 import chat from '../assets/chat.png';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import backBtn from '../assets/backBtn.png'; 
 
 export class Financiamiento extends React.Component {
 
@@ -26,32 +27,172 @@ export class Financiamiento extends React.Component {
                               
           <View style={{flex:1, width:wp('100%'), height:hp('100%')}}>
                     
-           {/* header */}              
+           
+                      
+                  {/*BODY*/}          
+                  {/* TOTAL */}     
+                                      
+                 <View style={{alignItems: 'center', flex: 1, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
+                    
+                    <View style={{alignItems: 'center', flex:1, width:wp('100%'), height:hp('5%'), marginTop:hp('22%'), position: 'absolute' }}>
+                            <ImageBackground source={require('../assets/fondo2.jpg')} style={{alignItems:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:2.5, height:hp('15%'),  borderRadius: 10}}>
+                              <Text style={{
+                              color: '#fff',
+                              marginTop: hp('5%'),
+                              textAlign:'center',
+                              height:hp('4%'),
+                              fontSize:hp('4%'),
+                              }}>FINANCIAMIENTO</Text>
+                           
+                            </ImageBackground>
+                     
+                    </View>
+
+                    <View style={{alignItems: 'center', flex:2, width:wp('100%'), height:hp('15%') }}>
+                    <Image
+                        style={{aspectRatio:1, height:hp('20%'), marginTop:hp('9%')}}
+                        source={require('../assets/carrito.png')}
+                        />
+                    </View>
+
+                    <View style={{alignItems: 'center', flex:2,  width:wp('100%'), height:hp('100%')}}>
+                     
+                        <View style={{alignItems: 'center', flex:3,  width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
+                        <TouchableOpacity
+                          
+                          //onPress={() => this.props.navigation.navigate('Pago único')} 
+                                              
+                          >
+                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('7%'),   borderRadius: 10}}>
+                                  
+                                <Text style={{
+                                  color: '#fff',
+                                  textAlign:'center',
+                                  fontWeight:'bold',
+                                  fontSize:wp('3.5%'),
+                                 }}>24 mesualidades a 200 MXN</Text>
+                                </ImageBackground>
+                          </TouchableOpacity>
+                          </View>
+                          <View style={{alignItems: 'center', flex:3,  width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
+                        <TouchableOpacity
+                          
+                          //onPress={() => this.props.navigation.navigate('Pago único')} 
+                                              
+                          >
+                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('7%'),   borderRadius: 10}}>
+                                  
+                                <Text style={{
+                                  color: '#fff',
+                                  textAlign:'center',
+                                  fontWeight:'bold',
+                                  fontSize:wp('3.5%'),
+                                 }}>36 mesualidades a 150 MXN</Text>
+                                </ImageBackground>
+                          </TouchableOpacity>
+                          </View>
+                        <View style={{alignItems: 'center', flex:3,  width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
+                        <TouchableOpacity
+                          
+                          //onPress={() => this.props.navigation.navigate('Pago único')} 
+                                              
+                          >
+                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('7%'),   borderRadius: 10}}>
+                                  
+                                <Text style={{
+                                  color: '#fff',
+                                  textAlign:'center',
+                                  fontWeight:'bold',
+                                  fontSize:wp('3.5%'),
+                                 }}>48 mesualidades a 100 MXN</Text>
+                                </ImageBackground>
+                          </TouchableOpacity>
+                          </View>
+                          
+
+                          <View style={{alignItems: 'center', flex:3,  width:wp('100%'), height:hp('100%') }}>
+                          <TouchableOpacity
+                            
+                        
+                            //onPress={() => this.props.navigation.navigate('Financiamiento')} 
+                                                
+                            >
+                            <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('7%'),  borderRadius: 10}}>
+                                    
+                                  <Text style={{
+                                    color: '#fff',
+                                    textAlign:'center',
+                                    fontWeight:'bold',
+                                    padding:8,
+                                    fontSize:wp('3.5%')}}>60 mesualidades a 50 MXN</Text>
+                                  </ImageBackground>
+                            </TouchableOpacity>
+                            </View>
+
+                            <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('3%'), width:hp('28%'), height:hp('100%'), flex:2}}>
+
+                              <TouchableOpacity
+                                  
+                                
+                                  onPress={() => this.props.navigation.navigate('Compra Finan')} 
+                                                      
+                                  >
+              
+                                  <Text style={{
+                                                              
+                                  fontWeight:'bold',
+                                  fontSize:hp('2.5%'),
+                                  color: 'white', 
+                                  textAlign:'center',
+                                  textAlignVertical:'center'}}> PAGAR </Text>
+              
+                              </TouchableOpacity>
+                          </View>
+
+
+                        </View>
+
+                    </View>
+
+                     
+                    </View>
+              
+            
+         
+            
+            { /* LOGO*/}
+
+            <View style={{alignItems:'center', flex:0.1, marginTop:hp('2%')}}>  
+
+            <Image 
+              
+              source={logo}
+              style={{aspectRatio:4.5, height:hp('5%')}}
+              
+              >    
+            </Image>  
+
+            </View> 
+            {/*FIN LOGO*/}   
+
+            {/* header */}              
            {/*Botones*/}     
-           <View style={{backgroundColor:"orange", opacity: 1, alignItems:'center', flex:0.6,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
+           <View style={{alignItems:'center', flex:0.16,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%')}}>  
                          
 
-                         <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), backgroundColor:'#E36239', alignItems:'center',justifyContent:'center', flex:0.5,  opacity:1}}>
+                         <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
                             <TouchableOpacity 
                                                                                          
                                onPress={() => this.props.navigation.navigate('Pago')}
                               > 
                                                     
-                              {/*  <Image 
-                               
-                               source={home}
-                               style={{aspectRatio:1, height:hp('5%')}}
-                               
-                               >    
-                               </Image>  */}
-
-                               <Text style={{color: 'black',
-                              
-                               fontSize:hp('2.2%'),
-                               textAlign:'center',
-                               height:hp('3%'),
-                               width:wp('100%'),
-                               }}>Back</Text>
+                                <Image 
+                                
+                                source={backBtn}
+                                style={{aspectRatio:1, height:hp('5%')}}
+                                
+                                >    
+                                </Image>
 
        
                                              
@@ -68,7 +209,7 @@ export class Financiamiento extends React.Component {
                                <Image 
                                
                                source={home}
-                               style={{aspectRatio:1, height:hp('5%')}}
+                               style={{aspectRatio:1, height:hp('6%')}}
                                
                                >    
                                </Image> 
@@ -87,7 +228,7 @@ export class Financiamiento extends React.Component {
                               <Image 
                               
                               source={usuario}
-                              style={{aspectRatio:1, height:hp('5%')}}
+                              style={{aspectRatio:1, height:hp('6%')}}
                               
                               >    
                               </Image> 
@@ -109,7 +250,7 @@ export class Financiamiento extends React.Component {
                               <Image 
                               
                               source={setting}
-                              style={{aspectRatio:1, height:hp('5%')}}
+                              style={{aspectRatio:1, height:hp('6%')}}
                               
                               >    
                               </Image> 
@@ -147,151 +288,6 @@ export class Financiamiento extends React.Component {
                      
                      
                      {/* FIN header */}  
-                      
-                  {/*BODY*/}          
-                  {/* TOTAL */}     
-                                      
-                 <View style={{alignItems: 'center', flex: 8, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
-                    
-                    <View style={{alignItems: 'center', flex:1, width:wp('100%'), height:hp('5%'), marginTop:hp('18%'), position: 'absolute' }}>
-                            <ImageBackground source={require('../assets/fondo2.jpg')} style={{alignItems:'center', overflow: 'hidden', resizeMode: "cover", width:wp('60%'), height:hp('15%'),  borderRadius: 10}}>
-                              <Text style={{
-                              color: '#fff',
-                              marginTop: hp('5%'),
-                              textAlign:'center',
-                              height:hp('4%'),
-                              fontSize:hp('4%'),
-                              }}>FINANCIAMIENTO</Text>
-                           
-                            </ImageBackground>
-                     
-                    </View>
-
-                    <View style={{alignItems: 'center', flex:2, width:wp('100%'), height:hp('15%') }}>
-                    <Image
-                        style={{aspectRatio:1, height:hp('20%'), marginTop:hp('5%')}}
-                        source={require('../assets/carrito.png')}
-                        />
-                    </View>
-
-                    <View style={{alignItems: 'center', flex:2,  width:wp('100%'), height:hp('100%')}}>
-                     
-                        <View style={{alignItems: 'center', flex:1,  width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
-                        <TouchableOpacity
-                          
-                          //onPress={() => this.props.navigation.navigate('Pago único')} 
-                                              
-                          >
-                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('6.5%'),   borderRadius: 10}}>
-                                  
-                                <Text style={{
-                                  color: '#fff',
-                                  textAlign:'center',
-                                  fontWeight:'bold',
-                                  fontSize:wp('3.5%'),
-                                 }}>24 meses</Text>
-                                </ImageBackground>
-                          </TouchableOpacity>
-                          </View>
-                          <View style={{alignItems: 'center', flex:1,  width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
-                        <TouchableOpacity
-                          
-                          //onPress={() => this.props.navigation.navigate('Pago único')} 
-                                              
-                          >
-                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('6.5%'),   borderRadius: 10}}>
-                                  
-                                <Text style={{
-                                  color: '#fff',
-                                  textAlign:'center',
-                                  fontWeight:'bold',
-                                  fontSize:wp('3.5%'),
-                                 }}>36 meses</Text>
-                                </ImageBackground>
-                          </TouchableOpacity>
-                          </View>
-                        <View style={{alignItems: 'center', flex:1,  width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
-                        <TouchableOpacity
-                          
-                          //onPress={() => this.props.navigation.navigate('Pago único')} 
-                                              
-                          >
-                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('6.5%'),   borderRadius: 10}}>
-                                  
-                                <Text style={{
-                                  color: '#fff',
-                                  textAlign:'center',
-                                  fontWeight:'bold',
-                                  fontSize:wp('3.5%'),
-                                 }}>48 meses</Text>
-                                </ImageBackground>
-                          </TouchableOpacity>
-                          </View>
-                          
-
-                          <View style={{alignItems: 'center', flex:1,  width:wp('100%'), height:hp('100%') }}>
-                          <TouchableOpacity
-                            
-                        
-                            //onPress={() => this.props.navigation.navigate('Financiamiento')} 
-                                                
-                            >
-                            <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('6.5%'),  borderRadius: 10}}>
-                                    
-                                  <Text style={{
-                                    color: '#fff',
-                                    textAlign:'center',
-                                    fontWeight:'bold',
-                                    fontSize:wp('3.5%')}}>60 meses</Text>
-                                  </ImageBackground>
-                            </TouchableOpacity>
-                            </View>
-
-                            <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('0%'), width:hp('28%'), height:hp('100%'), flex:0.5}}>
-
-                              <TouchableOpacity
-                                  
-                                
-                                  onPress={() => this.props.navigation.navigate('Compra Finan')} 
-                                                      
-                                  >
-              
-                                  <Text style={{
-                                                              
-                                  fontWeight:'bold',
-                                  fontSize:hp('3%'),
-                                  color: 'white', 
-                                  textAlign:'center',
-                                  textAlignVertical:'center'}}> PAGAR </Text>
-              
-                              </TouchableOpacity>
-                          </View>
-
-
-                        </View>
-
-                    </View>
-
-                     
-                    </View>
-              
-            
-         
-            
-                    { /* LOGO*/}
-
-                    <View style={{alignItems:'center', flex:0.2, marginTop:hp('6%')}}>  
-
-                    <Image 
-                      
-                      source={logo}
-                      style={{aspectRatio:4.5, height:hp('6%')}}
-                      
-                      >    
-                    </Image>  
-
-                    </View> 
-                    {/*FIN LOGO*/}   
        
 
 

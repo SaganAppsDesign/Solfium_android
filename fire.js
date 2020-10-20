@@ -30,17 +30,15 @@ export class Fire {
     const ref = db.ref('Instaladores/');
  
     this.listener = ref.on("value",  (snapshot) =>{
-          
-              
+                        
           snapshot.forEach((child)=>{
         
             key = child.key
-                
+                           
         
         })
- 
-     
- 
+       
+          
       })
 
     

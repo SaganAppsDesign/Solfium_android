@@ -1,13 +1,15 @@
 import * as React from 'react';
-import { GiftedChat, Bubble, Send, MessageText } from 'react-native-gifted-chat';
+import { GiftedChat, Bubble, Send } from 'react-native-gifted-chat';
 import Fire from '../fire';
-import { StyleSheet, View, Image, Text, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Button, ActivityIndicator} from 'react-native';
 import { IconButton } from 'react-native-paper';
 import {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import home from '../assets/home.png'; 
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
+import backBtn from '../assets/backBtn.png';
+
 
 
 var name, cita, uid, name2, title, screen
@@ -54,7 +56,6 @@ state = {
 
     const { valor } = this.props.route.params;
   
-    var valor2 = valor
 
     //valor = JSON.stringi∫fy(navigation.getParam('valor', ''))
     //const {valor } = route.params;
@@ -71,7 +72,7 @@ state = {
         screen = "Escanear QR Instalador"
         break;
       case 2:
-        title = "Cita"
+        title = "Revise su cita"
         screen = "Próxima visita"
         break;
       case 3:
@@ -126,105 +127,7 @@ state = {
      
      
     <View style={styles.container}>	
-    {/* header */}              
-    {/*Botones*/}     
-           <View style={{backgroundColor:"orange", opacity: 1, alignItems:'center', flex:0.6,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
-                         
-
-                          <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), backgroundColor:'#E36239', alignItems:'center',justifyContent:'center', flex:0.5,  opacity:1}}>
-                             <TouchableOpacity 
-                                                                                          
-                                onPress={() => this.props.navigation.navigate('Implementación')}
-                               > 
-                                                     
-                               {/*  <Image 
-                                
-                                source={home}
-                                style={{aspectRatio:1, height:hp('5%')}}
-                                
-                                >    
-                                </Image>  */}
-
-                                <Text style={{color: 'black',
-                               
-                                fontSize:hp('2.2%'),
-                                textAlign:'center',
-                                height:hp('3%'),
-                                width:wp('100%'),
-                                }}>Back</Text>
-
-        
-                                              
-                            </TouchableOpacity> 
-        
-                         </View>
-
-                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-                             <TouchableOpacity 
-                                                                                          
-                                onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-                               > 
-                                                     
-                                <Image 
-                                
-                                source={home}
-                                style={{aspectRatio:1, height:hp('5%')}}
-                                
-                                >    
-                                </Image> 
-        
-                                              
-                            </TouchableOpacity> 
-        
-                         </View>
-        
-                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                            <TouchableOpacity 
-                                                                                         
-                            //onPress={() => user()}
-                              > 
-                                                    
-                               <Image 
-                               
-                               source={usuario}
-                               style={{aspectRatio:1, height:hp('5%')}}
-                               
-                               >    
-                               </Image> 
-        
-                                             
-                           </TouchableOpacity> 
-        
-                          </View>
-        
-        
-        
-                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                          
-                          <TouchableOpacity 
-                                                                                         
-                            //onPress={() => settings()}
-                              > 
-                                                    
-                               <Image 
-                               
-                               source={setting}
-                               style={{aspectRatio:1, height:hp('5%')}}
-                               
-                               >    
-                               </Image> 
-        
-                                             
-                           </TouchableOpacity> 
-        
-                          </View>
-        
-                               
-        
-                        </View>
-                      
-                      
-                      {/* FIN header */}  
+  
             <View style={{flex:7}}>
             <GiftedChat
               messages={this.state.messages}
@@ -258,7 +161,96 @@ state = {
         </View>
 
 
-      
+        {/* header */}              
+    {/*Botones*/}     
+    <View style={{opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
+                         
+
+                         <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'),  alignItems:'center',justifyContent:'center', opacity:1}}>
+                            <TouchableOpacity 
+                                                                                         
+                               onPress={() => this.props.navigation.navigate('Implementación')}
+                              > 
+                              <Image 
+                               
+                               source={backBtn}
+                               style={{aspectRatio:1, height:hp('5%')}}
+                               
+                               >    
+                               </Image>
+
+       
+                                             
+                           </TouchableOpacity> 
+       
+                        </View>
+
+                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                            <TouchableOpacity 
+                                                                                         
+                               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={home}
+                               style={{aspectRatio:1, height:hp('6%')}}
+                               
+                               >    
+                               </Image> 
+       
+                                             
+                           </TouchableOpacity> 
+       
+                        </View>
+       
+                       <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                           <TouchableOpacity 
+                                                                                        
+                           //onPress={() => user()}
+                             > 
+                                                   
+                              <Image 
+                              
+                              source={usuario}
+                              style={{aspectRatio:1, height:hp('6%')}}
+                              
+                              >    
+                              </Image> 
+       
+                                            
+                          </TouchableOpacity> 
+       
+                         </View>
+       
+       
+       
+                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                         
+                         <TouchableOpacity 
+                                                                                        
+                           //onPress={() => settings()}
+                             > 
+                                                   
+                              <Image 
+                              
+                              source={setting}
+                              style={{aspectRatio:1, height:hp('6%')}}
+                              
+                              >    
+                              </Image> 
+       
+                                            
+                          </TouchableOpacity> 
+       
+                         </View>
+       
+                              
+       
+                       </View>
+                     
+                     
+                     {/* FIN header */}  
 
 
 
@@ -342,17 +334,6 @@ const styles = StyleSheet.create({
 
 
 
-function renderSend(props) {
-  return (
-    <Send {...props}>
-      <View style={styles.sendingContainer}>
-        <IconButton icon='send-circle' size={32} color='orange' />
-      </View>
-    </Send>
-  );
-}
-
-
 function renderBubble(props) {
   return (
     // Step 3: return the component
@@ -361,7 +342,7 @@ function renderBubble(props) {
       wrapperStyle={{
         left: {
           // Here is the color change
-          backgroundColor: '#F7BFA0'
+          backgroundColor: '#F7BFA9'
         },
         right: {
           // Here is the color change

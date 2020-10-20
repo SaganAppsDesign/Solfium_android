@@ -1,23 +1,17 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Image} from 'react-native';
-import tec2 from '../assets/fondo2.jpg'; 
+import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
-import Icon from 'react-native-vector-icons/FontAwesome';
 import 'react-native-gesture-handler';
 import {db} from '../fire';
 import Fire from '../fire';
-import { Button, Card } from 'react-native-elements';
+import { Card } from 'react-native-elements';
 import chat from '../assets/chat.png';
-import logo from '../assets/logo.png'; 
-import codigo_qr from '../assets/codigo_qr.png'; 
-import qr2 from '../assets/qr2.png'; 
-import confirmado from '../assets/confirmado.png'; 
-import verResultado from '../assets/verResultado.png'; 
 import home from '../assets/home.png'; 
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'
 import fondo from '../assets/fondo2.jpg';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import backBtn from '../assets/backBtn.png';
 
 //var viabilidad, user=''
 var text,text1,text2,text3,text4,text5,color,opacity,backgroundcolor, viable
@@ -44,7 +38,7 @@ export class InfoResultInsta extends React.Component {
 
   if (viabInt >= 95 && viabInt < 100){
     viable = "VIABLE"
-    text = '¡Felicidades ' + this.state.username + '! Se puede realizar en su hogar el ' + viab + ' de la instalación' 
+    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium"' 
     text1 = '$24,000' 
     text2 = '$2,000' 
     text3 = '$30,000' 
@@ -56,8 +50,8 @@ export class InfoResultInsta extends React.Component {
     
    
   } else if ( viabInt >= 5 && viabInt < 90){
-    viable = "VIABLE A LA BAJA"
-    text = '¡Felicidades ' + this.state.username + '! Al menos se puede realizar un ' + viab + '% de la instalación, lo cual supone el siguiente ahorro:' 
+    viable = "OPTIMIZADA A LA BAJA"
+    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
     text1 = '$20,000' 
     text2 = '$1,000' 
     text3 = '$22,000' 
@@ -80,8 +74,8 @@ export class InfoResultInsta extends React.Component {
     opacity = 0
     
   } else if ( viabInt >= 0 && viabInt < 5){
-    viable = "NO ES VIABLE"
-    text = this.state.username + ', lo sentimos, no se puede realizar la instalación' 
+    viable = "NO VIABLE"
+    text = 'Gracias por tu interés en Solfium, pero lamentablemente no es posible instalar el sistema en tu hogar. Nuestro experto estará encantado de resolver cualquier duda' 
     text1 = '-' 
     text2 = '-' 
     text3 = '-' 
@@ -119,134 +113,14 @@ export class InfoResultInsta extends React.Component {
     <View style={{width:wp('100%'), height:hp('100%'),alignItem:'center', justifyContent:'center', flex:1}}>
 
 
-        {/* header */}              
-           {/*Botones*/}     
-           <View style={{backgroundColor:"orange", opacity: 1, alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row',marginTop:hp('3%')}}>  
-                         
-
-                         <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), backgroundColor:'#E36239', alignItems:'center',justifyContent:'center', flex:0.5,  opacity:1}}>
-                            <TouchableOpacity 
-                                                                                         
-                               onPress={() => this.props.navigation.navigate('Escanear QR Instalador')}
-                              > 
-                                                    
-                              {/*  <Image 
-                               
-                               source={home}
-                               style={{aspectRatio:1, height:hp('5%')}}
-                               
-                               >    
-                               </Image>  */}
-
-                               <Text style={{color: 'black',
-                              
-                               fontSize:hp('2.2%'),
-                               textAlign:'center',
-                               height:hp('3%'),
-                               width:wp('100%'),
-                               }}>Back</Text>
-
-       
-                                             
-                           </TouchableOpacity> 
-       
-                        </View>
-
-                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-                            <TouchableOpacity 
-                                                                                         
-                               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-                              > 
-                                                    
-                               <Image 
-                               
-                               source={home}
-                               style={{aspectRatio:1, height:hp('5%')}}
-                               
-                               >    
-                               </Image> 
-       
-                                             
-                           </TouchableOpacity> 
-       
-                        </View>
-       
-                       <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                           <TouchableOpacity 
-                                                                                        
-                           //onPress={() => user()}
-                             > 
-                                                   
-                              <Image 
-                              
-                              source={usuario}
-                              style={{aspectRatio:1, height:hp('5%')}}
-                              
-                              >    
-                              </Image> 
-       
-                                            
-                          </TouchableOpacity> 
-       
-                         </View>
-       
-       
-       
-                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                         
-                         <TouchableOpacity 
-                                                                                        
-                           //onPress={() => settings()}
-                             > 
-                                                   
-                              <Image 
-                              
-                              source={setting}
-                              style={{aspectRatio:1, height:hp('5%')}}
-                              
-                              >    
-                              </Image> 
-       
-                                            
-                          </TouchableOpacity> 
-       
-                         </View>
-
-                         <View style={{alignItems:'center', flex:1,  justifyContent:'center'}}>   
-                                          
-                                          <TouchableOpacity 
-                                                                                                      
-                                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 3})}
-                                          > 
-                                          <View>
-                                          
-                                                  <Image 
-                                              
-                                                  source={chat}
-                                                  style={{aspectRatio:1, height:hp('5%')}}
-                                                  
-                                                  >    
-                                                  </Image> 
-                        
-                                          </View>
-                                      
-                                          </TouchableOpacity> 
-                        
-                                          </View>
-       
-                              
-       
-                       </View>
-                     
-                     
-                     {/* FIN header */}  
+        
 
                    
     
     <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('1%'), flex:15}}>
          
-          <Card containerStyle={{backgroundColor:'white', marginTop: hp('1%'),  borderRadius: 50, 
-          width:wp('80%'), height:hp('84%'), alignItems: 'center'}}>
+          <Card containerStyle={{backgroundColor:'white', marginTop: hp('4%'),  borderRadius: 50, 
+          width:wp('80%'), height:hp('81%'), alignItems: 'center'}}>
     
             <View style={{flexDirection:'column', width:wp('100%'), height:hp('100%'), alignItems: 'center'}}>
            
@@ -255,7 +129,7 @@ export class InfoResultInsta extends React.Component {
                                     width:wp('60%'),
                                     marginTop:hp('0.5%'),
                                     fontWeight:'bold',
-                                    fontSize:hp('3%'),
+                                    fontSize:hp('2.3%'),
                                     color: 'white', 
                                     
                                     textAlign:'center',
@@ -268,7 +142,7 @@ export class InfoResultInsta extends React.Component {
               <View style={{width:wp('100%'), height:hp('70%'), marginBottom:hp('0%'),alignItems:'center',flex:0.8}}>
                       <Text style={{color: '#878787',
                                     textAlign:'center',
-                                    fontSize:hp('2%'),
+                                    fontSize:hp('1.9%'),
                                     marginTop: hp('1%'),
                                     height:hp('45%'),
                                     width:wp('60%'),
@@ -293,11 +167,11 @@ export class InfoResultInsta extends React.Component {
                           
                           <Text style={{color: '#878787',
                             alignItems:'center',
-                            fontSize:hp('2%'),
+                            fontSize:hp('1.9%'),
                             textAlign:'center',
                             height:hp('3%'),
                             width:wp('35%'),
-                            }}> Inversión total </Text>
+                            }}> Inversión total: </Text>
 
                           <Text style={{color: 'black',
                             fontSize:hp('3.5%'),
@@ -446,7 +320,7 @@ export class InfoResultInsta extends React.Component {
         </View>
 
         <View style={{height:hp('4%'), marginBottom:wp('0%'),
-            alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+            alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
                   
                   <Text style={{color: '#878787',
                     alignItems:'center',
@@ -473,7 +347,7 @@ export class InfoResultInsta extends React.Component {
         </View>
 
                {/* Botón*/}
-               <View style={{backgroundColor:'#5DCB31', borderRadius:50, width:wp('60%'), height:hp('0,5%'), flex:0.5, alignItems:'center', marginBottom:hp('20%')}}>
+               <View style={{backgroundColor:'#5DCB31', borderRadius:50, width:wp('60%'), height:hp('0.1%'), flex:0.5, alignItems:'center', marginBottom:hp('20%')}}>
 
                <TouchableOpacity
                      
@@ -483,15 +357,15 @@ export class InfoResultInsta extends React.Component {
                      >
 
                      <Text style={{
-                     height: hp('5%'), 
+                     height: hp('3%'), 
                      width: wp('64%'),
                      fontWeight:'bold',
-                     fontSize:20,
+                     fontSize:hp('2%'),
                      color: 'white', 
                      textAlign:'center',
                      opacity:opacity,
                      marginTop:hp('1.5%')
-                    }}>HACER PEDIDO</Text>
+                    }}>ACEPTAR OFERTA</Text>
 
                </TouchableOpacity>
              </View>
@@ -502,7 +376,119 @@ export class InfoResultInsta extends React.Component {
               
 
 </View>
+{/* header */}              
+           {/*Botones*/}     
+           <View style={{backgroundColor:"white", opacity: 1, alignItems:'center', flex:2.3,  justifyContent:'center', flexDirection:'row',marginTop:hp('3%')}}>  
+                         
 
+                         <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
+                            <TouchableOpacity 
+                                                                                         
+                               onPress={() => this.props.navigation.navigate('Escanear QR Instalador')}
+                              > 
+                                                    
+                               <Image 
+                                
+                                source={backBtn}
+                                style={{aspectRatio:1, height:hp('5%')}}
+                                
+                                >    
+                                </Image>
+
+       
+                                             
+                           </TouchableOpacity> 
+       
+                        </View>
+
+                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                            <TouchableOpacity 
+                                                                                         
+                               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={home}
+                               style={{aspectRatio:1, height:hp('6%')}}
+                               
+                               >    
+                               </Image> 
+       
+                                             
+                           </TouchableOpacity> 
+       
+                        </View>
+       
+                       <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                           <TouchableOpacity 
+                                                                                        
+                           //onPress={() => user()}
+                             > 
+                                                   
+                              <Image 
+                              
+                              source={usuario}
+                              style={{aspectRatio:1, height:hp('6%')}}
+                              
+                              >    
+                              </Image> 
+       
+                                            
+                          </TouchableOpacity> 
+       
+                         </View>
+       
+       
+       
+                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                         
+                         <TouchableOpacity 
+                                                                                        
+                           //onPress={() => settings()}
+                             > 
+                                                   
+                              <Image 
+                              
+                              source={setting}
+                              style={{aspectRatio:1, height:hp('6%')}}
+                              
+                              >    
+                              </Image> 
+       
+                                            
+                          </TouchableOpacity> 
+       
+                         </View>
+
+                         <View style={{alignItems:'center', flex:1,  justifyContent:'center'}}>   
+                                          
+                                          <TouchableOpacity 
+                                                                                                      
+                                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 3})}
+                                          > 
+                                          <View>
+                                          
+                                                  <Image 
+                                              
+                                                  source={chat}
+                                                  style={{aspectRatio:1, height:hp('5%')}}
+                                                  
+                                                  >    
+                                                  </Image> 
+                        
+                                          </View>
+                                      
+                                          </TouchableOpacity> 
+                        
+                                          </View>
+       
+                              
+       
+                       </View>
+                     
+                     
+                     {/* FIN header */}  
  
 
      
@@ -535,116 +521,3 @@ export class InfoResultInsta extends React.Component {
 
 
 
-const styles = StyleSheet.create({
-
-  fondo: {
-    width: '100%'
-        
-  },
-  boton: {
-        
-    height: '50%', 
-    width:'100%',
-    borderRadius:50,
-    fontWeight:'bold',
-    fontSize:25,
-    color: 'white', 
-    marginBottom: "0%", 
-    marginTop: "0%", 
-    marginLeft: "0%", 
-    marginRight: "0%",
-    alignItems: "center",
-    textAlign:'center',
-    paddingLeft:40, 
-    paddingRight:40,
-    backgroundColor: color,
-    textAlignVertical:'center'
-   
-   
- },
- boton2: {
-        
-  height: '75%', 
-  width:'100%',
-  borderRadius:50,
-  fontWeight:'bold',
-  fontSize:20,
-  color: 'white', 
-  marginBottom: "0%", 
-  marginTop: "5%", 
-  marginLeft: "0%", 
-  marginRight: "0%",
-  alignItems: "center",
-  textAlign:'center',
-  paddingLeft:40, 
-  paddingRight:40,
-  backgroundColor: '#5DCB31',
-  textAlignVertical:'center'
- 
- 
-},
-
-  texto:{
-    
-      flex:1,
-      color: '#000',
-      backgroundColor: color,
-      fontSize: 20,
-      marginHorizontal: 15,
-      marginTop: '5%',
-      marginBottom:'5%',
-      marginRight:'5%',
-      marginLeft:'5%',
-      fontWeight: 'bold',
-      padding: 10,
-      alignItems:'center'
-
-  },
-
-   btnContainer2: {
-    
-    justifyContent: 'center',
-    borderRadius: 15,
-    backgroundColor: 'orange',
-    padding: 15,
-    textAlign:'center',
-    alignItems:'center',
-    flexDirection: 'column',
-    width:300,
-    height:100,
-    marginBottom:10, marginTop:10
-
-  
-  },
-
-
-   btnContainer3: {
-   
-    justifyContent: 'center',
-    borderRadius: 15,
-    backgroundColor: 'red',
-    padding: 20,
-    textAlign:'center',
-    alignItems:'center',
-    flexDirection: 'column',
-    width:300,
-    height:110,
-    marginBottom:100, marginTop:10
-
-  
-  },
-  btnIcon: {
-    height: 50,
-    width: 50,
-  },
-  btnText: {
-    fontSize: 18,
-    color: '#FAFAFA',
-    marginLeft: 0,
-    marginTop: 5,
-    textAlign:'center',
-    fontWeight: 'bold'
-
-  }
-
-});

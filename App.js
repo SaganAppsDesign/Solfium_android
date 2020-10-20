@@ -80,7 +80,7 @@ export class MainScreen extends React.Component {
       <Stack.Screen  options={{headerShown: false}} name="Implementación" component={MeInteresa}  />
       <Stack.Screen  options={{headerShown: false}} name="Próxima visita" component={CitaConfirmada} />
       <Stack.Screen  options={{headerShown: false}} name="Pago" component={Payment} />
-      <Stack.Screen options={{headerShown: false}} name="Video Informativo" component={VideoInfo} />
+      <Stack.Screen name="Video Informativo" component={VideoInfo} />
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />
       <Stack.Screen options={{headerShown: false}}name="Instalación en proceso" component={Instalacion} />
       <Stack.Screen options={{headerShown: false}}  name="Rating" component={Ratings} />
