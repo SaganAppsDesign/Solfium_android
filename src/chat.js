@@ -25,7 +25,7 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
 });
 
 //Nuevo código
-data2 = () => db.ref('/Instaladores/' +  Fire.getUid()).on('value', (snapshot) => {
+data2 = () => db.ref('/Instaladores/instalador1').on('value', (snapshot) => {
   
   name2 =  snapshot.child("name").val()
   uid = snapshot.child("uid").val()
@@ -59,7 +59,7 @@ state = {
 
     //valor = JSON.stringi∫fy(navigation.getParam('valor', ''))
     //const {valor } = route.params;
-    console.log("valorCitacondfirmada", valor)
+    //console.log("valorCitacondfirmada", valor)
  //Recibir valores de screens relacionadas con Chat∫
     
     switch (valor) {
@@ -144,7 +144,7 @@ state = {
               isTyping={true}
               placeholder={"Chatea aquí " + name}
               user={{
-                _id: Fire.getUid(),
+                _id: "Instalador1",
                 name: name,
                 avatar: 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/45.png'
               

@@ -30,7 +30,7 @@ render (){
 
   var name = this.state.name
 
-  //console.log(name)
+  
   
   if (name){
 
@@ -50,10 +50,7 @@ return (
                   source={fondo4}
                   height={hp('110%')}
                   overlayAlpha={0}
-                    
-
-                  //resizeMode="stretch"
-                  //style={styles.fondo} 
+                                   
                   >
                        
           <View style={{alignItem:'center', justifyContent:'center', width:wp('100%'), height:hp('100%'), flex:1, flexDirection:'column'}}>           

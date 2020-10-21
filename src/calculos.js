@@ -12,16 +12,66 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import {potencia} from './ingresar_consumo2'
 
 
+/* 
+Parámetros:
+Impuesto IVA en % (IVA%). Valor inicial = 16%
+Derecho al Alumbrado Público en % (DAP%).  Valor inicial = 6,451%
+Cargo fijo mensual. Valor inicial: $114 (pesos MXN)
+Tarifa DAC. Valor inicial = $4,333/KWh
+Horas de sol diarias. Valor inicial = 7,7 horas
+Factor de eficiencia. Valor inicial = 1,15
+Factor de pago cero. Valor inicial = 1,20
+Factor de costo. Valor inicial = 140 centavos/W
+Factor cambio = 21,37 MXN/USD
 
-var opacity
+Formulas:
+DAP = DAP% * Costo
+Facturación del Periodo = Costo - DAP
+Costo de energía = Facturación del Periodo / (1 + IVA%)
+Consumo mensual = (Costo de energía – Cargo fijo mensual) / (Tarifa DAC)
+Consumo diario = Consumo mensual / 30
+Potencia del sistema = (Consumo diario) * (Factor de eficiencia) * (Factor de pago cero) / (Horas de sol diaria)
+Costo promedio del sistema = (Potencia del sistema) * 10 * (Factor de costo) * (Factor cambio) */
 
+var opacity, facturacionPeriod, costoEnergia, consumoMensual, consumoDiario, potenciaSistema, costoPromedioSistema
+var costo = 1000
+
+var DAPporc = (6.451*costo)/100
+var cargoFijoMensual = 114
+var tarifaDAC = 4.3333
+var horasSolDiarias = 7.7
+var factorEficiencia = 1.15
+var factorPagoCero = 1.2
+var factorCosto = 140
+var factorCambio = 21.37
+
+
+DAP = DAPporc
+facturacionPeriod = costo - DAP
+costoEnergia = facturacionPeriod /(1 + facturacionPeriod*0.16)
+//Da negativo consumoMensual
+consumoMensual = (costoEnergia - cargoFijoMensual)/tarifaDAC
+consumoDiario = consumoMensual/30
+potenciaSistema = (consumoDiario*factorEficiencia*factorPagoCero)/horasSolDiarias
+costoPromedioSistema = potenciaSistema*10*factorCosto*factorCambio
+
+console.log('Costo MXN =',costo)
+console.log('DAPporc =',DAPporc)
+console.log('DAP =',DAP)
+console.log('facturacionPeriod =',facturacionPeriod)
+console.log('costoEnergia =',costoEnergia)
+console.log('consumoMensual =',consumoMensual)
+console.log('consumoDiario =',consumoDiario)
+console.log('potenciaSistema =' ,potenciaSistema)
+console.log('costoPromedioSistema',costoPromedioSistema)
+console.log('------------------------------')
 
 
 export class Calculos extends React.Component {
 
-  state = {
+  /* state = {
     potenciaUbicacion: 0
-  }
+  } */
 
 
   render() {
@@ -264,9 +314,15 @@ export class Calculos extends React.Component {
 
         </View>
 
-          {/* Botón -me intresa-*/}
-           <View style={{height: hp('0%'), marginTop:hp('4%'), 
-                     width: wp('58%'),backgroundColor: '#5DCB31', flex:1, borderRadius:100, justifyContent:'center'}}>
+          
+
+      </View>  
+
+  </Card>
+
+  {/* Botón -me intresa-*/}
+  <View style={{height: hp('0%'), marginTop:hp('2%'), alignItems:'center',
+                     width: wp('50%'),backgroundColor: '#5DCB31', flex:1, borderRadius:100, justifyContent:'center'}}>
 
                <TouchableOpacity
                      
@@ -277,28 +333,26 @@ export class Calculos extends React.Component {
 
                      <Text style={{
                      height: hp('3%'),
-                     
+                     textAlign:'center',
                      width: wp('100%'),
                      fontWeight:'bold',
                      fontSize:hp('2.5%'),
                      color: 'white', 
-                     marginLeft:wp('13.5%'),
+                     marginLeft:wp('0%'),
                      opacity:opacity,
                      }}>ME INTERESA</Text>
 
                </TouchableOpacity>
              </View>
 
-          </View>  
-
-  </Card>
+             {/* Botón -me intresa-*/}
               
 
 </View>
         
 { /* LOGO*/}
 
-<View style={{alignContent:'center', alignItems:'center', width:wp('100%'), height:hp('0%'), flex:0.5, marginTop:hp('0%')}}>  
+<View style={{alignContent:'center', alignItems:'center', width:wp('100%'), height:hp('0%'), flex:0.2, marginTop:hp('2%')}}>  
 
 <Image 
   

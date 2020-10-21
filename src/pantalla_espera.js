@@ -70,15 +70,17 @@ siguiente = () =>  {
                               />
                     </View>
               
-                    <View style={{flex:1}}>
+                    <View style={{flex:1, alignItems: 'center'}}>
                         <Text style={{color: '#fff',
                             
-                            marginLeft:wp('90%'),
-                            marginTop:hp('7%'),
+                          
+                            marginTop:hp('25%'),
                             height:hp('100%'),
                             width:wp('100%'),
                             fontWeight:'bold',
-                            fontSize: hp('3%'),
+                            fontStyle:'italic',
+                            fontSize: hp('3.5%'),
+                            textAlign:'center'
                             
                             }}>
 
@@ -87,26 +89,7 @@ siguiente = () =>  {
                         </Text>
                        
                     </View>
-                 {/* 
-                    <View style={{flex:2}}>
-
-
-                        
-                                <TouchableOpacity 
-                                                                        
-                                    onPress={() => {this.siguiente()}}
-                                    >
-                                            <Image 
-                                            
-                                            source={verResultado}
-                                            style={{
-                                            aspectRatio:1,  height:hp('6%'), marginLeft:wp('50%')}}
-                                            
-                                            >    
-                                            </Image> 
-                                </TouchableOpacity>
-                    
-                 </View> */}
+                 
        
     </View>
                 
@@ -126,7 +109,7 @@ siguiente = () =>  {
           <Image 
             
             source={logo}
-            style={{aspectRatio:4.5, height:hp('6%'), marginTop:hp('20%')}}
+            style={{aspectRatio:4.5, height:hp('6%'), marginTop:hp('35%')}}
             
             >    
           </Image>  

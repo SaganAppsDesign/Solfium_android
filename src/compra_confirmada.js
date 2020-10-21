@@ -32,15 +32,18 @@ export class CompraConfirmada extends React.Component {
   var day = date.slice(8,10);
   var hour = date.slice(11,16);
 
-  var opacity
+  var opacity, bool, opacity2
 
     if (date == ''){
     
       opacity=0
+      opacity2=1
      
     } else {
 
       opacity=1
+      opacity2=0
+      bool=false
       }
 
     
@@ -96,7 +99,7 @@ export class CompraConfirmada extends React.Component {
                      
 
                      <Card containerStyle={{ marginTop: hp('0%'), borderRadius: 10, 
-                     width:wp('70%'), height:hp('20%'), opacity: opacity}}>
+                     width:wp('70%'), height:hp('20%'), opacity: 1}}>
  
                              <View style={{ marginTop:hp('0%'), marginLeft:wp('0%'), flex:1}}>      
                                     <Text style={{
@@ -113,7 +116,18 @@ export class CompraConfirmada extends React.Component {
                                       }}>{nombre}, su equipo se instalará el {day}-{month}-{year} a las {hour} h</Text>
                               </View>
 
+                              <Text style={{
+                                      color: '#000',
+                                      marginTop: hp('1%'),
+                                      textAlign:'center',
+                                      fontWeight:'bold',
+                                      height:hp('15%'),
+                                      width:wp('60%'),
+                                      fontSize:hp('3%'),
+                                      opacity: opacity2,
+                                      
                               
+                                      }}>Agende su instalación con nuestro experto vía chat</Text>
                      
                       </Card>
 
@@ -123,32 +137,63 @@ export class CompraConfirmada extends React.Component {
 
                     </View>
 
-                    <View style={{ marginTop:hp('10%'), marginLeft:wp('0%'), flex:2, flexDirection:'row'}}> 
+                    <View style={{opacity:opacity,  marginTop:hp('10%'), marginLeft:wp('0%'), flex:2, flexDirection:'row'}}> 
                                     
-                                      <View style={{marginTop:hp('0%'), marginLeft:wp('0%'), flex:3}}> 
+
+                                    <View style={{marginTop:hp('0%'), marginLeft:wp('0%'), flex:3}}> 
                                             
-                                          <Text style={{
-                                              color: '#000',
-                                              marginTop: hp('3%'),
-                                              textAlign:'center',
-                                              fontWeight:'bold',
-                                              height:hp('5%'),
-                                              width:wp('25%'),
-                                              fontSize:hp('1.8%'),
-                                              marginLeft:wp('50%'),
+                                            <Text style={{
+                                                color: '#000',
+                                                marginTop: hp('3%'),
+                                                textAlign:'center',
+                                                fontWeight:'bold',
+                                                height:hp('5%'),
+                                                width:wp('25%'),
+                                                fontSize:hp('1.8%'),
+                                                marginLeft:wp('55%'),
+                                              
+                                        
+                                              }}>Valore a su instalador</Text>
+  
+                                          </View>
+
+                                      <View style={{opacity:opacity, marginTop:hp('0%'), marginLeft:wp('-10%'), flex:3}}> 
                                             
-                                      
-                                            }}>Valore a su instalador</Text>
+                                                <TouchableOpacity 
+
+                                                  disabled={true}
+                                                                                                      
+                                                  onPress={() => this.props.navigation.navigate('Rating')}
+                                                  style={{alignItems:'center',marginTop:hp('0%'), marginLeft:wp('-50%'),width:wp('40%'), height:hp('5%'), flex:1}}
+                                                  > 
+
+
+                                                      <Text style={{
+                                                        color: '#000',
+                                                        marginTop: hp('7%'),
+                                                        textAlign:'center',
+                                                        fontWeight:'bold',
+                                                        height:hp('10%'),
+                                                        width:wp('30%'),
+                                                        fontSize:hp('1.4%'),
+                                                        marginLeft:wp('0%'),
+                                                      
+                                                
+                                                      }}>¿Algún problema durante su instalación? Click aquí</Text>
+
+                                                  </TouchableOpacity> 
 
                                         </View>
                                             
                    
                                                   
-                                        <TouchableOpacity 
+                                                <TouchableOpacity 
+
+                                                        disabled={bool}
                                                                                                     
-                                                onPress={() => this.props.navigation.navigate('Rating')}
-                                                style={{alignItems:'center',marginTop:hp('0%'), marginLeft:wp('-50%'),width:wp('40%'), height:hp('5%'), flex:1}}
-                                        > 
+                                                        onPress={() => this.props.navigation.navigate('Rating')}
+                                                        style={{alignItems:'center',marginTop:hp('0%'), marginLeft:wp('-60%'),width:wp('40%'), height:hp('5%'), flex:1}}
+                                                > 
 
                                         
                                           <View> 
@@ -156,7 +201,7 @@ export class CompraConfirmada extends React.Component {
                                             <Image 
                                         
                                             source={star}
-                                            style={{aspectRatio:1, height:hp('8%')}}
+                                            style={{opacity:opacity, aspectRatio:1, height:hp('8%')}}
                                             
                                             >    
                                             </Image> 
@@ -279,6 +324,8 @@ export class CompraConfirmada extends React.Component {
                          <View style={{alignItems:'center', flex:1,  justifyContent:'center'}}>   
                                           
                                           <TouchableOpacity 
+
+                                          disabled={bool}
                                                                                                       
                                           onPress={() => this.props.navigation.navigate('Chat',  {valor: 7})}
                                           > 
