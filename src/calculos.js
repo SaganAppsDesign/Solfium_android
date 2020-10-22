@@ -11,7 +11,6 @@ import { Card } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {potencia} from './ingresar_consumo2'
 
-
 /* 
 Parámetros:
 Impuesto IVA en % (IVA%). Valor inicial = 16%
@@ -33,53 +32,150 @@ Consumo diario = Consumo mensual / 30
 Potencia del sistema = (Consumo diario) * (Factor de eficiencia) * (Factor de pago cero) / (Horas de sol diaria)
 Costo promedio del sistema = (Potencia del sistema) * 10 * (Factor de costo) * (Factor cambio) */
 
-var opacity, facturacionPeriod, costoEnergia, consumoMensual, consumoDiario, potenciaSistema, costoPromedioSistema
-var costo = 1000
+var opacity, facturacionPeriod, costoEnergia, consumoMensual, consumoDiario, potenciaSistema, 
+costoPromedioSistema, costoPromedioSistemaDec, mensualidad60pagosSinFormato, mensualidad60pagos,
+ahorro25sinformato, ahorro25, amortizacionMesesSinFormato, amortizacionMeses, DAP 
 
-var DAPporc = (6.451*costo)/100
 var cargoFijoMensual = 114
 var tarifaDAC = 4.3333
 var horasSolDiarias = 7.7
 var factorEficiencia = 1.15
-var factorPagoCero = 1.2
+var factorPagoCero = 1.4
 var factorCosto = 140
 var factorCambio = 21.37
+var factorArbol = 288
+var factorCO2 = 0.495
+var factorKm = 135610
+var garantia = 25
 
+var sistema, msg
 
-DAP = DAPporc
-facturacionPeriod = costo - DAP
-costoEnergia = facturacionPeriod /(1 + facturacionPeriod*0.16)
-//Da negativo consumoMensual
-consumoMensual = (costoEnergia - cargoFijoMensual)/tarifaDAC
-consumoDiario = consumoMensual/30
-potenciaSistema = (consumoDiario*factorEficiencia*factorPagoCero)/horasSolDiarias
-costoPromedioSistema = potenciaSistema*10*factorCosto*factorCambio
+const format= (num) => {
+ 
+  numFormat =  Intl.NumberFormat('de-DE').format(Math.trunc(num))
 
-console.log('Costo MXN =',costo)
-console.log('DAPporc =',DAPporc)
-console.log('DAP =',DAP)
-console.log('facturacionPeriod =',facturacionPeriod)
-console.log('costoEnergia =',costoEnergia)
-console.log('consumoMensual =',consumoMensual)
-console.log('consumoDiario =',consumoDiario)
-console.log('potenciaSistema =' ,potenciaSistema)
-console.log('costoPromedioSistema',costoPromedioSistema)
-console.log('------------------------------')
+  return numFormat
+ 
+}
+const calculosEcologicos = (factor) => {
+ 
+  calculo =  Intl.NumberFormat('de-DE').format(Math.trunc(factor*sistema*garantia))
+
+  return calculo
+ 
+}
 
 
 export class Calculos extends React.Component {
 
-  /* state = {
-    potenciaUbicacion: 0
-  } */
-
 
   render() {
 
-    
-    //console.log('Valor en el render ', potencia)
+  //Cálculos  
+  DAP = (6.451*potencia)/100
+  facturacionPeriod = potencia - DAP
+  costoEnergia = facturacionPeriod /(1 + 0.16)
+  consumoMensual = (costoEnergia - cargoFijoMensual)/tarifaDAC
+  consumoDiario = consumoMensual/30
+  potenciaSistema = (consumoDiario*factorEficiencia*factorPagoCero)/horasSolDiarias
+  costoPromedioSistemaDec = potenciaSistema*10*factorCosto*factorCambio
 
 
+  costoPromedioSistema = format(costoPromedioSistemaDec)
+
+  mensualidad60pagosSinFormato = costoPromedioSistema*1000/60*1.35
+  mensualidad60pagos = format(mensualidad60pagosSinFormato)
+
+  ahorro25sinformato = (25*12 - (costoPromedioSistema*1000/(costoPromedioSistema*1000/60*1.35)))*(costoPromedioSistema*1000/60*1.35)
+  ahorro25 = format(ahorro25sinformato)
+
+  amortizacionMesesSinFormato = costoPromedioSistema/mensualidad60pagos
+  amortizacionMeses = format(amortizacionMesesSinFormato)
+ 
+ 
+//Condicionales para saber el Sistema Eléctrico
+
+if (potenciaSistema < 1.5){
+   
+  msg = "Su consumo es muy bajo"
+  console.log("1")
+
+} else if (potenciaSistema >= 1.5 && potenciaSistema < 3.5){
+
+  sistema = 3
+  console.log("3")
+
+}  
+
+else if (potenciaSistema >= 3.5 && potenciaSistema < 5.5){
+
+  sistema = 5
+  console.log("5")
+
+} 
+
+else if (potenciaSistema >= 5.5 && potenciaSistema < 7.5){
+
+  sistema = 7
+  console.log("7")
+
+} 
+
+else if (potenciaSistema >= 7.5 && potenciaSistema < 10.5){
+
+  sistema = 10
+  console.log("10")
+
+} 
+
+else if (potenciaSistema > 10,5){
+
+  msg = "Su consumo necesita más atención"
+  console.log("20")
+
+} 
+
+
+
+var arboles = calculosEcologicos(factorArbol)
+  console.log('arboles=',arboles)
+
+  var co2 = calculosEcologicos(factorCO2)
+  console.log('co2=',co2)
+
+  var km = calculosEcologicos(factorKm)
+  console.log('km=',km)
+
+  console.log('sistema =' ,potenciaSistema)
+
+
+
+
+
+
+  
+/* 
+  console.log('RENDER------------------------------')
+  console.log('Costo MXN =',potencia)
+
+  console.log('DAP =',DAP)
+  console.log('facturacionPeriod =',facturacionPeriod)
+  console.log('costoEnergia =',costoEnergia)
+  console.log('consumoMensual =',consumoMensual)
+  console.log('consumoDiario =',consumoDiario)
+  console.log('potenciaSistema =' ,potenciaSistema)
+
+
+  console.log('costoPromedioSistemaSinFormato',costoPromedioSistemaSinFormato)
+  console.log('costoPromedioSistema',costoPromedioSistema)
+  console.log('mensualidad60pagosSinFormato',mensualidad60pagosSinFormato)
+  console.log('mensualidad60pagos',mensualidad60pagos)
+  console.log('ahorro25sinformato ',ahorro25sinformato )
+  console.log('ahorro25 ',ahorro25 )
+  console.log('amortizacionMesesSinFormato ',amortizacionMesesSinFormato )
+  console.log('amortizacionMeses ',amortizacionMeses )
+  console.log('------------------------------')   */
+  
     return (
 
     
@@ -96,26 +192,26 @@ export class Calculos extends React.Component {
             
           <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('0%'), flex:5}}>
          
-          <Card containerStyle={{backgroundColor:'white', marginTop: hp('8%'),  borderRadius: 50, 
-            width:wp('82%'), height:hp('68%'), alignItems: 'center'}}>
+          <Card containerStyle={{backgroundColor:'white', marginTop: hp('6%'),  borderRadius: 40, 
+            width:wp('82%'), height:hp('70%'), alignItems: 'center'}}>
     
-            <View style={{flexDirection:'column', width:wp('55%'), height:'100%'}}>
+            <View style={{flexDirection:'column', width:wp('70%'), height:'100%'}}>
           
                         
             {/*  inversion total */}
 
             <View style={{flexDirection:'row', flex:3, alignItems:'center'}} >
              
-                <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+                <View style={{flexDirection: 'row', flex:2, justifyContent:'center', alignItems:'center'}}>
                       <Image
-                      style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
+                      style={{ width:wp('22%'), height:hp('12%'),  marginLeft:'-30%', 
                       marginTop: '0%'}}
                       source={require('../assets/calculadora.png')}
                       />
                 </View>
             
                 <View style={{height:hp('4%'), marginBottom:wp('0%'),
-                    alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+                    alignItems:'center', justifyContent:'center', flex:3, flexDirection: 'column'}}>
                           
                           <Text style={{color: '#878787',
                             alignItems:'center',
@@ -129,11 +225,11 @@ export class Calculos extends React.Component {
                             fontSize:hp('3%'),
                             alignItems:'center',
                             height:hp('5%'),
-                            width:wp('40%'),
+                            width:wp('44%'),
                             fontWeight:'bold',
                             textAlign:'center',
                             
-                            }}>{'$ ' + potencia*8000}</Text>
+                            }}>{costoPromedioSistema} MXN</Text>
                 </View> 
 
             </View>
@@ -143,9 +239,9 @@ export class Calculos extends React.Component {
 
             <View style={{flexDirection:'row', flex:3, alignItems:'center'}} >
                         
-            <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+            <View style={{flexDirection: 'row', flex:3, justifyContent:'center', alignItems:'center'}}>
                   <Image
-                  style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
+                  style={{ width:wp('22%'), height:hp('12%'),  marginLeft:'-30%', 
                   marginTop: '0%'}}
                   source={require('../assets/money.png')}
                   />
@@ -173,7 +269,7 @@ export class Calculos extends React.Component {
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{'$ ' + parseFloat(potencia*8000/12).toFixed(1)}</Text>
+                        }}>{mensualidad60pagos} MXN</Text>
             </View> 
 
             </View>
@@ -184,9 +280,9 @@ export class Calculos extends React.Component {
      
      <View style={{flexDirection:'row', flex:3, alignItems:'center'}} >
                         
-            <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+            <View style={{flexDirection: 'row', flex:3, justifyContent:'center', alignItems:'center'}}>
                   <Image
-                  style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
+                  style={{ width:wp('22%'), height:hp('12%'), marginLeft:'-30%', 
                   marginTop: '0%'}}
                   source={require('../assets/hucha.png')}
                   />
@@ -202,10 +298,10 @@ export class Calculos extends React.Component {
                         height:hp('3%'),
                         width:wp('35%'),
                         }}>Tu inversión se amortiza en:
-                        15 meses</Text>
+                        </Text>
 
                       <Text style={{color: 'black',
-                        fontSize:hp('2%'),
+                        fontSize:hp('3%'),
                         alignItems:'center',
                         marginTop: '0%',
                         marginRight:'0%',
@@ -215,7 +311,7 @@ export class Calculos extends React.Component {
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{'$ ' + (potencia*8000 + Number(6000))}</Text>
+                        }}>{amortizacionMeses} meses</Text>
             </View> 
 
             </View>
@@ -224,9 +320,9 @@ export class Calculos extends React.Component {
             {/*  Ahorro a 20 años*/}
         <View style={{flexDirection:'row', flex:3, alignItems:'center'}} >
                             
-        <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+        <View style={{flexDirection: 'row', flex:3, justifyContent:'center', alignItems:'center'}}>
               <Image
-              style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
+              style={{ width:wp('22%'), height:hp('12%'), marginLeft:'-30%', 
               marginTop: '0%'}}
               source={require('../assets/saco.png')}
               />
@@ -243,73 +339,118 @@ export class Calculos extends React.Component {
                     }}>Ahorro a 25 años:</Text>
 
                   <Text style={{color: 'black',
-                    fontSize:hp('2%'),
+                    fontSize:hp('3%'),
                     height:hp('5%'),
-                    width:wp('40%'),
+                    width:wp('50%'),
                     fontWeight:'bold',
                     textAlign:'center',
                     
-                    }}>{'$ ' + ((potencia*8000 + Number(6000))*20)}</Text>
+                    }}>{ahorro25} MXN</Text>
+
+
         </View> 
+
+        
 
         </View>
 
-        {/*  Evitarás contaminar */}
+
+        <View style={{height:hp('2%'), marginBottom:wp('0%'),
+            alignItems:'center', justifyContent:'center', flex:1}}>
+                  
+                  <Text style={{color: 'green',
+                    fontSize:hp('2%'),
+                    textAlign:'center',
+                    height:hp('3%'),
+                    width:wp('70%'),
+                    }}>_______________________________________________</Text>
+
+                  
+
+
+        </View> 
+
+        {/*  Evitarás contaminar*/}
         
-        <View style={{flexDirection:'row', flex:3, alignItems:'center', marginTop:hp('3%')}} >
+        <View style={{flexDirection:'row', flex:5, alignItems:'center', marginTop:hp('0%')}} >
+
+        <View style={{  marginBottom:wp('0%'),
+            alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
                             
-        <View style={{ flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
+        <View style={{ flexDirection: 'row', flex:3, justifyContent:'center', alignItems:'center'}}>
               <Image
-              style={{ width:wp('22%'), height:hp('12%'), marginLeft:'0%', 
-              marginTop: '0%'}}
-              source={require('../assets/manos.png')}
+              style={{  width:wp('15%') ,height:wp('12%'),  marginLeft:'0%', 
+              marginBottom: '0%'}}
+              source={require('../assets/co2.png')}
               />
         </View>
 
-        <View style={{height:hp('4%'), marginBottom:wp('0%'),
-            alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+        <View style={{ flexDirection: 'row', flex:3, justifyContent:'center', alignItems:'center'}}>
+              <Image
+              style={{  width:wp('15%') ,height:wp('12%'),  marginLeft:'0%', 
+              marginTop: '0%'}}
+              source={require('../assets/coche.png')}
+              />
+        </View>
+
+        <View style={{flexDirection: 'row', flex:3, justifyContent:'center', alignItems:'center'}}>
+              <Image
+              style={{ width:wp('15%') ,height:wp('12%'),  marginLeft:'0%', 
+              marginTop: '0%'}}
+              source={require('../assets/arbol.png')}
+              />
+        </View>
+        </View>
+
+
+
+        <View style={{width:wp('20%'), height:hp('18.6%'), marginBottom:hp('0%'),
+            alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
                   
                  
 
                   <Text style={{color: '#5DCB31',
                     fontSize:hp('1.5%'),
-                    alignItems:'center',
-                    marginTop: '0%',
-                    marginRight:'0%',
+                    
+                    marginTop: hp('1.5%'),
+                    marginRight:'30%',
                     marginLeft:'0%',
                     height:hp('5%'),
-                    width:wp('35%'),
+                    width:wp('30%'),
                     fontWeight:'bold',
                     textAlign:'center',
+                 
                     
-                    }}>{(potencia*8000 / Number(50))+ ' Árboles apadrinados'}</Text>
+                    }}>{arboles} Árboles apadrinados</Text>
                     
                   <Text style={{color: '#5DCB31',
                     fontSize:hp('1.5%'),
-                    alignItems:'center',
-                    marginTop: '0%',
-                    marginRight:'0%',
+                    
+                    marginTop: hp('1.5%'),
+                    marginRight:'30%',
                     marginLeft:'0%',
                     height:hp('5%'),
-                    width:wp('35%'),
+                    width:wp('30%'),
                     fontWeight:'bold',
                     textAlign:'center',
+            
                     
-                    }}>{('500 Tn de CO2 sin emitir')}</Text>
+                    }}>{co2} Tn de CO2 sin emitir</Text>
 
 
                   <Text style={{color: '#5DCB31',
                     fontSize:hp('1.5%'),
-                    alignItems:'center',
-                    marginTop: '0%',
-                    marginRight:'0%',
+                    
+                    marginTop: hp('1.5%'),
+                    marginRight:'30%',
                     marginLeft:'0%',
                     height:hp('5%'),
-                    width:wp('35%'),
+                    width:wp('30%'),
                     fontWeight:'bold',
                     textAlign:'center',
+               
                     
-                    }}>{('1000 Km recorrido en auto equivalente')}</Text>
+                    }}>{km} Km recorrido en auto equivalente</Text>
         </View> 
 
         </View>
@@ -320,7 +461,7 @@ export class Calculos extends React.Component {
 
   </Card>
 
-  {/* Botón -me intresa-*/}
+  {/* Botón -me interesa-*/}
   <View style={{height: hp('0%'), marginTop:hp('2%'), alignItems:'center',
                      width: wp('50%'),backgroundColor: '#5DCB31', flex:1, borderRadius:100, justifyContent:'center'}}>
 
@@ -464,11 +605,8 @@ export class Calculos extends React.Component {
     </ImageOverlay> 
  
 
-  );
+  )
 }
-
-
-
 
 
 

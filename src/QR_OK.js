@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { StyleSheet, Text, View,  Button, Dimensions, TouchableOpacity, Image} from 'react-native';
-import tec3 from '../assets/fondo2.jpg';  
+import fondo from '../assets/fondo4.jpg';  
 import ImageOverlay from "react-native-image-overlay";
 import 'react-native-gesture-handler';
 import Fire, {db} from '../fire';
-import logo from '../assets/logo.png'; 
+import logo from '../assets/logo.png';
+import qr_scan from '../assets/qr_scan.png';  
+import acepto_visita from '../assets/acepto_visita.png';  
+import no_acuerdo from '../assets/no_acuerdo.png';  
+
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 var {height} = Dimensions.get('window');
@@ -23,7 +27,7 @@ export function QRCodeOk({ navigation }) {
  return (
 
        
-      <ImageOverlay source={tec3}
+      <ImageOverlay source={fondo}
                     height={height}
                     overlayAlpha={0}                         
                     >
@@ -31,45 +35,61 @@ export function QRCodeOk({ navigation }) {
 
             <View style={{alignItems:'center', flex:1 }}> 
             
-                      <View style={{backgroundColor:'green', width:wp('80%'), height:hp('100%'), borderRadius:20,marginTop:hp('20%'),alignItems:'center', marginBottom:'0%', flex:2}}> 
-                                    <Text style={{color: '#000',
-                                    backgroundColor: 'green',
-                                    fontSize: hp('3.8%'),
-                                    marginHorizontal: wp('5%'),
-                                    marginTop:hp('4%'),
-                                    fontWeight: 'bold',
-                                    padding: hp('1%'),
-                                    textAlign: 'center',
-                                    height:hp('16%')
-                                    }} h1>El código QR escaneado es correcto</Text>
-                  
-                      </View>
+            <View  style={{alignItems:'center', flex:3,  justifyContent:'center', opacity:1}}>
+                                                                 
+                 
+                                                            
+                              <Image 
+                          
+                              source={qr_scan}
+                              style={{aspectRatio:1.8,   height:hp('20%')}}
+                              
+                              >    
+                              </Image> 
 
-                   <View style={{marginTop:hp('5%'),  marginBottom:'0%', flex:3 }}>
+                  
+                    
+             
+                  </View>  
+
+                   <View style={{marginTop:hp('0%'),  marginBottom:'0%', flex:3.5 }}>
 
 
 
                      <View style={{marginBottom: '0%', marginTop: '0%', width:wp('100%'), height:hp('30%'), alignItems:'center', alignContent:'center', justifyContent:'center'}}>
                         
-                          <View style={{backgroundColor:'green', width:wp('70%'), height:hp('100%'), borderRadius:20,marginTop:hp('5%'),alignItems:'center', marginBottom:'0%', flex:2}}> 
+                          <View style={{width:wp('100%'), height:hp('100%'),marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:2}}> 
                                 <TouchableOpacity onPress={
                                   () => { navigation.navigate('Escanear QR Instalador'); confirmadoQR()}
                                 }
                                 >
-                                    <Text style={styles.buttonOK}>Acepto la visita</Text>
+                                     <Image 
+                          
+                                        source={acepto_visita}
+                                        style={{aspectRatio:4,   height:hp('10%')}}
+                                        
+                                        >    
+                                    </Image> 
 
                                 
                                 </TouchableOpacity>
                           </View>
 
-                          <View style={{backgroundColor:'red', width:wp('70%'), height:hp('100%'), borderRadius:20,marginTop:hp('3%'),alignItems:'center', marginBottom:'0%', flex:2}}> 
+                          <View style={{width:wp('100%'), height:hp('100%'),marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:2}}> 
+                                <TouchableOpacity onPress={
+                                  () => { navigation.navigate('Ingresar Consumo')}
+                                }
+                                >
+                                     <Image 
+                          
+                                        source={no_acuerdo}
+                                        style={{aspectRatio:4,   height:hp('10%')}}
+                                        
+                                        >    
+                                    </Image> 
 
-                          <TouchableOpacity onPress={
-                            () => { navigation.navigate('Ingresar Consumo')}
-                          }
-                          >
-                              <Text style={styles. buttonNOoK}>No estoy de acuerdo con la visita</Text>
-                          </TouchableOpacity>
+                                
+                                </TouchableOpacity>
                           </View>
                      
                      
@@ -86,7 +106,7 @@ export function QRCodeOk({ navigation }) {
 
                 { /* LOGO*/}
         
-                <View style={{backgroundColor:"white", alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:2}}>  
+                <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:2}}>  
                 
                 <Image 
                   

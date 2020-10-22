@@ -31,9 +31,9 @@ export class InfoResultInsta extends React.Component {
     
 
     var viab = this.state.viabilidad
-    var  viabInt = parseInt(viab)
+    var viabInt = parseInt(viab)
 
-    console.log('viabilidad número',  typeof(viab))
+    //console.log('viabilidad número',  typeof(viab))
     
 
   if (viabInt >= 95 && viabInt < 100){
