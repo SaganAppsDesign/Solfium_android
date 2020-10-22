@@ -204,7 +204,7 @@ export class CitaConfirmada extends React.Component {
                                 <Image 
                                 
                                 source={backBtn}
-                                style={{aspectRatio:1, height:hp('5%')}}
+                                style={{aspectRatio:1, height:hp('6%')}}
                                 
                                 >    
                                 </Image>
@@ -285,7 +285,7 @@ export class CitaConfirmada extends React.Component {
                                                   <Image 
                                               
                                                   source={chat}
-                                                  style={{aspectRatio:1, height:hp('5%')}}
+                                                  style={{aspectRatio:1, height:hp('6%')}}
                                                   
                                                   >    
                                                   </Image> 

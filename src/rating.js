@@ -98,7 +98,7 @@ export class Ratings extends React.Component{
                             padding: hp('2%'),
                             textAlign:'center',
                             marginTop: hp('2%')
-                            }}>Evalúe a su instalador, por favor</Text>
+                            }}>Evalúa a tu instalador, por favor</Text>
 
                 </View>
 
@@ -151,7 +151,7 @@ export class Ratings extends React.Component{
                                            
                             <TextInput
                             style={styles.nameInput}
-                            placeholder="Deje un comentario acerca de su valoración"
+                            placeholder="Deja un comentario acerca de tu valoración"
                             placeholderTextColor = "grey"
                             //multiline
                             //numberOfLines={5}
@@ -200,7 +200,7 @@ export class Ratings extends React.Component{
 
             {/* header */}              
            {/*Botones*/}     
-           <View style={{backgroundColor:'orange',  opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
+           <View style={{backgroundColor:'#FFBC7D',  opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
                          
 
                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
@@ -212,7 +212,7 @@ export class Ratings extends React.Component{
                                <Image 
                                 
                                 source={backBtn}
-                                style={{aspectRatio:1, height:hp('5%')}}
+                                style={{aspectRatio:1, height:hp('6%')}}
                                 
                                 >    
                                 </Image>
@@ -293,7 +293,7 @@ export class Ratings extends React.Component{
                                                   <Image 
                                               
                                                   source={chat}
-                                                  style={{aspectRatio:1, height:hp('5%')}}
+                                                  style={{aspectRatio:1, height:hp('6%')}}
                                                   
                                                   >    
                                                   </Image> 

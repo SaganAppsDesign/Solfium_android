@@ -78,7 +78,7 @@ export class IdentidadConfirmada extends React.Component {
 
                                           
                     
-                    <View style={{alignItems: 'center', marginTop: hp('15%'), flex:5}}>
+                    <View style={{alignItems: 'center', marginTop: hp('17%'), flex:5}}>
                          
                       <Card containerStyle={{backgroundColor:'white', borderRadius: 15, 
                             width:wp('75%'), height:hp('35%')}}>
@@ -171,7 +171,7 @@ export class IdentidadConfirmada extends React.Component {
 
     {/*Imagen Confirmar*/} 
 
-    <View style={{flex:1, flexDirection:'row'}}>  
+    <View style={{flex:1, flexDirection:'row', marginBottom:hp('2%'),}}>  
     
        <View style={{marginTop:hp('0%'), marginLeft:wp('15%'), flex:1}}>
        
@@ -212,7 +212,7 @@ export class IdentidadConfirmada extends React.Component {
 
    </View>
 
-   <View style={{marginTop:hp('0%'), flex:1, flexDirection:'row'}}>  
+   <View style={{marginBottom:hp('10%'), flex:1, flexDirection:'row'}}>  
    
         <View style={{flex:1}}>
         <Text style={{color: '#28F33D',
@@ -270,7 +270,7 @@ export class IdentidadConfirmada extends React.Component {
     </View> 
 {/*FIN LOGO*/} 
  {/* header */}              
-           {/*Botones*/}     
+{/*Botones*/}     
            <View style={{opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
                          
 
@@ -282,7 +282,7 @@ export class IdentidadConfirmada extends React.Component {
                                <Image 
                                 
                                 source={backBtn}
-                                style={{aspectRatio:1, height:hp('5%')}}
+                                style={{aspectRatio:1, height:hp('6%')}}
                                 
                                 >    
                                 </Image>
@@ -314,7 +314,7 @@ export class IdentidadConfirmada extends React.Component {
                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
                            <TouchableOpacity 
                                                                                         
-                           //onPress={() => user()}
+                         
                              > 
                                                    
                               <Image 
@@ -336,7 +336,7 @@ export class IdentidadConfirmada extends React.Component {
                          
                          <TouchableOpacity 
                                                                                         
-                           //onPress={() => settings()}
+                          
                              > 
                                                    
                               <Image 
@@ -363,7 +363,7 @@ export class IdentidadConfirmada extends React.Component {
                                                   <Image 
                                               
                                                   source={chat}
-                                                  style={{aspectRatio:1, height:hp('5%')}}
+                                                  style={{aspectRatio:1, height:hp('6%')}}
                                                   
                                                   >    
                                                   </Image> 

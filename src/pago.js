@@ -40,14 +40,14 @@ export class Payment extends React.Component {
                               color: '#fff',
                               marginTop: hp('5%'),
                               textAlign:'center',
-                              height:hp('3.2%'),
+                              height:hp('3.5%'),
                               fontSize:hp('3%'),
                               padding:0,
                               
-                              }}>Escoge como</Text>
+                              }}>Escoge cómo</Text>
                                <Text style={{
                               color: '#fff',
-                              marginTop: hp('0%'),
+                              marginTop: hp('1%'),
                               textAlign:'center',
                               height:hp('4%'),
                               fontSize:hp('3%'),
@@ -74,33 +74,33 @@ export class Payment extends React.Component {
                           onPress={() => this.props.navigation.navigate('Pago único')} 
                                               
                           >
-                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('7%'),   borderRadius: 10}}>
+                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('10%'),   borderRadius: 10}}>
                                   
                                 <Text style={{
                                   color: '#fff',
                                   textAlign:'center',
                                   fontWeight:'bold',
-                                  fontSize:wp('4%'),
+                                  fontSize:wp('6%'),
                                  }}>PAGO ÚNICO</Text>
                                 </ImageBackground>
                           </TouchableOpacity>
                           </View>
                           
 
-                          <View style={{alignItems: 'center', flex:1,  width:wp('100%'), height:hp('100%') }}>
+                          <View style={{alignItems: 'center', flex:1,  width:wp('100%'), height:hp('100%'), marginTop:hp('5%')}}>
                           <TouchableOpacity
                             
                         
                             onPress={() => this.props.navigation.navigate('Financiamiento')} 
                                                 
                             >
-                            <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('7%'),  borderRadius: 10}}>
+                            <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('10%'),  borderRadius: 10}}>
                                     
                                   <Text style={{
                                     color: '#fff',
                                     textAlign:'center',
                                     fontWeight:'bold',
-                                    fontSize:wp('3.5%')}}>FINANCIAMIENTO</Text>
+                                    fontSize:wp('6%')}}>FINANCIAMIENTO</Text>
                                   </ImageBackground>
                             </TouchableOpacity>
                             </View>
@@ -130,7 +130,7 @@ export class Payment extends React.Component {
                     {/*FIN LOGO*/}  
 
 
-                    {/* header */}              
+            {/* header */}              
            {/*Botones*/}     
            <View style={{alignItems:'center', flex:0.2,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
                          
@@ -144,7 +144,7 @@ export class Payment extends React.Component {
                                 <Image 
                                 
                                 source={backBtn}
-                                style={{aspectRatio:1, height:hp('5%')}}
+                                style={{aspectRatio:1, height:hp('6%')}}
                                 
                                 >    
                                 </Image>
@@ -226,7 +226,7 @@ export class Payment extends React.Component {
                                                   <Image 
                                               
                                                   source={chat}
-                                                  style={{aspectRatio:1, height:hp('5%')}}
+                                                  style={{aspectRatio:1, height:hp('6%')}}
                                                   
                                                   >    
                                                   </Image> 

@@ -55,7 +55,7 @@ export class Financiamiento extends React.Component {
                         />
                     </View>
 
-                    <View style={{alignItems: 'center', flex:2,  width:wp('100%'), height:hp('100%')}}>
+                    <View style={{alignItems: 'center', flex:2,  width:wp('100%'), height:hp('100%'), marginTop:hp('1%')}}>
                      
                         <View style={{alignItems: 'center', flex:3,  width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
                         <TouchableOpacity
@@ -63,14 +63,14 @@ export class Financiamiento extends React.Component {
                           //onPress={() => this.props.navigation.navigate('Pago único')} 
                                               
                           >
-                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('7%'),   borderRadius: 10}}>
+                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.3, justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3.8, height:hp('7%'),   borderRadius: 10}}>
                                   
                                 <Text style={{
                                   color: '#fff',
                                   textAlign:'center',
                                   fontWeight:'bold',
                                   fontSize:wp('3.5%'),
-                                 }}>24 mesualidades a 200 MXN</Text>
+                                 }}>24 mesualidades de 200 MXN</Text>
                                 </ImageBackground>
                           </TouchableOpacity>
                           </View>
@@ -80,14 +80,14 @@ export class Financiamiento extends React.Component {
                           //onPress={() => this.props.navigation.navigate('Pago único')} 
                                               
                           >
-                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('7%'),   borderRadius: 10}}>
+                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.3, justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3.8, height:hp('7%'),   borderRadius: 10}}>
                                   
                                 <Text style={{
                                   color: '#fff',
                                   textAlign:'center',
                                   fontWeight:'bold',
                                   fontSize:wp('3.5%'),
-                                 }}>36 mesualidades a 150 MXN</Text>
+                                 }}>36 mesualidades de 150 MXN</Text>
                                 </ImageBackground>
                           </TouchableOpacity>
                           </View>
@@ -97,14 +97,14 @@ export class Financiamiento extends React.Component {
                           //onPress={() => this.props.navigation.navigate('Pago único')} 
                                               
                           >
-                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('7%'),   borderRadius: 10}}>
+                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.3, justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3.8, height:hp('7%'),   borderRadius: 10}}>
                                   
                                 <Text style={{
                                   color: '#fff',
                                   textAlign:'center',
                                   fontWeight:'bold',
                                   fontSize:wp('3.5%'),
-                                 }}>48 mesualidades a 100 MXN</Text>
+                                 }}>48 mesualidades de 100 MXN</Text>
                                 </ImageBackground>
                           </TouchableOpacity>
                           </View>
@@ -117,19 +117,19 @@ export class Financiamiento extends React.Component {
                             //onPress={() => this.props.navigation.navigate('Financiamiento')} 
                                                 
                             >
-                            <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('7%'),  borderRadius: 10}}>
+                            <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.3,justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:3.8, height:hp('7%'),  borderRadius: 10}}>
                                     
                                   <Text style={{
                                     color: '#fff',
                                     textAlign:'center',
                                     fontWeight:'bold',
                                     padding:8,
-                                    fontSize:wp('3.5%')}}>60 mesualidades a 50 MXN</Text>
+                                    fontSize:wp('3.5%')}}>60 mesualidades de 50 MXN</Text>
                                   </ImageBackground>
                             </TouchableOpacity>
                             </View>
 
-                            <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('3%'), width:hp('28%'), height:hp('100%'), flex:2}}>
+                            <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('1%'), width:hp('28%'), height:hp('100%'), flex:2}}>
 
                               <TouchableOpacity
                                   
@@ -144,7 +144,7 @@ export class Financiamiento extends React.Component {
                                   fontSize:hp('2.5%'),
                                   color: 'white', 
                                   textAlign:'center',
-                                  textAlignVertical:'center'}}> PAGAR </Text>
+                                  textAlignVertical:'center'}}>REALIZAR PAGO</Text>
               
                               </TouchableOpacity>
                           </View>
@@ -162,7 +162,7 @@ export class Financiamiento extends React.Component {
             
             { /* LOGO*/}
 
-            <View style={{alignItems:'center', flex:0.1, marginTop:hp('2%')}}>  
+            <View style={{alignItems:'center', flex:0.08, marginTop:hp('4%')}}>  
 
             <Image 
               
@@ -189,7 +189,7 @@ export class Financiamiento extends React.Component {
                                 <Image 
                                 
                                 source={backBtn}
-                                style={{aspectRatio:1, height:hp('5%')}}
+                                style={{aspectRatio:1, height:hp('6%')}}
                                 
                                 >    
                                 </Image>
@@ -271,7 +271,7 @@ export class Financiamiento extends React.Component {
                                                   <Image 
                                               
                                                   source={chat}
-                                                  style={{aspectRatio:1, height:hp('5%')}}
+                                                  style={{aspectRatio:1, height:hp('6%')}}
                                                   
                                                   >    
                                                   </Image> 

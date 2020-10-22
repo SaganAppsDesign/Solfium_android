@@ -49,7 +49,7 @@ export class InfoResultInsta extends React.Component {
     backgroundcolor = 'white'
     
    
-  } else if ( viabInt >= 5 && viabInt < 90){
+  } else if ( viabInt >= 5 && viabInt < 95){
     viable = "OPTIMIZADA A LA BAJA"
     text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
     text1 = '$20,000' 
@@ -390,7 +390,7 @@ export class InfoResultInsta extends React.Component {
                                <Image 
                                 
                                 source={backBtn}
-                                style={{aspectRatio:1, height:hp('5%')}}
+                                style={{aspectRatio:1, height:hp('6%')}}
                                 
                                 >    
                                 </Image>
@@ -472,7 +472,7 @@ export class InfoResultInsta extends React.Component {
                                                   <Image 
                                               
                                                   source={chat}
-                                                  style={{aspectRatio:1, height:hp('5%')}}
+                                                  style={{aspectRatio:1, height:hp('6%')}}
                                                   
                                                   >    
                                                   </Image> 

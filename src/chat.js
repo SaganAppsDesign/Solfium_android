@@ -161,12 +161,12 @@ state = {
         </View>
 
 
-        {/* header */}              
+    {/* header */}              
     {/*Botones*/}     
     <View style={{opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
                          
 
-                         <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'),  alignItems:'center',justifyContent:'center', opacity:1}}>
+                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
                             <TouchableOpacity 
                                                                                          
                                onPress={() => this.props.navigation.navigate('Implementación')}
@@ -174,7 +174,7 @@ state = {
                               <Image 
                                
                                source={backBtn}
-                               style={{aspectRatio:1, height:hp('5%')}}
+                               style={{aspectRatio:1, height:hp('6%')}}
                                
                                >    
                                </Image>

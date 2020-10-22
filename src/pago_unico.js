@@ -63,35 +63,35 @@ export class PagoUnico extends React.Component {
                           
                                               
                           >
-                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('8%'),   borderRadius: 10}}>
+                          <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.3, justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('10%'), borderRadius: 10}}>
                                   
                                 <Text style={{
                                   color: '#fff',
                                   textAlign:'center',
                                   fontWeight:'bold',
-                                  fontSize:wp('4%'),
+                                  fontSize:wp('6%'),
                                  }}>Tarjeta de crédito</Text>
                                 </ImageBackground>
                           </TouchableOpacity>
                           </View>
                           
 
-                          <View style={{alignItems: 'center', flex:2,  width:wp('100%'), height:hp('100%') }}>
+                          <View style={{alignItems: 'center', flex:2,  width:wp('100%'), height:hp('100%'), marginTop:hp('5%')}}>
                           <TouchableOpacity
                                                
                             >
-                            <ImageBackground source={require('../assets/boton_naranja.png')} style={{justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('8%'),  borderRadius: 10}}>
+                            <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.3, justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('10%'),  borderRadius: 10}}>
                                     
                                   <Text style={{
                                     color: '#fff',
                                     textAlign:'center',
                                     fontWeight:'bold',
-                                    fontSize:wp('4%')}}>Transferencia bancaria</Text>
+                                    fontSize:wp('5%')}}>Transferencia bancaria</Text>
                                   </ImageBackground>
                             </TouchableOpacity>
                             </View>
 
-                            <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('0%'), width:hp('28%'), height:hp('100%'), flex:0.5}}>
+                            <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('0%'), width:hp('30%'), height:hp('100%'), flex:0.6}}>
 
                               <TouchableOpacity
                                   
@@ -106,7 +106,7 @@ export class PagoUnico extends React.Component {
                                   fontSize:hp('3%'),
                                   color: 'white', 
                                   textAlign:'center',
-                                  textAlignVertical:'center'}}> PAGAR </Text>
+                                  textAlignVertical:'center'}}>REALIZAR PAGO</Text>
               
                               </TouchableOpacity>
                           </View>
@@ -137,7 +137,7 @@ export class PagoUnico extends React.Component {
                     </View> 
                     {/*FIN LOGO*/}
 
-                    {/* header */}              
+           {/* header */}              
            {/*Botones*/}     
            <View style={{opacity: 1, alignItems:'center', flex:0.2,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
                          
@@ -151,7 +151,7 @@ export class PagoUnico extends React.Component {
                                <Image 
                                 
                                 source={backBtn}
-                                style={{aspectRatio:1, height:hp('5%')}}
+                                style={{aspectRatio:1, height:hp('6%')}}
                                 
                                 >    
                                 </Image>
@@ -233,7 +233,7 @@ export class PagoUnico extends React.Component {
                                                   <Image 
                                               
                                                   source={chat}
-                                                  style={{aspectRatio:1, height:hp('5%')}}
+                                                  style={{aspectRatio:1, height:hp('6%')}}
                                                   
                                                   >    
                                                   </Image> 

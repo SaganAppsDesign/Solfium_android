@@ -95,7 +95,7 @@ render() {
                                                                     
                                   <View style={{justifyContent:'center',alignItems:'center', width:wp('100%'), height:hp('15%'), flex:1, marginTop:hp('7%')}}>
                                       <Text style={{ fontSize:hp('2%'), fontWeight:'bold', color: 'grey', textAlign:'center'
-                                        }}>O ingresa tu consumo promedio mensual en pesos</Text>
+                                        }}>O ingresa tu consumo mensual:</Text>
                                                                 
                                    </View>     
 

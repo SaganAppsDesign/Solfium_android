@@ -368,7 +368,7 @@ export class Calculos extends React.Component {
            <View style={{alignItems:'center', flex:0.6,  justifyContent:'center', flexDirection:'row', marginBottom:hp('3%'),marginTop:hp('0%')}}>  
                          
 
-                          <View  style={{ alignItems:'center', flex:0.5,  justifyContent:'center'}}>
+                          <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
                              <TouchableOpacity 
                                                                                           
                                 onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
@@ -377,7 +377,7 @@ export class Calculos extends React.Component {
                                <Image 
                                 
                                 source={backBtn}
-                                style={{aspectRatio:1, height:hp('4%')}}
+                                style={{aspectRatio:1, height:hp('6%')}}
                                 
                                 >    
                                 </Image>

@@ -113,7 +113,7 @@ export class CompraConfirmada extends React.Component {
                                       opacity: opacity,
                                       
                               
-                                      }}>{nombre}, su equipo se instalará el {day}-{month}-{year} a las {hour} h</Text>
+                                      }}>{nombre}, tu equipo se instalará el {day}-{month}-{year} a las {hour} h</Text>
                               </View>
 
                               <Text style={{
@@ -127,7 +127,7 @@ export class CompraConfirmada extends React.Component {
                                       opacity: opacity2,
                                       
                               
-                                      }}>Agende su instalación con nuestro experto vía chat</Text>
+                                      }}>Agenda tu instalación con nuestro experto vía chat</Text>
                      
                       </Card>
 
@@ -153,7 +153,7 @@ export class CompraConfirmada extends React.Component {
                                                 marginLeft:wp('55%'),
                                               
                                         
-                                              }}>Valore a su instalador</Text>
+                                              }}>Valora a tu instalador</Text>
   
                                           </View>
 
@@ -169,6 +169,7 @@ export class CompraConfirmada extends React.Component {
 
 
                                                       <Text style={{
+                                                        opacity:0.3,
                                                         color: '#000',
                                                         marginTop: hp('7%'),
                                                         textAlign:'center',
@@ -179,7 +180,7 @@ export class CompraConfirmada extends React.Component {
                                                         marginLeft:wp('0%'),
                                                       
                                                 
-                                                      }}>¿Algún problema durante su instalación? Click aquí</Text>
+                                                      }}>¿Algún problema durante tu instalación? Click aquí</Text>
 
                                                   </TouchableOpacity> 
 
@@ -213,17 +214,9 @@ export class CompraConfirmada extends React.Component {
                                       
                                </View>
 
- 
-         
-              
-            
-         
-            
-          
-          
           { /* LOGO*/}
   
-          <View style={{alignItems:'center', flex:0.5}}>  
+          <View style={{alignItems:'center', flex:0.3, marginTop:hp('0%')}}>  
           
           <Image 
             
@@ -250,7 +243,7 @@ export class CompraConfirmada extends React.Component {
                                 <Image 
                                 
                                 source={backBtn}
-                                style={{aspectRatio:1, height:hp('5%')}}
+                                style={{aspectRatio:1, height:hp('6%')}}
                                 
                                 >    
                                 </Image>
@@ -321,7 +314,7 @@ export class CompraConfirmada extends React.Component {
        
                          </View>
 
-                         <View style={{alignItems:'center', flex:1,  justifyContent:'center'}}>   
+                         <View style={{alignItems:'center', flex:1, justifyContent:'center'}}>   
                                           
                                           <TouchableOpacity 
 
@@ -334,7 +327,7 @@ export class CompraConfirmada extends React.Component {
                                                   <Image 
                                               
                                                   source={chat}
-                                                  style={{aspectRatio:1, height:hp('5%')}}
+                                                  style={{aspectRatio:1, height:hp('6%')}}
                                                   
                                                   >    
                                                   </Image> 
@@ -378,60 +371,3 @@ componentDidMount() {
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    width:'100%',
-    height:'100%',
-        
-  },
-
-  logo: {
-    
-    width: "20%",
-    height: "50%",
-    marginBottom: "10%",
-    marginTop: "2%",
-    marginLeft: "59%",
-    marginRight: "0%"
-    
-    
-  },
-
-  boton: {
-        
-     height: '55%', 
-     width:'100%',
-     borderRadius:20,
-     fontWeight:'bold',
-     fontSize:15,
-     color: 'white', 
-     marginBottom: "0%", 
-     marginTop: "0%", 
-     marginLeft: "0%", 
-     marginRight: "0%",
-     alignItems: "center",
-     paddingLeft:40, 
-     paddingRight:40,
-     backgroundColor: '#5DCB31',
-     textAlignVertical:'center'
-    
-    
-  },
-
-  checkbox: {
-    alignSelf: "center",
-  },
-  label: {
-    margin: 8,
-  },
-
-
-
- 
-
-
-
-  
-
-});
