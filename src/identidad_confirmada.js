@@ -23,28 +23,43 @@ export class IdentidadConfirmada extends React.Component {
   state = {
  
     nombre_instalador:'',
-    viabilidad:'',
+    potencia:'',
     QR:''
   }
 
   
   render() {
 
-    var viabilidad = this.state.viabilidad
+    var potencia = this.state.potencia
     var QR = this.state.QR
-    var bool,opacity, opacity2, opacity3
+    var bool,opacity, opacity2, opacity3, screen
 
     //console.log(QR)
 
-     if (viabilidad == ''){
+     if (potencia == '' ){
             
       bool=true
       opacity=0
-      } else {
+      
+      } else if (potencia == 10){
 
       bool=false
       opacity=1
+      screen="Viabilidad Instalación"
+    
+     
+      } else {
+        bool=false
+        opacity=1
+        screen="Viabilidad Instalación Comparativa"
+
       }
+
+
+     
+
+
+
     
       if (QR == ''){
        
@@ -55,7 +70,7 @@ export class IdentidadConfirmada extends React.Component {
       
       }
 
-      if (QR == 'OK' && viabilidad==''){
+      if (QR == 'OK' && potencia==''){
        
         opacity3=1
         } else {
@@ -237,7 +252,7 @@ export class IdentidadConfirmada extends React.Component {
               
             <TouchableOpacity 
                                                     
-              onPress={() => this.props.navigation.navigate('Viabilidad Instalación')}
+              onPress={() => this.props.navigation.navigate(screen)}
               disabled={bool}
               >
                         <Image 
@@ -398,7 +413,7 @@ componentDidMount() {
   this.listener = ref.on("value", snapshot => {
 
   this.setState({ nombre_instalador: snapshot.child("nombre_instalador").val() || '',
-                  viabilidad: snapshot.child("Viabilidad").val() || '',
+                  potencia: snapshot.child("potenciaContratada").val() || ''  ,
                   QR: snapshot.child("QR_instalador").val() || ''
                                 
                 })    
@@ -406,6 +421,7 @@ componentDidMount() {
  
 }
 )
+
 
 }
 }

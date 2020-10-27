@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text, View, Dimensions, LogBox, ToastAndroid, KeyboardAvoidingView,
   TouchableOpacity, Image, TextInput, StyleSheet, Button} from 'react-native';
-import tec3 from '../assets/fondo2.jpg';  
+import tec3 from '../assets/fondo6.jpg';  
 import ImageOverlay from "react-native-image-overlay";
 import 'react-native-gesture-handler';
 import Fire, {db} from '../fire';
@@ -12,12 +12,15 @@ import home from '../assets/home.png';
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
 import backBtn from '../assets/backBtn.png'; 
+import rating2 from '../assets/rating2.png'; 
+import rating from '../assets/rating.png'; 
+
 
 
 
 
 var {height} = Dimensions.get('window');
-var bool, opacity
+var bool, bool2, opacity
 
 export class Ratings extends React.Component{
 
@@ -26,23 +29,28 @@ export class Ratings extends React.Component{
 
     comentarios: '',
     rating:'',
-    ratingFire:''
+    ratingFire:'',
+    bool:'',
+    opacity:''
   }
 
   onChangeText = comentarios => this.setState({ comentarios });
+
   rating = rating => this.setState({ rating });
   
-  ratingFire = () =>  {
-
-
+  ratingFire = () =>  {  
+    
+    opacity=this.opacity
     
     db.ref('Usuarios/' +  Fire.getUid()).update({
     
-    rating:this.state.rating
+    rating:this.state.rating,
+    comentarios:this.state.comentarios
+    
          
     })
-
-    
+      
+   
    }
  
    
@@ -58,18 +66,20 @@ export class Ratings extends React.Component{
  
   render() {
     
+ 
+ var rating3 = this.state.rating
 
-  
-
-    if (this.state.ratingFire == "") {
+    if (rating3 >= 1 && rating3<= 5) {
 
       opacity = 1
       bool=false
+      bool2=true
 
     } else {
 
       opacity = 0.1
       bool=true
+      bool2=false
 
     }
   
@@ -88,29 +98,27 @@ export class Ratings extends React.Component{
           
                       
                 <View style={{flex: 9, width:wp('100%'), alignItems:'center'}}>   
-                <View style={{  backgroundColor: '#F1C40E', borderRadius:10, flex: 3, marginBottom: hp('0%'),  marginTop: hp('15%'), width:wp('76%')}}>
+                <View style={{alignItems:'center', flex: 3, marginBottom: hp('0%'),  marginTop: hp('10%'), width:wp('100%')}}>
                                         
-                    <Text style={{color: 'black',
-                           
-                            fontSize: hp('2%'),
-                            marginBottom: hp('0%'),
-                            fontWeight: 'bold',
-                            padding: hp('2%'),
-                            textAlign:'center',
-                            marginTop: hp('2%')
-                            }}>Evalúa a tu instalador, por favor</Text>
+                              <Image 
+                                
+                                source={rating}
+                                style={{aspectRatio:1.6, height:hp('20%')}}
+                                
+                                >    
+                                </Image>
 
                 </View>
 
                   
-                  <View style={{ marginBottom: hp('3%'), marginTop: hp('5%'), flex: 3}}>
+                  <View style={{ marginBottom: hp('3%'), marginTop: hp('5%'), flex: 1}}>
 
                                       
                       <AirbnbRating
                         useNativeDriver={true}
                         count={5}
                         reviews={["Terrible", "Malo", "OK", "Bueno", "Muy bueno"]}
-                        defaultRating={4}
+                        defaultRating={0}
                         size={45}
                         showRating={true}
                         ratingBackgroundColor='red'
@@ -122,48 +130,24 @@ export class Ratings extends React.Component{
                   </View> 
 
 
-                   <View style={{opacity:opacity, backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('2%'), width:hp('20%'), height:hp('100%'), flex:1}}>
-
-                          <TouchableOpacity
-                              
-                            
-                              onPress={() => this.ratingFire()} 
-                              disabled={bool}
-                                                  
-                              >
-          
-                              <Text style={{
-                              fontWeight:'bold',
-                              fontSize:hp('2%'),
-                              color: 'white', 
-                              textAlign:'center',
-                              textAlignVertical:'center'}}>Enviar rating</Text>
-          
-                          </TouchableOpacity>
-                  </View>
-
-
                   <KeyboardAvoidingView  enabled keyboardVerticalOffset={80} behavior='position'
                        style={{alignItems:'center', height:hp('0%'), width:hp('100%'), flex:5, alignContent:'center', justifyContent:'center'}}>
                 
                    
-                    <View style={{marginBottom: hp('0%'), marginTop: hp('5%'), flex:1}}>
+                    <View style={{opacity:opacity,marginBottom: hp('0%'), marginTop: hp('8%'), flex:1}}>
                                            
                             <TextInput
                             style={styles.nameInput}
-                            placeholder="Deja un comentario acerca de tu valoración"
+                            placeholder="Deja un comentario si lo deseas"
                             placeholderTextColor = "grey"
-                            //multiline
-                            //numberOfLines={5}
+                            multiline
+                            numberOfLines={3}
                             onChangeText={this.onChangeText}
                             value={this.state.comentarios}
                             returnKeyType={ 'done' }
+                            editable={bool2}
                         
-                            //inlineImagesLeft='icono.'
-                            //label="KWh"
-                            //onChangeText={this.onChangeText}
-                            //value={this.state.name}
-                            //mode='outlined'
+                           
                             
                         />
 
@@ -175,22 +159,28 @@ export class Ratings extends React.Component{
 
 
 
-                 <View style={{backgroundColor: 'grey',borderRadius:50, justifyContent:'center', alignItems:'center', marginBottom:hp('10%'), width:hp('25%'), height:hp('100%'), flex:1}}>
+                 <View style={{opacity:opacity,  borderRadius:50, justifyContent:'center', alignItems:'center', marginBottom:hp('10%'), width:hp('25%'), height:hp('100%'), flex:1}}>
 
                     <TouchableOpacity
+
+                      disabled={bool}
                         
                       
-                        onPress={() => this.comentarios() } 
+                        onPress={() => this.ratingFire()} 
                                             
                         >
 
-                        <Text style={{
-                        
-                        fontWeight:'bold',
-                        fontSize:hp('2%'),
-                        color: 'white', 
-                        textAlign:'center',
-                        textAlignVertical:'center'}}>Enviar comentarios</Text>
+                              <Image 
+                                
+                                source={rating2}
+                                style={{aspectRatio:4, height:hp('8%')}}
+                                
+                                >    
+                                </Image>
+
+
+
+
 
                     </TouchableOpacity>
                     </View>
@@ -200,7 +190,7 @@ export class Ratings extends React.Component{
 
             {/* header */}              
            {/*Botones*/}     
-           <View style={{backgroundColor:'#FFBC7D',  opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
+           <View style={{opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
                          
 
                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
@@ -348,12 +338,12 @@ const styles = StyleSheet.create({
     height: hp('10%'),
     marginBottom:hp('0%'),
     width:wp('85%'),
-    backgroundColor: 'white',
-    fontSize: hp('1.5%'),
+    backgroundColor: 'black',
+    fontSize: hp('2%'),
     fontWeight: 'bold',
-    borderRadius: 4,
+    borderRadius: 20,
     textAlign:'center',
-    color:'black'
+    color:'white'
     
    
 

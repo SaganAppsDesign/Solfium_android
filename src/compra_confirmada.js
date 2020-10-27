@@ -30,7 +30,7 @@ export class CompraConfirmada extends React.Component {
   var year = date.slice(0, 4);
   var month = date.slice(5, 7);
   var day = date.slice(8,10);
-  var hour = date.slice(11,16);
+  var hour = parseInt(date.slice(11,16))+2
 
   var opacity, bool, opacity2
 
@@ -113,7 +113,7 @@ export class CompraConfirmada extends React.Component {
                                       opacity: opacity,
                                       
                               
-                                      }}>{nombre}, tu equipo se instalará el {day}-{month}-{year} a las {hour} h</Text>
+                                      }}>{nombre}, tu equipo se instalará el {day}-{month}-{year} a las {hour-6} h</Text>
                               </View>
 
                               <Text style={{

@@ -10,6 +10,7 @@ import {CitaConfirmada} from './src/cita_confirmada';
 import {IdentidadConfirmada} from './src/identidad_confirmada';  
 import {VideoInfo} from './src/video_informativo';  
 import {InfoResultInsta} from './src/info_result_instalacion.js';  
+import {InfoResultInsta2} from './src/info_result_instalacion_comparativa.js'; 
 import {Instalacion} from './src/instalacion_en_proceso.js';  
 import {Ratings} from './src/rating.js';  
 import {Payment} from './src/pago';  
@@ -81,7 +82,8 @@ export class MainScreen extends React.Component {
       <Stack.Screen  options={{headerShown: false}} name="Próxima visita" component={CitaConfirmada} />
       <Stack.Screen  options={{headerShown: false}} name="Pago" component={Payment} />
       <Stack.Screen options={{headerShown: false}} name="Video Informativo" component={VideoInfo} />
-      <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />
+      <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />    
+      <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación Comparativa" component={InfoResultInsta2} />
       <Stack.Screen options={{headerShown: false}}name="Instalación en proceso" component={Instalacion} />
       <Stack.Screen options={{headerShown: false}}  name="Rating" component={Ratings} />
       <Stack.Screen options={{headerShown: false}}name="Escanear QR Instalador" component={IdentidadConfirmada}/>

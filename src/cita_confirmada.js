@@ -39,7 +39,9 @@ export class CitaConfirmada extends React.Component {
     var year = date.slice(0, 4)
     var month = date.slice(5, 7)
     var day = date.slice(8,10)
-    var hour = date.slice(11,16)
+    var hour = parseInt(date.slice(11,13))
+    var min = date.slice(13,16)
+ 
 
     var visita = this.state.visita
     var bool, opacity
@@ -90,7 +92,7 @@ export class CitaConfirmada extends React.Component {
                                     fontWeight: 'bold',
                                     padding: hp('1%'),
                                     textAlign: 'center',
-                                    }}>El {day}-{month}-{year} a las {hour} h</Text>
+                                    }}>El {day}-{month}-{year} a las {hour}{min} h</Text>
 
                                      {/*  Foto y descripción instalador */}
 

@@ -10,6 +10,7 @@ import backBtn from '../assets/backBtn.png';
 import { Card } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {potencia} from './ingresar_consumo2'
+import Fire, {db} from '../fire';
 
 /* 
 Parámetros:
@@ -33,9 +34,15 @@ Potencia del sistema = (Consumo diario) * (Factor de eficiencia) * (Factor de pa
 Costo promedio del sistema = (Potencia del sistema) * 10 * (Factor de costo) * (Factor cambio) */
 
 var opacity, facturacionPeriod, costoEnergia, consumoMensual, consumoDiario, potenciaSistema, 
-costoPromedioSistema, costoPromedioSistemaDec, mensualidad60pagosSinFormato, mensualidad60pagos,
+costoPromedioSistemaDec, mensualidad60pagosSinFormato, mensualidad60pagos,
 ahorro25sinformato, ahorro25, amortizacionMesesSinFormato, amortizacionMeses, DAP 
 
+export var costoPromedioSistema
+
+var factor24= 1.14
+var factor36= 1.21
+var factor48= 1.28
+var factor60= 1.35
 var cargoFijoMensual = 114
 var tarifaDAC = 4.3333
 var horasSolDiarias = 7.7
@@ -43,9 +50,9 @@ var factorEficiencia = 1.15
 var factorPagoCero = 1.4
 var factorCosto = 140
 var factorCambio = 21.37
-var factorArbol = 288
+var factorArbol = 7.5
 var factorCO2 = 0.495
-var factorKm = 135610
+var factorKm = 3535.88
 var garantia = 25
 
 var sistema, msg
@@ -71,6 +78,8 @@ export class Calculos extends React.Component {
 
   render() {
 
+
+
   //Cálculos  
   DAP = (6.451*potencia)/100
   facturacionPeriod = potencia - DAP
@@ -83,14 +92,39 @@ export class Calculos extends React.Component {
 
   costoPromedioSistema = format(costoPromedioSistemaDec)
 
-  mensualidad60pagosSinFormato = costoPromedioSistema*1000/60*1.35
-  mensualidad60pagos = format(mensualidad60pagosSinFormato)
+  //mensualidad60pagosSinFormato = (costoPromedioSistema*1000/60)*factor60
+  //mensualidad60pagos = format(mensualidad60pagosSinFormato)
 
-  ahorro25sinformato = (25*12 - (costoPromedioSistema*1000/(costoPromedioSistema*1000/60*1.35)))*(costoPromedioSistema*1000/60*1.35)
-  ahorro25 = format(ahorro25sinformato)
+  function mensualidad(meses,factor){
+    var mensualidadSinFormato = (costoPromedioSistema*1000/meses)*factor
+    var mensualidadpagos = format(mensualidadSinFormato)
 
-  amortizacionMesesSinFormato = costoPromedioSistema/mensualidad60pagos
-  amortizacionMeses = format(amortizacionMesesSinFormato)
+    return mensualidadpagos
+
+  }
+
+  //ahorro25sinformato = (25*12 - (costoPromedioSistema*1000/(costoPromedioSistema*1000/60*factor60)))*(costoPromedioSistema*1000/60*factor60)
+  //ahorro25 = format(ahorro25sinformato)
+
+  function ahorro25(meses,factor){
+    var ahorro25sinformato = (25*12 - (costoPromedioSistema*1000/(costoPromedioSistema*1000/meses*factor)))*(costoPromedioSistema*1000/meses*factor)
+    var ahorro25 = format(ahorro25sinformato)
+
+    return ahorro25
+
+  }
+
+    
+  //amortizacionMesesSinFormato = costoPromedioSistema/mensualidad60pagos
+  //amortizacionMeses = format(amortizacionMesesSinFormato)
+
+  function amortizacion(meses,factor){
+    var amortizacionSinFormato = costoPromedioSistema/mensualidad(meses,factor)
+    var amortizacion = format(amortizacionSinFormato)
+
+    return amortizacion
+
+  }
  
  
 //Condicionales para saber el Sistema Eléctrico
@@ -98,43 +132,42 @@ export class Calculos extends React.Component {
 if (potenciaSistema < 1.5){
    
   msg = "Su consumo es muy bajo"
-  console.log("1")
+  
 
 } else if (potenciaSistema >= 1.5 && potenciaSistema < 3.5){
 
   sistema = 3
-  console.log("3")
+ 
 
 }  
 
 else if (potenciaSistema >= 3.5 && potenciaSistema < 5.5){
 
   sistema = 5
-  console.log("5")
+  
 
 } 
 
 else if (potenciaSistema >= 5.5 && potenciaSistema < 7.5){
 
   sistema = 7
-  console.log("7")
+  
 
 } 
 
 else if (potenciaSistema >= 7.5 && potenciaSistema < 10.5){
 
   sistema = 10
-  console.log("10")
+  
 
 } 
 
 else if (potenciaSistema > 10,5){
 
   msg = "Su consumo necesita más atención"
-  console.log("20")
+  
 
 } 
-
 
 
 var arboles = calculosEcologicos(factorArbol)
@@ -144,37 +177,47 @@ var arboles = calculosEcologicos(factorArbol)
   console.log('co2=',co2)
 
   var km = calculosEcologicos(factorKm)
-  console.log('km=',km)
-
-  console.log('sistema =' ,potenciaSistema)
-
-
-
-
-
-
   
-/* 
+  console.log('km=',km)
+  console.log('sistema =' ,potenciaSistema)
   console.log('RENDER------------------------------')
   console.log('Costo MXN =',potencia)
-
   console.log('DAP =',DAP)
   console.log('facturacionPeriod =',facturacionPeriod)
   console.log('costoEnergia =',costoEnergia)
   console.log('consumoMensual =',consumoMensual)
   console.log('consumoDiario =',consumoDiario)
   console.log('potenciaSistema =' ,potenciaSistema)
-
-
-  console.log('costoPromedioSistemaSinFormato',costoPromedioSistemaSinFormato)
+  //console.log('costoPromedioSistemaSinFormato',costoPromedioSistemaSinFormato)
   console.log('costoPromedioSistema',costoPromedioSistema)
-  console.log('mensualidad60pagosSinFormato',mensualidad60pagosSinFormato)
-  console.log('mensualidad60pagos',mensualidad60pagos)
-  console.log('ahorro25sinformato ',ahorro25sinformato )
-  console.log('ahorro25 ',ahorro25 )
-  console.log('amortizacionMesesSinFormato ',amortizacionMesesSinFormato )
-  console.log('amortizacionMeses ',amortizacionMeses )
-  console.log('------------------------------')   */
+  //console.log('mensualidad60pagosSinFormato',mensualidad60pagosSinFormato)
+  console.log('mensualidad60pagos',mensualidad(60,factor60))
+  //console.log('ahorro25sinformato ',ahorro25sinformato )
+  console.log('ahorro25 ',ahorro25(60,factor60) )
+  //console.log('amortizacionMesesSinFormato ',amortizacionMesesSinFormato )
+  console.log('amortizacionMeses ',amortizacion(60, factor60) )
+  console.log('------------------------------')   
+
+
+
+  db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+    
+    CalculoPotenciaSistema: potenciaSistema,
+    Sistema:sistema,
+    ConsumoMensual:potencia,
+    CostoPromedioSistema:costoPromedioSistema,
+    Mensualidad60:mensualidad(60,factor60),
+    Amortizacion:amortizacion(60, factor60),
+    Ahorro25:ahorro25(60,factor60),
+    Arboles:arboles,
+    CO2:co2,
+    KM:km
+
+
+    
+    
+    })
   
     return (
 
@@ -269,7 +312,7 @@ var arboles = calculosEcologicos(factorArbol)
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{mensualidad60pagos} MXN</Text>
+                        }}>{mensualidad(60,factor60)} MXN</Text>
             </View> 
 
             </View>
@@ -311,7 +354,7 @@ var arboles = calculosEcologicos(factorArbol)
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{amortizacionMeses} meses</Text>
+                        }}>{amortizacion(60,factor60)} meses</Text>
             </View> 
 
             </View>
@@ -345,7 +388,7 @@ var arboles = calculosEcologicos(factorArbol)
                     fontWeight:'bold',
                     textAlign:'center',
                     
-                    }}>{ahorro25} MXN</Text>
+                    }}>{ahorro25(60,factor60)} MXN</Text>
 
 
         </View> 
@@ -365,9 +408,7 @@ var arboles = calculosEcologicos(factorArbol)
                     width:wp('70%'),
                     }}>_______________________________________________</Text>
 
-                  
-
-
+         
         </View> 
 
         {/*  Evitarás contaminar*/}

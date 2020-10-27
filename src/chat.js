@@ -144,9 +144,9 @@ state = {
               isTyping={true}
               placeholder={"Chatea aquí " + name}
               user={{
-                _id: "Instalador1",
+                _id: Fire.getUid(),
                 name: name,
-                avatar: 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/45.png'
+                //avatar: 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/45.png'
               
             }}
           />

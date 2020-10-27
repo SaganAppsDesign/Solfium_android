@@ -12,32 +12,51 @@ import usuario from '../assets/usuario.png'
 import fondo from '../assets/fondo2.jpg';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import backBtn from '../assets/backBtn.png';
+//import {costoPromedioSistema} from './calculos';
 
 //var viabilidad, user=''
 var text,text1,text2,text3,text4,text5,text6,text7,color,opacity,backgroundcolor, viable
 
+//console.log('costoPromedioSistema', costoPromedioSistema)
 
 
-export class InfoResultInsta extends React.Component {
+export class InfoResultInsta2 extends React.Component {
   
   state = {
-    viabilidad: '',
+    
     username: '',
-    potencia:''
+    potencia:'',
+    inversionTotal:'',
+    mensualidad60:'',
+    amortizacion:'',
+    ahorro25:'',
+    arboles:'',
+    co2:'',
+    coches:''
+
   }
 
- 
+                 
   render() {
+
+   
     //console.log('viabilidad componentDidMount',   this.state.viabilidad)
     
 
-    var viab = this.state.viabilidad
-    var viabInt = parseInt(viab)
-
+    
     var poten = this.state.potencia
+    var inversionTotal = this.state.inversionTotal
+    var mensualidad60 = this.state.mensualidad60
+    var amortizacion = this.state.amortizacion
+    var ahorro25 = this.state.ahorro25
+    var arboles = this.state.arboles
+    var co2 = this.state.co2
+    var coches = this.state.coches
+
+
     var potenInt = parseInt(poten)
 
-    //console.log('potenInt',  potenInt)
+    console.log('potenInt',  potenInt)
     
 
   if (potenInt == 10){
@@ -154,7 +173,7 @@ export class InfoResultInsta extends React.Component {
     <View style={{alignItems: 'center', alignContent: 'center', marginTop:hp('1%'), flex:18}}>
          
           <Card containerStyle={{backgroundColor:'white', marginTop: hp('4%'),  borderRadius: 50, 
-          width:wp('80%'), height:hp('81%'), alignItems: 'center'}}>
+          width:wp('85%'), height:hp('81%'), alignItems: 'center'}}>
     
             <View style={{flexDirection:'column', width:wp('100%'), height:hp('100%'), alignItems: 'center', flex:5}}>
            
@@ -187,6 +206,32 @@ export class InfoResultInsta extends React.Component {
             <View style={{width:wp('100%'), height:hp('0%'), marginBottom:hp('0%'),alignItems:'center',flex:7}}>
             <View style={{flexDirection:'row', flex:2, alignItems:'center',width:wp('80%'), marginTop:hp('0%')}} >
              
+
+
+            <View style={{height:hp('4%'), marginBottom:wp('0%'),
+                    alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
+                          
+                          <Text style={{color: '#878787',
+                            alignItems:'center',
+                            fontSize:hp('1.3%'),
+                            textAlign:'center',
+                            height:hp('3%'),
+                            width:wp('35%'),
+                            }}> Inversión total: </Text>
+
+                          <Text style={{color: 'black',
+                            fontSize:hp('1.5%'),
+                            alignItems:'center',
+                            marginTop: '0%',
+                            marginRight:'0%',
+                            marginLeft:'0%',
+                            height:hp('5%'),
+                            width:wp('35%'),
+                            fontWeight:'bold',
+                            textAlign:'center',
+                            
+                            }}>{inversionTotal} MXN</Text>
+                </View> 
                 <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
                       <Image
                       style={{  width:wp('20%'), height:hp('10%'), marginLeft:'0%', 
@@ -207,7 +252,7 @@ export class InfoResultInsta extends React.Component {
                             }}> Inversión total: </Text>
 
                           <Text style={{color: 'black',
-                            fontSize:hp('2%'),
+                            fontSize:hp('1.5%'),
                             alignItems:'center',
                             marginTop: '0%',
                             marginRight:'0%',
@@ -226,6 +271,31 @@ export class InfoResultInsta extends React.Component {
             {/*  mensualidad */}
 
             <View style={{flexDirection:'row', flex:2, alignItems:'center',width:wp('80%')}} >
+
+            <View style={{height:hp('4%'), marginBottom:wp('0%'),
+                alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
+                      
+                      <Text style={{color: '#878787',
+                        alignItems:'center',
+                        fontSize:hp('1.3%'),
+                        textAlign:'center',
+                        height:hp('3%'),
+                        width:wp('35%'),
+                        }}>Hasta 60 pagos de:</Text>
+
+                      <Text style={{color: 'black',
+                        fontSize:hp('1.5%'),
+                        alignItems:'center',
+                        marginTop: '0%',
+                        marginRight:'0%',
+                        marginLeft:'0%',
+                        height:hp('5%'),
+                        width:wp('35%'),
+                        fontWeight:'bold',
+                        textAlign:'center',
+                        
+                        }}>{mensualidad60} MXN</Text>
+            </View> 
                         
             <View  style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
                   <Image
@@ -247,7 +317,7 @@ export class InfoResultInsta extends React.Component {
                         }}>Hasta 60 pagos de:</Text>
 
                       <Text style={{color: 'black',
-                        fontSize:hp('2%'),
+                        fontSize:hp('1.5%'),
                         alignItems:'center',
                         marginTop: '0%',
                         marginRight:'0%',
@@ -267,6 +337,32 @@ export class InfoResultInsta extends React.Component {
          {/*  ahorro anual */}
      
      <View style={{flexDirection:'row', flex:2, alignItems:'center',width:wp('80%')}} >
+
+     <View style={{height:hp('4%'), marginBottom:wp('0%'),
+                alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
+                      
+                      <Text style={{color: '#878787',
+                        alignItems:'center',
+                        fontSize:hp('1.2%'),
+                        textAlign:'center',
+                        height:hp('3%'),
+                        width:wp('35%'),
+                        }}>Tu inversión se amortiza en:</Text>
+
+                      <Text style={{color: 'black',
+                        fontSize:hp('1.5%'),
+                        alignItems:'center',
+                        marginTop: '3%',
+                        marginRight:'0%',
+                        marginLeft:'0%',
+                        height:hp('5%'),
+                        width:wp('35%'),
+                        fontWeight:'bold',
+                        textAlign:'center',
+                        
+                        }}>{amortizacion} meses</Text>
+            </View> 
+         
                         
             <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
                   <Image
@@ -288,9 +384,9 @@ export class InfoResultInsta extends React.Component {
                         }}>Tu inversión se amortiza en:</Text>
 
                       <Text style={{color: 'black',
-                        fontSize:hp('2%'),
+                        fontSize:hp('1.5%'),
                         alignItems:'center',
-                        marginTop: '0%',
+                        marginTop: '3%',
                         marginRight:'0%',
                         marginLeft:'0%',
                         height:hp('5%'),
@@ -307,6 +403,31 @@ export class InfoResultInsta extends React.Component {
     
       {/*  Ahorro a 25 años*/}
         <View style={{flexDirection:'row', flex:2, alignItems:'center',width:wp('80%')}} >
+        <View style={{ height:hp('4%'), marginBottom:wp('0%'),
+            alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
+                  
+                  <Text style={{color: '#878787',
+                    alignItems:'center',
+                    fontSize:hp('1.3%'),
+                    textAlign:'center',
+                    height:hp('3%'),
+                    width:wp('35%'),
+                    }}>Ahorro a 25 años:</Text>
+
+                  <Text style={{color: 'black',
+                    fontSize:hp('1.5%'),
+                    alignItems:'center',
+                    marginTop: '0%',
+                    marginRight:'0%',
+                    marginLeft:'0%',
+                    height:hp('5%'),
+                    width:wp('35%'),
+                    fontWeight:'bold',
+                    textAlign:'center',
+                    
+                    }}>{ahorro25} MXN</Text>
+        </View>
+
                             
         <View style={{ flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
               <Image
@@ -328,7 +449,7 @@ export class InfoResultInsta extends React.Component {
                     }}>Ahorro a 25 años:</Text>
 
                   <Text style={{color: 'black',
-                    fontSize:hp('2%'),
+                    fontSize:hp('1.5%'),
                     alignItems:'center',
                     marginTop: '0%',
                     marginRight:'0%',
@@ -362,8 +483,59 @@ export class InfoResultInsta extends React.Component {
         
         <View style={{flexDirection:'row', flex:5, alignItems:'center', marginTop:hp('0%')}} >
 
+        <View style={{width:wp('20%'), height:hp('18.6%'), marginBottom:hp('0%'),
+            alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
+                  
+                 
+
+                  <Text style={{color: '#5DCB31',
+                    fontSize:hp('1.5%'),
+                    
+                    marginTop: hp('1.5%'),
+                    marginRight:'0%',
+                    marginLeft:'0%',
+                    height:hp('5%'),
+                    width:wp('30%'),
+                    fontWeight:'bold',
+                    textAlign:'center',
+                 
+                    
+                    }}>{arboles} Árboles apadrinados</Text>
+                    
+                  <Text style={{color: '#5DCB31',
+                    fontSize:hp('1.5%'),
+                    
+                    marginTop: hp('1.5%'),
+                    marginRight:'0%',
+                    marginLeft:'0%',
+                    height:hp('5%'),
+                    width:wp('30%'),
+                    fontWeight:'bold',
+                    textAlign:'center',
+            
+                    
+                    }}>{co2} Tn de CO2 sin emitir</Text>
+
+
+                  <Text style={{color: '#5DCB31',
+                    fontSize:hp('1.5%'),
+                    
+                    marginTop: hp('1.5%'),
+                    marginRight:'0%',
+                    marginLeft:'0%',
+                    height:hp('5%'),
+                    width:wp('30%'),
+                    fontWeight:'bold',
+                    textAlign:'center',
+               
+                    
+                    }}>{coches} Km recorrido en auto equivalente</Text>
+        </View> 
+
         <View style={{  marginBottom:wp('0%'),
             alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
+
+
                             
         <View style={{ flexDirection: 'row', flex:3, justifyContent:'center', alignItems:'center'}}>
               <Image
@@ -401,7 +573,7 @@ export class InfoResultInsta extends React.Component {
                     fontSize:hp('1.5%'),
                     
                     marginTop: hp('1.5%'),
-                    marginRight:'30%',
+                    marginRight:'0%',
                     marginLeft:'0%',
                     height:hp('5%'),
                     width:wp('30%'),
@@ -415,7 +587,7 @@ export class InfoResultInsta extends React.Component {
                     fontSize:hp('1.5%'),
                     
                     marginTop: hp('1.5%'),
-                    marginRight:'30%',
+                    marginRight:'0%',
                     marginLeft:'0%',
                     height:hp('5%'),
                     width:wp('30%'),
@@ -623,7 +795,18 @@ export class InfoResultInsta extends React.Component {
   
     this.setState({viabilidad: snapshot.child("Viabilidad").val() || '',
                    username: snapshot.child("name").val() || '' ,
-                   potencia: snapshot.child("potenciaContratada").val() || '' })    
+                   potencia: snapshot.child("potenciaContratada").val() || '' ,
+                   inversionTotal: snapshot.child("CostoPromedioSistema").val() || '' ,
+                   mensualidad60: snapshot.child("Mensualidad60").val() || '' ,
+                   amortizacion: snapshot.child("Amortizacion").val() || '' ,
+                   ahorro25: snapshot.child("Ahorro25").val() || '' ,
+                   arboles: snapshot.child("Arboles").val() || '' ,
+                   co2: snapshot.child("CO2").val() || '' ,
+                   coches: snapshot.child("KM").val() || ''
+                   
+                   }
+                                      
+                   )    
  
    // this.setState({username: snapshot.child("name").val() || ''})
   
