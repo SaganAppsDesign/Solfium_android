@@ -49,6 +49,8 @@ export class Ratings extends React.Component{
     
          
     })
+
+    alert("Muchas gracias por enviarnos tu opinión")
       
    
    }
@@ -103,7 +105,7 @@ export class Ratings extends React.Component{
                               <Image 
                                 
                                 source={rating}
-                                style={{aspectRatio:1.6, height:hp('20%')}}
+                                style={{aspectRatio:1.8, height:hp('21%')}}
                                 
                                 >    
                                 </Image>

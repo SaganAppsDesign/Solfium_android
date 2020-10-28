@@ -667,7 +667,7 @@ export class InfoResultInsta2 extends React.Component {
       </View>   
 
                {/* Botón*/}
-               <View style={{marginLeft:wp('40%') ,   backgroundColor:'#5DCB31', borderRadius:50, width:wp('35%'), height:hp('10%'), flex:1, alignItems:'center', marginTop:hp('1%')}}>
+               <View style={{marginLeft:wp('40%') ,   backgroundColor:'#5DCB31', borderRadius:50, width:wp('40%'), height:hp('10%'), flex:1, alignItems:'center', marginTop:hp('1%')}}>
 
                <TouchableOpacity
                      
