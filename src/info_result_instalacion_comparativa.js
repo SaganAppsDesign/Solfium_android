@@ -12,10 +12,22 @@ import usuario from '../assets/usuario.png'
 import fondo from '../assets/fondo2.jpg';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import backBtn from '../assets/backBtn.png';
-//import {costoPromedioSistema} from './calculos';
+import {potencia} from './ingresar_consumo2'
 
-//var viabilidad, user=''
+
+
+const format = (num) => {
+ 
+  numFormat =  new Intl.NumberFormat('de-DE').format(Math.trunc(num))
+
+  return numFormat
+ 
+}
+
 var text,text1,text2,text3,text4,text5,text6,text7,color,opacity,backgroundcolor, viable
+
+
+
 
 //console.log('costoPromedioSistema', costoPromedioSistema)
 
@@ -32,7 +44,8 @@ export class InfoResultInsta2 extends React.Component {
     ahorro25:'',
     arboles:'',
     co2:'',
-    coches:''
+    coches:'',
+    text1:''
 
   }
 
@@ -52,68 +65,90 @@ export class InfoResultInsta2 extends React.Component {
     var arboles = this.state.arboles
     var co2 = this.state.co2
     var coches = this.state.coches
-
+    
+    //console.log('this.state.text1',text16666)
 
     var potenInt = parseInt(poten)
 
-    console.log('potenInt',  potenInt)
+    //console.log('potenInt',  potenInt)
     
 
   if (potenInt == 10){
     viable = "VIABLE"
     text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium"' 
-    text1 = '299.180 MXN' 
-    text2 = '6.731 MXN' 
-    text3 = '44 meses' 
-    text4 = '1.720.285 MXN' 
+    text1 = 299180 
+    text2 = 6731 
+    text3 = text1/potencia 
+    text4 = (25*12-text3)*potencia
     text5 = '1875' 
     text6 = '123' 
     text7 = '883.970' 
     color = '#5DCB31'
     opacity = 1
     backgroundcolor = 'white'
+   
+     db.ref('Usuarios/' +  Fire.getUid()).update({
     
+      PotenciaSistemaDefinitivo: text1,
+           
+    })             
+     
    
   } else if ( potenInt == 7){
     viable = "OPTIMIZADA A LA BAJA"
     text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
-    text1 = '209.426 MXN'
-    text2 = '4.712 MXN' 
-    text3 = '44 meses' 
-    text4 = '1.204.199 MXN' 
+    text1 = 209426
+    text2 = 4712
+    text3 = text1/potencia
+    text4 = (25*12-text3)*potencia
     text5 = '1312' 
     text6 = '86' 
     text7 = '618.779' 
     opacity = 1
     backgroundcolor = 'white'
+    db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+      PotenciaSistemaDefinitivo: text1,
+           
+    })   
 
   } else if ( potenInt == 5){
     viable = "OPTIMIZADA A LA BAJA"
     text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
-    text1 = '149.590 MXN'
-    text2 = '3.365 MXN' 
-    text3 = '44 meses' 
-    text4 = '860.142 MXN' 
+    text1 = 149590
+    text2 = 3365
+    text3 = text1/potencia
+    text4 = (25*12-text3)*potencia
     text5 = '937' 
     text6 = '61' 
     text7 = '441.985'  
     color = 'orange'
     opacity = 1
     backgroundcolor = 'white'
+    db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+      PotenciaSistemaDefinitivo: text1,
+           
+    })    
 
   } else if ( potenInt == 3){
     viable = "OPTIMIZADA A LA BAJA"
     text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
-    text1 = '89.754 MXN'
-    text2 = '2.019 MXN' 
-    text3 = '44 meses' 
-    text4 = '516,085 MXN' 
+    text1 = 89754
+    text2 = 2019 
+    text3 = text1/potencia
+    text4 = (25*12-text3)*potencia
     text5 = '562' 
     text6 = '37' 
     text7 = '265.191'  
     color = 'orange'
     opacity = 1
     backgroundcolor = 'white'
+    db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+      PotenciaSistemaDefinitivo: text1,
+           
+    })   
 
   } else if (potenInt == 'evaluando'){
     viable = "EVALUANDO INSTALACIÓN"
@@ -129,7 +164,7 @@ export class InfoResultInsta2 extends React.Component {
     backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
     
-  } else if ( potenInt = 1){
+  } else if ( potenInt <= 1.5){
     viable = "NO VIABLE"
     text = 'Gracias por tu interés en Solfium, pero lamentablemente no es posible instalar el sistema en tu hogar. Nuestro experto estará encantado de resolver cualquier duda' 
     text1 = '-' 
@@ -156,6 +191,9 @@ export class InfoResultInsta2 extends React.Component {
     opacity = 0
   }
  
+  
+
+  
 
   return (  
 
@@ -262,7 +300,7 @@ export class InfoResultInsta2 extends React.Component {
                             fontWeight:'bold',
                             textAlign:'center',
                             
-                            }}>{text1}</Text>
+                            }}>{format(text1)}</Text>
                 </View> 
 
             </View>
@@ -327,7 +365,7 @@ export class InfoResultInsta2 extends React.Component {
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{text2}</Text>
+                        }}>{format(text2)}</Text>
             </View> 
 
             </View>
@@ -394,7 +432,7 @@ export class InfoResultInsta2 extends React.Component {
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{text3}</Text>
+                        }}>{format(text3)}</Text>
             </View> 
 
             </View>
@@ -459,7 +497,7 @@ export class InfoResultInsta2 extends React.Component {
                     fontWeight:'bold',
                     textAlign:'center',
                     
-                    }}>{text4}</Text>
+                    }}>{format(text4)} MXN</Text>
         </View>
 
         </View>
@@ -629,7 +667,7 @@ export class InfoResultInsta2 extends React.Component {
       </View>   
 
                {/* Botón*/}
-               <View style={{backgroundColor:'#5DCB31', borderRadius:50, width:wp('60%'), height:hp('10%'), flex:1, alignItems:'center', marginTop:hp('1%')}}>
+               <View style={{marginLeft:wp('40%') ,   backgroundColor:'#5DCB31', borderRadius:50, width:wp('35%'), height:hp('10%'), flex:1, alignItems:'center', marginTop:hp('1%')}}>
 
                <TouchableOpacity
                      

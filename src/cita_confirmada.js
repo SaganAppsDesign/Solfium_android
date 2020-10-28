@@ -322,7 +322,7 @@ export class CitaConfirmada extends React.Component {
     this.setState({cita: snapshot.child("cita").val() || '' ,
                    username: snapshot.child("name").val() || '',
                    visita: snapshot.child("visita").val() || '',
-                   nombre_instalador: snapshot.child("nombre_instalador").val() || ''
+                   //nombre_instalador: snapshot.child("nombre_instalador").val() || ''
                   
                   
                   })    
@@ -330,6 +330,24 @@ export class CitaConfirmada extends React.Component {
    
   }
   )
+
+  const ref2 = db.ref('/Instaladores/Instalador1/');
+
+  this.listener = ref2.on("value", snapshot => {
+
+  this.setState({
+                 nombre_instalador: snapshot.child("name").val() || ''
+                                
+                })    
+
+ 
+}
+
+
+
+)
+
+
 
 }
 }

@@ -130,7 +130,8 @@ export class Ratings extends React.Component{
                   </View> 
 
 
-                  <KeyboardAvoidingView  enabled keyboardVerticalOffset={80} behavior='position'
+                  <KeyboardAvoidingView  
+                       behavior={Platform.OS == "ios" ? "padding" : "height"}
                        style={{alignItems:'center', height:hp('0%'), width:hp('100%'), flex:5, alignContent:'center', justifyContent:'center'}}>
                 
                    
@@ -140,8 +141,8 @@ export class Ratings extends React.Component{
                             style={styles.nameInput}
                             placeholder="Deja un comentario si lo deseas"
                             placeholderTextColor = "grey"
-                            multiline
-                            numberOfLines={3}
+                            //multiline
+                            //numberOfLines={3}
                             onChangeText={this.onChangeText}
                             value={this.state.comentarios}
                             returnKeyType={ 'done' }

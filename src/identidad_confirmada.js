@@ -24,24 +24,27 @@ export class IdentidadConfirmada extends React.Component {
  
     nombre_instalador:'',
     potencia:'',
-    QR:''
+    QR:'',
+    sistemaRedondeo:''
   }
 
   
   render() {
 
     var potencia = this.state.potencia
+    var sistema = this.state.sistemaRedondeo
     var QR = this.state.QR
     var bool,opacity, opacity2, opacity3, screen
 
-    //console.log(QR)
+     console.log("potencia",  potencia)
+     console.log("sistema"  , sistema)
 
      if (potencia == '' ){
             
       bool=true
       opacity=0
       
-      } else if (potencia == 10){
+      } else if (potencia == sistema){
 
       bool=false
       opacity=1
@@ -414,13 +417,27 @@ componentDidMount() {
 
   this.setState({ nombre_instalador: snapshot.child("nombre_instalador").val() || '',
                   potencia: snapshot.child("potenciaContratada").val() || ''  ,
-                  QR: snapshot.child("QR_instalador").val() || ''
-                                
+                  QR: snapshot.child("QR_instalador").val() || '',
+                  sistemaRedondeo: snapshot.child("Sistema").val() || ''              
                 })    
 
  
 }
+
 )
+
+
+const ref2 = db.ref('/Instaladores/Instalador1/');
+
+this.listener = ref2.on("value", snapshot => {
+
+this.setState({
+               nombre_instalador: snapshot.child("name").val() || ''
+                              
+              })    
+
+
+})
 
 
 }

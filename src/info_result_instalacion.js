@@ -12,21 +12,35 @@ import usuario from '../assets/usuario.png'
 import fondo from '../assets/fondo2.jpg';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import backBtn from '../assets/backBtn.png';
+import {potencia} from './ingresar_consumo2'
 
 //var viabilidad, user=''
-var text,text1,text2,text3,text4,text5,text6,text7,color,opacity,backgroundcolor, viable
+var text,text12,text2,text3,text4,text5,text6,text7,color,opacity,backgroundcolor, viable
+export var costoSistemaExport
 
 
+
+
+const format = (num) => {
+ 
+  numFormat =  new Intl.NumberFormat('de-DE').format(Math.trunc(num))
+
+  return numFormat
+ 
+}
 
 export class InfoResultInsta extends React.Component {
   
   state = {
     viabilidad: '',
     username: '',
-    potencia:''
+    potencia:'',
+    text12:''
   }
 
- 
+  //costoSistemaExport = this.state.text12
+
+
   render() {
     //console.log('viabilidad componentDidMount',   this.state.viabilidad)
     
@@ -36,70 +50,96 @@ export class InfoResultInsta extends React.Component {
 
     var poten = this.state.potencia
     var potenInt = parseInt(poten)
-
-    //console.log('potenInt',  potenInt)
-    
+ 
+    viable = "VIABLE"
+    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium"'  
 
   if (potenInt == 10){
-    viable = "VIABLE"
-    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium"' 
-    text1 = '299.180 MXN' 
-    text2 = '6.731 MXN' 
-    text3 = '44 meses' 
-    text4 = '1.720.285 MXN' 
+    //viable = "VIABLE"
+    //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium"' 
+    text12 = 299180
+    text2 = 6731
+    text3 = Math.trunc(text12/potencia)
+    text4 = format(Math.trunc((25*12-text3)*potencia))
     text5 = '1875' 
     text6 = '123' 
     text7 = '883.970' 
     color = '#5DCB31'
     opacity = 1
     backgroundcolor = 'white'
+    //this.setState({text12: text12 || '' }) 
+    db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+        PotenciaSistemaDefinitivo: text12,
+             
+      })
+       
     
    
   } else if ( potenInt == 7){
-    viable = "OPTIMIZADA A LA BAJA"
-    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
-    text1 = '209.426 MXN'
-    text2 = '4.712 MXN' 
-    text3 = '44 meses' 
-    text4 = '1.204.199 MXN' 
+    //viable = "OPTIMIZADA A LA BAJA"
+    //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
+    text12 = 209426
+    text2 = 4712
+    text3 = text12/potencia
+    text4 = (25*12-text3)*potencia
     text5 = '1312' 
     text6 = '86' 
-    text7 = '618.779' 
+    text7 = '618.779'  
+    color = '#5DCB31'
     opacity = 1
     backgroundcolor = 'white'
+    //this.setState({text12: text12 || '' })   
+    db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+      PotenciaSistemaDefinitivo: text12,
+           
+    }) 
 
   } else if ( potenInt == 5){
-    viable = "OPTIMIZADA A LA BAJA"
-    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
-    text1 = '149.590 MXN'
-    text2 = '3.365 MXN' 
-    text3 = '44 meses' 
-    text4 = '860.142 MXN' 
+    //viable = "OPTIMIZADA A LA BAJA"
+    //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
+    text12 = 149590
+    text2 = 3365
+    text3 = text12/potencia
+    text4 = (25*12-text3)*potencia
     text5 = '937' 
     text6 = '61' 
-    text7 = '441.985'  
-    color = 'orange'
+    text7 = '441.985' 
+    color = '#5DCB31'
     opacity = 1
     backgroundcolor = 'white'
+    //this.setState({text12: text12 || '' })    
+    db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+      PotenciaSistemaDefinitivo: text12,
+           
+    })
 
   } else if ( potenInt == 3){
-    viable = "OPTIMIZADA A LA BAJA"
-    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
-    text1 = '89.754 MXN'
-    text2 = '2.019 MXN' 
-    text3 = '44 meses' 
-    text4 = '516,085 MXN' 
+    //viable = "OPTIMIZADA A LA BAJA"
+    //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
+    text12 = 89754
+    text2 = 2019 
+    text3 = text12/potencia
+    text4 = (25*12-text3)*potencia
     text5 = '562' 
     text6 = '37' 
-    text7 = '265.191'  
-    color = 'orange'
+    text7 = '265.191' 
+    color = '#5DCB31'
     opacity = 1
     backgroundcolor = 'white'
+    //this.setState({text12: text12 || '' })  
+    db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+      PotenciaSistemaDefinitivo: text12,
+           
+    })  
 
   } else if (potenInt == 'evaluando'){
     viable = "EVALUANDO INSTALACIÓN"
     text = this.state.username + ', espera mientras se evalúa su posible instalación' 
-    text1 = '-' 
+    text12 = '-' 
     text2 = '-' 
     text3 = '-' 
     text4 = '-' 
@@ -113,7 +153,7 @@ export class InfoResultInsta extends React.Component {
   } else if ( potenInt = 1){
     viable = "NO VIABLE"
     text = 'Gracias por tu interés en Solfium, pero lamentablemente no es posible instalar el sistema en tu hogar. Nuestro experto estará encantado de resolver cualquier duda' 
-    text1 = '-' 
+    text12 = '-' 
     text2 = '-' 
     text3 = '-' 
     text4 = '-' 
@@ -127,11 +167,13 @@ export class InfoResultInsta extends React.Component {
   } else {
     viable = "PENDIENTE CONTACTO CON INSTALADOR"
     text = this.state.username + ', en breve el personal de instalación se pondrá en contacto contigo.' 
-    text1 = '-' 
+    text12 = '-' 
     text2 = '-' 
     text3 = '-' 
     text4 = '-' 
     text5 = '-' 
+    text6 = '-' 
+    text7 = '-' 
     color = 'grey'
     backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
@@ -172,12 +214,12 @@ export class InfoResultInsta extends React.Component {
               </View> 
 
              {/*  texto viabilidad */}
-              <View style={{idth:wp('100%'), height:hp('0%'), marginBottom:hp('0%'),alignItems:'center',flex:1.5}}>
+              <View style={{idth:wp('100%'), height:hp('0%'), marginBottom:hp('0%'),alignItems:'center',flex:1.3}}>
                       <Text style={{color: '#878787',
                                     textAlign:'center',
-                                    fontSize:hp('1.4%'),
+                                    fontSize:hp('1.8%'),
                                     marginTop: hp('1%'),
-                                    height:hp('45%'),
+                                    height:hp('30%'),
                                     width:wp('60%'),
                                   
                                      }}> {text} </Text>
@@ -217,7 +259,7 @@ export class InfoResultInsta extends React.Component {
                             fontWeight:'bold',
                             textAlign:'center',
                             
-                            }}>{text1}</Text>
+                            }}>{format(text12)} MXN</Text>
                 </View> 
 
             </View>
@@ -257,7 +299,7 @@ export class InfoResultInsta extends React.Component {
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{text2}</Text>
+                        }}>{format(text2)} MXN</Text>
             </View> 
 
             </View>
@@ -298,7 +340,7 @@ export class InfoResultInsta extends React.Component {
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{text3}</Text>
+                        }}>{Math.trunc(text3)} meses</Text>
             </View> 
 
             </View>
@@ -338,7 +380,7 @@ export class InfoResultInsta extends React.Component {
                     fontWeight:'bold',
                     textAlign:'center',
                     
-                    }}>{text4}</Text>
+                    }}>{format(text4)} MXN</Text>
         </View>
 
         </View>
@@ -624,8 +666,6 @@ export class InfoResultInsta extends React.Component {
     this.setState({viabilidad: snapshot.child("Viabilidad").val() || '',
                    username: snapshot.child("name").val() || '' ,
                    potencia: snapshot.child("potenciaContratada").val() || '' })    
- 
-   // this.setState({username: snapshot.child("name").val() || ''})
   
   }
   )

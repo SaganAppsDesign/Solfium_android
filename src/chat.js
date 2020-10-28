@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { GiftedChat, Bubble, Send } from 'react-native-gifted-chat';
 import Fire from '../fire';
-import { StyleSheet, View, Image, TouchableOpacity, Button, ActivityIndicator} from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Button, ActivityIndicator, KeyboardAvoidingView} from 'react-native';
 import { IconButton } from 'react-native-paper';
 import {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -150,6 +150,7 @@ state = {
               
             }}
           />
+   
        </View>
         <View style={{borderRadius:10, backgroundColor:'orange',  opacity:opacity, marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('20%'), marginRight:wp('20%'), flex:0.5}}>
         
@@ -163,7 +164,7 @@ state = {
 
     {/* header */}              
     {/*Botones*/}     
-    <View style={{opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
+    <View style={{opacity: 1, alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
                          
 
                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
@@ -311,7 +312,7 @@ const styles = StyleSheet.create({
   container:{ 
   	flex: 1,
   	justifyContent: "center",
-  	backgroundColor: '#fff',
+  	backgroundColor: '#000',
     marginTop: "0%"},
     
    sendingContainer: {
@@ -342,11 +343,11 @@ function renderBubble(props) {
       wrapperStyle={{
         left: {
           // Here is the color change
-          backgroundColor: '#F7BFA9'
+          backgroundColor: '#CEF9D9'
         },
         right: {
           // Here is the color change
-          backgroundColor: 'red'
+          backgroundColor: '#1A8E38'
         }
       }}
       textStyle={{

@@ -29,8 +29,14 @@ export class IngresarConsumo extends React.Component {
   }
 
   
-onChangeText = potenciaEstado => this.setState({ potenciaEstado });
-  
+onChangeText = potenciaEstado => this.setState({ potenciaEstado }, () => {
+  if (this.state.potenciaEstado==",") {
+    alert("please enter numbers only");
+  }
+})
+
+
+
 render() {
 
     potencia = this.state.potenciaEstado

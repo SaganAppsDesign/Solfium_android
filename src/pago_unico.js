@@ -34,13 +34,13 @@ export class PagoUnico extends React.Component {
                                       
                  <View style={{alignItems: 'center', flex: 9, flexDirection:'column', width:wp('100%'), height:hp('100%')}}> 
                     
-                    <View style={{alignItems: 'center', flex:1, width:wp('100%'), height:hp('5%'), marginTop:hp('18%'), position: 'absolute' }}>
+                    <View style={{alignItems: 'center', flex:1, width:wp('100%'), height:hp('7%'), marginTop:hp('18%'), position: 'absolute' }}>
                             <ImageBackground source={require('../assets/fondo2.jpg')} style={{alignItems:'center', overflow: 'hidden', resizeMode: "cover", width:wp('60%'), height:hp('15%'),  borderRadius: 10}}>
                               <Text style={{
                               color: '#fff',
                               marginTop: hp('5%'),
                               textAlign:'center',
-                              height:hp('4%'),
+                              height:hp('7%'),
                               fontSize:hp('4%'),
                               }}>PAGO ÚNICO</Text>
                            

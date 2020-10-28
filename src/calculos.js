@@ -32,12 +32,12 @@ Consumo mensual = (Costo de energía – Cargo fijo mensual) / (Tarifa DAC)
 Consumo diario = Consumo mensual / 30
 Potencia del sistema = (Consumo diario) * (Factor de eficiencia) * (Factor de pago cero) / (Horas de sol diaria)
 Costo promedio del sistema = (Potencia del sistema) * 10 * (Factor de costo) * (Factor cambio) */
-
+export var costoPromedioSistema
 var opacity, facturacionPeriod, costoEnergia, consumoMensual, consumoDiario, potenciaSistema, 
 costoPromedioSistemaDec, mensualidad60pagosSinFormato, mensualidad60pagos,
-ahorro25sinformato, ahorro25, amortizacionMesesSinFormato, amortizacionMeses, DAP 
+ahorro25sinformato, ahorro25, amortizacionMesesSinFormato, amortizacionMeses, DAP, inversionTotal, pagos60, amortizac, ahorroA25, 
+arbolesProm, toneladas,equivalentKM 
 
-export var costoPromedioSistema
 
 var factor24= 1.14
 var factor36= 1.21
@@ -47,7 +47,7 @@ var cargoFijoMensual = 114
 var tarifaDAC = 4.3333
 var horasSolDiarias = 7.7
 var factorEficiencia = 1.15
-var factorPagoCero = 1.4
+var factorPagoCero = 1.2
 var factorCosto = 140
 var factorCambio = 21.37
 var factorArbol = 7.5
@@ -55,18 +55,19 @@ var factorCO2 = 0.495
 var factorKm = 3535.88
 var garantia = 25
 
-var sistema, msg
+var sistema
 
 const format= (num) => {
  
-  numFormat =  Intl.NumberFormat('de-DE').format(Math.trunc(num))
+  numFormat = new Intl.NumberFormat('de-DE').format(Math.trunc(num))
 
   return numFormat
  
 }
+
 const calculosEcologicos = (factor) => {
  
-  calculo =  Intl.NumberFormat('de-DE').format(Math.trunc(factor*sistema*garantia))
+  calculo = new Intl.NumberFormat('de-DE').format(Math.trunc(factor*potenciaSistema*garantia))
 
   return calculo
  
@@ -77,8 +78,6 @@ export class Calculos extends React.Component {
 
 
   render() {
-
-
 
   //Cálculos  
   DAP = (6.451*potencia)/100
@@ -106,8 +105,9 @@ export class Calculos extends React.Component {
   //ahorro25sinformato = (25*12 - (costoPromedioSistema*1000/(costoPromedioSistema*1000/60*factor60)))*(costoPromedioSistema*1000/60*factor60)
   //ahorro25 = format(ahorro25sinformato)
 
-  function ahorro25(meses,factor){
-    var ahorro25sinformato = (25*12 - (costoPromedioSistema*1000/(costoPromedioSistema*1000/meses*factor)))*(costoPromedioSistema*1000/meses*factor)
+  function ahorro25(){
+    //var ahorro25sinformato = (25*12 - (costoPromedioSistema*1000/(costoPromedioSistema*1000/meses*factor)))*(costoPromedioSistema*1000/meses*factor)
+    var ahorro25sinformato = (25*12 - (Math.trunc(costoPromedioSistema/potencia*1000)))*potencia
     var ahorro25 = format(ahorro25sinformato)
 
     return ahorro25
@@ -118,8 +118,8 @@ export class Calculos extends React.Component {
   //amortizacionMesesSinFormato = costoPromedioSistema/mensualidad60pagos
   //amortizacionMeses = format(amortizacionMesesSinFormato)
 
-  function amortizacion(meses,factor){
-    var amortizacionSinFormato = costoPromedioSistema/mensualidad(meses,factor)
+  function amortizacion(){
+    var amortizacionSinFormato = costoPromedioSistema/potencia
     var amortizacion = format(amortizacionSinFormato)
 
     return amortizacion
@@ -131,12 +131,31 @@ export class Calculos extends React.Component {
 
 if (potenciaSistema < 1.5){
    
-  msg = "Su consumo es muy bajo"
+  console.log("Consumo bajo. Sin solución")
+  sistema = 0
+  inversionTotal = 0
+  pagos60 = 0 
+  amortizac = 0
+  ahorroA25 = 0
+  arbolesProm = 0
+  toneladas = 0
+  equivalentKM = 0
+  opacity = 0
+  alert("Consumo bajo. Sin solución")
   
 
 } else if (potenciaSistema >= 1.5 && potenciaSistema < 3.5){
 
   sistema = 3
+  inversionTotal = 89754
+  pagos60 = 2019 
+  amortizac = inversionTotal /potencia
+  ahorroA25 = (25*12-amortizac)*potencia
+  arbolesProm = '562' 
+  toneladas = '37' 
+  equivalentKM = '265.191' 
+  opacity = 1 
+  
  
 
 }  
@@ -144,6 +163,14 @@ if (potenciaSistema < 1.5){
 else if (potenciaSistema >= 3.5 && potenciaSistema < 5.5){
 
   sistema = 5
+  inversionTotal = 149590
+  pagos60 = 3365
+  amortizac = inversionTotal /potencia
+  ahorroA25 = (25*12-amortizac)*potencia
+  arbolesProm = '937'
+  toneladas = '61' 
+  equivalentKM = '441.985'
+  opacity = 1
   
 
 } 
@@ -151,6 +178,14 @@ else if (potenciaSistema >= 3.5 && potenciaSistema < 5.5){
 else if (potenciaSistema >= 5.5 && potenciaSistema < 7.5){
 
   sistema = 7
+  inversionTotal = 209426
+  pagos60 = 4712 
+  amortizac = inversionTotal /potencia
+  ahorroA25 = (25*12-amortizac)*potencia
+  arbolesProm = '1312'  
+  toneladas = '86' 
+  equivalentKM = '618.779'  
+  opacity = 1
   
 
 } 
@@ -158,6 +193,14 @@ else if (potenciaSistema >= 5.5 && potenciaSistema < 7.5){
 else if (potenciaSistema >= 7.5 && potenciaSistema < 10.5){
 
   sistema = 10
+  inversionTotal = 299180 
+  pagos60 = 6731 
+  amortizac = inversionTotal /potencia
+  ahorroA25 = (25*12-amortizac)*potencia
+  arbolesProm = '1875' 
+  toneladas = '123'  
+  equivalentKM = '883.970' 
+  opacity = 1
   
 
 } 
@@ -165,6 +208,17 @@ else if (potenciaSistema >= 7.5 && potenciaSistema < 10.5){
 else if (potenciaSistema > 10,5){
 
   msg = "Su consumo necesita más atención"
+  sistema = 11
+  inversionTotal = 0
+  pagos60 = 0 
+  amortizac = 0
+  ahorroA25 = 0
+  arbolesProm = 0
+  toneladas = 0
+  equivalentKM = 0
+  opacity = 0
+  alert("Su consumo necesita más atención")
+  
   
 
 } 
@@ -195,7 +249,7 @@ var arboles = calculosEcologicos(factorArbol)
   //console.log('ahorro25sinformato ',ahorro25sinformato )
   console.log('ahorro25 ',ahorro25(60,factor60) )
   //console.log('amortizacionMesesSinFormato ',amortizacionMesesSinFormato )
-  console.log('amortizacionMeses ',amortizacion(60, factor60) )
+  console.log('amortizacionMeses ',amortizacion() )
   console.log('------------------------------')   
 
 
@@ -208,8 +262,8 @@ var arboles = calculosEcologicos(factorArbol)
     ConsumoMensual:potencia,
     CostoPromedioSistema:costoPromedioSistema,
     Mensualidad60:mensualidad(60,factor60),
-    Amortizacion:amortizacion(60, factor60),
-    Ahorro25:ahorro25(60,factor60),
+    Amortizacion:Math.trunc(costoPromedioSistema/potencia*1000),
+    Ahorro25:ahorro25(),
     Arboles:arboles,
     CO2:co2,
     KM:km
@@ -272,7 +326,7 @@ var arboles = calculosEcologicos(factorArbol)
                             fontWeight:'bold',
                             textAlign:'center',
                             
-                            }}>{costoPromedioSistema} MXN</Text>
+                            }}>{format(inversionTotal)} MXN</Text>
                 </View> 
 
             </View>
@@ -312,7 +366,7 @@ var arboles = calculosEcologicos(factorArbol)
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{mensualidad(60,factor60)} MXN</Text>
+                        }}>{format(pagos60)} MXN</Text>
             </View> 
 
             </View>
@@ -354,7 +408,7 @@ var arboles = calculosEcologicos(factorArbol)
                         fontWeight:'bold',
                         textAlign:'center',
                         
-                        }}>{amortizacion(60,factor60)} meses</Text>
+                        }}>{format(amortizac)} meses</Text>
             </View> 
 
             </View>
@@ -388,7 +442,7 @@ var arboles = calculosEcologicos(factorArbol)
                     fontWeight:'bold',
                     textAlign:'center',
                     
-                    }}>{ahorro25(60,factor60)} MXN</Text>
+                    }}>{format(ahorroA25)} MXN</Text>
 
 
         </View> 
@@ -462,7 +516,7 @@ var arboles = calculosEcologicos(factorArbol)
                     textAlign:'center',
                  
                     
-                    }}>{arboles} Árboles apadrinados</Text>
+                    }}>{arbolesProm} Árboles apadrinados</Text>
                     
                   <Text style={{color: '#5DCB31',
                     fontSize:hp('1.5%'),
@@ -476,7 +530,7 @@ var arboles = calculosEcologicos(factorArbol)
                     textAlign:'center',
             
                     
-                    }}>{co2} Tn de CO2 sin emitir</Text>
+                    }}>{toneladas} Tn de CO2 sin emitir</Text>
 
 
                   <Text style={{color: '#5DCB31',
@@ -491,7 +545,7 @@ var arboles = calculosEcologicos(factorArbol)
                     textAlign:'center',
                
                     
-                    }}>{km} Km recorrido en auto equivalente</Text>
+                    }}>{equivalentKM} Km recorrido en auto equivalente</Text>
         </View> 
 
         </View>
@@ -503,7 +557,7 @@ var arboles = calculosEcologicos(factorArbol)
   </Card>
 
   {/* Botón -me interesa-*/}
-  <View style={{height: hp('0%'), marginTop:hp('2%'), alignItems:'center',
+  <View style={{opacity:opacity,height: hp('0%'), marginTop:hp('2%'), alignItems:'center',
                      width: wp('50%'),backgroundColor: '#5DCB31', flex:1, borderRadius:100, justifyContent:'center'}}>
 
                <TouchableOpacity
