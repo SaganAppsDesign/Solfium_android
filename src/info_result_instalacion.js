@@ -57,8 +57,8 @@ export class InfoResultInsta extends React.Component {
   if (potenInt == 10){
     //viable = "VIABLE"
     //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium"' 
-    text12 = 299180
-    text2 = 6731
+    text12 = 299180*1.16
+    text2 = 6731*1.16
     text3 = Math.trunc(text12/potencia)
     text4 = format(Math.trunc((25*12-text3)*potencia))
     text5 = '1875' 
@@ -79,8 +79,8 @@ export class InfoResultInsta extends React.Component {
   } else if ( potenInt == 7){
     //viable = "OPTIMIZADA A LA BAJA"
     //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
-    text12 = 209426
-    text2 = 4712
+    text12 = 209426*1.16
+    text2 = 4712*1.16
     text3 = text12/potencia
     text4 = (25*12-text3)*potencia
     text5 = '1312' 
@@ -99,8 +99,8 @@ export class InfoResultInsta extends React.Component {
   } else if ( potenInt == 5){
     //viable = "OPTIMIZADA A LA BAJA"
     //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
-    text12 = 149590
-    text2 = 3365
+    text12 = 149590*1.16
+    text2 = 3365*1.16
     text3 = text12/potencia
     text4 = (25*12-text3)*potencia
     text5 = '937' 
@@ -119,8 +119,8 @@ export class InfoResultInsta extends React.Component {
   } else if ( potenInt == 3){
     //viable = "OPTIMIZADA A LA BAJA"
     //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
-    text12 = 89754
-    text2 = 2019 
+    text12 = 89754*1.16
+    text2 = 2019*1.16 
     text3 = text12/potencia
     text4 = (25*12-text3)*potencia
     text5 = '562' 

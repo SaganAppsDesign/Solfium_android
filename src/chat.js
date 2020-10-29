@@ -141,6 +141,7 @@ state = {
               renderUsernameOnMessage  = {true}
               showAvatarForEveryMessage = {true}
               scrollToBottom
+              keyboardShouldPersistTaps={"never"}
               isTyping={true}
               placeholder={"Chatea aquí " + name}
               user={{

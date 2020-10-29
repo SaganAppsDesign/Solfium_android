@@ -45,7 +45,8 @@ export class InfoResultInsta2 extends React.Component {
     arboles:'',
     co2:'',
     coches:'',
-    text1:''
+    text1:'',
+    calculoSistema:''
 
   }
 
@@ -65,24 +66,77 @@ export class InfoResultInsta2 extends React.Component {
     var arboles = this.state.arboles
     var co2 = this.state.co2
     var coches = this.state.coches
+    var calculoSistema = this.state.calculoSistema
     
     //console.log('this.state.text1',text16666)
 
     var potenInt = parseInt(poten)
 
-    //console.log('potenInt',  potenInt)
+    //console.log('calculoSistema resultados comaprativa',  calculoSistema)
     
 
-  if (potenInt == 10){
-    viable = "VIABLE"
-    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium"' 
-    text1 = 299180 
-    text2 = 6731 
-    text3 = text1/potencia 
-    text4 = (25*12-text3)*potencia
-    text5 = '1875' 
-    text6 = '123' 
-    text7 = '883.970' 
+  if (potenInt > calculoSistema){
+    viable = "VIABLE A LA ALZA"
+    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. En base al ajuste de tu consumo mensual de electricidad, te ofrecemos la siguiente propuesta:"' 
+    if (calculoSistema == 3 && potenInt == 5 ){
+
+      text1 = 149590*1.16 
+      text2 = 3365*1.16 
+      text3 = text1/potencia
+      text4 = (25*12-text3)*potencia
+      text5 = '937' 
+      text6 = '61' 
+      text7 = '441.985'  
+      color = 'orange'
+
+    } else if(calculoSistema == 3 && potenInt == 7 ) {
+      text1 = 209426*1.16 
+      text2 = 4712*1.16 
+      text3 = text1/potencia
+      text4 = (25*12-text3)*potencia
+      text5 = '1312' 
+      text6 = '86' 
+      text7 = '618.779' 
+
+    } else if(calculoSistema == 3 && potenInt == 10 ) {
+      text1 = 299180*1.16
+      text2 = 6731*1.16
+      text3 = text1/potencia
+      text4 = (25*12-text3)*potencia
+      text5 = '1875' 
+      text6 = '123' 
+      text7 = '883.970'
+
+    }else if(calculoSistema == 5 && potenInt == 7 ) {
+      text1 = 209426*1.16 
+      text2 = 4712*1.16 
+      text3 = text1/potencia
+      text4 = (25*12-text3)*potencia
+      text5 = '1312' 
+      text6 = '86' 
+      text7 = '618.779' 
+
+    }else if(calculoSistema == 5 && potenInt == 10 ) {
+      text1 = 299180*1.16
+      text2 = 6731*1.16
+      text3 = text1/potencia
+      text4 = (25*12-text3)*potencia
+      text5 = '1875' 
+      text6 = '123' 
+      text7 = '883.970'
+
+    }else if(calculoSistema == 7 && potenInt == 10 ) {
+      text1 = 299180*1.16
+      text2 = 6731*1.16
+      text3 = text1/potencia
+      text4 = (25*12-text3)*potencia
+      text5 = '1875' 
+      text6 = '123' 
+      text7 = '883.970'
+
+    }
+
+    
     color = '#5DCB31'
     opacity = 1
     backgroundcolor = 'white'
@@ -95,16 +149,21 @@ export class InfoResultInsta2 extends React.Component {
      
    
   } else if ( potenInt == 7){
+
+    
     viable = "OPTIMIZADA A LA BAJA"
-    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
-    text1 = 209426
-    text2 = 4712
+    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 30%:' 
+    //if (calculoSistema == 10){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 30%:' }
+    
+    text1 = 209426*1.16 
+    text2 = 4712*1.16 
     text3 = text1/potencia
     text4 = (25*12-text3)*potencia
     text5 = '1312' 
     text6 = '86' 
     text7 = '618.779' 
     opacity = 1
+    color = 'orange'
     backgroundcolor = 'white'
     db.ref('Usuarios/' +  Fire.getUid()).update({
     
@@ -112,11 +171,17 @@ export class InfoResultInsta2 extends React.Component {
            
     })   
 
+
+
+
   } else if ( potenInt == 5){
     viable = "OPTIMIZADA A LA BAJA"
-    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
-    text1 = 149590
-    text2 = 3365
+    
+     if (calculoSistema == 7){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 28.57%:' }
+     else if (calculoSistema == 10){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 50%:' }
+     //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el  %:' 
+    text1 = 149590*1.16 
+    text2 = 3365*1.16 
     text3 = text1/potencia
     text4 = (25*12-text3)*potencia
     text5 = '937' 
@@ -133,7 +198,10 @@ export class InfoResultInsta2 extends React.Component {
 
   } else if ( potenInt == 3){
     viable = "OPTIMIZADA A LA BAJA"
-    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
+    //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el  %:' 
+    if (calculoSistema == 10){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 70%:' }
+     else if (calculoSistema == 7){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 57.14%:' }
+     else if (calculoSistema == 5){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 40%:' }
     text1 = 89754
     text2 = 2019 
     text3 = text1/potencia
@@ -164,13 +232,13 @@ export class InfoResultInsta2 extends React.Component {
     backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
     
-  } else if ( potenInt <= 1.5){
+  } else if ( potenInt == 1){
     viable = "NO VIABLE"
     text = 'Gracias por tu interés en Solfium, pero lamentablemente no es posible instalar el sistema en tu hogar. Nuestro experto estará encantado de resolver cualquier duda' 
-    text1 = '-' 
-    text2 = '-' 
-    text3 = '-' 
-    text4 = '-' 
+    text1 = 0
+    text2 = 0
+    text3 = 0
+    text4 = 0
     text5 = '-' 
     text6 = '-' 
     text7 = '-' 
@@ -186,7 +254,7 @@ export class InfoResultInsta2 extends React.Component {
     text3 = '-' 
     text4 = '-' 
     text5 = '-' 
-    color = 'grey'
+    color = 'green'
     backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
   }
@@ -229,7 +297,7 @@ export class InfoResultInsta2 extends React.Component {
               </View> 
 
              {/*  texto viabilidad */}
-              <View style={{idth:wp('100%'), height:hp('0%'), marginBottom:hp('0%'),alignItems:'center',flex:1.5}}>
+              <View style={{width:wp('100%'), height:hp('0%'), marginBottom:hp('2%'),alignItems:'center',flex:1.5}}>
                       <Text style={{color: '#878787',
                                     textAlign:'center',
                                     fontSize:hp('1.4%'),
@@ -246,30 +314,7 @@ export class InfoResultInsta2 extends React.Component {
              
 
 
-            <View style={{height:hp('4%'), marginBottom:wp('0%'),
-                    alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
-                          
-                          <Text style={{color: '#878787',
-                            alignItems:'center',
-                            fontSize:hp('1.3%'),
-                            textAlign:'center',
-                            height:hp('3%'),
-                            width:wp('35%'),
-                            }}> Inversión total: </Text>
-
-                          <Text style={{color: 'black',
-                            fontSize:hp('1.5%'),
-                            alignItems:'center',
-                            marginTop: '0%',
-                            marginRight:'0%',
-                            marginLeft:'0%',
-                            height:hp('5%'),
-                            width:wp('35%'),
-                            fontWeight:'bold',
-                            textAlign:'center',
-                            
-                            }}>{inversionTotal} MXN</Text>
-                </View> 
+          
                 <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
                       <Image
                       style={{  width:wp('20%'), height:hp('10%'), marginLeft:'0%', 
@@ -290,7 +335,7 @@ export class InfoResultInsta2 extends React.Component {
                             }}> Inversión total: </Text>
 
                           <Text style={{color: 'black',
-                            fontSize:hp('1.5%'),
+                            fontSize:hp('2%'),
                             alignItems:'center',
                             marginTop: '0%',
                             marginRight:'0%',
@@ -310,30 +355,7 @@ export class InfoResultInsta2 extends React.Component {
 
             <View style={{flexDirection:'row', flex:2, alignItems:'center',width:wp('80%')}} >
 
-            <View style={{height:hp('4%'), marginBottom:wp('0%'),
-                alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
-                      
-                      <Text style={{color: '#878787',
-                        alignItems:'center',
-                        fontSize:hp('1.3%'),
-                        textAlign:'center',
-                        height:hp('3%'),
-                        width:wp('35%'),
-                        }}>Hasta 60 pagos de:</Text>
-
-                      <Text style={{color: 'black',
-                        fontSize:hp('1.5%'),
-                        alignItems:'center',
-                        marginTop: '0%',
-                        marginRight:'0%',
-                        marginLeft:'0%',
-                        height:hp('5%'),
-                        width:wp('35%'),
-                        fontWeight:'bold',
-                        textAlign:'center',
-                        
-                        }}>{mensualidad60} MXN</Text>
-            </View> 
+           
                         
             <View  style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
                   <Image
@@ -355,7 +377,7 @@ export class InfoResultInsta2 extends React.Component {
                         }}>Hasta 60 pagos de:</Text>
 
                       <Text style={{color: 'black',
-                        fontSize:hp('1.5%'),
+                        fontSize:hp('2%'),
                         alignItems:'center',
                         marginTop: '0%',
                         marginRight:'0%',
@@ -376,31 +398,7 @@ export class InfoResultInsta2 extends React.Component {
      
      <View style={{flexDirection:'row', flex:2, alignItems:'center',width:wp('80%')}} >
 
-     <View style={{height:hp('4%'), marginBottom:wp('0%'),
-                alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
-                      
-                      <Text style={{color: '#878787',
-                        alignItems:'center',
-                        fontSize:hp('1.2%'),
-                        textAlign:'center',
-                        height:hp('3%'),
-                        width:wp('35%'),
-                        }}>Tu inversión se amortiza en:</Text>
-
-                      <Text style={{color: 'black',
-                        fontSize:hp('1.5%'),
-                        alignItems:'center',
-                        marginTop: '3%',
-                        marginRight:'0%',
-                        marginLeft:'0%',
-                        height:hp('5%'),
-                        width:wp('35%'),
-                        fontWeight:'bold',
-                        textAlign:'center',
-                        
-                        }}>{amortizacion} meses</Text>
-            </View> 
-         
+           
                         
             <View style={{flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
                   <Image
@@ -415,14 +413,14 @@ export class InfoResultInsta2 extends React.Component {
                       
                       <Text style={{color: '#878787',
                         alignItems:'center',
-                        fontSize:hp('1.2%'),
+                        fontSize:hp('1.3%'),
                         textAlign:'center',
                         height:hp('3%'),
-                        width:wp('35%'),
+                        width:wp('40%'),
                         }}>Tu inversión se amortiza en:</Text>
 
                       <Text style={{color: 'black',
-                        fontSize:hp('1.5%'),
+                        fontSize:hp('2%'),
                         alignItems:'center',
                         marginTop: '3%',
                         marginRight:'0%',
@@ -441,31 +439,7 @@ export class InfoResultInsta2 extends React.Component {
     
       {/*  Ahorro a 25 años*/}
         <View style={{flexDirection:'row', flex:2, alignItems:'center',width:wp('80%')}} >
-        <View style={{ height:hp('4%'), marginBottom:wp('0%'),
-            alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
-                  
-                  <Text style={{color: '#878787',
-                    alignItems:'center',
-                    fontSize:hp('1.3%'),
-                    textAlign:'center',
-                    height:hp('3%'),
-                    width:wp('35%'),
-                    }}>Ahorro a 25 años:</Text>
-
-                  <Text style={{color: 'black',
-                    fontSize:hp('1.5%'),
-                    alignItems:'center',
-                    marginTop: '0%',
-                    marginRight:'0%',
-                    marginLeft:'0%',
-                    height:hp('5%'),
-                    width:wp('35%'),
-                    fontWeight:'bold',
-                    textAlign:'center',
-                    
-                    }}>{ahorro25} MXN</Text>
-        </View>
-
+        
                             
         <View style={{ flexDirection: 'row', flex:4, justifyContent:'center', alignItems:'center'}}>
               <Image
@@ -487,7 +461,7 @@ export class InfoResultInsta2 extends React.Component {
                     }}>Ahorro a 25 años:</Text>
 
                   <Text style={{color: 'black',
-                    fontSize:hp('1.5%'),
+                    fontSize:hp('2%'),
                     alignItems:'center',
                     marginTop: '0%',
                     marginRight:'0%',
@@ -521,54 +495,7 @@ export class InfoResultInsta2 extends React.Component {
         
         <View style={{flexDirection:'row', flex:5, alignItems:'center', marginTop:hp('0%')}} >
 
-        <View style={{width:wp('20%'), height:hp('18.6%'), marginBottom:hp('0%'),
-            alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
-                  
-                 
-
-                  <Text style={{color: '#5DCB31',
-                    fontSize:hp('1.5%'),
-                    
-                    marginTop: hp('1.5%'),
-                    marginRight:'0%',
-                    marginLeft:'0%',
-                    height:hp('5%'),
-                    width:wp('30%'),
-                    fontWeight:'bold',
-                    textAlign:'center',
-                 
-                    
-                    }}>{arboles} Árboles apadrinados</Text>
-                    
-                  <Text style={{color: '#5DCB31',
-                    fontSize:hp('1.5%'),
-                    
-                    marginTop: hp('1.5%'),
-                    marginRight:'0%',
-                    marginLeft:'0%',
-                    height:hp('5%'),
-                    width:wp('30%'),
-                    fontWeight:'bold',
-                    textAlign:'center',
-            
-                    
-                    }}>{co2} Tn de CO2 sin emitir</Text>
-
-
-                  <Text style={{color: '#5DCB31',
-                    fontSize:hp('1.5%'),
-                    
-                    marginTop: hp('1.5%'),
-                    marginRight:'0%',
-                    marginLeft:'0%',
-                    height:hp('5%'),
-                    width:wp('30%'),
-                    fontWeight:'bold',
-                    textAlign:'center',
-               
-                    
-                    }}>{coches} Km recorrido en auto equivalente</Text>
-        </View> 
+       
 
         <View style={{  marginBottom:wp('0%'),
             alignItems:'center', justifyContent:'center', flex:4, flexDirection: 'column'}}>
@@ -609,7 +536,7 @@ export class InfoResultInsta2 extends React.Component {
 
                   <Text style={{color: '#5DCB31',
                     fontSize:hp('1.5%'),
-                    
+                    textAlign:'center',
                     marginTop: hp('1.5%'),
                     marginRight:'0%',
                     marginLeft:'0%',
@@ -623,7 +550,7 @@ export class InfoResultInsta2 extends React.Component {
                     
                   <Text style={{color: '#5DCB31',
                     fontSize:hp('1.5%'),
-                    
+                    textAlign:'center',
                     marginTop: hp('1.5%'),
                     marginRight:'0%',
                     marginLeft:'0%',
@@ -638,12 +565,12 @@ export class InfoResultInsta2 extends React.Component {
 
                   <Text style={{color: '#5DCB31',
                     fontSize:hp('1.5%'),
-                    
+                    textAlign:'center',
                     marginTop: hp('1.5%'),
-                    marginRight:'30%',
+                    marginRight:'0%',
                     marginLeft:'0%',
                     height:hp('5%'),
-                    width:wp('30%'),
+                    width:wp('45%'),
                     fontWeight:'bold',
                     textAlign:'center',
                
@@ -666,8 +593,8 @@ export class InfoResultInsta2 extends React.Component {
         </View> 
       </View>   
 
-               {/* Botón*/}
-               <View style={{marginLeft:wp('40%') ,   backgroundColor:'#5DCB31', borderRadius:50, width:wp('40%'), height:hp('10%'), flex:1, alignItems:'center', marginTop:hp('1%')}}>
+      {/* Botón*/}
+      <View style={{opacity:opacity,marginLeft:wp('0%') ,backgroundColor:'#5DCB31', borderRadius:50, width:wp('50%'), height:hp('10%'), flex:1, alignItems:'center', marginTop:hp('1%')}}>
 
                <TouchableOpacity
                      
@@ -840,8 +767,8 @@ export class InfoResultInsta2 extends React.Component {
                    ahorro25: snapshot.child("Ahorro25").val() || '' ,
                    arboles: snapshot.child("Arboles").val() || '' ,
                    co2: snapshot.child("CO2").val() || '' ,
-                   coches: snapshot.child("KM").val() || ''
-                   
+                   coches: snapshot.child("KM").val() || '',
+                   calculoSistema: snapshot.child("Sistema").val() || '',
                    }
                                       
                    )    

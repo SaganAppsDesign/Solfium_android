@@ -158,9 +158,11 @@ export class Financiamiento extends React.Component {
                             </TouchableOpacity>
                             </View>
 
-                            <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('1%'), width:hp('28%'), height:hp('100%'), flex:2}}>
+                            {/* <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('1%'), width:hp('28%'), height:hp('100%'), flex:2}}>
 
                               <TouchableOpacity
+
+                                 disabled={true}
                                   
                                 
                                   onPress={() => this.props.navigation.navigate('Compra Finan')} 
@@ -177,7 +179,7 @@ export class Financiamiento extends React.Component {
               
                               </TouchableOpacity>
                           </View>
-
+ */}
 
                         </View>
 

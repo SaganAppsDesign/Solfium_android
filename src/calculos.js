@@ -147,8 +147,8 @@ if (potenciaSistema < 1.5){
 } else if (potenciaSistema >= 1.5 && potenciaSistema < 3.5){
 
   sistema = 3
-  inversionTotal = 89754
-  pagos60 = 2019 
+  inversionTotal = 89754*1.16
+  pagos60 = 2019*1.16 
   amortizac = inversionTotal /potencia
   ahorroA25 = (25*12-amortizac)*potencia
   arbolesProm = '562' 
@@ -163,8 +163,8 @@ if (potenciaSistema < 1.5){
 else if (potenciaSistema >= 3.5 && potenciaSistema < 5.5){
 
   sistema = 5
-  inversionTotal = 149590
-  pagos60 = 3365
+  inversionTotal = 149590*1.16
+  pagos60 = 3365*1.16
   amortizac = inversionTotal /potencia
   ahorroA25 = (25*12-amortizac)*potencia
   arbolesProm = '937'
@@ -178,8 +178,8 @@ else if (potenciaSistema >= 3.5 && potenciaSistema < 5.5){
 else if (potenciaSistema >= 5.5 && potenciaSistema < 7.5){
 
   sistema = 7
-  inversionTotal = 209426
-  pagos60 = 4712 
+  inversionTotal = 209426*1.16
+  pagos60 = 4712*1.16 
   amortizac = inversionTotal /potencia
   ahorroA25 = (25*12-amortizac)*potencia
   arbolesProm = '1312'  
@@ -193,8 +193,8 @@ else if (potenciaSistema >= 5.5 && potenciaSistema < 7.5){
 else if (potenciaSistema >= 7.5 && potenciaSistema < 10.5){
 
   sistema = 10
-  inversionTotal = 299180 
-  pagos60 = 6731 
+  inversionTotal = 299180*1.16 
+  pagos60 = 6731*1.16 
   amortizac = inversionTotal /potencia
   ahorroA25 = (25*12-amortizac)*potencia
   arbolesProm = '1875' 

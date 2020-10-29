@@ -36,8 +36,8 @@ export class IdentidadConfirmada extends React.Component {
     var QR = this.state.QR
     var bool,opacity, opacity2, opacity3, screen
 
-     console.log("potencia",  potencia)
-     console.log("sistema"  , sistema)
+     //console.log("potencia",  potencia)
+     //console.log("sistema"  , sistema)
 
      if (potencia == '' ){
             
@@ -76,6 +76,7 @@ export class IdentidadConfirmada extends React.Component {
       if (QR == 'OK' && potencia==''){
        
         opacity3=1
+        
         } else {
         
         opacity3=0

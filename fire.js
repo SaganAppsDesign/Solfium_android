@@ -85,7 +85,7 @@ export class Fire {
   loadMessages(callback){
 
     //Nuevo código
-    this.messagesRef = firebase.database().ref('/Chat/' + this.uid + '-' + key + '/');
+    this.messagesRef = firebase.database().ref('/Chat/' + this.uid + '-Instalador1');
 
     //this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
@@ -95,13 +95,13 @@ export class Fire {
       const message = data.val()
       
       callback({
-          _id:  data.key,
-          text: message.text,
-          createdAt: new Date(message.createdAt),
-          user: {
-            id: message.user._id,
-            name: message.user.name,
-            avatar:message.user.avatar
+        _id: "Instalador1",
+        text: message.text,
+        createdAt: new Date(message.createdAt),
+        user: {
+          id: message.user._id,
+          name: message.user.name,
+          avatar:message.user.avatar
             
         },
 
