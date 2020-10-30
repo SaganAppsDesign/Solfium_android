@@ -20,7 +20,7 @@ import rating from '../assets/rating.png';
 
 
 var {height} = Dimensions.get('window');
-var bool, bool2, opacity
+var bool, bool3, opacity, opacity2
 
 export class Ratings extends React.Component{
 
@@ -40,7 +40,9 @@ export class Ratings extends React.Component{
   
   ratingFire = () =>  {  
     
-    opacity=this.opacity
+    opacity2=0.5
+    opacity=0
+    bool3=true
     
     db.ref('Usuarios/' +  Fire.getUid()).update({
     
@@ -162,11 +164,11 @@ export class Ratings extends React.Component{
 
 
 
-                 <View style={{opacity:opacity,  borderRadius:50, justifyContent:'center', alignItems:'center', marginBottom:hp('10%'), width:hp('25%'), height:hp('100%'), flex:1}}>
+                 <View style={{opacity:opacity2,  borderRadius:50, justifyContent:'center', alignItems:'center', marginBottom:hp('10%'), width:hp('25%'), height:hp('100%'), flex:1}}>
 
                     <TouchableOpacity
 
-                      disabled={bool}
+                      disabled={bool3}
                         
                       
                         onPress={() => this.ratingFire()} 

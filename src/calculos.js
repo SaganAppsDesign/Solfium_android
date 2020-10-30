@@ -225,14 +225,14 @@ else if (potenciaSistema > 10,5){
 
 
 var arboles = calculosEcologicos(factorArbol)
-  console.log('arboles=',arboles)
+  //console.log('arboles=',arboles)
 
   var co2 = calculosEcologicos(factorCO2)
-  console.log('co2=',co2)
+  //console.log('co2=',co2)
 
   var km = calculosEcologicos(factorKm)
   
-  console.log('km=',km)
+ /*  console.log('km=',km)
   console.log('sistema =' ,potenciaSistema)
   console.log('RENDER------------------------------')
   console.log('Costo MXN =',potencia)
@@ -250,7 +250,7 @@ var arboles = calculosEcologicos(factorArbol)
   console.log('ahorro25 ',ahorro25(60,factor60) )
   //console.log('amortizacionMesesSinFormato ',amortizacionMesesSinFormato )
   console.log('amortizacionMeses ',amortizacion() )
-  console.log('------------------------------')   
+  console.log('------------------------------')    */
 
 
 
@@ -267,9 +267,7 @@ var arboles = calculosEcologicos(factorArbol)
     Arboles:arboles,
     CO2:co2,
     KM:km
-
-
-    
+   
     
     })
   
@@ -540,7 +538,7 @@ var arboles = calculosEcologicos(factorArbol)
                     marginRight:'30%',
                     marginLeft:'0%',
                     height:hp('5%'),
-                    width:wp('30%'),
+                    width:wp('40%'),
                     fontWeight:'bold',
                     textAlign:'center',
                

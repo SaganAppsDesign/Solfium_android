@@ -31,7 +31,7 @@ export class VideoInfo extends React.Component {
     style={styles.backgroundVideo}
     shouldPlay
     navigator={this.props.navigator}
-    onBack={() => this.props.navigation.navigate('Solfium')}
+    onBack={() => this.props.navigation.navigate('Ingresar Consumo')}
     //toggleResizeModeOnFullscreen 
     />
     

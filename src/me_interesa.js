@@ -66,7 +66,7 @@ return (
                    </View>
            
                   { /* Botones*/}
-                      <View  style={{alignItems:'center', flex:6,  justifyContent:'center', marginTop:hp('5%')}}>
+                      <View  style={{alignItems:'center', flex:6,  justifyContent:'center', marginTop:hp('10%')}}>
 
                        <View  style={{alignItems:'center', flex:0.4,  justifyContent:'center'}}>
                             <TouchableOpacity 
@@ -98,7 +98,7 @@ return (
                           
                           </TouchableOpacity> 
                        </View>
-                      <View  style={{opacity:0.5, alignItems:'center', flex:0.3,  justifyContent:'center', marginBottom:hp('15%')}}>
+                      <View  style={{opacity:0.5, alignItems:'center', flex:0.4,  justifyContent:'center', marginBottom:hp('15%')}}>
                       <TouchableOpacity 
 
                             disabled={true} 

@@ -30,8 +30,10 @@ export class IngresarConsumo extends React.Component {
 
   
 onChangeText = potenciaEstado => this.setState({ potenciaEstado }, () => {
-  if (this.state.potenciaEstado==",") {
-    alert("please enter numbers only");
+  if (this.state.potenciaEstado=="," || this.state.potenciaEstado==".") {
+    
+    alert("Por favor, introduce número");
+    this.setState({ potenciaEstado: "" })
   }
 })
 

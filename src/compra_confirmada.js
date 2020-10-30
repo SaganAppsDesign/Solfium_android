@@ -32,18 +32,21 @@ export class CompraConfirmada extends React.Component {
   var day = date.slice(8,10);
   var hour = parseInt(date.slice(11,16))+2
 
-  var opacity, bool, opacity2
+  var opacity, bool, opacity2, estado
 
     if (date == ''){
     
       opacity=0
       opacity2=1
+      estado="PENDIENTE DE PAGO"
      
     } else {
 
       opacity=1
       opacity2=0
       bool=false
+      estado="COMPRA CONFIRMADA"
+      
       }
 
     
@@ -74,7 +77,7 @@ export class CompraConfirmada extends React.Component {
                               height:hp('5%'),
                               fontSize:hp('3%'),
                              
-                              }}>COMPRA CONFIRMADA</Text>
+                              }}>{estado}</Text>
                               <Text style={{
                               color: '#fff',
                               marginTop: hp('0%'),

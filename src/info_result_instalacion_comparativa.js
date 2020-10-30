@@ -152,7 +152,7 @@ export class InfoResultInsta2 extends React.Component {
 
     
     viable = "OPTIMIZADA A LA BAJA"
-    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 30%:' 
+    text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en un 30%:' 
     //if (calculoSistema == 10){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 30%:' }
     
     text1 = 209426*1.16 
@@ -177,7 +177,7 @@ export class InfoResultInsta2 extends React.Component {
   } else if ( potenInt == 5){
     viable = "OPTIMIZADA A LA BAJA"
     
-     if (calculoSistema == 7){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 28.57%:' }
+     if (calculoSistema == 7){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en un 28.57%:' }
      else if (calculoSistema == 10){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 50%:' }
      //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el  %:' 
     text1 = 149590*1.16 
@@ -199,11 +199,11 @@ export class InfoResultInsta2 extends React.Component {
   } else if ( potenInt == 3){
     viable = "OPTIMIZADA A LA BAJA"
     //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el  %:' 
-    if (calculoSistema == 10){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 70%:' }
+    if (calculoSistema == 10){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en un 70%:' }
      else if (calculoSistema == 7){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 57.14%:' }
      else if (calculoSistema == 5){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 40%:' }
-    text1 = 89754
-    text2 = 2019 
+    text1 = 89754*1.16 
+    text2 = 2019*1.16 
     text3 = text1/potencia
     text4 = (25*12-text3)*potencia
     text5 = '562' 
@@ -247,13 +247,15 @@ export class InfoResultInsta2 extends React.Component {
     backgroundcolor = 'white'
   
   } else {
-    viable = "PENDIENTE CONTACTO CON INSTALADOR"
+    viable = "PENDIENTE CONTACTO"
     text = this.state.username + ', en breve el personal de instalación se pondrá en contacto contigo.' 
-    text1 = '-' 
-    text2 = '-' 
-    text3 = '-' 
-    text4 = '-' 
+    text1 = 0 
+    text2 = 0 
+    text3 = 0
+    text4 = 0 
     text5 = '-' 
+    text6 = '-' 
+    text7 = '-' 
     color = 'green'
     backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
