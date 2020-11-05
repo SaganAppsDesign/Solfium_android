@@ -66,7 +66,7 @@ export function QRCodeOk({ navigation }) {
                                      <Image 
                           
                                         source={acepto_visita}
-                                        style={{aspectRatio:4,   height:hp('10%')}}
+                                        style={{aspectRatio:4,   height:hp('8%')}}
                                         
                                         >    
                                     </Image> 
@@ -75,7 +75,7 @@ export function QRCodeOk({ navigation }) {
                                 </TouchableOpacity>
                           </View>
 
-                          <View style={{width:wp('100%'), height:hp('100%'),marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:2}}> 
+                          <View style={{width:wp('100%'), height:hp('100%'),marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:3}}> 
                                 <TouchableOpacity onPress={
                                   () => { navigation.navigate('Ingresar Consumo')}
                                 }
@@ -83,7 +83,7 @@ export function QRCodeOk({ navigation }) {
                                      <Image 
                           
                                         source={no_acuerdo}
-                                        style={{aspectRatio:4,   height:hp('10%')}}
+                                        style={{aspectRatio:4,   height:hp('8%')}}
                                         
                                         >    
                                     </Image> 

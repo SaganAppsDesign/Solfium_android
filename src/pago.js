@@ -44,7 +44,7 @@ export class Payment extends React.Component {
                               fontSize:hp('3%'),
                               padding:0,
                               
-                              }}>Escoge cómo</Text>
+                              }}>ESCOGE CÓMO</Text>
                                <Text style={{
                               color: '#fff',
                               marginTop: hp('1%'),
@@ -53,7 +53,7 @@ export class Payment extends React.Component {
                               fontSize:hp('3%'),
                               padding:0,
                               
-                              }}>deseas pagar</Text>
+                              }}>DESEAS PAGAR</Text>
                             
                             </ImageBackground>
                      

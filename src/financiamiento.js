@@ -23,7 +23,7 @@ var factor60= 1.35
 
 const financiacion = (factor, meses) => {
  
-  var finam = new Intl.NumberFormat('de-DE').format(Math.trunc(potenciaFinal/meses*factor))
+  var finam = new Intl.NumberFormat().format(Math.trunc(potenciaFinal/meses*factor))
 
   return finam
  

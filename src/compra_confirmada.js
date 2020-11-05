@@ -219,12 +219,12 @@ export class CompraConfirmada extends React.Component {
 
           { /* LOGO*/}
   
-          <View style={{alignItems:'center', flex:0.3, marginTop:hp('0%')}}>  
+          <View style={{alignItems:'center', flex:0.2, marginTop:hp('0%')}}>  
           
           <Image 
             
             source={logo}
-            style={{aspectRatio:4.5,  height:hp('6%')}}
+            style={{aspectRatio:4.5,  height:hp('5%')}}
             
             >    
           </Image>  

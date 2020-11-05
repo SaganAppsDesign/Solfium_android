@@ -59,8 +59,9 @@ export class PagoUnico extends React.Component {
                      
                         <View style={{alignItems: 'center', flex:1,  width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
                         <TouchableOpacity
-                          
-                          
+
+                              disabled={true}
+                                                 
                                               
                           >
                           <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.3, justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('10%'), borderRadius: 10}}>
@@ -78,6 +79,8 @@ export class PagoUnico extends React.Component {
 
                           <View style={{alignItems: 'center', flex:2,  width:wp('100%'), height:hp('100%'), marginTop:hp('5%')}}>
                           <TouchableOpacity
+
+                              disabled={true}
                                                
                             >
                             <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.3, justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:3, height:hp('10%'),  borderRadius: 10}}>
@@ -103,7 +106,7 @@ export class PagoUnico extends React.Component {
                                   <Text style={{
                                                               
                                   fontWeight:'bold',
-                                  fontSize:hp('3%'),
+                                  fontSize:hp('2.6∫%'),
                                   color: 'white', 
                                   textAlign:'center',
                                   textAlignVertical:'center'}}>REALIZAR PAGO</Text>

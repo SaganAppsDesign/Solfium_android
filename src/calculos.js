@@ -59,7 +59,7 @@ var sistema
 
 const format= (num) => {
  
-  numFormat = new Intl.NumberFormat('de-DE').format(Math.trunc(num))
+  numFormat = new Intl.NumberFormat().format(Math.trunc(num))
 
   return numFormat
  
@@ -67,7 +67,7 @@ const format= (num) => {
 
 const calculosEcologicos = (factor) => {
  
-  calculo = new Intl.NumberFormat('de-DE').format(Math.trunc(factor*potenciaSistema*garantia))
+  calculo = new Intl.NumberFormat().format(Math.trunc(factor*potenciaSistema*garantia))
 
   return calculo
  
@@ -262,7 +262,7 @@ var arboles = calculosEcologicos(factorArbol)
     ConsumoMensual:potencia,
     CostoPromedioSistema:costoPromedioSistema,
     Mensualidad60:mensualidad(60,factor60),
-    Amortizacion:Math.trunc(costoPromedioSistema/potencia*1000),
+    Amortizacion:new Intl.NumberFormat().format(Math.trunc(costoPromedioSistema/potencia*1000)),
     Ahorro25:ahorro25(),
     Arboles:arboles,
     CO2:co2,

@@ -64,11 +64,11 @@ state = {
     
     switch (valor) {
       case 0:
-        title = "Volver atrás"
+        title = "Regresa a pantalla anterior"
         screen = "Próxima visita"
         break;
       case 1:
-        title = "Volver atrás"
+        title = "Regresa a pantalla anterior"
         screen = "Escanear QR Instalador"
         break;
       case 2:
@@ -76,27 +76,27 @@ state = {
         screen = "Próxima visita"
         break;
       case 3:
-        title = "Volver atrás"
+        title = "Regresa a pantalla anterior"
         screen = "Viabilidad Instalación"
         break;
       case 4:
-        title = "Volver atrás"
+        title = "Regresa a pantalla anterior"
         screen = "Pago"
         break;
       case 5:
-        title = "Volver atrás"
+        title = "Regresa a pantalla anterior"
         screen = "Pago único"
         break;
       case 6:
-        title = "Volver atrás"
+        title = "Regresa a pantalla anterior"
         screen = "Financiamiento"
         break;
       case 7:
-        title = "Volver atrás"
+        title = "Regresa a pantalla anterior"
         screen = "Confirmar compra"
         break;
       case 8:
-        title = "Volver atrás"
+        title = "Regresa a pantalla anterior"
         screen = "Rating"
         break;
 
@@ -153,12 +153,12 @@ state = {
           />
    
        </View>
-        <View style={{borderRadius:10, backgroundColor:'orange',  opacity:opacity, marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('20%'), marginRight:wp('20%'), flex:0.5}}>
+        <View style={{borderRadius:10,  backgroundColor:'orange',  opacity:opacity, marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('20%'), marginRight:wp('20%'), flex:0.5}}>
         
         <Button disabled={bool}
                 title={title} 
                 onPress={() => this.props.navigation.navigate(screen)}
-                color='white'/>
+                color='black'/>
                         
         </View>
 

@@ -115,7 +115,7 @@ export class Ratings extends React.Component{
                 </View>
 
                   
-                  <View style={{ marginBottom: hp('3%'), marginTop: hp('5%'), flex: 1}}>
+                  <View style={{ marginBottom: hp('3%'), marginTop: hp('10%'), flex: 1}}>
 
                                       
                       <AirbnbRating

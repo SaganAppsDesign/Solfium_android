@@ -28,9 +28,10 @@ export class IngresarConsumo extends React.Component {
 
   }
 
+ 
   
 onChangeText = potenciaEstado => this.setState({ potenciaEstado }, () => {
-  if (this.state.potenciaEstado=="," || this.state.potenciaEstado==".") {
+  if (this.state.potenciaEstado == "," || this.state.potenciaEstado == ".") {
     
     alert("Por favor, introduce número");
     this.setState({ potenciaEstado: "" })

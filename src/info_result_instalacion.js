@@ -23,7 +23,7 @@ export var costoSistemaExport
 
 const format = (num) => {
  
-  numFormat =  new Intl.NumberFormat('de-DE').format(Math.trunc(num))
+  numFormat =  new Intl.NumberFormat().format(Math.trunc(num))
 
   return numFormat
  
@@ -150,7 +150,7 @@ export class InfoResultInsta extends React.Component {
     backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
     
-  } else if ( potenInt = 1){
+  } else if ( poten = 'No viable'){
     viable = "NO VIABLE"
     text = 'Gracias por tu interés en Solfium, pero lamentablemente no es posible instalar el sistema en tu hogar. Nuestro experto estará encantado de resolver cualquier duda' 
     text12 = '-' 

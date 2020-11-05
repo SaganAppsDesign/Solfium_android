@@ -59,10 +59,6 @@ export class IdentidadConfirmada extends React.Component {
       }
 
 
-     
-
-
-
     
       if (QR == ''){
        
@@ -73,7 +69,7 @@ export class IdentidadConfirmada extends React.Component {
       
       }
 
-      if (QR == 'OK' && potencia==''){
+      if (QR == 'OK' && potencia ==''){
        
         opacity3=1
         
