@@ -11,7 +11,6 @@ import usuario from '../assets/usuario.png';
 import backBtn from '../assets/backBtn.png';
 
 
-
 var name, cita, uid, name2, title, screen
 
 
@@ -147,8 +146,8 @@ state = {
               user={{
                 _id: Fire.getUid(),
                 name: name,
-                //avatar: 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/45.png'
-              
+                avatar: 'https://firebasestorage.googleapis.com/v0/b/solfium.appspot.com/o/icono.png?alt=media&token=b1ee1e27-bf62-4c57-8571-669112a5a8aa'
+                //avatar:require('../assets/icono.png')
             }}
           />
    
@@ -276,7 +275,6 @@ componentDidMount() {
   
     }
     )
-
  
     Fire.loadMessages((message) => {
         
@@ -313,7 +311,7 @@ const styles = StyleSheet.create({
   container:{ 
   	flex: 1,
   	justifyContent: "center",
-  	backgroundColor: '#000',
+  	backgroundColor: '#EBEDEF',
     marginTop: "0%"},
     
    sendingContainer: {
@@ -344,11 +342,11 @@ function renderBubble(props) {
       wrapperStyle={{
         left: {
           // Here is the color change
-          backgroundColor: '#CEF9D9'
+          backgroundColor: '#fff'
         },
         right: {
           // Here is the color change
-          backgroundColor: '#1A8E38'
+          backgroundColor: '#DCF8C6'
         }
       }}
       textStyle={{

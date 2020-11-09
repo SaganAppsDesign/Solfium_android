@@ -87,7 +87,6 @@ export class Fire {
     //Nuevo código
     this.messagesRef = firebase.database().ref('/Chat/' + this.uid + '-Instalador1');
 
-    //this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
 
     const onReceive = (data) => {
@@ -95,13 +94,15 @@ export class Fire {
       const message = data.val()
       
       callback({
-        _id: "Instalador1",
+        _id: data.key,
         text: message.text,
         createdAt: new Date(message.createdAt),
         user: {
-          id: message.user._id,
+          _id: message.user._id,
           name: message.user.name,
           avatar:message.user.avatar
+          //avatar:require('./assets/icono2.png')
+          
             
         },
 
