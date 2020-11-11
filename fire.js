@@ -101,8 +101,7 @@ export class Fire {
           _id: message.user._id,
           name: message.user.name,
           avatar:message.user.avatar
-          //avatar:require('./assets/icono2.png')
-          
+                  
             
         },
 

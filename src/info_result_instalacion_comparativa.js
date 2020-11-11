@@ -14,7 +14,21 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import backBtn from '../assets/backBtn.png';
 import {potencia} from './ingresar_consumo2'
 
-
+var factor24= 1.14
+var factor36= 1.21
+var factor48= 1.28
+var factor60= 1.35
+var cargoFijoMensual = 114
+var tarifaDAC = 4.3333
+var horasSolDiarias = 7.7
+var factorEficiencia = 1.15
+var factorPagoCero = 1.2
+var factorCosto = 140
+var factorCambio = 21.37
+var factorArbol = 7.5
+var factorCO2 = 0.495
+var factorKm = 3535.88
+var garantia = 25
 
 const format = (num) => {
  
@@ -24,10 +38,8 @@ const format = (num) => {
  
 }
 
-var text,text1,text2,text3,text4,text5,text6,text7,color,opacity,backgroundcolor, viable
-
-
-
+var text,text1,text2,text3,text4,text5,text6,text7,color,opacity,viable, produccion_mensual, consumo_mensual
+var diferencial_consumo
 
 //console.log('costoPromedioSistema', costoPromedioSistema)
 
@@ -46,17 +58,18 @@ export class InfoResultInsta2 extends React.Component {
     co2:'',
     coches:'',
     text1:'',
-    calculoSistema:''
+    calculoSistema:'',
+    consumoMensual:''
 
   }
 
                  
   render() {
 
-   
+    
     //console.log('viabilidad componentDidMount',   this.state.viabilidad)
     
-
+    var consumo_mensual = this.state.consumoMensual
     
     var poten = this.state.potencia
     var inversionTotal = this.state.inversionTotal
@@ -68,12 +81,29 @@ export class InfoResultInsta2 extends React.Component {
     var coches = this.state.coches
     var calculoSistema = this.state.calculoSistema
     
-    //console.log('this.state.text1',text16666)
+
 
     var potenInt = parseInt(poten)
+   
+    produccion_mensual = (30*potenInt*horasSolDiarias)/(factorEficiencia*factorPagoCero)
+    diferencial_consumo = consumo_mensual - produccion_mensual
 
-    //console.log('calculoSistema resultados comaprativa',  calculoSistema)
+    if (diferencial_consumo <=0){
+
+      diferencial_consumo=0
+
+    } else {
+      
+      diferencial_consumo
+
+    }
     
+   var diferencia_costo_mensual = (tarifaDAC*diferencial_consumo+cargoFijoMensual)*(1.16)
+   var nueva_facturacion = ((tarifaDAC*consumo_mensual)+cargoFijoMensual)*1.16
+   //console.log('diferencial_consumo',  diferencial_consumo)
+   //console.log('diferencia_costo_mensual',  diferencia_costo_mensual)
+   //console.log('nueva_facturacion',  nueva_facturacion)
+   var ahorro_factura = (nueva_facturacion-diferencia_costo_mensual)*100/nueva_facturacion 
 
   if (potenInt > calculoSistema){
     viable = "VIABLE A LA ALZA"
@@ -82,8 +112,8 @@ export class InfoResultInsta2 extends React.Component {
 
       text1 = 149590*1.16 
       text2 = 3365*1.16 
-      text3 = text1/potencia
-      text4 = (25*12-text3)*potencia
+      text3 = text1/(text2-diferencia_costo_mensual)
+      text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
       text5 = '937' 
       text6 = '61' 
       text7 = '441.985'  
@@ -92,8 +122,8 @@ export class InfoResultInsta2 extends React.Component {
     } else if(calculoSistema == 3 && potenInt == 7 ) {
       text1 = 209426*1.16 
       text2 = 4712*1.16 
-      text3 = text1/potencia
-      text4 = (25*12-text3)*potencia
+      text3 = text1/(text2-diferencia_costo_mensual)
+      text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
       text5 = '1312' 
       text6 = '86' 
       text7 = '618.779' 
@@ -101,8 +131,8 @@ export class InfoResultInsta2 extends React.Component {
     } else if(calculoSistema == 3 && potenInt == 10 ) {
       text1 = 299180*1.16
       text2 = 6731*1.16
-      text3 = text1/potencia
-      text4 = (25*12-text3)*potencia
+      text3 = text1/(text2-diferencia_costo_mensual)
+      text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
       text5 = '1875' 
       text6 = '123' 
       text7 = '883.970'
@@ -110,8 +140,8 @@ export class InfoResultInsta2 extends React.Component {
     }else if(calculoSistema == 5 && potenInt == 7 ) {
       text1 = 209426*1.16 
       text2 = 4712*1.16 
-      text3 = text1/potencia
-      text4 = (25*12-text3)*potencia
+      text3 = text1/(text2-diferencia_costo_mensual)
+      text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
       text5 = '1312' 
       text6 = '86' 
       text7 = '618.779' 
@@ -119,8 +149,8 @@ export class InfoResultInsta2 extends React.Component {
     }else if(calculoSistema == 5 && potenInt == 10 ) {
       text1 = 299180*1.16
       text2 = 6731*1.16
-      text3 = text1/potencia
-      text4 = (25*12-text3)*potencia
+      text3 = text1/(text2-diferencia_costo_mensual)
+      text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
       text5 = '1875' 
       text6 = '123' 
       text7 = '883.970'
@@ -128,8 +158,8 @@ export class InfoResultInsta2 extends React.Component {
     }else if(calculoSistema == 7 && potenInt == 10 ) {
       text1 = 299180*1.16
       text2 = 6731*1.16
-      text3 = text1/potencia
-      text4 = (25*12-text3)*potencia
+      text3 = text1/(text2-diferencia_costo_mensual)
+      text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
       text5 = '1875' 
       text6 = '123' 
       text7 = '883.970'
@@ -157,8 +187,8 @@ export class InfoResultInsta2 extends React.Component {
     
     text1 = 209426*1.16 
     text2 = 4712*1.16 
-    text3 = text1/potencia
-    text4 = (25*12-text3)*potencia
+    text3 = text1/(text2-diferencia_costo_mensual)
+    text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
     text5 = '1312' 
     text6 = '86' 
     text7 = '618.779' 
@@ -182,8 +212,8 @@ export class InfoResultInsta2 extends React.Component {
      //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el  %:' 
     text1 = 149590*1.16 
     text2 = 3365*1.16 
-    text3 = text1/potencia
-    text4 = (25*12-text3)*potencia
+    text3 = text1/(text2-diferencia_costo_mensual)
+    text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
     text5 = '937' 
     text6 = '61' 
     text7 = '441.985'  
@@ -204,8 +234,8 @@ export class InfoResultInsta2 extends React.Component {
      else if (calculoSistema == 5){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 40%:' }
     text1 = 89754*1.16 
     text2 = 2019*1.16 
-    text3 = text1/potencia
-    text4 = (25*12-text3)*potencia
+    text3 = text1/(text2-diferencia_costo_mensual)
+    text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
     text5 = '562' 
     text6 = '37' 
     text7 = '265.191'  
@@ -593,9 +623,21 @@ export class InfoResultInsta2 extends React.Component {
                     width:wp('70%'),
                     }}>_______________________________________________</Text>
         </View> 
-      </View>   
+      </View>  
+      {/*  texto ahorro */}
+      <View style={{idth:wp('100%'), height:hp('0%'), marginBottom:hp('0%'),alignItems:'center',flex:1.3}}>
+                      <Text style={{color: '#878787',
+                                    textAlign:'center',
+                                    fontSize:hp('1.8%'),
+                                    marginTop: hp('1%'),
+                                    height:hp('30%'),
+                                    width:wp('60%'),
+                                    fontWeight:'bold'
+                                  
+                                     }}>Ahorrarás aproximadamente el {Math.trunc(ahorro_factura)}% de tu factura eléctrica </Text>
+      </View>  
 
-      {/* Botón*/}
+      {/* Botón Aceptar*/}
       <View style={{opacity:opacity,marginLeft:wp('0%') ,backgroundColor:'#5DCB31', borderRadius:50, width:wp('50%'), height:hp('10%'), flex:1, alignItems:'center', marginTop:hp('1%')}}>
 
                <TouchableOpacity
@@ -771,9 +813,7 @@ export class InfoResultInsta2 extends React.Component {
                    co2: snapshot.child("CO2").val() || '' ,
                    coches: snapshot.child("KM").val() || '',
                    calculoSistema: snapshot.child("Sistema").val() || '',
-                   }
-                                      
-                   )    
+                   consumoMensual: snapshot.child("ConsumoMensual").val() || '' }) 
  
    // this.setState({username: snapshot.child("name").val() || ''})
   

@@ -131,8 +131,6 @@ state = {
             <GiftedChat
               messages={this.state.messages}
               onSend={(message) => Fire.sendMessage(message)}
-            // renderBubble = {this.renderBubble.bind(this) }
-              //renderSend={renderSend}
               renderBubble={renderBubble}
               renderLoading={renderLoading}
               showUserAvatar
@@ -146,8 +144,8 @@ state = {
               user={{
                 _id: Fire.getUid(),
                 name: name,
-                avatar: 'https://firebasestorage.googleapis.com/v0/b/solfium.appspot.com/o/icono.png?alt=media&token=b1ee1e27-bf62-4c57-8571-669112a5a8aa'
-                //avatar:require('../assets/icono.png')
+                //avatar: 'https://firebasestorage.googleapis.com/v0/b/solfium.appspot.com/o/icono.png?alt=media&token=b1ee1e27-bf62-4c57-8571-669112a5a8aa'
+               
             }}
           />
    

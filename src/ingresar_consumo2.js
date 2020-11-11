@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, ToastAndroid, Animated, Keyboard, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import logo from '../assets/logo.png'; 
 import fondo from '../assets/calculos1.jpg'; 
@@ -34,8 +34,11 @@ onChangeText = potenciaEstado => this.setState({ potenciaEstado }, () => {
   if (this.state.potenciaEstado == "," || this.state.potenciaEstado == ".") {
     
     alert("Por favor, introduce número");
+ 
     this.setState({ potenciaEstado: "" })
   }
+
+
 })
 
 
