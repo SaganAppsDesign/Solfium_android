@@ -259,7 +259,7 @@ var arboles = calculosEcologicos(factorArbol)
     
     CalculoPotenciaSistema: potenciaSistema,
     Sistema:sistema,
-    ConsumoMensual:potencia,
+    ConsumoMensualCliente:potencia,
     CostoPromedioSistema:costoPromedioSistema,
     Mensualidad60:mensualidad(60,factor60),
     Amortizacion:new Intl.NumberFormat().format(Math.trunc(costoPromedioSistema/potencia*1000)),

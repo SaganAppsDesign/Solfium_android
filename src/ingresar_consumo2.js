@@ -76,13 +76,13 @@ render() {
                       
                       {/* Video */}
                       
-                      <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('5%')}}>
+                      <View  style={{borderRadius:10, alignItems:'center', flex:1, marginTop:hp('5%')}}>
                         <Text 
                             style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
                                     color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
                             onPress={() => this.props.navigation.navigate('Video Informativo')}>¿Quieres saber cómo funciona Solfium? Click aquí</Text>
                       </View>      
-                      <View style={{alignItem:'center', justifyContent:'center',marginTop:hp('7%') , width:wp('100%'), height:hp('100%'), flex:6, flexDirection:'column'}}>          
+                      <View style={{alignItem:'center', justifyContent:'center',marginTop:hp('7%') , width:wp('100%'), height:hp('100%'), flex:8, flexDirection:'column'}}>          
                                  
                                  <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.7}}>
                                                                  
@@ -195,7 +195,7 @@ render() {
 
                {/* header */}              
             {/*Botones*/}     
-              <View style={{opacity: 1, alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('1%'),marginTop:hp('3%')}}>  
+              <View style={{opacity: 1, alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('3%'),marginTop:hp('1%')}}>  
                          
                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
                              <TouchableOpacity 

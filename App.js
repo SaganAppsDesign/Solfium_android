@@ -19,7 +19,6 @@ import {CompraConfirmadaFinan} from './src/compra_confirmada_finan';
 import {QREscaneado} from './src/qr_escaneado';  
 import {QRCodeOk} from './src/QR_OK.js'; 
 import { Mapbox2 } from './src/mapbox'; 
-//import { Camara } from './src/camara2'; 
 import { QRscan } from './src/qr_scan'; 
 import { Chat } from './src/chat'; 
 import { Main } from './src/main'; 

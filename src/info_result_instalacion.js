@@ -56,7 +56,7 @@ export class InfoResultInsta extends React.Component {
     var consumo_mensual = this.state.consumoMensual
     var potenInt = parseInt(poten)
 
-    //console.log('consumo_mensual',  consumo_mensual)
+    console.log('consumo_mensual',  consumo_mensual)
     //console.log('this.state.potencia',   this.state.potencia)
     
 
@@ -79,13 +79,13 @@ export class InfoResultInsta extends React.Component {
     }
     
    var diferencia_costo_mensual = (tarifaDAC*diferencial_consumo+cargoFijoMensual)*(1.16)
-   var nueva_facturacion = ((tarifaDAC*consumo_mensual)+cargoFijoMensual)*1.16
+   var nueva_facturacion = (tarifaDAC*consumo_mensual+cargoFijoMensual)*1.16
    var ahorro_factura = (nueva_facturacion-diferencia_costo_mensual)*100/nueva_facturacion
 
-   /* console.log('diferencial_consumo',  diferencial_consumo)
+   console.log('diferencial_consumo',  diferencial_consumo)
    console.log('nueva_facturacion',  nueva_facturacion)
    console.log('diferencia_costo_mensual',  diferencia_costo_mensual)
-   console.log('ahorro_factura',  ahorro_factura) */
+   console.log('ahorro_factura',  ahorro_factura)
 
 
  
@@ -97,8 +97,8 @@ export class InfoResultInsta extends React.Component {
     //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium"' 
     text12 = 299180*1.16
     text2 = 6731*1.16
-    text3 = Math.trunc(text12/(text2-diferencia_costo_mensual))
-    text4 = format(Math.trunc((25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)))
+    text3 = text12/(nueva_facturacion-diferencia_costo_mensual)
+    text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
     text5 = '1875' 
     text6 = '123' 
     text7 = '883.970' 
@@ -119,7 +119,7 @@ export class InfoResultInsta extends React.Component {
     //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
     text12 = 209426*1.16
     text2 = 4712*1.16
-    text3 = text12/(text2-diferencia_costo_mensual)
+    text3 = text12/(nueva_facturacion-diferencia_costo_mensual)
     text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
     text5 = '1312' 
     text6 = '86' 
@@ -138,7 +138,7 @@ export class InfoResultInsta extends React.Component {
     
     text12 = 149590*1.16
     text2 = 3365*1.16
-    text3 = text12/(text2-diferencia_costo_mensual)
+    text3 = text12/(nueva_facturacion-diferencia_costo_mensual)
     text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
     text5 = '937' 
     text6 = '61' 
@@ -158,7 +158,7 @@ export class InfoResultInsta extends React.Component {
     //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
     text12 = 89754*1.16
     text2 = 2019*1.16 
-    text3 = text12/(text2-diferencia_costo_mensual)
+    text3 = text12/(nueva_facturacion-diferencia_costo_mensual)
     text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
     text5 = '562' 
     text6 = '37' 
@@ -716,7 +716,7 @@ export class InfoResultInsta extends React.Component {
     this.setState({viabilidad: snapshot.child("Viabilidad").val() || '',
                    username: snapshot.child("name").val() || '' ,
                    potencia: snapshot.child("potenciaContratada").val() || '',
-                   consumoMensual: snapshot.child("ConsumoMensual").val() || '' })    
+                   consumoMensual: snapshot.child("consumoMensual").val() || '' })    
   
   }
   )
