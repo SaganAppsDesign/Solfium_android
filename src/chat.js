@@ -58,7 +58,7 @@ state = {
 
     //valor = JSON.stringi∫fy(navigation.getParam('valor', ''))
     //const {valor } = route.params;
-    //console.log("valorCitacondfirmada", valor)
+    console.log("valorCitacondfirmada", valor)
  //Recibir valores de screens relacionadas con Chat∫
     
     switch (valor) {

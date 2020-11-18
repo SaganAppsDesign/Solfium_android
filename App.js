@@ -1,9 +1,7 @@
 import * as React from 'react';
-import {Component, Fragment} from 'react';
+import {Fragment} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StackActions, NavigationActions } from 'react-navigation';
-import {HomeScreen} from './src/homeScreen';  
 import {Calculos} from './src/calculos';  
 import {PantallaEspera} from './src/pantalla_espera';  
 import {CitaConfirmada} from './src/cita_confirmada';  
@@ -29,8 +27,6 @@ import {PagoUnico } from './src/pago_unico';
 import {Financiamiento } from './src/financiamiento'; 
 import {SplashScreen } from './src/splash_screen'; 
 import 'react-native-gesture-handler';
-import { HeaderBackButton } from '@react-navigation/stack';
-import { StyleSheet, View, Text, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -83,11 +79,11 @@ export class MainScreen extends React.Component {
       <Stack.Screen options={{headerShown: false}} name="Video Informativo" component={VideoInfo} />
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />    
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación Comparativa" component={InfoResultInsta2} />
-      <Stack.Screen options={{headerShown: false}}name="Instalación en proceso" component={Instalacion} />
+      <Stack.Screen options={{headerShown: false}} name="Instalación en proceso" component={Instalacion} />
       <Stack.Screen options={{headerShown: false}}  name="Rating" component={Ratings} />
-      <Stack.Screen options={{headerShown: false}}name="Escanear QR Instalador" component={IdentidadConfirmada}/>
+      <Stack.Screen options={{headerShown: false}} name="Escanear QR Instalador" component={IdentidadConfirmada}/>
       <Stack.Screen options={{headerShown: false}} name="QR Escaneado" component={QREscaneado} />
-      <Stack.Screen options={{headerShown: false}}name="QR correcto" component={QRCodeOk} />
+      <Stack.Screen options={{headerShown: false}} name="QR correcto" component={QRCodeOk} />
       <Stack.Screen  options={{headerShown: false}} name="Ubicación" component={Mapbox2} />
       <Stack.Screen  options={{headerShown: false}} name="QR scan" component={QRscan}  />
       <Stack.Screen  options={{headerShown: false}} name="Chat" component={Chat}  />

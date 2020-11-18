@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Text, View, Dimensions, LogBox, ToastAndroid, KeyboardAvoidingView,
-  TouchableOpacity, Image, TextInput, StyleSheet, Button} from 'react-native';
+import {View, Dimensions, KeyboardAvoidingView,
+  TouchableOpacity, Image, TextInput, StyleSheet} from 'react-native';
 import tec3 from '../assets/fondo6.jpg';  
 import ImageOverlay from "react-native-image-overlay";
 import 'react-native-gesture-handler';
@@ -20,7 +20,7 @@ import rating from '../assets/rating.png';
 
 
 var {height} = Dimensions.get('window');
-var bool, bool3, opacity, opacity2
+var bool3, opacity, opacity2
 
 export class Ratings extends React.Component{
 

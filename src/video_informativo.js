@@ -25,7 +25,7 @@ export class VideoInfo extends React.Component {
   
    <View style={{marginTop:'5%', marginBottom:'5%', marginLeft:'0%', marginRight:'0%',  width:'90%', height:'90%', flex:1}}>	
 
-    <VideoPlayer 
+   {/*  <VideoPlayer 
     
     source={require ('../assets/video.mp4')} 
     style={styles.backgroundVideo}
@@ -34,7 +34,7 @@ export class VideoInfo extends React.Component {
     onBack={() => this.props.navigation.navigate('Ingresar Consumo')}
     //toggleResizeModeOnFullscreen 
     />
-    
+     */}
     
     {/* 
     < Video

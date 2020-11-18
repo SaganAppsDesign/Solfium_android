@@ -6,29 +6,41 @@ import logo from '../assets/logo_blanco.png';
 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-
-const user = () => {
-  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
- 
-};
-
-const settings = () => {
-  ToastAndroid.show("Settings", ToastAndroid.SHORT);
- 
-};
-
-
+var test
 
 export class SplashScreen extends React.Component {
 
   constructor(props){
     super(props)
-    setTimeout(()=>{
-      this.props.navigation.replace('Ingresar Consumo')
+    
+    test = 1
 
-    }, 2000
+    if (test==1){
+      setTimeout(()=>{
+    
+        this.props.navigation.replace('Ingresar Consumo')
+  
+      }, 2000
+  
+      )
 
-    )
+
+    } else {
+      setTimeout(()=>{
+    
+
+        this.props.navigation.replace('Próxima visita')
+  
+      }, 2000
+  
+      )
+
+
+    }
+
+  
+
+
 
   }
 
