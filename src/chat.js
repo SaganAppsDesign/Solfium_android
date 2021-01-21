@@ -32,7 +32,11 @@ data2 = () => db.ref('/Instaladores/instalador1').on('value', (snapshot) => {
  
 });
 
-
+estadoCliente2 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+                
+  estado_cliente: "Cita CONFIRMADA",
+      
+  })
 
 
 export class Chat extends React.Component {
@@ -58,8 +62,8 @@ state = {
 
     //valor = JSON.stringi∫fy(navigation.getParam('valor', ''))
     //const {valor } = route.params;
-    console.log("valorCitacondfirmada", valor)
- //Recibir valores de screens relacionadas con Chat∫
+    //console.log("valorCitacondfirmada", valor)
+ //Recibir valores de screens relacionadas con Chat
     
     switch (valor) {
       case 0:
@@ -118,9 +122,10 @@ state = {
 
         bool=false
         opacity=1
+        
    }
 
-
+     
    
     return (
      
@@ -154,7 +159,7 @@ state = {
         
         <Button disabled={bool}
                 title={title} 
-                onPress={() => this.props.navigation.navigate(screen)}
+                onPress = {() => {this.props.navigation.navigate(screen);estadoCliente2()}}
                 color='black'/>
                         
         </View>

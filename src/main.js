@@ -23,14 +23,15 @@ export class Main extends React.Component {
   state = {
 
     name: '',
-    uid: ''
+    uid: '',
+    codigo_agente:''
 
   }
  
   user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
-    name: this.state.name
-
+    name: this.state.name,
+    Codigo_agente: this.state.codigo_agente,
     
     
     })
@@ -38,6 +39,7 @@ export class Main extends React.Component {
   
 
   onChangeText = name => this.setState({ name });
+  agentCode = codigo_agente => this.setState({ codigo_agente});
   
   onPress = () =>
 
@@ -72,9 +74,9 @@ export class Main extends React.Component {
       <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:1}}> 
   
                   
-      <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:10, height:hp('3%')}}> 
+      <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:9, height:hp('3%')}}> 
       
-          <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('10%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:2, height:hp('2%'), justifyContent:'center'}}> 
+          <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('10%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:1, height:hp('2%'), justifyContent:'center'}}> 
               <Text style={{color: 'white',
                 
                 fontSize: hp('2.2%'),
@@ -88,22 +90,49 @@ export class Main extends React.Component {
            </View>
 
     
-            <View style={{height:hp('100%'), width:hp('100%'), alignItems:'center', flex:5}}>
+            <View style={{height:hp('100%'), width:hp('100%'), alignItems:'center', flex:1}}>
 
                           
-                      <TextInput
-                        style={styles.nameInput}
-                        label="Dinos tu nombre"
-                        onChangeText={this.onChangeText}
-                        value={this.state.name}
-                        returnKeyType={ 'done' }
-                        theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
-                        
+                <TextInput
+                  style={styles.nameInput}
+                  label="Dinos tu nombre"
+                  onChangeText={this.onChangeText}
+                  value={this.state.name}
+                  returnKeyType={ 'done' }
+                  theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
+              
+                />
+                                     
 
-                        
-                      />
+              </View>
+
+              <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('0%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:0.7, height:hp('2%'), justifyContent:'center'}}> 
+               
+               <Text style={{color: 'white',
+                
+                fontSize: hp('2.2%'),
+                marginHorizontal: wp('0%'),
+                marginTop:hp('0%'),
+                fontWeight: 'bold',
+                padding: hp('0%'),
+                textAlign: 'center',
+                height: hp('6%'),
+                borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales?</Text>
+                </View>
+
                     
-                    <View style={{width:hp('20%'),height:hp('5%'), borderRadius:15, marginTop:hp('2%'), backgroundColor: '#DD650C', alignItems:'center', marginBottom:'0%', justifyContent:'center'}}> 
+                <TextInput
+                style={styles.nameInput2}
+                label="Ingresa código agente"
+                onChangeText={this.agentCode}
+                value={this.state.Codigo_agente}
+                returnKeyType={ 'done' }
+                theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
+                                
+              />
+
+
+              <View style={{width:hp('20%'),height:hp('5%'), borderRadius:15, marginTop:hp('0%'), backgroundColor: '#DD650C', alignItems:'center', marginBottom:'7%', justifyContent:'center', flex:0.3}}> 
                       <TouchableOpacity onPress={
                         () => { this.onPress(); this.user()}
                       }
@@ -111,16 +140,15 @@ export class Main extends React.Component {
                       <Text style={styles.buttonText}>Abrir chat</Text>
                       </TouchableOpacity>
 
-                      </View>
-
               </View>
-          
+             
+            </View>
 
-              </View>
+              
 
               { /* LOGO*/}
 
-                  <View style={{alignItems:'center', justifyContent:'center', flex:0.2}}>  
+                  <View style={{alignItems:'center', justifyContent:'center', flex:0.2, marginTop:hp('3%')}}>  
                   
                   <Image 
                     
@@ -249,6 +277,23 @@ const styles = StyleSheet.create({
    
    
   },
+
+  nameInput2: {
+    height:hp('5.2%'),
+    marginLeft: hp('0%'),
+    marginTop:hp('3%'),
+    marginBottom:hp('5%'),
+    width:wp('60%'),
+    paddingHorizontal: wp('5%'),
+    backgroundColor: 'white',
+    fontSize:hp('2%'),
+    fontWeight: 'bold',
+    borderRadius: 2,
+   
+   
+  },
+ 
+
   buttonText: {
 // marginLeft: hp('30%'),
     marginTop:hp('2%'),

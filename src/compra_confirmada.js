@@ -13,7 +13,11 @@ import  Fire , {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import backBtn from '../assets/backBtn.png'; 
 
-
+estadoCliente5 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+                
+  estado_cliente: "Instalación realizada",
+      
+  })
 
 export class CompraConfirmada extends React.Component {
   state = {
@@ -191,13 +195,12 @@ export class CompraConfirmada extends React.Component {
                                             
                    
                                                   
-                                                <TouchableOpacity 
+                                          <TouchableOpacity 
 
-                                                        disabled={bool}
-                                                                                                    
-                                                        onPress={() => this.props.navigation.navigate('Rating')}
-                                                        style={{alignItems:'center',marginTop:hp('0%'), marginLeft:wp('-60%'),width:wp('40%'), height:hp('5%'), flex:1}}
-                                                > 
+                                                  disabled={bool}
+                                                  onPress = {() => {this.props.navigation.navigate('Rating');estadoCliente5()}}  
+                                                  style={{alignItems:'center',marginTop:hp('0%'), marginLeft:wp('-60%'),width:wp('40%'), height:hp('5%'), flex:1}}
+                                          > 
 
                                         
                                           <View> 

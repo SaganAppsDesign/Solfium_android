@@ -9,6 +9,15 @@ import logo from '../assets/logo.png';
 import chat from '../assets/chat.png';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import backBtn from '../assets/backBtn.png'; 
+import {db} from '../fire';
+import Fire from '../fire';
+
+
+estadoCliente4 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+                
+  estado_cliente: "Ha realizado PAGO ÚNICO"
+      
+  })
 
 export class PagoUnico extends React.Component {
 
@@ -97,9 +106,9 @@ export class PagoUnico extends React.Component {
                             <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('0%'), width:hp('30%'), height:hp('100%'), flex:0.6}}>
 
                               <TouchableOpacity
-                                  
+                                                                
                                 
-                                  onPress={() => this.props.navigation.navigate('Confirmar compra')} 
+                                  onPress = {() => {this.props.navigation.navigate('Confirmar compra');estadoCliente4()}}       
                                                       
                                   >
               

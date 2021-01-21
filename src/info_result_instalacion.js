@@ -33,6 +33,14 @@ const format = (num) => {
  
 }
 
+const estadoCliente3 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+                
+  estado_cliente: "Oferta ACEPTADA"
+      
+  })
+
+
+
 export class InfoResultInsta extends React.Component {
   
   state = {
@@ -49,9 +57,7 @@ export class InfoResultInsta extends React.Component {
   render() {
     //console.log('viabilidad componentDidMount',   this.state.viabilidad)
     
-
-  
-
+ 
     var poten = this.state.potencia
     var consumo_mensual = this.state.consumoMensual
     var potenInt = parseInt(poten)
@@ -82,13 +88,7 @@ export class InfoResultInsta extends React.Component {
    var nueva_facturacion = (tarifaDAC*consumo_mensual+cargoFijoMensual)*1.16
    var ahorro_factura = (nueva_facturacion-diferencia_costo_mensual)*100/nueva_facturacion
 
-   console.log('diferencial_consumo',  diferencial_consumo)
-   console.log('nueva_facturacion',  nueva_facturacion)
-   console.log('diferencia_costo_mensual',  diferencia_costo_mensual)
-   console.log('ahorro_factura',  ahorro_factura)
-
-
- 
+   
     viable = "VIABLE"
     text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium"'  
 
@@ -216,6 +216,13 @@ export class InfoResultInsta extends React.Component {
     opacity = 0
   }
  
+  estado_compra = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+    
+    estado_cliente: "Pendiente aceptar oferta",
+    
+    
+    })
 
   return (  
 
@@ -553,9 +560,8 @@ export class InfoResultInsta extends React.Component {
 
                <TouchableOpacity
                      
-                     
-                     onPress={() => this.props.navigation.navigate('Pago')} 
                                          
+                     onPress = {() => {this.props.navigation.navigate('Pago');estadoCliente3()}}              
                      >
 
                      <Text style={{

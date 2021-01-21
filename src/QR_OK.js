@@ -16,6 +16,7 @@ var {height} = Dimensions.get('window');
 const confirmadoQR = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
   QR_instalador: 'OK',
+  estado_cliente: "Identidad instalador CONFIRMADA"
       
   })
 

@@ -73,6 +73,12 @@ const calculosEcologicos = (factor) => {
  
 }
 
+estadoCliente0 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+                
+  estado_cliente: "Cliente INTERESADO",
+      
+  })
+
 
 export class Calculos extends React.Component {
 
@@ -559,9 +565,9 @@ var arboles = calculosEcologicos(factorArbol)
                      width: wp('50%'),backgroundColor: '#5DCB31', flex:1, borderRadius:100, justifyContent:'center'}}>
 
                <TouchableOpacity
-                     
-                     
-                     onPress={() => this.props.navigation.navigate('Implementación')} 
+                                        
+                  
+                     onPress = {() => {this.props.navigation.navigate('Implementación');estadoCliente0()}}  
                                          
                      >
 

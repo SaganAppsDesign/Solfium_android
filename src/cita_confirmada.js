@@ -26,9 +26,11 @@ export class CitaConfirmada extends React.Component {
     nombre_instalador:''
   }
 
-  
+    
   
   render() {
+
+    
 
     //console.log('this.state.nombre_instalador', this.state.nombre_instalador)
 
@@ -56,8 +58,7 @@ export class CitaConfirmada extends React.Component {
           opacity=1
     }
     
-   
-
+  
   return (
 
        
@@ -315,13 +316,16 @@ export class CitaConfirmada extends React.Component {
   componentDidMount() {
 
 
+    
+
+
     const ref = db.ref('/Usuarios/' +  Fire.getUid());
 
     this.listener = ref.on("value", snapshot => {
   
     this.setState({cita: snapshot.child("cita").val() || '' ,
                    username: snapshot.child("name").val() || '',
-                   visita: snapshot.child("visita").val() || '',
+                   visita: snapshot.child("visita").val() || ''
                    //nombre_instalador: snapshot.child("nombre_instalador").val() || ''
                   
                   

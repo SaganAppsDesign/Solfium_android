@@ -73,13 +73,14 @@ export class IdentidadConfirmada extends React.Component {
        
         opacity3=1
         
+        
         } else {
         
         opacity3=0
         }
 
-
-
+       
+        
 
      return (
 
@@ -406,6 +407,7 @@ export class IdentidadConfirmada extends React.Component {
 
 
 componentDidMount() {
+
 
 
   const ref = db.ref('/Usuarios/' +  Fire.getUid());
