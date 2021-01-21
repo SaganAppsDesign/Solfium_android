@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Checkbox } from 'react-native-paper';
 import {
   StyleSheet,
   Text,
@@ -11,20 +12,19 @@ import logo from '../assets/logo.png'
 import { TextInput } from 'react-native-paper'
 import ImageOverlay from "react-native-image-overlay"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
-import {potencia} from './ingresar_consumo2'
 import home from '../assets/home.png'; 
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
 import backBtn from '../assets/backBtn.png'; 
 
-
+  
 export class Main extends React.Component {
    
   state = {
 
     name: '',
     uid: '',
-    codigo_agente:''
+    codigo_agente:'',
 
   }
  
@@ -118,6 +118,8 @@ export class Main extends React.Component {
                 textAlign: 'center',
                 height: hp('6%'),
                 borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales?</Text>
+                                             
+
                 </View>
 
                     
@@ -279,7 +281,7 @@ const styles = StyleSheet.create({
   },
 
   nameInput2: {
-    height:hp('5.2%'),
+    height:hp('6%'),
     marginLeft: hp('0%'),
     marginTop:hp('3%'),
     marginBottom:hp('5%'),
