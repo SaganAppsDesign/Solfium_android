@@ -17,8 +17,6 @@ import setting from '../assets/setting.png';
 import usuario from '../assets/usuario.png'; 
 import backBtn from '../assets/backBtn.png'; 
 
-var opacity = 0.4
-var bool = false
 
 export class Main extends React.Component {
    
@@ -89,9 +87,9 @@ export class Main extends React.Component {
       <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:1}}> 
   
                   
-      <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:8.5, height:hp('3%')}}> 
+      <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:10, height:hp('3%')}}> 
       
-          <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('10%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:1, height:hp('2%'), justifyContent:'center'}}> 
+          <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('10%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:0.6, height:hp('5%'), justifyContent:'center'}}> 
               <Text style={{color: 'white',
                 
                 fontSize: hp('2.2%'),
@@ -105,7 +103,7 @@ export class Main extends React.Component {
            </View>
 
     
-            <View style={{height:hp('100%'), width:hp('100%'), alignItems:'center', flex:1}}>
+            <View style={{height:hp('50%'), width:hp('100%'), alignItems:'center', flex:0.7}}>
 
                           
                 <TextInput
@@ -121,7 +119,7 @@ export class Main extends React.Component {
 
               </View>
 
-              <View style={{width:hp('42%'), borderRadius:10, marginTop:hp('0%'), backgroundColor: '#2C80E5', alignItems:'center', marginBottom:'0%', flex:0.4, height:hp('3%'), justifyContent:'center'}}> 
+              <View style={{width:hp('42%'), borderRadius:10, marginTop:hp('0%'), backgroundColor: '#2C80E5', alignItems:'center', marginBottom:'0%', flex:0.3, height:hp('3%'), justifyContent:'center'}}> 
                   <TouchableOpacity onPress={
                             () => {this.onPress2()}
                       
@@ -146,7 +144,7 @@ export class Main extends React.Component {
                 <TextInput
                 editable={this.state.bool}
                 
-                style={{height:hp('6%'),
+                style={{height:hp('8%'),
                 marginLeft: hp('0%'),
                 marginTop:hp('3%'),
                 marginBottom:hp('5%'),
