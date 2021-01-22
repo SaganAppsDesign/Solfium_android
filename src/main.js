@@ -17,7 +17,9 @@ import setting from '../assets/setting.png';
 import usuario from '../assets/usuario.png'; 
 import backBtn from '../assets/backBtn.png'; 
 
-  
+var opacity = 0.4
+var bool = false
+
 export class Main extends React.Component {
    
   state = {
@@ -25,8 +27,12 @@ export class Main extends React.Component {
     name: '',
     uid: '',
     codigo_agente:'',
+    opacity: 0.4,
+    bool: false
 
   }
+
+  
  
   user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
@@ -50,17 +56,25 @@ export class Main extends React.Component {
         valor:2
        
     }
-      
-    )
+   )
 
+
+  onPress2 = () => {
+    
+    this.setState({opacity:1}) 
+    this.setState({bool:true}) 
+  }
 
      
   render() {
 
-     
+    
+          
     return (
+
+    
       
-      
+  
       <ImageOverlay 
 
       source={fondo}
@@ -75,7 +89,7 @@ export class Main extends React.Component {
       <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:1}}> 
   
                   
-      <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:9, height:hp('3%')}}> 
+      <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:8.5, height:hp('3%')}}> 
       
           <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('10%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:1, height:hp('2%'), justifyContent:'center'}}> 
               <Text style={{color: 'white',
@@ -107,25 +121,43 @@ export class Main extends React.Component {
 
               </View>
 
-              <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('0%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:0.7, height:hp('2%'), justifyContent:'center'}}> 
-               
-               <Text style={{color: 'white',
-                
-                fontSize: hp('2.2%'),
-                marginHorizontal: wp('0%'),
-                marginTop:hp('0%'),
-                fontWeight: 'bold',
-                padding: hp('0%'),
-                textAlign: 'center',
-                height: hp('9%'),
-                borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales? Ingresa el código</Text>
-                                             
+              <View style={{width:hp('42%'), borderRadius:10, marginTop:hp('0%'), backgroundColor: '#2C80E5', alignItems:'center', marginBottom:'0%', flex:0.4, height:hp('3%'), justifyContent:'center'}}> 
+                  <TouchableOpacity onPress={
+                            () => {this.onPress2()}
+                      
+                          }
+                          >
+                  <Text style={{color: 'white',
+                    
+                    fontSize: hp('1.8%'),
+                    marginHorizontal: wp('0%'),
+                    marginTop:hp('0%'),
+                    fontWeight: 'bold',
+                    padding: hp('0%'),
+                    textAlign: 'center',
+                    height: hp('5%'),
+                    borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales? Pincha aquí e ingresa el código</Text>
+                                                
+                  </TouchableOpacity>
 
                 </View>
 
                     
                 <TextInput
-                style={styles.nameInput2}
+                editable={this.state.bool}
+                
+                style={{height:hp('6%'),
+                marginLeft: hp('0%'),
+                marginTop:hp('3%'),
+                marginBottom:hp('5%'),
+                width:wp('60%'),
+                paddingHorizontal: wp('5%'),
+                backgroundColor: 'white',
+                fontSize:hp('2%'),
+                fontWeight: 'bold',
+                borderRadius: 2, 
+                color:'#2C80E5',
+                opacity:this.state.opacity}}
                 label="Ingresa código agente"
                 onChangeText={this.agentCode}
                 value={this.state.Codigo_agente}
@@ -291,7 +323,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     fontSize:hp('2%'),
     fontWeight: 'bold',
-    borderRadius: 2,
+    borderRadius: 2
+    
    
    
   },

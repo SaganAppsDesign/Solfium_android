@@ -51,11 +51,10 @@ export class InfoResultInsta extends React.Component {
     consumoMensual:''
   }
 
-  //costoSistemaExport = this.state.text12
 
 
   render() {
-    //console.log('viabilidad componentDidMount',   this.state.viabilidad)
+    
     
  
     var poten = this.state.potencia
@@ -63,17 +62,12 @@ export class InfoResultInsta extends React.Component {
     var potenInt = parseInt(poten)
 
     console.log('consumo_mensual',  consumo_mensual)
-    //console.log('this.state.potencia',   this.state.potencia)
-    
-
-    //var consumo_mensual = 700
-  
+     
 
     var produccion_mensual = (30*potenInt*horasSolDiarias)/(factorEficiencia*factorPagoCero)
     var diferencial_consumo = consumo_mensual - produccion_mensual
 
    
-
     if (diferencial_consumo <=0){
 
       diferencial_consumo=0
