@@ -10,12 +10,21 @@ import usuario from '../assets/usuario.png';
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import calcular from '../assets/calcular3.png'; 
+import Fire, {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 
 
 export var potenciaEstado, potencia2, potencia
+
+estadoCliente6 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+                
+  estado_cliente: "Cliente realiza cálculo inicial"
+  
+      
+  })
+
   
 export class IngresarConsumo extends React.Component {
 
@@ -122,11 +131,7 @@ render() {
                                       value={this.state.potenciaEstado}
                                       returnKeyType={ 'done' }
                                   
-                                      //inlineImageLeft='icono.'
-                                      //label="KWh"
-                                      //onChangeText={this.onChangeText}
-                                      //value={this.state.name}
-                                      //mode='outlined'
+                                     
                                       
                                   />
 
@@ -136,7 +141,7 @@ render() {
                                   <View  style={{alignItems:'center', flex:2,  justifyContent:'center',marginTop:hp('0%'),  opacity:0.5}}>
                                    <TouchableOpacity 
                                                                                                     
-                                      //onPress={() => ubicacionMensaje() }
+                                     
                                         > 
                                                                                                      
                                           <Image 
@@ -157,7 +162,9 @@ render() {
 
                                           disabled={bool}
                                                                                                         
-                                          onPress={() => this.props.navigation.navigate('Calculando')}
+                                          onPress = {() => {this.props.navigation.navigate('Calculando');estadoCliente6()}}  
+                                          
+                                          
                                            
                                             > 
                                                                                     

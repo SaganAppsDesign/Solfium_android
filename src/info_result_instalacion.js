@@ -12,7 +12,6 @@ import usuario from '../assets/usuario.png'
 import fondo from '../assets/fondo2.jpg';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import backBtn from '../assets/backBtn.png';
-import {potencia} from './ingresar_consumo2'
 
 //var viabilidad, user=''
 var text,text12,text2,text3,text4,text5,text6,text7,color,opacity,backgroundcolor, viable
@@ -33,9 +32,10 @@ const format = (num) => {
  
 }
 
-const estadoCliente3 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+ estadoCliente3 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
   estado_cliente: "Oferta ACEPTADA"
+  
       
   })
 
@@ -216,14 +216,7 @@ export class InfoResultInsta extends React.Component {
     opacity = 0
   }
  
-  estado_compra = () => db.ref('Usuarios/' +  Fire.getUid()).update({
-    
-    
-    estado_cliente: "Pendiente aceptar oferta",
-    
-    
-    })
-
+ 
   return (  
 
   

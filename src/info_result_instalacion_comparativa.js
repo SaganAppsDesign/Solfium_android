@@ -41,7 +41,13 @@ const format = (num) => {
 var text,text1,text2,text3,text4,text5,text6,text7,color,opacity,viable, produccion_mensual, consumo_mensual
 var diferencial_consumo
 
-//console.log('costoPromedioSistema', costoPromedioSistema)
+
+estadoCliente7 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+                
+  estado_cliente: "Oferta ACEPTADA"
+  
+      
+  })
 
 
 export class InfoResultInsta2 extends React.Component {
@@ -641,9 +647,9 @@ export class InfoResultInsta2 extends React.Component {
       <View style={{opacity:opacity,marginLeft:wp('0%') ,backgroundColor:'#5DCB31', borderRadius:50, width:wp('50%'), height:hp('10%'), flex:1, alignItems:'center', marginTop:hp('1%')}}>
 
                <TouchableOpacity
-                     
-                     
-                     onPress={() => this.props.navigation.navigate('Pago')} 
+                                          
+            
+                     onPress = {() => {this.props.navigation.navigate('Pago');estadoCliente7()}}
                                          
                      >
 

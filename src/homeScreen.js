@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Linking} from 'react-native';
+import { Text, View, Image, TouchableOpacity, Dimensions} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import logo from '../assets/logo.png'; 
 import fondo from '../assets/screen1.jpg'; 
@@ -6,16 +6,10 @@ import consumo from '../assets/ingrese_consumo.png';
 import ubicacion from '../assets/ubicacion.png'; 
 import calcular from '../assets/calcular.png'; 
 import 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button} from 'react-native-elements';
 import * as React from 'react';
-import Fire, {db} from '../fire';
-import home from '../assets/home.png'; 
-import setting from '../assets/setting.png'; 
-import usuario from '../assets/usuario.png'; 
+import Fire from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-var {height, width} = Dimensions.get('screen');
 var lat, lon, uri2
 
 var uid = Fire.getUid()
@@ -25,18 +19,17 @@ console.log('UID: ', uid)
 
 export function HomeScreen({ route, navigation }) {
   //Coordenadas
-  const { Latitud } = route.params;
-  const { Longitud } = route.params;
+  //const { Latitud } = route.params;
+  //const { Longitud } = route.params;
 
-  const { URI } = route.params;
+  //const { URI } = route.params;
 
 
-  lat = JSON.stringify(Latitud)
-  lon = JSON.stringify(Longitud)
+  //lat = JSON.stringify(Latitud)
+  //lon = JSON.stringify(Longitud)
 
-  uri2 = URI.uri
+  //uri2 = URI.uri
 
-  console.log('uri_home_screen: ', uri2)
     
 return (
 

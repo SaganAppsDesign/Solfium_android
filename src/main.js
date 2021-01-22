@@ -32,6 +32,7 @@ export class Main extends React.Component {
     
     name: this.state.name,
     Codigo_agente: this.state.codigo_agente,
+    estado_cliente: "Cliente abre CHAT con instalador por primera vez"
     
     
     })
@@ -116,8 +117,8 @@ export class Main extends React.Component {
                 fontWeight: 'bold',
                 padding: hp('0%'),
                 textAlign: 'center',
-                height: hp('6%'),
-                borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales?</Text>
+                height: hp('9%'),
+                borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales? Ingresa el código</Text>
                                              
 
                 </View>
