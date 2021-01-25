@@ -13,8 +13,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 var lat, lon, uri2
 
 var uid = Fire.getUid()
-console.log('UID: ', uid)
-
+//console.log('UID: ', uid)
 
 
 export function HomeScreen({ route, navigation }) {

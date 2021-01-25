@@ -17,8 +17,6 @@ import rating from '../assets/rating.png';
 
 
 
-
-
 var {height} = Dimensions.get('window');
 var bool3, opacity, opacity2
 

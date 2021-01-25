@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { Checkbox } from 'react-native-paper';
 import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View, Image
+  View, Image, KeyboardAvoidingView
 } from 'react-native';
 import Fire, {db} from '../fire';
 import fondo from '../assets/fondo5.jpg'
@@ -140,31 +139,33 @@ export class Main extends React.Component {
 
                 </View>
 
-                    
-                <TextInput
-                editable={this.state.bool}
-                
-                style={{height:hp('8%'),
-                marginLeft: hp('0%'),
-                marginTop:hp('3%'),
-                marginBottom:hp('5%'),
-                width:wp('60%'),
-                paddingHorizontal: wp('5%'),
-                backgroundColor: 'white',
-                fontSize:hp('2%'),
-                fontWeight: 'bold',
-                borderRadius: 2, 
-                color:'#2C80E5',
-                opacity:this.state.opacity}}
-                label="Ingresa código agente"
-                onChangeText={this.agentCode}
-                value={this.state.Codigo_agente}
-                returnKeyType={ 'done' }
-                theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
-                                
-              />
+                <KeyboardAvoidingView  
+                       behavior={Platform.OS == "ios" ? "padding" : "height"}
+                       style={{alignItems:'center', height:hp('0%'), width:hp('100%'), flex:5, alignContent:'center', justifyContent:'center'}}>     
+                        <TextInput
+                        editable={this.state.bool}
+                        
+                        style={{height:hp('8%'),
+                        marginLeft: hp('0%'),
+                        marginTop:hp('3%'),
+                        marginBottom:hp('5%'),
+                        width:wp('60%'),
+                        paddingHorizontal: wp('5%'),
+                        backgroundColor: 'white',
+                        fontSize:hp('2%'),
+                        fontWeight: 'bold',
+                        borderRadius: 2, 
+                        color:'#2C80E5',
+                        opacity:this.state.opacity}}
+                        label="Ingresa código agente"
+                        onChangeText={this.agentCode}
+                        value={this.state.Codigo_agente}
+                        returnKeyType={ 'done' }
+                        theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
+                                        
+                        />
 
-
+              </KeyboardAvoidingView>
               <View style={{width:hp('20%'),height:hp('5%'), borderRadius:15, marginTop:hp('0%'), backgroundColor: '#DD650C', alignItems:'center', marginBottom:'7%', justifyContent:'center', flex:0.3}}> 
                       <TouchableOpacity onPress={
                         () => { this.onPress(); this.user()}

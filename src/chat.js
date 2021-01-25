@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { GiftedChat, Bubble, Send } from 'react-native-gifted-chat';
+import { GiftedChat, Bubble } from 'react-native-gifted-chat';
 import Fire from '../fire';
-import { StyleSheet, View, Image, TouchableOpacity, Button, ActivityIndicator, KeyboardAvoidingView} from 'react-native';
-import { IconButton } from 'react-native-paper';
+import { StyleSheet, View, Image, TouchableOpacity, Button, ActivityIndicator} from 'react-native';
 import {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import home from '../assets/home.png'; 
@@ -59,11 +58,6 @@ state = {
 
     const { valor } = this.props.route.params;
   
-
-    //valor = JSON.stringi∫fy(navigation.getParam('valor', ''))
-    //const {valor } = route.params;
-    //console.log("valorCitacondfirmada", valor)
- //Recibir valores de screens relacionadas con Chat
     
     switch (valor) {
       case 0:
