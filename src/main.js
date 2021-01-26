@@ -152,6 +152,9 @@ export class Main extends React.Component {
 
                 </View>
 
+
+                
+
                 <View style={{width:hp('100%'), marginTop:hp('0%'),marginBottom:hp('0%'), alignItems:'center', flex:1.5, 
                  height:hp('100%'), justifyContent:'center'}}>    
                         <TextInput
