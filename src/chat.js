@@ -8,9 +8,11 @@ import home from '../assets/home.png';
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
 import backBtn from '../assets/backBtn.png';
+import { TextInput } from 'react-native-paper'
 
 
-var name, cita, uid, name2, title, screen
+var name, cita, uid, title, screen
+export var codigo_instalador
 
 
 
@@ -23,9 +25,8 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
 });
 
 //Nuevo código
-data2 = () => db.ref('/Instaladores/instalador1').on('value', (snapshot) => {
+data2 = () => db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot) => {
   
-  name2 =  snapshot.child("name").val()
   uid = snapshot.child("uid").val()
    
  
@@ -37,11 +38,11 @@ estadoCliente2 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
       
   })
 
+   
+
+
 
 export class Chat extends React.Component {
-
-
-
 
 
 state = {
@@ -49,15 +50,32 @@ state = {
     messages: [],
     name:'',
     cita:'',
-    name2: ''
+    name2: '',
+    codigo_instalador:'',
     
-};
+    
+}
 
+//codigo_instalador = this.state.codigo_instalador
+
+
+installCode = codigo_instalador => this.setState({ codigo_instalador})
+codigoInstaladorFire = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+
+  codigo_instalador: this.state.codigo_instalador
+  
+  
+  
+  })
 
   render() {
 
+   
+
     const { valor } = this.props.route.params;
-  
+    console.log(this.state.codigo_instalador)
+    
     
     switch (valor) {
       case 0:
@@ -105,16 +123,25 @@ state = {
    data()
    data2()
 
+   db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot) => {
+  
+    uid = snapshot.child("uid").val()
+     
+   
+  });
+
    var cita = this.state.cita
-   var bool, opacity
+   var bool,bool2, opacity
    
    if (cita == ''){
           
          bool=true
+         bool2=false
          opacity=0.2
    } else {
 
         bool=false
+        bool2=true
         opacity=1
         
    }
@@ -142,6 +169,7 @@ state = {
               placeholder={"Chatea aquí " + name}
               user={{
                 _id: Fire.getUid(),
+                //_id: codigo_instalador,
                 name: name,
                 //avatar: 'https://firebasestorage.googleapis.com/v0/b/solfium.appspot.com/o/icono.png?alt=media&token=b1ee1e27-bf62-4c57-8571-669112a5a8aa'
                
@@ -149,11 +177,13 @@ state = {
           />
    
        </View>
+
+
         <View style={{borderRadius:10,  backgroundColor:'orange',  opacity:opacity, marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('20%'), marginRight:wp('20%'), flex:0.5}}>
-        
+                  
         <Button disabled={bool}
                 title={title} 
-                onPress = {() => {this.props.navigation.navigate(screen);estadoCliente2()}}
+                onPress = {() => {this.props.navigation.navigate(screen);estadoCliente2();this.codigoInstaladorFire()}}
                 color='black'/>
                         
         </View>
@@ -261,18 +291,19 @@ state = {
 
 componentDidMount() {
 
-
   
       const ref = db.ref('/Usuarios/' +  Fire.getUid());
 
       this.listener = ref.on("value", snapshot => {
 
-      this.setState({cita: snapshot.child("cita").val() || '' })    
+      this.setState({cita: snapshot.child("cita").val() || ''
+                      })    
 
   
     }
     )
- 
+    
+
     Fire.loadMessages((message) => {
         
         this.setState(previousState => {

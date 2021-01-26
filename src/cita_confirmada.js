@@ -33,6 +33,7 @@ export class CitaConfirmada extends React.Component {
     
 
     //console.log('this.state.nombre_instalador', this.state.nombre_instalador)
+    
 
     var name = this.state.username
     var nombre = name.toUpperCase()
@@ -315,25 +316,23 @@ export class CitaConfirmada extends React.Component {
 
   componentDidMount() {
 
-
-    
-
-
     const ref = db.ref('/Usuarios/' +  Fire.getUid());
 
     this.listener = ref.on("value", snapshot => {
   
     this.setState({cita: snapshot.child("cita").val() || '' ,
                    username: snapshot.child("name").val() || '',
-                   visita: snapshot.child("visita").val() || ''
-                   //nombre_instalador: snapshot.child("nombre_instalador").val() || ''
-                  
+                   visita: snapshot.child("visita").val() || '',
+                   codigo_instalador: snapshot.child("codigo_instalador").val() || ''
+                   
                   
                   })    
  
-   
+                  
   }
   )
+
+  
 
   const ref2 = db.ref('/Instaladores/Instalador1/');
 

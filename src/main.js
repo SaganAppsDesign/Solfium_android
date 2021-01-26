@@ -17,6 +17,12 @@ import usuario from '../assets/usuario.png';
 import backBtn from '../assets/backBtn.png'; 
 
 
+export var codigo_agente
+export var codigo_instalador
+
+//console.log("main codigo_instalador", codigo_instalador)
+//console.log("main codigo_aggente", codigo_agente)
+
 export class Main extends React.Component {
    
   state = {
@@ -24,17 +30,22 @@ export class Main extends React.Component {
     name: '',
     uid: '',
     codigo_agente:'',
+    codigo_instalador:'',
     opacity: 0.4,
     bool: false
 
   }
 
-  
+  codigo_agente = this.state.codigo_agente
+  //codigo_instalador = this.state.codigo_instalador
+
+
  
   user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
     name: this.state.name,
-    Codigo_agente: this.state.codigo_agente,
+    codigo_agente: this.state.codigo_agente,
+    codigo_instalador: this.state.codigo_instalador,
     estado_cliente: "Cliente abre CHAT con instalador por primera vez"
     
     
@@ -44,6 +55,7 @@ export class Main extends React.Component {
 
   onChangeText = name => this.setState({ name });
   agentCode = codigo_agente => this.setState({ codigo_agente});
+  installCode = codigo_instalador => this.setState({ codigo_instalador});
   
   onPress = () =>
 
@@ -65,12 +77,11 @@ export class Main extends React.Component {
      
   render() {
 
-    
+  
           
     return (
 
-    
-      
+         
   
       <ImageOverlay 
 
@@ -86,9 +97,10 @@ export class Main extends React.Component {
       <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:1}}> 
   
                   
-      <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:10, height:hp('3%')}}> 
+      <View style={{marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:8, height:hp('3%')}}> 
       
-          <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('10%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:0.6, height:hp('5%'), justifyContent:'center'}}> 
+          <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('8%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:2, height:hp('5%'), 
+          justifyContent:'center'}}> 
               <Text style={{color: 'white',
                 
                 fontSize: hp('2.2%'),
@@ -102,7 +114,7 @@ export class Main extends React.Component {
            </View>
 
     
-            <View style={{height:hp('50%'), width:hp('100%'), alignItems:'center', flex:0.7}}>
+            <View style={{height:hp('80%'), width:hp('100%'), alignItems:'center', flex:1.5, marginTop:hp('5%')}}>
 
                           
                 <TextInput
@@ -116,9 +128,10 @@ export class Main extends React.Component {
                 />
                                      
 
-              </View>
+            </View>
 
-              <View style={{width:hp('42%'), borderRadius:10, marginTop:hp('0%'), backgroundColor: '#2C80E5', alignItems:'center', marginBottom:'0%', flex:0.3, height:hp('3%'), justifyContent:'center'}}> 
+              <View style={{width:hp('42%'), borderRadius:10, marginTop:hp('0%'),marginBottom:hp('0%'), backgroundColor: '#2C80E5', 
+              alignItems:'center', flex:1.1, height:hp('45%'), justifyContent:'center'}}> 
                   <TouchableOpacity onPress={
                             () => {this.onPress2()}
                       
@@ -132,23 +145,22 @@ export class Main extends React.Component {
                     fontWeight: 'bold',
                     padding: hp('0%'),
                     textAlign: 'center',
-                    height: hp('5%'),
-                    borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales? Pincha aquí e ingresa el código</Text>
+                    height: hp('8%'),
+                    borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales?¿Sabes el código de tu asesor técnico? Pincha aquí e ingresa el código</Text>
                                                 
                   </TouchableOpacity>
 
                 </View>
 
-                <KeyboardAvoidingView  
-                       behavior={Platform.OS == "ios" ? "padding" : "height"}
-                       style={{alignItems:'center', height:hp('0%'), width:hp('100%'), flex:5, alignContent:'center', justifyContent:'center'}}>     
+                <View style={{width:hp('100%'), marginTop:hp('0%'),marginBottom:hp('0%'), alignItems:'center', flex:1.5, 
+                 height:hp('100%'), justifyContent:'center'}}>    
                         <TextInput
                         editable={this.state.bool}
                         
                         style={{height:hp('8%'),
                         marginLeft: hp('0%'),
-                        marginTop:hp('3%'),
-                        marginBottom:hp('5%'),
+                        marginTop:hp('0%'),
+                        marginBottom:hp('0%'),
                         width:wp('60%'),
                         paddingHorizontal: wp('5%'),
                         backgroundColor: 'white',
@@ -157,16 +169,43 @@ export class Main extends React.Component {
                         borderRadius: 2, 
                         color:'#2C80E5',
                         opacity:this.state.opacity}}
-                        label="Ingresa código agente"
+                        label="Código agente"
                         onChangeText={this.agentCode}
-                        value={this.state.Codigo_agente}
+                        value={this.state.codigo_agente}
                         returnKeyType={ 'done' }
                         theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
                                         
                         />
+                      </View>
+                      <View style={{width:hp('100%'), marginTop:hp('0%'),marginBottom:hp('0%'), alignItems:'center', marginBottom:'0%', flex:1.5, 
+                      height:hp('100%'), justifyContent:'center'}}>    
+                        <TextInput
+                        editable={this.state.bool}
+                        
+                        style={{height:hp('8%'),
+                        marginLeft: hp('0%'),
+                        marginTop:hp('0%'),
+                        marginBottom:hp('0%'),
+                        width:wp('60%'),
+                        paddingHorizontal: wp('5%'),
+                        backgroundColor: 'white',
+                        fontSize:hp('2%'),
+                        fontWeight: 'bold',
+                        borderRadius: 2, 
+                        color:'#2C80E5',
+                        opacity:this.state.opacity}}
+                        label="Código asesor técnico"
+                        onChangeText={this.installCode}
+                        value={this.state.codigo_instalador}
+                        returnKeyType={ 'done' }
+                        theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
+                                        
+                        />
+                      </View>
 
-              </KeyboardAvoidingView>
-              <View style={{width:hp('20%'),height:hp('5%'), borderRadius:15, marginTop:hp('0%'), backgroundColor: '#DD650C', alignItems:'center', marginBottom:'7%', justifyContent:'center', flex:0.3}}> 
+
+              <View style={{width:hp('20%'),height:hp('5%'), borderRadius:15, marginTop:hp('0%'), backgroundColor: '#DD650C', alignItems:'center', 
+              marginBottom:'0%', justifyContent:'center', flex:0.5}}> 
                       <TouchableOpacity onPress={
                         () => { this.onPress(); this.user()}
                       }
@@ -182,7 +221,7 @@ export class Main extends React.Component {
 
               { /* LOGO*/}
 
-                  <View style={{alignItems:'center', justifyContent:'center', flex:0.2, marginTop:hp('3%')}}>  
+                  <View style={{alignItems:'center', justifyContent:'center', flex:1, marginTop:hp('0%')}}>  
                   
                   <Image 
                     
@@ -196,7 +235,7 @@ export class Main extends React.Component {
 
                   {/* header */}              
            {/*Botones*/}     
-           <View style={{opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
+           <View style={{opacity: 1, alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
                          
 
                          <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), alignItems:'center',justifyContent:'center', opacity:1}}>
@@ -298,10 +337,11 @@ export class Main extends React.Component {
 const styles = StyleSheet.create({
  
   nameInput: {
-    height: 70,
+    height: hp('8%'),
+ 
     marginLeft: hp('0%'),
-    marginTop:hp('5%'),
-    marginBottom:hp('5%'),
+    marginTop:hp('0%'),
+    marginBottom:hp('0%'),
     width:wp('80%'),
     paddingHorizontal: wp('5%'),
     backgroundColor: 'white',
@@ -315,8 +355,8 @@ const styles = StyleSheet.create({
   nameInput2: {
     height:hp('6%'),
     marginLeft: hp('0%'),
-    marginTop:hp('3%'),
-    marginBottom:hp('5%'),
+    marginTop:hp('0%'),
+    marginBottom:hp('0%'),
     width:wp('60%'),
     paddingHorizontal: wp('5%'),
     backgroundColor: 'white',
