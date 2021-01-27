@@ -417,7 +417,8 @@ componentDidMount() {
   this.setState({ nombre_instalador: snapshot.child("nombre_instalador").val() || '',
                   potencia: snapshot.child("potenciaContratada").val() || ''  ,
                   QR: snapshot.child("QR_instalador").val() || '',
-                  sistemaRedondeo: snapshot.child("Sistema").val() || ''              
+                  sistemaRedondeo: snapshot.child("Sistema").val() || '' ,
+                  nombre_instalador: snapshot.child("nombre_instalador").val() || ''             
                 })    
 
  
@@ -426,17 +427,6 @@ componentDidMount() {
 )
 
 
-const ref2 = db.ref('/Instaladores/Instalador1/');
-
-this.listener = ref2.on("value", snapshot => {
-
-this.setState({
-               nombre_instalador: snapshot.child("name").val() || ''
-                              
-              })    
-
-
-})
 
 
 }

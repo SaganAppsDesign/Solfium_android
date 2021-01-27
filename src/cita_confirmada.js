@@ -15,7 +15,8 @@ import  Fire , {db} from '../fire';
 import backBtn from '../assets/backBtn.png';
 
 
-var {height} = Dimensions.get('window');
+var {height} = Dimensions.get('window')
+
 
 export class CitaConfirmada extends React.Component {
 
@@ -23,16 +24,16 @@ export class CitaConfirmada extends React.Component {
     cita: '',
     username: '',
     visita:'',
-    nombre_instalador:''
+    nombre_instalador:'',
+    codigo_instalador:''
   }
 
-    
+  
   
   render() {
 
-    
-
-    //console.log('this.state.nombre_instalador', this.state.nombre_instalador)
+    console.log('this.state.nombre_instalador render', this.state.nombre_instalador)
+    console.log('this.state.codigo_instalador', this.state.codigo_instalador)
     
 
     var name = this.state.username
@@ -62,6 +63,8 @@ export class CitaConfirmada extends React.Component {
   
   return (
 
+            
+  
        
       <ImageOverlay source={fondo}
                     height={height}  
@@ -314,6 +317,8 @@ export class CitaConfirmada extends React.Component {
 
   )}
 
+  
+
   componentDidMount() {
 
     const ref = db.ref('/Usuarios/' +  Fire.getUid());
@@ -323,7 +328,8 @@ export class CitaConfirmada extends React.Component {
     this.setState({cita: snapshot.child("cita").val() || '' ,
                    username: snapshot.child("name").val() || '',
                    visita: snapshot.child("visita").val() || '',
-                   codigo_instalador: snapshot.child("codigo_instalador").val() || ''
+                   codigo_instalador: snapshot.child("codigo_instalador").val() || '',
+                   nombre_instalador: snapshot.child("nombre_instalador").val() || ''
                    
                   
                   })    
@@ -332,24 +338,7 @@ export class CitaConfirmada extends React.Component {
   }
   )
 
-  
-
-  const ref2 = db.ref('/Instaladores/Instalador1/');
-
-  this.listener = ref2.on("value", snapshot => {
-
-  this.setState({
-                 nombre_instalador: snapshot.child("name").val() || ''
-                                
-                })    
-
- 
-}
-
-
-
-)
-
+   
 
 
 }
