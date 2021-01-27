@@ -15,7 +15,7 @@ import Fire from '../fire';
 
 estadoCliente4 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente: "Cliente Ha realizado PAGO ÚNICO. Su comisión asciende a 200 MXN"
+  estado_cliente: "Cliente Ha elegido PAGO ÚNICO"
       
   })
 

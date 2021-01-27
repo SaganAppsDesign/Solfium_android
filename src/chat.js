@@ -179,8 +179,8 @@ codigoInstaladorFire = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
        </View>
 
 
-        <View style={{borderRadius:10,  backgroundColor:'orange',  opacity:opacity, marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('20%'), 
-        marginRight:wp('20%'), flex:0.5}}>
+        <View style={{borderRadius:10,  backgroundColor:'orange',  opacity:opacity, marginBottom:hp('2%'),marginTop:hp('3%'), marginLeft:wp('10%'), 
+        marginRight:wp('10%'), flex:0.5}}>
                   
         <Button disabled={bool}
                 title={title} 
