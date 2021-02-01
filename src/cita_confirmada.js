@@ -32,8 +32,8 @@ export class CitaConfirmada extends React.Component {
   
   render() {
 
-    console.log('this.state.nombre_instalador render', this.state.nombre_instalador)
-    console.log('this.state.codigo_instalador', this.state.codigo_instalador)
+    //console.log('this.state.nombre_instalador render', this.state.nombre_instalador)
+    //console.log('this.state.codigo_instalador', this.state.codigo_instalador)
     
 
     var name = this.state.username

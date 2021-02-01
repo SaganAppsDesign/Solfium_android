@@ -15,7 +15,7 @@ import Fire from '../fire';
 
 estadoCliente4 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente: "1/6 - Cliente Ha elegido PAGO ÚNICO"
+  estado_cliente6: "1/6 - Cliente Ha elegido PAGO ÚNICO"
       
   })
 

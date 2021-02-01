@@ -34,7 +34,7 @@ const format = (num) => {
 
  estadoCliente3 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente: "1/5 - Oferta ACEPTADA"
+  estado_cliente5: "1/5 - Oferta ACEPTADA"
   
       
   })

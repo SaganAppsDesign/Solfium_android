@@ -43,7 +43,7 @@ data2 = () => db.ref('/Instaladores/Instalador1').on('value', (snapshot) => {
 
 estadoCliente2 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente: "1/3 - Cita CONFIRMADA con instalador",
+  estado_cliente3: "1/3 - Cita CONFIRMADA con instalador",
       
   })
 

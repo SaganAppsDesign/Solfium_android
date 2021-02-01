@@ -43,7 +43,6 @@
 	<string></string>
 	<key>Privacy - Camera Usage Description</key>
 	<string>APPNAME requires access to your phone’s camera.</string>
-  
 	<key>UIAppFonts</key>
 	<array/>
 	<key>UILaunchStoryboardName</key>

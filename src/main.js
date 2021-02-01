@@ -97,41 +97,46 @@ export class Main extends React.Component {
       <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:1}}> 
   
                   
-      <View style={{marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:8, height:hp('3%')}}> 
+      <View style={{marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:5, height:hp('3%')}}> 
       
-          <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('8%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:1.5, height:hp('5%'), 
-          justifyContent:'center'}}> 
-              <Text style={{color: 'white',
-                
-                fontSize: hp('2.5%'),
-                marginHorizontal: wp('0%'),
-                marginTop:hp('0%'),
-                fontWeight: 'bold',
-                padding: hp('2%'),
-                textAlign: 'center',
-                borderRadius:10}} h1>Nos dará mucho gusto aclarar tus dudas.
-                Ingresa tus preguntas y te responderemos a la brevedad</Text>
-           </View>
+          
+          <View style={{marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:1.5, height:hp('3%')}}> 
+              <View style={{backgroundColor:'blue', width:hp('40%'), borderRadius:10, marginTop:hp('8%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:1.2, height:hp('5%'), 
+              justifyContent:'center'}}> 
+                  <Text style={{color: 'white',
+                    
+                    fontSize: hp('2%'),
+                    marginHorizontal: wp('0%'),
+                    marginTop:hp('0%'),
+                    fontWeight: 'bold',
+                    padding: hp('2%'),
+                    textAlign: 'center',
+                    borderRadius:10}} h1>Nos dará mucho gusto aclarar tus dudas.
+                    Ingresa tus preguntas y te responderemos a la brevedad</Text>
+              </View>
 
-    
-            <View style={{height:hp('80%'), width:hp('100%'), alignItems:'center', flex:1, marginTop:hp('5%')}}>
+        
+                <View style={{height:hp('80%'), width:hp('100%'), alignItems:'center', flex:1, marginBottom:hp('3%'), alignContent:'center'}}>
 
-                          
-                <TextInput
-                  style={styles.nameInput}
-                  label="Dinos tu nombre"
-                  onChangeText={this.onChangeText}
-                  value={this.state.name}
-                  returnKeyType={ 'done' }
-                  theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
-              
-                />
-                                     
+                              
+                    <TextInput
+                      style={styles.nameInput}
+                      label="Dinos tu nombre"
+                      onChangeText={this.onChangeText}
+                      value={this.state.name}
+                      returnKeyType={ 'done' }
+                      theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
+                  
+                    />
+                   
+                </View>
 
-            </View>
+        </View>
+
+            <View style={{height:hp('80%'), width:hp('100%'), alignItems:'center', flex:1, marginTop:hp('0%')}}>
 
               <View style={{backgroundColor:'red',  width:hp('42%'), borderRadius:10, marginTop:hp('0%'),marginBottom:hp('0%'), backgroundColor: '#2C80E5', 
-              alignItems:'center', flex:0.7, height:hp('100%'), justifyContent:'center'}}> 
+              alignItems:'center', flex:0.3, height:hp('100%'), justifyContent:'center'}}> 
                   <TouchableOpacity onPress={
                             () => {this.onPress2()}
                       
@@ -141,7 +146,7 @@ export class Main extends React.Component {
                     
                     fontSize: hp('1.8%'),
                     marginHorizontal: wp('0%'),
-                    marginTop:hp('2%'),
+                    marginTop:hp('3%'),
                     fontWeight: 'bold',
                     padding: hp('0%'),
                     textAlign: 'center',
@@ -152,10 +157,7 @@ export class Main extends React.Component {
 
                 </View>
 
-
-                
-
-                <View style={{width:hp('100%'), marginTop:hp('0%'),marginBottom:hp('0%'), alignItems:'center', flex:1.5, 
+                <View style={{width:hp('100%'), marginTop:hp('0%'),marginBottom:hp('3%'), alignItems:'center', flex:0.7, 
                  height:hp('100%'), justifyContent:'center'}}>    
                         <TextInput
                         editable={this.state.bool}
@@ -179,18 +181,34 @@ export class Main extends React.Component {
                         theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
                                         
                         />
-                      </View>
+                  </View>
 
+                  </View>
 
+                  <View style={{width:hp('20%'),height:hp('100%'), borderRadius:15, marginTop:hp('0%'), alignItems:'center', 
+                                      marginBottom:'0%', justifyContent:'center', alignContent:'center', flex:0.5}}> 
+                   
+                      <Text></Text>
+                          
+
+                  </View>
             
-              <View style={{width:hp('20%'),height:hp('5%'), borderRadius:15, marginTop:hp('0%'), backgroundColor: '#DD650C', alignItems:'center', 
-              marginBottom:'0%', justifyContent:'center', flex:0.5}}> 
+              <View style={{width:hp('20%'),height:hp('100%'), borderRadius:15, marginTop:hp('0%'), alignItems:'center', 
+              marginBottom:'0%', justifyContent:'center', alignContent:'center', flex:0.5}}> 
+
+                  
+
+                  <View style={{width:hp('20%'),height:hp('100%'), borderRadius:15, marginTop:hp('0%'), alignItems:'center', 
+                                      marginBottom:'0%', justifyContent:'center', alignContent:'center', flex:0.1}}> 
+                                            
                       <TouchableOpacity onPress={
                         () => { this.onPress(); this.user()}
                       }
                       >
-                      <Text style={styles.buttonText}>Abrir chat</Text>
+                      <Text style={styles.buttonText}>¡¡Abrir chat!!</Text>
                       </TouchableOpacity>
+                  </View>
+                     
 
               </View>
              
@@ -200,21 +218,21 @@ export class Main extends React.Component {
 
               { /* LOGO*/}
 
-                  <View style={{alignItems:'center', justifyContent:'center', flex:1, marginTop:hp('0%')}}>  
-                  
-                  <Image 
-                    
-                    source={logo}
-                    style={{aspectRatio:4.5, height:hp('5%')}}
-                    
-                    >    
-                  </Image>  
+            <View style={{alignItems:'center', justifyContent:'center', flex:0.6, marginTop:hp('0%')}}>  
+            
+            <Image 
+              
+              source={logo}
+              style={{aspectRatio:4.5, height:hp('5%')}}
+              
+              >    
+            </Image>  
 
-                  </View> 
+            </View> 
 
-                  {/* header */}              
+            {/* header */}              
            {/*Botones*/}     
-           <View style={{opacity: 1, alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
+           <View style={{opacity: 1, alignItems:'center', flex:0.8,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
                          
 
                          <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), alignItems:'center',justifyContent:'center', opacity:1}}>
@@ -317,10 +335,11 @@ const styles = StyleSheet.create({
  
   nameInput: {
     height: hp('8%'),
- 
+    alignContent:'center',
+    //alignItems:'center',
     marginLeft: hp('0%'),
-    marginTop:hp('0%'),
-    marginBottom:hp('0%'),
+    marginTop:hp('3%'),
+    marginBottom:hp('7%'),
     width:wp('80%'),
     paddingHorizontal: wp('5%'),
     backgroundColor: 'white',
@@ -350,15 +369,17 @@ const styles = StyleSheet.create({
 
   buttonText: {
 // marginLeft: hp('30%'),
-    marginTop:hp('2%'),
-    fontSize: hp('2%'),
+    marginTop:hp('0%'),
+    fontSize: hp('4%'),
     marginBottom:hp('0%'),
     fontWeight:'bold',
-    
-    width:wp('25%'),
-    height:hp('4%'),
-    
-    textAlign:'center'
+    color:'white',
+    width:wp('50%'),
+    height:hp('6%'),
+    padding:hp('0%'),
+    textAlign:'center',
+    alignContent:'center',
+    alignItems:'center'
     
   },
 });
