@@ -15,7 +15,7 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 export const db = app.database();
 
-var codigo_instalador2
+//var codigo_instalador2
 
 export class Fire {
 
@@ -84,6 +84,7 @@ export class Fire {
 
   loadMessages(callback){
 
+    /*
     const ref2 = db.ref('Usuarios/');
       // Retrieve new posts as they are added to our database
       ref2.on("child_added", function(snapshot, prevChildKey) {
@@ -94,8 +95,10 @@ export class Fire {
       });
 
     console.log("codigo_instalador2 fuera: " + codigo_instalador2);
+
+    */
     //Nuevo código
-    this.messagesRef = firebase.database().ref('/Chat/' + this.uid + '-' + codigo_instalador2);
+    this.messagesRef = firebase.database().ref('/Chat/' + this.uid + '-Instalador1');
 
     this.messagesRef.off();
 

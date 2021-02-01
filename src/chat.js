@@ -24,8 +24,17 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
 
 });
 
-//Nuevo código
+/*Nuevo código
 data2 = () => db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot) => {
+  
+  uid = snapshot.child("uid").val()
+   
+ 
+});*/
+
+
+
+data2 = () => db.ref('/Instaladores/Instalador1').on('value', (snapshot) => {
   
   uid = snapshot.child("uid").val()
    
@@ -34,7 +43,7 @@ data2 = () => db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot
 
 estadoCliente2 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente: "Cita CONFIRMADA",
+  estado_cliente: "1/3 - Cita CONFIRMADA con instalador",
       
   })
 
@@ -59,8 +68,8 @@ state = {
 //codigo_instalador = this.state.codigo_instalador
 
 
-installCode = codigo_instalador => this.setState({ codigo_instalador})
-codigoInstaladorFire = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
+//installCode = codigo_instalador => this.setState({ codigo_instalador})
+/*codigoInstaladorFire = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
 
   codigo_instalador: this.state.codigo_instalador
@@ -68,13 +77,13 @@ codigoInstaladorFire = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
   
   
   })
-
+*/
   render() {
 
    
 
     const { valor } = this.props.route.params;
-    console.log(this.state.codigo_instalador)
+   // console.log(this.state.codigo_instalador)
     
     
     switch (valor) {
@@ -122,13 +131,15 @@ codigoInstaladorFire = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
 
    data()
    data2()
-
-   db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot) => {
+/*
+   db.ref('/Instaladores/Instalador1').on('value', (snapshot) => {
   
     uid = snapshot.child("uid").val()
      
    
   });
+
+  */
 
    var cita = this.state.cita
    var bool,bool2, opacity

@@ -20,7 +20,7 @@ export var potenciaEstado, potencia2, potencia
 
 estadoCliente6 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente: "Cliente realiza cálculo inicial"
+  estado_cliente: "1/1 - Cliente realiza cálculo inicial"
   
       
   })

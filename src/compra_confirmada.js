@@ -15,7 +15,7 @@ import backBtn from '../assets/backBtn.png';
 
 estadoCliente5 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente: "Instalación realizada. Su comisión asciende a 200 MXN",
+  estado_cliente: "1/7 - Instalación realizada. Su comisión asciende a 200 MXN",
       
   })
 

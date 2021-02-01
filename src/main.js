@@ -18,7 +18,7 @@ import backBtn from '../assets/backBtn.png';
 
 
 export var codigo_agente
-export var codigo_instalador
+export var codigo_instalador = "Desmex"
 
 //console.log("main codigo_instalador", codigo_instalador)
 //console.log("main codigo_aggente", codigo_agente)
@@ -46,7 +46,7 @@ export class Main extends React.Component {
     name: this.state.name,
     codigo_agente: this.state.codigo_agente,
     codigo_instalador: this.state.codigo_instalador,
-    estado_cliente: "Cliente abre CHAT con instalador por primera vez"
+    estado_cliente: "1/1 - Cliente abre CHAT con instalador por primera vez"
     
     
     })
@@ -99,11 +99,11 @@ export class Main extends React.Component {
                   
       <View style={{marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:8, height:hp('3%')}}> 
       
-          <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('8%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:2, height:hp('5%'), 
+          <View style={{width:hp('40%'), borderRadius:10, marginTop:hp('8%'), backgroundColor: 'orange', alignItems:'center', marginBottom:'0%', flex:1.5, height:hp('5%'), 
           justifyContent:'center'}}> 
               <Text style={{color: 'white',
                 
-                fontSize: hp('2.2%'),
+                fontSize: hp('2.5%'),
                 marginHorizontal: wp('0%'),
                 marginTop:hp('0%'),
                 fontWeight: 'bold',
@@ -114,7 +114,7 @@ export class Main extends React.Component {
            </View>
 
     
-            <View style={{height:hp('80%'), width:hp('100%'), alignItems:'center', flex:1.5, marginTop:hp('5%')}}>
+            <View style={{height:hp('80%'), width:hp('100%'), alignItems:'center', flex:1, marginTop:hp('5%')}}>
 
                           
                 <TextInput
@@ -130,8 +130,8 @@ export class Main extends React.Component {
 
             </View>
 
-              <View style={{width:hp('42%'), borderRadius:10, marginTop:hp('0%'),marginBottom:hp('0%'), backgroundColor: '#2C80E5', 
-              alignItems:'center', flex:1.1, height:hp('45%'), justifyContent:'center'}}> 
+              <View style={{backgroundColor:'red',  width:hp('42%'), borderRadius:10, marginTop:hp('0%'),marginBottom:hp('0%'), backgroundColor: '#2C80E5', 
+              alignItems:'center', flex:0.7, height:hp('100%'), justifyContent:'center'}}> 
                   <TouchableOpacity onPress={
                             () => {this.onPress2()}
                       
@@ -141,12 +141,12 @@ export class Main extends React.Component {
                     
                     fontSize: hp('1.8%'),
                     marginHorizontal: wp('0%'),
-                    marginTop:hp('0%'),
+                    marginTop:hp('2%'),
                     fontWeight: 'bold',
                     padding: hp('0%'),
                     textAlign: 'center',
                     height: hp('8%'),
-                    borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales?¿Sabes el código de tu asesor técnico? Pincha aquí e ingresa el código</Text>
+                    borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales?Pincha aquí e ingresa el código</Text>
                                                 
                   </TouchableOpacity>
 
@@ -180,33 +180,9 @@ export class Main extends React.Component {
                                         
                         />
                       </View>
-                      <View style={{width:hp('100%'), marginTop:hp('0%'),marginBottom:hp('0%'), alignItems:'center', marginBottom:'0%', flex:1.5, 
-                      height:hp('100%'), justifyContent:'center'}}>    
-                        <TextInput
-                        editable={this.state.bool}
-                        
-                        style={{height:hp('8%'),
-                        marginLeft: hp('0%'),
-                        marginTop:hp('0%'),
-                        marginBottom:hp('0%'),
-                        width:wp('60%'),
-                        paddingHorizontal: wp('5%'),
-                        backgroundColor: 'white',
-                        fontSize:hp('2%'),
-                        fontWeight: 'bold',
-                        borderRadius: 2, 
-                        color:'#2C80E5',
-                        opacity:this.state.opacity}}
-                        label="Código asesor técnico"
-                        onChangeText={this.installCode}
-                        value={this.state.codigo_instalador}
-                        returnKeyType={ 'done' }
-                        theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
-                                        
-                        />
-                      </View>
 
 
+            
               <View style={{width:hp('20%'),height:hp('5%'), borderRadius:15, marginTop:hp('0%'), backgroundColor: '#DD650C', alignItems:'center', 
               marginBottom:'0%', justifyContent:'center', flex:0.5}}> 
                       <TouchableOpacity onPress={
