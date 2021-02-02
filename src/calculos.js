@@ -75,7 +75,7 @@ const calculosEcologicos = (factor) => {
 
 estadoCliente0 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente2: "1/2 - Cliente INTERESADO",
+  estado_cliente1: "1/1 - Cliente INTERESADO",
       
   })
 

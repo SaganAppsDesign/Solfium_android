@@ -17,19 +17,30 @@ import backBtn from '../assets/backBtn.png';
 
      
 var screen
+var codigo_instalador2
+export var codigo_instalador
+
+console.log("codigo_instalador  dentro me interesa fuera de export " , codigo_instalador);
 
 export class MeInteresa extends React.Component {
 
   state = {
  
-    name:''
+    name:'',
+    codigo_instalador:''
     
   }
+
+  
+ 
+  
 
 render (){
 
   var name = this.state.name
-
+  codigo_instalador = this.state.codigo_instalador 
+  console.log("name me interesa: " , name);
+  console.log("codigo_instalador dentro me interesa" , codigo_instalador);
   
   
   if (name){
@@ -237,12 +248,26 @@ return (
 
 componentDidMount() {
 
+  /*
+  
+  const ref2 = db.ref('Usuarios/');
+  ref2.on("child_added", function(snapshot, prevChildKey) {
+  codigo_instalador = snapshot.val();
+  codigo_instalador2 = codigo_instalador.codigo_instalador
+  
+ 
+  })
+
+*/
+
+
 
   const ref = db.ref('/Usuarios/' +  Fire.getUid());
 
   this.listener = ref.on("value", snapshot => {
 
-  this.setState({ name: snapshot.child("name").val() || '' }) 
+  this.setState({ name: snapshot.child("name").val() || '',
+                  codigo_instalador: snapshot.child("codigo_instalador").val() || '' }) 
                  
 
  

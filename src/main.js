@@ -17,11 +17,13 @@ import usuario from '../assets/usuario.png';
 import backBtn from '../assets/backBtn.png'; 
 
 
-export var codigo_agente
-export var codigo_instalador = "Desmex"
+export var codigo_agente, instalador
+export var codigo_instalador
 
-//console.log("main codigo_instalador", codigo_instalador)
-//console.log("main codigo_aggente", codigo_agente)
+
+
+console.log("main codigo_instalador", instalador)
+console.log("codigo_instalador", codigo_instalador)
 
 export class Main extends React.Component {
    
@@ -32,24 +34,53 @@ export class Main extends React.Component {
     codigo_agente:'',
     codigo_instalador:'',
     opacity: 0.4,
-    bool: false
+    bool: false,
+    list:[]
+   
 
   }
 
   codigo_agente = this.state.codigo_agente
-  //codigo_instalador = this.state.codigo_instalador
+  codigo_instalador = this.state.codigo_instalador
 
+  
 
+  distribucionUsuariosInstaladores(){
+
+    var array = this.state.list
+    if ( array.length >= 1 && array.length < 5){
+      
+      console.log("Instalador1")
+      instalador = "Instalador1"
+     
+  
+  
+    } if ( array.length >= 5 && array.length < 10) {
+  
+      console.log("Instalador2 dentro del If")
+      instalador = "Instalador2"
+     
+      
+    } if ( array.length >= 10 && array.length < 15) {
+      console.log("Instalador3")
+      instalador = "Instalador3"
+      
+    }
+     
+  
+    //console.log("list", array.length)
+  }
  
   user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
     name: this.state.name,
     codigo_agente: this.state.codigo_agente,
-    codigo_instalador: this.state.codigo_instalador,
-    estado_cliente: "1/1 - Cliente abre CHAT con instalador por primera vez"
+    codigo_instalador: instalador,
+    estado_cliente2: "1/2 - Cliente abre CHAT con instalador por primera vez"
     
     
     })
+
 
   
 
@@ -77,7 +108,9 @@ export class Main extends React.Component {
      
   render() {
 
-  
+    this.distribucionUsuariosInstaladores()
+    console.log("instalador render main", instalador)
+    console.log("codigo_instalador state render main", instalador)
           
     return (
 
@@ -326,7 +359,51 @@ export class Main extends React.Component {
       </ImageOverlay>
     )
   }
+
+  componentDidMount() {
+
+    this.setState({codigo_instalador: instalador})
+
+
+    db.ref('/Usuarios/').on('value', (snapshot) =>{
+      var li = []
+                
+      snapshot.forEach((child)=>{
+       li.push({
+                key: child.key,
+                  
+      })
+    })
+    
+    
+    this.setState({list:li})
+    
+    
+    })
+    
+    /*
+      const ref = db.ref('/Usuarios');
+    
+      this.listener = ref.on("child_added", snapshot => {
+      
+      //console.log(snapshot.key)
+                                      
+                    
+      })    
+    */
+                    
+    }
+
 }
+
+
+
+
+
+
+  
+  
+
 
 
 

@@ -65,19 +65,6 @@ state = {
     
 }
 
-//codigo_instalador = this.state.codigo_instalador
-
-
-//installCode = codigo_instalador => this.setState({ codigo_instalador})
-/*codigoInstaladorFire = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
-    
-
-  codigo_instalador: this.state.codigo_instalador
-  
-  
-  
-  })
-*/
   render() {
 
    
@@ -131,15 +118,7 @@ state = {
 
    data()
    data2()
-/*
-   db.ref('/Instaladores/Instalador1').on('value', (snapshot) => {
-  
-    uid = snapshot.child("uid").val()
-     
-   
-  });
 
-  */
 
    var cita = this.state.cita
    var bool,bool2, opacity

@@ -18,13 +18,6 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 export var potenciaEstado, potencia2, potencia
 
-estadoCliente6 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
-                
-  estado_cliente1: "1/1 - Cliente realiza cálculo inicial"
-  
-      
-  })
-
   
 export class IngresarConsumo extends React.Component {
 
@@ -32,7 +25,9 @@ export class IngresarConsumo extends React.Component {
   state = {
 
     potenciaEstado: '',
-    bool:false
+    bool:false,
+    list:[]
+   
    
 
   }
@@ -54,7 +49,8 @@ onChangeText = potenciaEstado => this.setState({ potenciaEstado }, () => {
 
 render() {
 
-    potencia = this.state.potenciaEstado
+
+  potencia = this.state.potenciaEstado
 
     var bool, opacity
     
@@ -162,7 +158,7 @@ render() {
 
                                           disabled={bool}
                                                                                                         
-                                          onPress = {() => {this.props.navigation.navigate('Calculando');estadoCliente6()}}  
+                                          onPress = {() => {this.props.navigation.navigate('Calculando')}}  
                                           
                                           
                                            
@@ -277,15 +273,14 @@ render() {
               
                </ImageOverlay>
         
-            /* 
-                </ScrollView>
-             </KeyboardAvoidingView>
-          */
-            
-  );
-                                      }
+                      
+  )
+ }
+
   
 }
+
+
 
 const styles = StyleSheet.create({
 
