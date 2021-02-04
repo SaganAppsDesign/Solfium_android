@@ -3,8 +3,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View, Image, KeyboardAvoidingView
-} from 'react-native';
+  View, Image} from 'react-native';
 import Fire, {db} from '../fire';
 import fondo from '../assets/fondo5.jpg'
 import logo from '../assets/logo.png'
@@ -84,9 +83,23 @@ export class Main extends React.Component {
 
   
 
-  onChangeText = name => this.setState({ name });
-  agentCode = codigo_agente => this.setState({ codigo_agente});
-  installCode = codigo_instalador => this.setState({ codigo_instalador});
+onChangeText = name => this.setState({ name })
+
+  agentCode = codigo_agente => this.setState({ codigo_agente}, () => {
+    if (this.state.codigo_agente == "," || this.state.codigo_agente == ".") {
+      
+      alert("Por favor, introduce número");
+  
+      this.setState({ potenciaEstado: "" })
+    }
+  
+  
+  })
+
+
+
+
+  installCode = codigo_instalador => this.setState({ codigo_instalador})
   
   onPress = () =>
 
@@ -197,12 +210,12 @@ export class Main extends React.Component {
                  height:hp('100%'), justifyContent:'center'}}>    
                         <TextInput
                         //editable={this.state.bool}
-                        
+                        maxLength={4}
                         style={{height:hp('8%'),
                         marginLeft: hp('0%'),
                         marginTop:hp('0%'),
                         marginBottom:hp('0%'),
-                        width:wp('60%'),
+                        width:wp('40%'),
                         paddingHorizontal: wp('5%'),
                         backgroundColor: 'white',
                         fontSize:hp('2%'),
