@@ -51,19 +51,19 @@ export class Main extends React.Component {
     if ( array.length >= 1 && array.length < 100){
       
       //console.log("Instalador1")
-      instalador = "Instalador1"
+      instalador = "desmex01"
      
   
   
     } if ( array.length >= 100 && array.length < 200) {
   
       //console.log("Instalador2 dentro del If")
-      instalador = "Instalador2"
+      instalador = "desmex02"
      
       
     } if ( array.length >= 200 && array.length < 300) {
       //console.log("Instalador3")
-      instalador = "Instalador3"
+      instalador = "desmex03"
       
     }
      
