@@ -43,7 +43,7 @@ target 'rnative_02' do
   
   
 
-  pod 'RNMlKit', :path => '../node_modules/react-native-firebase-mlkit'
+  #pod 'RNMlKit', :path => '../node_modules/react-native-firebase-mlkit'
 
   target 'rnative_02Tests' do
     inherit! :search_paths

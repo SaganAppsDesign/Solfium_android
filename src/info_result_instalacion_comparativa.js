@@ -42,9 +42,9 @@ var text,text1,text2,text3,text4,text5,text6,text7,color,opacity,viable, producc
 var diferencial_consumo
 
 
-estadoCliente7 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+estadoCliente60 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente5: "1/5 - Oferta ACEPTADA"
+  estado_cliente: "6/8 - Oferta ACEPTADA"
   
       
   })
@@ -649,7 +649,7 @@ export class InfoResultInsta2 extends React.Component {
                <TouchableOpacity
                                           
             
-                     onPress = {() => {this.props.navigation.navigate('Pago');estadoCliente7()}}
+                     onPress = {() => {this.props.navigation.navigate('Pago');estadoCliente60()}}
                                          
                      >
 

@@ -20,7 +20,7 @@ var screen
 var codigo_instalador2
 export var codigo_instalador
 
-console.log("codigo_instalador  dentro me interesa fuera de export " , codigo_instalador);
+//console.log("codigo_instalador  dentro me interesa fuera de export " , codigo_instalador);
 
 export class MeInteresa extends React.Component {
 
@@ -39,8 +39,8 @@ render (){
 
   var name = this.state.name
   codigo_instalador = this.state.codigo_instalador 
-  console.log("name me interesa: " , name);
-  console.log("codigo_instalador dentro me interesa" , codigo_instalador);
+  //console.log("name me interesa: " , name);
+  //console.log("codigo_instalador dentro me interesa" , codigo_instalador);
   
   
   if (name){

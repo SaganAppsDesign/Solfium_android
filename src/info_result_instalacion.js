@@ -32,13 +32,12 @@ const format = (num) => {
  
 }
 
- estadoCliente3 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+estadoCliente6 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente5: "1/5 - Oferta ACEPTADA"
+  estado_cliente: "6/8 - Oferta ACEPTADA"
   
       
   })
-
 
 
 export class InfoResultInsta extends React.Component {
@@ -548,7 +547,7 @@ export class InfoResultInsta extends React.Component {
                <TouchableOpacity
                      
                                          
-                     onPress = {() => {this.props.navigation.navigate('Pago');estadoCliente3()}}              
+                     onPress = {() => {this.props.navigation.navigate('Pago');estadoCliente6()}}              
                      >
 
                      <Text style={{

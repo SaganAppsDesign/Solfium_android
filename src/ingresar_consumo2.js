@@ -10,13 +10,19 @@ import usuario from '../assets/usuario.png';
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import calcular from '../assets/calcular3.png'; 
-import Fire, {db} from '../fire';
+import  Fire , {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 
 
 export var potenciaEstado, potencia2, potencia
+
+estadoCliente0 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+                
+  estado_cliente: "1/8 - Cliente realiza cálculo inicial",
+      
+  })
 
   
 export class IngresarConsumo extends React.Component {
@@ -158,7 +164,7 @@ render() {
 
                                           disabled={bool}
                                                                                                         
-                                          onPress = {() => {this.props.navigation.navigate('Calculando')}}  
+                                          onPress = {() => {this.props.navigation.navigate('Calculando');estadoCliente0()}}  
                                           
                                           
                                            

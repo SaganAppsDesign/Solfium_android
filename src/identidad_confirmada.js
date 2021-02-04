@@ -25,7 +25,8 @@ export class IdentidadConfirmada extends React.Component {
     nombre_instalador:'',
     potencia:'',
     QR:'',
-    sistemaRedondeo:''
+    sistemaRedondeo:'',
+    codigo_instalador:''
   }
 
   
@@ -172,7 +173,7 @@ export class IdentidadConfirmada extends React.Component {
                                       marginRight:wp('3%'),
                                       marginLeft:wp('2%'),
                                       height:hp('10%'),
-                                      width:wp('30%'),}}>{this.state.nombre_instalador}</Text>
+                                      width:wp('30%'),}}>{this.state.codigo_instalador}</Text>
                                       
                               
                               </Text>
@@ -418,7 +419,8 @@ componentDidMount() {
                   potencia: snapshot.child("potenciaContratada").val() || ''  ,
                   QR: snapshot.child("QR_instalador").val() || '',
                   sistemaRedondeo: snapshot.child("Sistema").val() || '' ,
-                  nombre_instalador: snapshot.child("nombre_instalador").val() || ''             
+                  codigo_instalador: snapshot.child("codigo_instalador").val() || ''
+                             
                 })    
 
  

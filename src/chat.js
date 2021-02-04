@@ -41,9 +41,9 @@ data2 = () => db.ref('/Instaladores/Instalador1').on('value', (snapshot) => {
  
 });
 
-estadoCliente2 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+estadoCliente4 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente3: "1/3 - Cita CONFIRMADA con instalador",
+  estado_cliente: "4/8 - Cita CONFIRMADA con instalador",
       
   })
 
@@ -174,7 +174,7 @@ state = {
                   
         <Button disabled={bool}
                 title={title} 
-                onPress = {() => {this.props.navigation.navigate(screen);estadoCliente2()}}
+                onPress = {() => {this.props.navigation.navigate(screen);estadoCliente4()}}
                 color='black'/>
                         
         </View>

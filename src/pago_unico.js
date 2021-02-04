@@ -13,9 +13,10 @@ import {db} from '../fire';
 import Fire from '../fire';
 
 
-estadoCliente4 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+estadoCliente7 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente6: "1/6 - Cliente Ha elegido PAGO ÚNICO"
+  estado_cliente: "7/8 - Pago único realizado"
+  
       
   })
 
@@ -108,7 +109,7 @@ export class PagoUnico extends React.Component {
                               <TouchableOpacity
                                                                 
                                 
-                                  onPress = {() => {this.props.navigation.navigate('Confirmar compra');estadoCliente4()}}       
+                                  onPress = {() => {this.props.navigation.navigate('Confirmar compra');estadoCliente7()}}       
                                                       
                                   >
               

@@ -22,8 +22,8 @@ export var codigo_instalador
 
 
 
-console.log("main codigo_instalador", instalador)
-console.log("codigo_instalador", codigo_instalador)
+//console.log("main codigo_instalador", instalador)
+//console.log("codigo_instalador", codigo_instalador)
 
 export class Main extends React.Component {
    
@@ -48,21 +48,21 @@ export class Main extends React.Component {
   distribucionUsuariosInstaladores(){
 
     var array = this.state.list
-    if ( array.length >= 1 && array.length < 5){
+    if ( array.length >= 1 && array.length < 100){
       
-      console.log("Instalador1")
+      //console.log("Instalador1")
       instalador = "Instalador1"
      
   
   
-    } if ( array.length >= 5 && array.length < 10) {
+    } if ( array.length >= 100 && array.length < 200) {
   
-      console.log("Instalador2 dentro del If")
+      //console.log("Instalador2 dentro del If")
       instalador = "Instalador2"
      
       
-    } if ( array.length >= 10 && array.length < 15) {
-      console.log("Instalador3")
+    } if ( array.length >= 200 && array.length < 300) {
+      //console.log("Instalador3")
       instalador = "Instalador3"
       
     }
@@ -76,7 +76,7 @@ export class Main extends React.Component {
     name: this.state.name,
     codigo_agente: this.state.codigo_agente,
     codigo_instalador: instalador,
-    estado_cliente2: "1/2 - Cliente abre CHAT con instalador por primera vez"
+    estado_cliente: "3/8 - Cliente abre CHAT con instalador por primera vez"
     
     
     })
@@ -109,8 +109,8 @@ export class Main extends React.Component {
   render() {
 
     this.distribucionUsuariosInstaladores()
-    console.log("instalador render main", instalador)
-    console.log("codigo_instalador state render main", instalador)
+    //console.log("instalador render main", instalador)
+    //console.log("codigo_instalador state render main", instalador)
           
     return (
 
@@ -170,7 +170,10 @@ export class Main extends React.Component {
 
               <View style={{backgroundColor:'red',  width:hp('42%'), borderRadius:10, marginTop:hp('0%'),marginBottom:hp('0%'), backgroundColor: '#2C80E5', 
               alignItems:'center', flex:0.3, height:hp('100%'), justifyContent:'center'}}> 
-                  <TouchableOpacity onPress={
+                  <TouchableOpacity 
+                  disabled={true}
+                  onPress={
+
                             () => {this.onPress2()}
                       
                           }
@@ -193,7 +196,7 @@ export class Main extends React.Component {
                 <View style={{width:hp('100%'), marginTop:hp('0%'),marginBottom:hp('3%'), alignItems:'center', flex:0.7, 
                  height:hp('100%'), justifyContent:'center'}}>    
                         <TextInput
-                        editable={this.state.bool}
+                        //editable={this.state.bool}
                         
                         style={{height:hp('8%'),
                         marginLeft: hp('0%'),
@@ -205,8 +208,10 @@ export class Main extends React.Component {
                         fontSize:hp('2%'),
                         fontWeight: 'bold',
                         borderRadius: 2, 
-                        color:'#2C80E5',
-                        opacity:this.state.opacity}}
+                         //opacity:this.state.opacity
+                        color:'#2C80E5'}
+                                            
+                        }
                         label="Código agente"
                         onChangeText={this.agentCode}
                         value={this.state.codigo_agente}

@@ -1,14 +1,10 @@
 import { StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import * as React from 'react';
 import 'react-native-gesture-handler';
-import VideoPlayer from 'react-native-video-controls';
+//import VideoPlayer from 'react-native-video-controls';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import home from '../assets/home.png'; 
-import setting from '../assets/setting.png'; 
-import usuario from '../assets/usuario.png'; 
-import logo from '../assets/logo.png'; 
 import backBtn from '../assets/backBtn.png'; 
-
+import YoutubePlayer from "react-native-youtube-iframe";
 
 
 
@@ -24,7 +20,7 @@ export class VideoInfo extends React.Component {
   <View style={styles.container}>	
   
    <View style={{marginTop:'5%', marginBottom:'5%', marginLeft:'0%', marginRight:'0%',  width:'90%', height:'90%', flex:1}}>	
-
+   <YoutubePlayer height={250} videoId={"cCfcoDhIe64"} />
    {/*  <VideoPlayer 
     
     source={require ('../assets/video.mp4')} 
@@ -53,7 +49,7 @@ export class VideoInfo extends React.Component {
                           <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
                              <TouchableOpacity 
                                                                                           
-                                onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                                onPress={() => this.props.navigation.navigate("Ingresar Consumo")}
                                > 
                                                      
                                <Image 
@@ -70,65 +66,7 @@ export class VideoInfo extends React.Component {
         
                          </View>
 
-                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-                             <TouchableOpacity 
-                                                                                          
-                                onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-                               > 
-                                                     
-                                <Image 
-                                
-                                source={home}
-                                style={{aspectRatio:1, height:hp('6%')}}
-                                
-                                >    
-                                </Image> 
-        
-                                              
-                            </TouchableOpacity> 
-        
-                         </View>
-        
-                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                            <TouchableOpacity 
-                                                                                         
-                            //onPress={() => user()}
-                              > 
-                                                    
-                               <Image 
-                               
-                               source={usuario}
-                               style={{aspectRatio:1, height:hp('6%')}}
-                               
-                               >    
-                               </Image> 
-        
-                                             
-                           </TouchableOpacity> 
-        
-                          </View>
-        
-        
-        
-                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                          
-                          <TouchableOpacity 
-                                                                                         
-                            //onPress={() => settings()}
-                              > 
-                                                    
-                               <Image 
-                               
-                               source={setting}
-                               style={{aspectRatio:1, height:hp('6%')}}
-                               
-                               >    
-                               </Image> 
-        
-                                             
-                           </TouchableOpacity> 
-        
-                          </View>
+                        
         
                                
         

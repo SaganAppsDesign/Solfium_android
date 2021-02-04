@@ -73,9 +73,9 @@ const calculosEcologicos = (factor) => {
  
 }
 
-estadoCliente0 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+estadoCliente2 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
-  estado_cliente1: "1/1 - Cliente INTERESADO",
+  estado_cliente: "2/8 - Cliente INTERESADO",
       
   })
 
@@ -567,7 +567,7 @@ var arboles = calculosEcologicos(factorArbol)
                <TouchableOpacity
                                         
                   
-                     onPress = {() => {this.props.navigation.navigate('Implementación');estadoCliente0()}}  
+                     onPress = {() => {this.props.navigation.navigate('Implementación');estadoCliente2()}}  
                                          
                      >
 
