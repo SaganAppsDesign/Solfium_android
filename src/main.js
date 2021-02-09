@@ -16,9 +16,9 @@ import usuario from '../assets/usuario.png';
 import backBtn from '../assets/backBtn.png'; 
 
 
-export var codigo_agente, instalador
+export var codigo_agente, instalador, id,id2, array2
 export var codigo_instalador
-
+var lista_items
 
 
 //console.log("main codigo_instalador", instalador)
@@ -34,40 +34,79 @@ export class Main extends React.Component {
     codigo_instalador:'',
     opacity: 0.4,
     bool: false,
-    list:[]
+    list:[],
+    lista_codigos_agentes:[]
    
 
   }
 
   codigo_agente = this.state.codigo_agente
   codigo_instalador = this.state.codigo_instalador
-
+ 
   
+  rastrearCodigosComerciales(codigo_agente){
+    var a
+    array2 = this.state.lista_codigos_agentes  
+    lista_items = []  
+    //crear lista de códigos de agentes comerciales desde la BBDD
+    for (id in array2) {
+               
+             lista_items.push(array2[id].id)
+                           
+        }
+    //Comparar códigos agentes con código cliente
+    for (var i=0; i < lista_items.length; i++) {
+
+         if (lista_items[i] == codigo_agente){
+                       
+            console.log("codigo correcto a=1", lista_items[i] )
+           
+            a=0
+            a += 1 
+            return true
+                      
+          } 
+                 
+  }
+
+  if (a==1) {
+  
+    return true
+    
+  } else{
+  
+    return false
+  }
+
+ 
+    
+}
+ 
 
   distribucionUsuariosInstaladores(){
 
     var array = this.state.list
+ 
     if ( array.length >= 1 && array.length < 100){
       
-      //console.log("Instalador1")
+      console.log("Instalador1")
       instalador = "desmex01"
      
   
   
     } if ( array.length >= 100 && array.length < 200) {
   
-      //console.log("Instalador2 dentro del If")
+      console.log("Instalador2 dentro del If")
       instalador = "desmex02"
      
       
     } if ( array.length >= 200 && array.length < 300) {
-      //console.log("Instalador3")
+    
       instalador = "desmex03"
       
     }
      
   
-    //console.log("list", array.length)
   }
  
   user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
@@ -80,22 +119,26 @@ export class Main extends React.Component {
     
     })
 
-
   
 
 onChangeText = name => this.setState({ name })
 
-  agentCode = codigo_agente => this.setState({ codigo_agente}, () => {
-    if (this.state.codigo_agente == "," || this.state.codigo_agente == ".") {
-      
-      alert("Por favor, introduce número");
-  
-      this.setState({ potenciaEstado: "" })
-    }
-  
-  
-  })
+agentCode = codigo_agente => this.setState({ codigo_agente}, () => {
 
+    
+    if(this.rastrearCodigosComerciales(codigo_agente)){
+      alert("Código correcto")
+
+    }
+    
+    if (!this.rastrearCodigosComerciales(codigo_agente)&&codigo_agente.length==4){
+             
+        alert("Por favor, introduce código correcto. Inténtalo de nuevo")
+        this.setState({ codigo_agente: "" })
+
+    }
+     
+  })
 
 
 
@@ -122,9 +165,7 @@ onChangeText = name => this.setState({ name })
   render() {
 
     this.distribucionUsuariosInstaladores()
-    //console.log("instalador render main", instalador)
-    //console.log("codigo_instalador state render main", instalador)
-          
+
     return (
 
          
@@ -134,10 +175,7 @@ onChangeText = name => this.setState({ name })
       source={fondo}
       height={ hp('100%')}
       overlayAlpha={0}
-        
-
-      //resizeMode="stretch"
-      //style={styles.fondo} 
+ 
       >
 
       <View style={{ marginTop:hp('0%'),alignItems:'center', marginBottom:'0%', flex:1}}> 
@@ -181,7 +219,7 @@ onChangeText = name => this.setState({ name })
 
             <View style={{height:hp('80%'), width:hp('100%'), alignItems:'center', flex:1, marginTop:hp('0%')}}>
 
-              <View style={{backgroundColor:'red',  width:hp('42%'), borderRadius:10, marginTop:hp('0%'),marginBottom:hp('0%'), backgroundColor: '#2C80E5', 
+              <View style={{backgroundColor:'red',  width:hp('45%'), borderRadius:10, marginTop:hp('0%'),marginBottom:hp('0%'), backgroundColor: '#2C80E5', 
               alignItems:'center', flex:0.3, height:hp('100%'), justifyContent:'center'}}> 
                   <TouchableOpacity 
                   disabled={true}
@@ -200,7 +238,7 @@ onChangeText = name => this.setState({ name })
                     padding: hp('0%'),
                     textAlign: 'center',
                     height: hp('8%'),
-                    borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales?Pincha aquí e ingresa el código</Text>
+                    borderRadius:10}} h1>¿Has contactado con nuestros agentes comerciales? Ingresa tú código de 4 NÚMEROS</Text>
                                                 
                   </TouchableOpacity>
 
@@ -283,7 +321,7 @@ onChangeText = name => this.setState({ name })
 
             {/* header */}              
            {/*Botones*/}     
-           <View style={{opacity: 1, alignItems:'center', flex:0.8,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
+           <View style={{opacity: 1, alignItems:'center', flex:0.6,  justifyContent:'center', flexDirection:'row', marginBottom:hp('2%'),marginTop:hp('0%')}}>  
                          
 
                          <View  style={{ textAlign:'center', borderRadius:5, marginLeft:wp('2%'), alignItems:'center',justifyContent:'center', opacity:1}}>
@@ -382,7 +420,7 @@ onChangeText = name => this.setState({ name })
 
     this.setState({codigo_instalador: instalador})
 
-
+//Llamada a la BBDD para poder calcular el número de clientes que hay enb este momento
     db.ref('/Usuarios/').on('value', (snapshot) =>{
       var li = []
                 
@@ -398,6 +436,29 @@ onChangeText = name => this.setState({ name })
     
     
     })
+
+//Llamada a la BBDD para poder rastrear los códigos de los Agentes Comerciales e impedir que se introduzca un código que no exista en el TextInput del interfaz
+
+    db.ref('/Agentes_comerciales/').on('value', (snapshot) =>{
+      var codigos_agentes = []
+
+     // console.log("codigos_agentes.id DID",codigos_agentes.id)
+                
+      snapshot.forEach((child)=>{
+        codigos_agentes.push({
+                //key: child.key,
+                id:child.val().id,
+              
+
+        
+      })
+    })
+
+
+ this.setState({lista_codigos_agentes:codigos_agentes})
+
+
+})
     
     /*
       const ref = db.ref('/Usuarios');
@@ -413,18 +474,6 @@ onChangeText = name => this.setState({ name })
     }
 
 }
-
-
-
-
-
-
-  
-  
-
-
-
-
 
 const styles = StyleSheet.create({
  
@@ -478,5 +527,3 @@ const styles = StyleSheet.create({
     
   },
 });
-
-
