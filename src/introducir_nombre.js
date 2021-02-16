@@ -24,7 +24,7 @@ var lista_items
 //console.log("main codigo_instalador", instalador)
 //console.log("codigo_instalador", codigo_instalador)
 
-export class Main extends React.Component {
+export class IntroducirNombre extends React.Component {
    
   state = {
 
@@ -59,7 +59,7 @@ export class Main extends React.Component {
 
          if (lista_items[i] == codigo_agente){
                        
-            console.log("codigo correcto a=1", lista_items[i] )
+            //console.log("codigo correcto a=1", lista_items[i] )
            
             a=0
             a += 1 

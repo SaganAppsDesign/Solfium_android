@@ -19,7 +19,7 @@ import {QRCodeOk} from './src/QR_OK.js';
 import { Mapbox2 } from './src/mapbox'; 
 import { QRscan } from './src/qr_scan'; 
 import { Chat } from './src/chat'; 
-import { Main } from './src/main'; 
+import { IntroducirNombre } from './src/introducir_nombre'; 
 import { IngresarConsumo } from './src/ingresar_consumo2'; 
 import {ConfirmaUbicacion } from './src/confirma_ubicacion'; 
 import {MeInteresa } from './src/me_interesa'; 
@@ -32,7 +32,6 @@ const Stack = createStackNavigator();
 
 
 console.disableYellowBox = true;
-
 
    
 
@@ -87,7 +86,7 @@ export class MainScreen extends React.Component {
       <Stack.Screen  options={{headerShown: false}} name="Ubicación" component={Mapbox2} />
       <Stack.Screen  options={{headerShown: false}} name="QR scan" component={QRscan}  />
       <Stack.Screen  options={{headerShown: false}} name="Chat" component={Chat}  />
-      <Stack.Screen  options={{headerShown: false}} name="Nombre usuario" component={Main}  />
+      <Stack.Screen  options={{headerShown: false}} name="Nombre usuario" component={IntroducirNombre}  />
       <Stack.Screen  options={{headerShown: false}} name="Confirmar compra" component={CompraConfirmada}  />
       <Stack.Screen  options={{headerShown: false}} name="Calculando" component={PantallaEspera}  />
       <Stack.Screen  options={{headerShown: false}} name="Pago único" component={PagoUnico}  />

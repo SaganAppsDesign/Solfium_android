@@ -1,6 +1,6 @@
 import firebase from 'firebase'; 
-import {instalador} from './src/main.js'
-import {codigo_instalador} from './src/main.js'
+import {instalador} from './src/introducir_nombre.js'
+import {codigo_instalador} from './src/introducir_nombre.js'
 
 console.log("instalador fire", instalador)
 console.log("codigo_instalador fire", codigo_instalador)
