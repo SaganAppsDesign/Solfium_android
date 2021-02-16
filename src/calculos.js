@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Image, TouchableOpacity, ToastAndroid} from 'react-native';
+import {Text, View, Image, TouchableOpacity} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import tec3 from '../assets/fondo3.png';  
 import home from '../assets/home.png'; 
@@ -32,16 +32,12 @@ Consumo mensual = (Costo de energía – Cargo fijo mensual) / (Tarifa DAC)
 Consumo diario = Consumo mensual / 30
 Potencia del sistema = (Consumo diario) * (Factor de eficiencia) * (Factor de pago cero) / (Horas de sol diaria)
 Costo promedio del sistema = (Potencia del sistema) * 10 * (Factor de costo) * (Factor cambio) */
+
 export var costoPromedioSistema
 var opacity, facturacionPeriod, costoEnergia, consumoMensual, consumoDiario, potenciaSistema, 
-costoPromedioSistemaDec, mensualidad60pagosSinFormato, mensualidad60pagos,
-ahorro25sinformato, ahorro25, amortizacionMesesSinFormato, amortizacionMeses, DAP, inversionTotal, pagos60, amortizac, ahorroA25, 
+costoPromedioSistemaDec, DAP, inversionTotal, pagos60, amortizac, ahorroA25, 
 arbolesProm, toneladas,equivalentKM 
 
-
-var factor24= 1.14
-var factor36= 1.21
-var factor48= 1.28
 var factor60= 1.35
 var cargoFijoMensual = 114
 var tarifaDAC = 4.3333
@@ -57,7 +53,8 @@ var garantia = 25
 
 var sistema
 
-const format= (num) => {
+
+const format = (num) => {
  
   numFormat = new Intl.NumberFormat().format(Math.trunc(num))
 
@@ -73,11 +70,30 @@ const calculosEcologicos = (factor) => {
  
 }
 
+//Actualiza el estado actual del cliente en la BBDD
+
 estadoCliente2 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
   estado_cliente: "2/8 - Cliente INTERESADO",
       
   })
+
+//Funciones de cálculos
+function mensualidad(meses,factor){
+  var mensualidadSinFormato = (costoPromedioSistema*1000/meses)*factor
+  var mensualidadpagos = format(mensualidadSinFormato)
+
+  return mensualidadpagos
+
+}
+
+function ahorro25(){
+  var ahorro25sinformato = (25*12 - (Math.trunc(costoPromedioSistema/potencia*1000)))*potencia
+  var ahorro25 = format(ahorro25sinformato)
+
+  return ahorro25
+
+}
 
 
 export class Calculos extends React.Component {
@@ -93,47 +109,10 @@ export class Calculos extends React.Component {
   consumoDiario = consumoMensual/30
   potenciaSistema = (consumoDiario*factorEficiencia*factorPagoCero)/horasSolDiarias
   costoPromedioSistemaDec = potenciaSistema*10*factorCosto*factorCambio
-
-
   costoPromedioSistema = format(costoPromedioSistemaDec)
 
-  //mensualidad60pagosSinFormato = (costoPromedioSistema*1000/60)*factor60
-  //mensualidad60pagos = format(mensualidad60pagosSinFormato)
-
-  function mensualidad(meses,factor){
-    var mensualidadSinFormato = (costoPromedioSistema*1000/meses)*factor
-    var mensualidadpagos = format(mensualidadSinFormato)
-
-    return mensualidadpagos
-
-  }
-
-  //ahorro25sinformato = (25*12 - (costoPromedioSistema*1000/(costoPromedioSistema*1000/60*factor60)))*(costoPromedioSistema*1000/60*factor60)
-  //ahorro25 = format(ahorro25sinformato)
-
-  function ahorro25(){
-    //var ahorro25sinformato = (25*12 - (costoPromedioSistema*1000/(costoPromedioSistema*1000/meses*factor)))*(costoPromedioSistema*1000/meses*factor)
-    var ahorro25sinformato = (25*12 - (Math.trunc(costoPromedioSistema/potencia*1000)))*potencia
-    var ahorro25 = format(ahorro25sinformato)
-
-    return ahorro25
-
-  }
-
-    
-  //amortizacionMesesSinFormato = costoPromedioSistema/mensualidad60pagos
-  //amortizacionMeses = format(amortizacionMesesSinFormato)
-
-  function amortizacion(){
-    var amortizacionSinFormato = costoPromedioSistema/potencia
-    var amortizacion = format(amortizacionSinFormato)
-
-    return amortizacion
-
-  }
  
- 
-//Condicionales para saber el Sistema Eléctrico
+//Condicionales para saber si el sistema eléctrico del cliente se ajusta a alguna oferta
 
 if (potenciaSistema < 1.5){
    
@@ -229,38 +208,13 @@ else if (potenciaSistema > 10,5){
 
 } 
 
-
 var arboles = calculosEcologicos(factorArbol)
-  //console.log('arboles=',arboles)
+var co2 = calculosEcologicos(factorCO2)
+var km = calculosEcologicos(factorKm)
 
-  var co2 = calculosEcologicos(factorCO2)
-  //console.log('co2=',co2)
-
-  var km = calculosEcologicos(factorKm)
+//Aquí la BBDD se nutre de los cáculos realizados
   
- /*  console.log('km=',km)
-  console.log('sistema =' ,potenciaSistema)
-  console.log('RENDER------------------------------')
-  console.log('Costo MXN =',potencia)
-  console.log('DAP =',DAP)
-  console.log('facturacionPeriod =',facturacionPeriod)
-  console.log('costoEnergia =',costoEnergia)
-  console.log('consumoMensual =',consumoMensual)
-  console.log('consumoDiario =',consumoDiario)
-  console.log('potenciaSistema =' ,potenciaSistema)
-  //console.log('costoPromedioSistemaSinFormato',costoPromedioSistemaSinFormato)
-  console.log('costoPromedioSistema',costoPromedioSistema)
-  //console.log('mensualidad60pagosSinFormato',mensualidad60pagosSinFormato)
-  console.log('mensualidad60pagos',mensualidad(60,factor60))
-  //console.log('ahorro25sinformato ',ahorro25sinformato )
-  console.log('ahorro25 ',ahorro25(60,factor60) )
-  //console.log('amortizacionMesesSinFormato ',amortizacionMesesSinFormato )
-  console.log('amortizacionMeses ',amortizacion() )
-  console.log('------------------------------')    */
-
-
-
-  db.ref('Usuarios/' +  Fire.getUid()).update({
+ db.ref('Usuarios/' +  Fire.getUid()).update({
     
     
     CalculoPotenciaSistema: potenciaSistema,
@@ -416,9 +370,9 @@ var arboles = calculosEcologicos(factorArbol)
             </View> 
 
             </View>
-
+{          /*  FIN ahorro anual */}
       
-            {/*  Ahorro a 20 años*/}
+           {/*  Ahorro a 20 años*/}
         <View style={{flexDirection:'row', flex:3, alignItems:'center'}} >
                             
         <View style={{flexDirection: 'row', flex:3, justifyContent:'center', alignItems:'center'}}>
@@ -455,6 +409,7 @@ var arboles = calculosEcologicos(factorArbol)
 
         </View>
 
+        {/*  FIN Ahorro a 20 años */}
 
         <View style={{height:hp('2%'), marginBottom:wp('0%'),
             alignItems:'center', justifyContent:'center', flex:1}}>
@@ -554,7 +509,7 @@ var arboles = calculosEcologicos(factorArbol)
 
         </View>
 
-          
+        {/*  FIN Evitarás contaminar */}  
 
       </View>  
 
@@ -584,8 +539,7 @@ var arboles = calculosEcologicos(factorArbol)
 
                </TouchableOpacity>
              </View>
-
-             {/* Botón -me intresa-*/}
+  {/* FIN Botón -me intresa-*/}
               
 
 </View>
@@ -603,105 +557,102 @@ var arboles = calculosEcologicos(factorArbol)
 </Image>  
 
 </View> 
-         {/* header */}              
-           {/*Botones*/}     
-           <View style={{alignItems:'center', flex:0.6,  justifyContent:'center', flexDirection:'row', marginBottom:hp('3%'),marginTop:hp('0%')}}>  
-                         
+{/* header */}              
+  {/*Botones*/}     
+  <View style={{alignItems:'center', flex:0.6,  justifyContent:'center', flexDirection:'row', marginBottom:hp('3%'),marginTop:hp('0%')}}>  
+                
 
-                          <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
-                             <TouchableOpacity 
-                                                                                          
-                                onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-                               > 
-                                                     
-                               <Image 
-                                
-                                source={backBtn}
-                                style={{aspectRatio:1, height:hp('6%')}}
-                                
-                                >    
-                                </Image>
-
-                                      
-                                              
-                            </TouchableOpacity> 
-        
-                         </View>
-
-                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-                             <TouchableOpacity 
-                                                                                          
-                                onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-                               > 
-                                                     
-                                <Image 
-                                
-                                source={home}
-                                style={{aspectRatio:1, height:hp('6%')}}
-                                
-                                >    
-                                </Image> 
-        
-                                              
-                            </TouchableOpacity> 
-        
-                         </View>
-        
-                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                            <TouchableOpacity 
-                                                                                         
-                            //onPress={() => user()}
-                              > 
-                                                    
-                               <Image 
-                               
-                               source={usuario}
-                               style={{aspectRatio:1, height:hp('6%')}}
-                               
-                               >    
-                               </Image> 
-        
-                                             
-                           </TouchableOpacity> 
-        
-                          </View>
-        
-        
-        
-                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                          
-                          <TouchableOpacity 
-                                                                                         
-                            //onPress={() => settings()}
-                              > 
-                                                    
-                               <Image 
-                               
-                               source={setting}
-                               style={{aspectRatio:1, height:hp('6%')}}
-                               
-                               >    
-                               </Image> 
-        
-                                             
-                           </TouchableOpacity> 
-        
-                          </View>
-        
-                               
-        
-                        </View>
+                <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
+                    <TouchableOpacity 
+                                                                                
+                      onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                      > 
+                                            
+                      <Image 
                       
+                      source={backBtn}
+                      style={{aspectRatio:1, height:hp('6%')}}
                       
-          {/* FIN header */}      
-        
+                      >    
+                      </Image>
+
+                            
+                                    
+                  </TouchableOpacity> 
+
+                </View>
+
+                <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                    <TouchableOpacity 
+                                                                                
+                      onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                      > 
+                                            
+                      <Image 
+                      
+                      source={home}
+                      style={{aspectRatio:1, height:hp('6%')}}
+                      
+                      >    
+                      </Image> 
+
+                                    
+                  </TouchableOpacity> 
+
+                </View>
+
+              <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                  <TouchableOpacity 
+                                                                                
+                  //onPress={() => user()}
+                    > 
+                                          
+                      <Image 
+                      
+                      source={usuario}
+                      style={{aspectRatio:1, height:hp('6%')}}
+                      
+                      >    
+                      </Image> 
+
+                                    
+                  </TouchableOpacity> 
+
+                </View>
 
 
-       
-       </View>
+
+                <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                
+                <TouchableOpacity 
+                                                                                
+                  //onPress={() => settings()}
+                    > 
+                                          
+                      <Image 
+                      
+                      source={setting}
+                      style={{aspectRatio:1, height:hp('6%')}}
+                      
+                      >    
+                      </Image> 
+
+                                    
+                  </TouchableOpacity> 
+
+                </View>
+
+                      
+
+              </View>
+            
+            
+{/* FIN header */}      
+              
+    </View>
 
 
-    </ImageOverlay> 
+</ImageOverlay> 
  
 
   )
