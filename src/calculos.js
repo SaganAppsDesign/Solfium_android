@@ -557,8 +557,8 @@ var km = calculosEcologicos(factorKm)
 </Image>  
 
 </View> 
-{/* header */}              
-  {/*Botones*/}     
+{/* footer */}              
+{/*Botones*/}     
   <View style={{alignItems:'center', flex:0.6,  justifyContent:'center', flexDirection:'row', marginBottom:hp('3%'),marginTop:hp('0%')}}>  
                 
 
@@ -647,7 +647,7 @@ var km = calculosEcologicos(factorKm)
               </View>
             
             
-{/* FIN header */}      
+{/* FIN footer */}      
               
     </View>
 

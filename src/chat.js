@@ -8,7 +8,6 @@ import home from '../assets/home.png';
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
 import backBtn from '../assets/backBtn.png';
-import { TextInput } from 'react-native-paper'
 
 
 var name, cita, uid, title, screen
@@ -24,22 +23,7 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
 
 });
 
-/*Nuevo código
-data2 = () => db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot) => {
-  
-  uid = snapshot.child("uid").val()
-   
- 
-});*/
-
-
-
-data2 = () => db.ref('/Instaladores/Instalador1').on('value', (snapshot) => {
-  
-  uid = snapshot.child("uid").val()
-   
- 
-});
+//Actualización estado cliente
 
 estadoCliente4 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
@@ -49,8 +33,6 @@ estadoCliente4 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
 
    
 
-
-
 export class Chat extends React.Component {
 
 
@@ -59,20 +41,17 @@ state = {
     messages: [],
     name:'',
     cita:'',
-    name2: '',
     codigo_instalador:'',
     
     
 }
 
   render() {
-
-   
+  
 
     const { valor } = this.props.route.params;
-   // console.log(this.state.codigo_instalador)
-    
-    
+
+    //SWITCH para la navegación entre pantallas    
     switch (valor) {
       case 0:
         title = "Regresa a pantalla anterior"
@@ -117,8 +96,6 @@ state = {
     }
 
    data()
-   data2()
-
 
    var cita = this.state.cita
    var bool,bool2, opacity
@@ -159,7 +136,6 @@ state = {
               placeholder={"Chatea aquí " + name}
               user={{
                 _id: Fire.getUid(),
-                //_id: codigo_instalador,
                 name: name,
                 //avatar: 'https://firebasestorage.googleapis.com/v0/b/solfium.appspot.com/o/icono.png?alt=media&token=b1ee1e27-bf62-4c57-8571-669112a5a8aa'
                
@@ -180,7 +156,7 @@ state = {
         </View>
 
 
-    {/* header */}              
+    {/* footer */}              
     {/*Botones*/}     
     <View style={{opacity: 1, alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
                          
@@ -266,12 +242,10 @@ state = {
        
                               
        
-                       </View>
+      </View>
                      
                      
-                     {/* FIN header */}  
-
-
+      {/* FIN footer */}  
 
       </View>
 
@@ -323,7 +297,7 @@ componentWillUnmount() {
 
 }
 
-// Later on in your styles..
+// Estilo
 const styles = StyleSheet.create({
   
 
@@ -342,13 +316,8 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center'
     }
-
-  
-    
-    
-  
+ 
 });
-
 
 
 

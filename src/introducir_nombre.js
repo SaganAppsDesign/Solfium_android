@@ -59,7 +59,7 @@ export class IntroducirNombre extends React.Component {
 
          if (lista_items[i] == codigo_agente){
                        
-            //console.log("codigo correcto a=1", lista_items[i] )
+           
            
             a=0
             a += 1 

@@ -2,8 +2,8 @@ import firebase from 'firebase';
 import {instalador} from './src/introducir_nombre.js'
 import {codigo_instalador} from './src/introducir_nombre.js'
 
-console.log("instalador fire", instalador)
-console.log("codigo_instalador fire", codigo_instalador)
+//console.log("instalador fire", instalador)
+//console.log("codigo_instalador fire", codigo_instalador)
 
 console.log("FIRE SE INICIA POR PRIMERA VEZ")
 

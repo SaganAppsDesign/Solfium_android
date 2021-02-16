@@ -31,9 +31,6 @@ export class CitaConfirmada extends React.Component {
   
   
   render() {
-
-    //console.log('this.state.nombre_instalador render', this.state.nombre_instalador)
-    //console.log('this.state.codigo_instalador', this.state.codigo_instalador)
     
 
     var name = this.state.username
@@ -50,6 +47,7 @@ export class CitaConfirmada extends React.Component {
     var visita = this.state.visita
     var bool, opacity
     
+    //Activar botón si se confirma visita por parte del instalador en la BBDD
     if (visita == ''){
             
           bool=true
@@ -63,8 +61,6 @@ export class CitaConfirmada extends React.Component {
   
   return (
 
-            
-  
        
       <ImageOverlay source={fondo}
                     height={height}  
@@ -179,9 +175,6 @@ export class CitaConfirmada extends React.Component {
    </View>
     
 
-     
-          
-     
      { /* LOGO*/}
 
      <View style={{alignItems:'center', flex:0.3, marginTop:hp('5%')}}>  
@@ -197,118 +190,117 @@ export class CitaConfirmada extends React.Component {
     </View> 
 {/*FIN LOGO*/} 
 
-{/* header */}              
-           {/*Botones*/}     
-           <View style={{opacity: 1, alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
-                         
+{/* footer */}              
+{/*Botones*/}     
+  <View style={{opacity: 1, alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
+                
 
-                         <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
-                            <TouchableOpacity 
-                                                                                         
-                               onPress={() => this.props.navigation.navigate('Chat')}
-                              > 
-                                                    
-                                <Image 
-                                
-                                source={backBtn}
-                                style={{aspectRatio:1, height:hp('6%')}}
-                                
-                                >    
-                                </Image>
-       
-                                             
-                           </TouchableOpacity> 
-       
-                        </View>
-
-                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-                            <TouchableOpacity 
-                                                                                         
-                               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-                              > 
-                                                    
-                               <Image 
-                               
-                               source={home}
-                               style={{aspectRatio:1, height:hp('6%')}}
-                               
-                               >    
-                               </Image> 
-       
-                                             
-                           </TouchableOpacity> 
-       
-                        </View>
-       
-                       <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                           <TouchableOpacity 
-                                                                                        
-                          
-                             > 
-                                                   
-                              <Image 
-                              
-                              source={usuario}
-                              style={{aspectRatio:1, height:hp('6%')}}
-                              
-                              >    
-                              </Image> 
-       
-                                            
-                          </TouchableOpacity> 
-       
-                         </View>
-       
-       
-       
-                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                         
-                         <TouchableOpacity 
-                                                                                        
-                         
-                             > 
-                                                   
-                              <Image 
-                              
-                              source={setting}
-                              style={{aspectRatio:1, height:hp('6%')}}
-                              
-                              >    
-                              </Image> 
-       
-                                            
-                          </TouchableOpacity> 
-       
-                         </View>
-
-                         <View style={{alignItems:'center',  justifyContent:'center',  flex:1 }}>   
+                <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
+                  <TouchableOpacity 
+                                                                                
+                      onPress={() => this.props.navigation.navigate('Chat')}
+                    > 
                                           
-                                          <TouchableOpacity 
-                                                                                                      
-                                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 0})}
-                                          > 
-                                          <View>
+                      <Image 
+                      
+                      source={backBtn}
+                      style={{aspectRatio:1, height:hp('6%')}}
+                      
+                      >    
+                      </Image>
+
+                                    
+                  </TouchableOpacity> 
+
+              </View>
+
+              <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                  <TouchableOpacity 
+                                                                                
+                      onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                    > 
                                           
-                                                  <Image 
-                                              
-                                                  source={chat}
-                                                  style={{aspectRatio:1, height:hp('6%')}}
-                                                  
-                                                  >    
-                                                  </Image> 
-                        
-                                          </View>
+                      <Image 
+                      
+                      source={home}
+                      style={{aspectRatio:1, height:hp('6%')}}
+                      
+                      >    
+                      </Image> 
+
+                                    
+                  </TouchableOpacity> 
+
+              </View>
+
+              <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                  <TouchableOpacity 
+                                                                              
+                
+                    > 
+                                          
+                    <Image 
+                    
+                    source={usuario}
+                    style={{aspectRatio:1, height:hp('6%')}}
+                    
+                    >    
+                    </Image> 
+
+                                  
+                </TouchableOpacity> 
+
+                </View>
+
+
+
+                <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                
+                <TouchableOpacity 
+                                                                              
+                
+                    > 
+                                          
+                    <Image 
+                    
+                    source={setting}
+                    style={{aspectRatio:1, height:hp('6%')}}
+                    
+                    >    
+                    </Image> 
+
+                                  
+                </TouchableOpacity> 
+
+                </View>
+
+                <View style={{alignItems:'center',  justifyContent:'center',  flex:1 }}>   
+                                
+                          <TouchableOpacity 
+                                                                                      
+                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 0})}
+                          > 
+                              <View>
+                              
+                                      <Image 
+                                  
+                                      source={chat}
+                                      style={{aspectRatio:1, height:hp('6%')}}
                                       
-                                          </TouchableOpacity> 
-                        
-                                          </View>
-       
-                              
-       
-                       </View>
+                                      >    
+                                      </Image> 
+            
+                              </View>
+                      
+                          </TouchableOpacity> 
+              
+                </View>
+                          
+
+</View>
                      
                      
-                     {/* FIN header */} 
+{/* FIN footer */} 
          
 </View>
 
@@ -320,6 +312,8 @@ export class CitaConfirmada extends React.Component {
   
 
   componentDidMount() {
+
+    //Consulta a la BBDD y cambio de estado de las variables
 
     const ref = db.ref('/Usuarios/' +  Fire.getUid());
 
