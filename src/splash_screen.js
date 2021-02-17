@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Dimensions, ScrollView, Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
+import {View, Image} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import fondo from '../assets/fondo2.jpg'; 
 import logo from '../assets/logo_blanco.png'; 
@@ -38,12 +38,7 @@ export class SplashScreen extends React.Component {
 
     }
 
-  
-
-
-
   }
-
 
   
 siguiente = () =>  {
@@ -103,7 +98,6 @@ siguiente = () =>  {
 
   );
 }
-
 
 
 }

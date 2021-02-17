@@ -143,8 +143,6 @@ export class Ratings extends React.Component{
                             style={styles.nameInput}
                             placeholder="Deja un comentario si lo deseas"
                             placeholderTextColor = "grey"
-                            //multiline
-                            //numberOfLines={3}
                             onChangeText={this.onChangeText}
                             value={this.state.comentarios}
                             returnKeyType={ 'done' }
@@ -181,17 +179,13 @@ export class Ratings extends React.Component{
                                 >    
                                 </Image>
 
-
-
-
-
                     </TouchableOpacity>
                     </View>
 
 
                     </View>
 
-            {/* header */}              
+            {/* footer */}              
            {/*Botones*/}     
            <View style={{opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
                          
@@ -295,16 +289,10 @@ export class Ratings extends React.Component{
                                       
                                           </TouchableOpacity> 
                         
-                                          </View>
-       
-                              
-       
-                       </View>
-                     
-                     
-                     {/* FIN header */}  
-
-                    
+                        </View>
+                    </View>
+                     {/* FIN footer */}  
+               
           </View>
       </ImageOverlay>
 
@@ -316,7 +304,7 @@ export class Ratings extends React.Component{
 
 componentDidMount() {
 
-
+//Consulta a BBDD
   const ref = db.ref('/Usuarios/' +  Fire.getUid());
 
   this.listener = ref.on("value", snapshot => {
