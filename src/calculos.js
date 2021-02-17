@@ -9,7 +9,7 @@ import logo from '../assets/logo.png';
 import backBtn from '../assets/backBtn.png'; 
 import { Card } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {potencia} from './ingresar_consumo2'
+import {potencia} from './ingresar_consumo'
 import Fire, {db} from '../fire';
 
 /* 

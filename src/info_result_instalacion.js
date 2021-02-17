@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import { Text, View, TouchableOpacity, Image} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import 'react-native-gesture-handler';
 import {db} from '../fire';
@@ -13,8 +13,7 @@ import fondo from '../assets/fondo2.jpg';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import backBtn from '../assets/backBtn.png';
 
-//var viabilidad, user=''
-var text,text12,text2,text3,text4,text5,text6,text7,color,opacity,backgroundcolor, viable
+var text,text12,text2,text3,text4,text5,text6,text7,color,opacity,viable
 export var costoSistemaExport
 
 var cargoFijoMensual = 114
@@ -32,6 +31,8 @@ const format = (num) => {
  
 }
 
+
+//Actualización estado cliente
 estadoCliente6 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
   estado_cliente: "6/8 - Oferta ACEPTADA"
@@ -54,15 +55,10 @@ export class InfoResultInsta extends React.Component {
 
   render() {
     
-    
  
     var poten = this.state.potencia
     var consumo_mensual = this.state.consumoMensual
     var potenInt = parseInt(poten)
-
-    console.log('consumo_mensual',  consumo_mensual)
-     
-
     var produccion_mensual = (30*potenInt*horasSolDiarias)/(factorEficiencia*factorPagoCero)
     var diferencial_consumo = consumo_mensual - produccion_mensual
 
@@ -86,8 +82,7 @@ export class InfoResultInsta extends React.Component {
     text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium"'  
 
   if (potenInt == 10){
-    //viable = "VIABLE"
-    //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium"' 
+    
     text12 = 299180*1.16
     text2 = 6731*1.16
     text3 = text12/(nueva_facturacion-diferencia_costo_mensual)
@@ -97,8 +92,7 @@ export class InfoResultInsta extends React.Component {
     text7 = '883.970' 
     color = '#5DCB31'
     opacity = 1
-    backgroundcolor = 'white'
-    //this.setState({text12: text12 || '' }) 
+    
     db.ref('Usuarios/' +  Fire.getUid()).update({
     
         PotenciaSistemaDefinitivo: text12,
@@ -108,8 +102,7 @@ export class InfoResultInsta extends React.Component {
     
    
   } else if ( potenInt == 7){
-    //viable = "OPTIMIZADA A LA BAJA"
-    //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
+   
     text12 = 209426*1.16
     text2 = 4712*1.16
     text3 = text12/(nueva_facturacion-diferencia_costo_mensual)
@@ -119,8 +112,7 @@ export class InfoResultInsta extends React.Component {
     text7 = '618.779'  
     color = '#5DCB31'
     opacity = 1
-    backgroundcolor = 'white'
-    //this.setState({text12: text12 || '' })   
+   
     db.ref('Usuarios/' +  Fire.getUid()).update({
     
       PotenciaSistemaDefinitivo: text12,
@@ -138,8 +130,7 @@ export class InfoResultInsta extends React.Component {
     text7 = '441.985' 
     color = '#5DCB31'
     opacity = 1
-    backgroundcolor = 'white'
-    //this.setState({text12: text12 || '' })    
+   
     db.ref('Usuarios/' +  Fire.getUid()).update({
     
       PotenciaSistemaDefinitivo: text12,
@@ -147,8 +138,7 @@ export class InfoResultInsta extends React.Component {
     })
 
   } else if ( potenInt == 3){
-    //viable = "OPTIMIZADA A LA BAJA"
-    //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial de la siguiente forma:' 
+    
     text12 = 89754*1.16
     text2 = 2019*1.16 
     text3 = text12/(nueva_facturacion-diferencia_costo_mensual)
@@ -158,8 +148,7 @@ export class InfoResultInsta extends React.Component {
     text7 = '265.191' 
     color = '#5DCB31'
     opacity = 1
-    backgroundcolor = 'white'
-    //this.setState({text12: text12 || '' })  
+   
     db.ref('Usuarios/' +  Fire.getUid()).update({
     
       PotenciaSistemaDefinitivo: text12,
@@ -177,7 +166,6 @@ export class InfoResultInsta extends React.Component {
     text6 = '-' 
     text7 = '-'  
     color = 'grey'
-    backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
     
   } else if ( poten = 'No viable'){
@@ -192,7 +180,6 @@ export class InfoResultInsta extends React.Component {
     text7 = '-' 
     color = 'red'
     opacity = 0
-    backgroundcolor = 'white'
   
   } else {
     viable = "PENDIENTE CONTACTO CON INSTALADOR"
@@ -205,13 +192,11 @@ export class InfoResultInsta extends React.Component {
     text6 = '-' 
     text7 = '-' 
     color = 'grey'
-    backgroundcolor = 'rgba(255, 255, 255, 0)'
     opacity = 0
   }
  
  
   return (  
-
   
 
     <ImageOverlay 
@@ -574,122 +559,117 @@ export class InfoResultInsta extends React.Component {
               
 
 </View>
-{/* header */}              
-           {/*Botones*/}     
-           <View style={{backgroundColor:"white", opacity: 1, alignItems:'center', flex:2.3,  justifyContent:'center', flexDirection:'row',marginTop:hp('3%')}}>  
-                         
+{/* footer*/}              
+{/*Botones*/}     
+<View style={{backgroundColor:"white", opacity: 1, alignItems:'center', flex:2.3,  justifyContent:'center', flexDirection:'row',marginTop:hp('3%')}}>  
+              
 
-                         <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
-                            <TouchableOpacity 
-                                                                                         
-                               onPress={() => this.props.navigation.navigate('Escanear QR Instalador')}
-                              > 
-                                                    
-                               <Image 
+              <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
+                <TouchableOpacity 
+                                                                              
+                    onPress={() => this.props.navigation.navigate('Escanear QR Instalador')}
+                  > 
+                                        
+                    <Image 
+                    
+                    source={backBtn}
+                    style={{aspectRatio:1, height:hp('6%')}}
+                    
+                    >    
+                    </Image>
+
+
+                                  
+                </TouchableOpacity> 
+
+            </View>
+
+            <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
+                <TouchableOpacity 
+                                                                              
+                    onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                  > 
+                                        
+                    <Image 
+                    
+                    source={home}
+                    style={{aspectRatio:1, height:hp('6%')}}
+                    
+                    >    
+                    </Image> 
+
+                                  
+                </TouchableOpacity> 
+
+            </View>
+
+            <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                <TouchableOpacity 
+                                                                            
+                //onPress={() => user()}
+                  > 
+                                        
+                  <Image 
+                  
+                  source={usuario}
+                  style={{aspectRatio:1, height:hp('6%')}}
+                  
+                  >    
+                  </Image> 
+
                                 
-                                source={backBtn}
-                                style={{aspectRatio:1, height:hp('6%')}}
+              </TouchableOpacity> 
+
+              </View>
+
+
+
+              <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+              
+              <TouchableOpacity 
+                                                                            
+                //onPress={() => settings()}
+                  > 
+                                        
+                  <Image 
+                  
+                  source={setting}
+                  style={{aspectRatio:1, height:hp('6%')}}
+                  
+                  >    
+                  </Image> 
+
                                 
-                                >    
-                                </Image>
+              </TouchableOpacity> 
 
-       
-                                             
-                           </TouchableOpacity> 
-       
-                        </View>
+              </View>
 
-                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-                            <TouchableOpacity 
-                                                                                         
-                               onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
-                              > 
-                                                    
-                               <Image 
-                               
-                               source={home}
-                               style={{aspectRatio:1, height:hp('6%')}}
-                               
-                               >    
-                               </Image> 
-       
-                                             
-                           </TouchableOpacity> 
-       
-                        </View>
-       
-                       <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                           <TouchableOpacity 
-                                                                                        
-                           //onPress={() => user()}
-                             > 
-                                                   
-                              <Image 
-                              
-                              source={usuario}
-                              style={{aspectRatio:1, height:hp('6%')}}
-                              
-                              >    
-                              </Image> 
-       
-                                            
-                          </TouchableOpacity> 
-       
-                         </View>
-       
-       
-       
-                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
-                         
-                         <TouchableOpacity 
-                                                                                        
-                           //onPress={() => settings()}
-                             > 
-                                                   
-                              <Image 
-                              
-                              source={setting}
-                              style={{aspectRatio:1, height:hp('6%')}}
-                              
-                              >    
-                              </Image> 
-       
-                                            
-                          </TouchableOpacity> 
-       
-                         </View>
+              <View style={{alignItems:'center', flex:1,  justifyContent:'center'}}>   
+                  
+                  <TouchableOpacity 
+                                                                              
+                  onPress={() => this.props.navigation.navigate('Chat',  {valor: 3})}
+                  > 
+                  <View>
+                  
+                          <Image 
+                      
+                          source={chat}
+                          style={{aspectRatio:1, height:hp('6%')}}
+                          
+                          >    
+                          </Image> 
 
-                         <View style={{alignItems:'center', flex:1,  justifyContent:'center'}}>   
-                                          
-                                          <TouchableOpacity 
-                                                                                                      
-                                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 3})}
-                                          > 
-                                          <View>
-                                          
-                                                  <Image 
-                                              
-                                                  source={chat}
-                                                  style={{aspectRatio:1, height:hp('6%')}}
-                                                  
-                                                  >    
-                                                  </Image> 
-                        
-                                          </View>
-                                      
-                                          </TouchableOpacity> 
-                        
-                                          </View>
-       
-                              
-       
-                       </View>
+                  </View>
+              
+                  </TouchableOpacity> 
+            
+              </View>
+  
+</View>
                      
-                     
-                     {/* FIN header */}  
- 
-
-     
+{/* FIN footer */}  
+   
 
 </View>
 
@@ -700,7 +680,7 @@ export class InfoResultInsta extends React.Component {
 
   componentDidMount() {
 
-
+//Consulta a BBDD
     const ref = db.ref('/Usuarios/' +  Fire.getUid());
 
     this.listener = ref.on("value", snapshot => {

@@ -9,7 +9,6 @@ import {IdentidadConfirmada} from './src/identidad_confirmada';
 import {VideoInfo} from './src/video_informativo';  
 import {InfoResultInsta} from './src/info_result_instalacion.js';  
 import {InfoResultInsta2} from './src/info_result_instalacion_comparativa.js'; 
-import {Instalacion} from './src/instalacion_en_proceso.js';  
 import {Ratings} from './src/rating.js';  
 import {Payment} from './src/pago';  
 import {CompraConfirmada} from './src/compra_confirmada';  
@@ -19,7 +18,7 @@ import {QRCodeOk} from './src/QR_OK.js';
 import { QRscan } from './src/qr_scan'; 
 import { Chat } from './src/chat'; 
 import { IntroducirNombre } from './src/introducir_nombre'; 
-import { IngresarConsumo } from './src/ingresar_consumo2'; 
+import { IngresarConsumo } from './src/ingresar_consumo'; 
 import {MeInteresa } from './src/me_interesa'; 
 import {PagoUnico } from './src/pago_unico'; 
 import {Financiamiento } from './src/financiamiento'; 
@@ -75,7 +74,6 @@ export class MainScreen extends React.Component {
       <Stack.Screen options={{headerShown: false}} name="Video Informativo" component={VideoInfo} />
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación" component={InfoResultInsta} />    
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación Comparativa" component={InfoResultInsta2} />
-      <Stack.Screen options={{headerShown: false}} name="Instalación en proceso" component={Instalacion} />
       <Stack.Screen options={{headerShown: false}}  name="Rating" component={Ratings} />
       <Stack.Screen options={{headerShown: false}} name="Escanear QR Instalador" component={IdentidadConfirmada}/>
       <Stack.Screen options={{headerShown: false}} name="QR Escaneado" component={QREscaneado} />

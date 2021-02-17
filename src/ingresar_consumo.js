@@ -1,77 +1,79 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, ToastAndroid, Animated, Keyboard, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import logo from '../assets/logo.png'; 
 import fondo from '../assets/calculos1.jpg'; 
 import escanear_recibo from '../assets/click_escaneo_recibo.png'; 
-import siguiente_paso from '../assets/siguiente_paso.png'; 
+import ubicacion from '../assets/ubicacion.png'; 
 import home from '../assets/home.png'; 
 import setting from '../assets/setting.png'; 
 import usuario from '../assets/usuario.png'; 
 import 'react-native-gesture-handler';
 import * as React from 'react';
-
+import calcular from '../assets/calcular3.png'; 
+import  Fire , {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import Fire, {db} from '../fire';
+
 
 
 
 export var potenciaEstado, potencia2, potencia
+
+//Actualiza el estado actual del cliente en la BBDD
+
+estadoCliente0 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+                
+  estado_cliente: "1/8 - Cliente realiza cálculo inicial",
+      
+  })
+
   
-
-
-
-
 export class IngresarConsumo extends React.Component {
 
  
   state = {
 
-    potenciaEstado: ''
+    potenciaEstado: '',
+    bool:false,
+    list:[]
+   
    
 
   }
 
-
-  
+ 
+//Funcion que toma los datos del textinput 
+onChangeText = potenciaEstado => this.setState({ potenciaEstado }, () => {
+  if (this.state.potenciaEstado == "," || this.state.potenciaEstado == ".") {
     
-  user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
-     
-           potencia: this.state.potenciaEstado
-         
-    }   
-    )
+    alert("Por favor, introduce número");
+ 
+    this.setState({ potenciaEstado: "" })
+  }
 
-  
-  onChangeText = potenciaEstado => this.setState({ potenciaEstado });
-  
 
-   
+})
 
-   
 
 
 render() {
 
-    
-   
-    const escanearRecibo = () => {
-    ToastAndroid.show("Escanear recibo", ToastAndroid.SHORT);
-   
-  };
-  
-    const user = () => {
-      ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
-    
-    };
-    
-    const settings = () => {
-      ToastAndroid.show("Settings", ToastAndroid.SHORT);
-    
-    };
 
+  potencia = this.state.potenciaEstado
 
-  
-return (
+    var bool, opacity
+   //Condicial para activar/desactivar botón 
+    if (potencia == ''){
+            
+          bool=true
+          opacity=0.2
+    } else {
+
+          bool=false
+          opacity=1
+    }
+    
+
+      return (
 
               <ImageOverlay 
 
@@ -82,20 +84,28 @@ return (
                  >
                 
                  <View style={{alignItem:'center', justifyContent:'center', width:wp('100%'), height:hp('100%'), flex:1, flexDirection:'column'}}>              
-                                
-                       <View style={{alignItem:'center', justifyContent:'center',marginTop:hp('18%') , width:wp('100%'), height:hp('100%'), flex:7, flexDirection:'column'}}>          
-
-                                 <View  style={{ alignItems:'center', flex:2,  justifyContent:'center'}}>
+                      
+                      {/* Video */}
+                      
+                      <View  style={{borderRadius:10, alignItems:'center', flex:1, marginTop:hp('5%')}}>
+                        <Text 
+                            style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
+                                    color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
+                            onPress={() => this.props.navigation.navigate('Video Informativo')}>¿Quieres saber cómo funciona Solfium? Click aquí</Text>
+                      </View>      
+                      <View style={{alignItem:'center', justifyContent:'center',marginTop:hp('7%') , width:wp('100%'), height:hp('100%'), flex:8, flexDirection:'column'}}>          
+                                 
+                                 <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.7}}>
                                                                  
                                   <TouchableOpacity 
                                                                                             
-                                      onPress={() => escanearRecibo()}
+                                      
                                         > 
                                                                             
                                               <Image 
                                           
                                               source={escanear_recibo}
-                                              style={{aspectRatio:1.5,   height:hp('26%')}}
+                                              style={{aspectRatio:1.5,   height:hp('22%')}}
                                               
                                               >    
                                               </Image> 
@@ -106,135 +116,149 @@ return (
 
                                    </View>  
                                                                     
-                                  <View style={{alignItems:'center', width:wp('100%'), height:hp('15%'), flex:1, marginTop:hp('8%')}}>
-                                      <Text style={{ fontSize:17, fontWeight:'bold', color: 'grey', textAlign:'center'
-                                        }}>O ingresa aquí tu consumo mensual promedio en KWh</Text>
+                                  <View style={{justifyContent:'center',alignItems:'center', width:wp('100%'), height:hp('15%'), flex:1, marginTop:hp('7%')}}>
+                                      <Text style={{ fontSize:hp('2%'), fontWeight:'bold', color: 'grey', textAlign:'center'
+                                        }}>O ingresa tu consumo mensual:</Text>
                                                                 
-                                  </View>     
+                                   </View>     
 
-                                  <View style={{alignItems:'center', width:wp('100%'), height:hp('15%'), flex:1,marginTop:hp('2%')}}>
+                                  <View style={{justifyContent:'center', alignItems:'center', width:wp('100%'), height:hp('13%'), flex:1,marginTop:hp('0%')}}>
                             
                                   <TextInput
                                       style={styles.nameInput}
                                       placeholder="MXN"
+                                      placeholderTextColor = "#74ECE5"
                                       keyboardType='numeric'
                                       onChangeText={this.onChangeText}
-                                      value={this.state.potencia}
-                                  
-                                      //inlineImageLeft='icono.'
-                                      //label="KWh"
-                                      //onChangeText={this.onChangeText}
-                                      //value={this.state.name}
-                                      //mode='outlined'
-                                      
+                                      value={this.state.potenciaEstado}
+                                      returnKeyType={ 'done' }
+                                                                        
                                   />
 
                                   </View>
 
                                
-                                  <View  style={{ alignItems:'center', flex:2,  justifyContent:'center',marginTop:hp('5%')}}>
-                                   <TouchableOpacity 
-                                                                                                    
-                                      onPress={() => this.props.navigation.navigate('Confirma ubicación',
-                                           this.user()
-                                        ) }
-                                        > 
-                                                                                                     
+                                  <View  style={{alignItems:'center', flex:2,  justifyContent:'center',marginTop:hp('0%'),  opacity:0.5}}>
+                                   <TouchableOpacity>  
+                                                                                                                                            
                                           <Image 
                                         
-                                            source={siguiente_paso}
-                                           style={{ aspectRatio:2.2, height:hp('18%')}}
-                                            
-                                            >               
-                                            </Image> 
+                                            source={ubicacion}
+                                            style={{ aspectRatio:2.2, height:hp('15%')}}> 
+                                                                                                    
+                                          </Image> 
 
                                       
                                   </TouchableOpacity> 
 
                                   </View>
 
+                                  <View  style={{opacity:opacity, alignItems:'center', flex:1, justifyContent:'center', width:wp('100%'), height:hp('100%'), marginBottom:hp('1%')}}>
+                                        <TouchableOpacity 
 
-                                </View> 
-            
-           {/*Botones*/}     
-            <View style={{alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginTop:hp('5%')}}>  
-                         
-                 <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-                     <TouchableOpacity 
-                                                                                  
-                     onPress={() => this.props.navigation.navigate('Solfium')}
-                       > 
-                                             
-                        <Image 
-                        
-                        source={home}
-                        style={{aspectRatio:1, height:hp('9%')}}
-                        
-                        >    
-                        </Image> 
-
-                                      
-                    </TouchableOpacity> 
-
-                 </View>
-
-                <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-                    <TouchableOpacity 
-                                                                                 
-                    onPress={() => user()}
-                      > 
+                                          disabled={bool}
+                                                                                                        
+                                          onPress = {() => {this.props.navigation.navigate('Calculando');estadoCliente0()}} > 
+                                                                              
+                                              <Image 
                                             
-                       <Image 
-                       
-                       source={usuario}
-                       style={{aspectRatio:1, height:hp('9%')}}
-                       
-                       >    
-                       </Image> 
+                                                source={calcular}
+                                                style={{aspectRatio:3.7, height:hp('8%')}}>
+                                                                                                               
+                                              </Image> 
 
-                                     
-                   </TouchableOpacity> 
+                                          </TouchableOpacity> 
 
-                  </View>
+                                  </View>
 
-                  <View  style={{alignItems:'center', flex:1,  justifyContent:'center'}}>
-                  
-                  <TouchableOpacity 
-                                                                                 
-                    onPress={() => settings()}
-                      > 
-                                            
-                       <Image 
-                       
-                       source={setting}
-                       style={{aspectRatio:1, height:hp('9%')}}
-                       
-                       >    
-                       </Image> 
 
-                                     
-                   </TouchableOpacity> 
-
-                  </View>
-
-                       
-
-                </View>
-                
-                
+                </View> 
+           
+                                
                 { /* LOGO*/}
         
-                <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:2}}>  
+                <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:0.1, marginTop:hp('8%')}}>  
                 
                 <Image 
                   
                   source={logo}
-                  style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
+                  style={{aspectRatio:4.5, height:hp('4%'), marginBottom: hp('6%')}}
                   
                   >    
                 </Image>  
 
                </View> 
+
+            {/* footer */}              
+            {/*Botones*/}     
+              <View style={{opacity: 1, alignItems:'center', flex:1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('3%'),marginTop:hp('1%')}}>  
+                         
+                         <View  style={{alignItems:'center', flex:1,  justifyContent:'center', opacity:0.5}}>
+                             <TouchableOpacity 
+                                                                                          
+                             //onPress={() => this.props.navigation.navigate('Ingresar Consumo')}
+                               > 
+                                                     
+                                <Image 
+                                
+                                source={home}
+                                style={{aspectRatio:1, height:hp('6%')}}
+                                
+                                >    
+                                </Image> 
+        
+                                              
+                            </TouchableOpacity> 
+        
+                         </View>
+        
+                        <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                            <TouchableOpacity 
+                                                                                         
+                            //onPress={() => user()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={usuario}
+                               style={{aspectRatio:1, height:hp('6%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+        
+        
+                          <View  style={{alignItems:'center', flex:1,  justifyContent:'center',  opacity:0.5}}>
+                          
+                          <TouchableOpacity 
+                                                                                         
+                            //onPress={() => settings()}
+                              > 
+                                                    
+                               <Image 
+                               
+                               source={setting}
+                               style={{aspectRatio:1, height:hp('6%')}}
+                               
+                               >    
+                               </Image> 
+        
+                                             
+                           </TouchableOpacity> 
+        
+                          </View>
+        
+                               
+        
+                        </View>
+                      
+                      
+                {/* FIN footer */}  
 
             
                </View> 
@@ -242,41 +266,29 @@ return (
               
                </ImageOverlay>
         
-            /* 
-                </ScrollView>
-             </KeyboardAvoidingView>
-          */
-            
-  );
-                                      }
+                      
+  )
+ }
+
   
 }
+
+
 
 const styles = StyleSheet.create({
 
  
-  logo: {
-    
-    width: "20%",
-    height: "50%",
-    marginBottom: "10%",
-    marginTop: "2%",
-    marginLeft: "59%",
-    marginRight: "0%"
-    
-    
-  },
-
   nameInput: {
-    height: hp('8%'),
-    marginBottom:'0%',
+    height: hp('7%'),
+    marginBottom:hp('2%'),
     width:wp('60%'),
-    paddingHorizontal: '0%',
-    backgroundColor: 'white',
-    fontSize: 20,
+    backgroundColor: '#5B5A58',
+    fontSize: hp('3%'),
     fontWeight: 'bold',
     borderRadius: 30,
-    paddingLeft: '10%'
+    textAlign:'center',
+    color:'#74ECE5'
+    
    
 
   }
