@@ -13,9 +13,7 @@ import {Ratings} from './src/rating.js';
 import {Payment} from './src/pago';  
 import {CompraConfirmada} from './src/compra_confirmada';  
 import {CompraConfirmadaFinan} from './src/compra_confirmada_finan';  
-import {QREscaneado} from './src/qr_escaneado';  
 import {QRCodeOk} from './src/QR_OK.js'; 
-import { QRscan } from './src/qr_scan'; 
 import { Chat } from './src/chat'; 
 import { IntroducirNombre } from './src/introducir_nombre'; 
 import { IngresarConsumo } from './src/ingresar_consumo'; 
@@ -76,9 +74,7 @@ export class MainScreen extends React.Component {
       <Stack.Screen options={{headerShown: false}} name="Viabilidad Instalación Comparativa" component={InfoResultInsta2} />
       <Stack.Screen options={{headerShown: false}}  name="Rating" component={Ratings} />
       <Stack.Screen options={{headerShown: false}} name="Escanear QR Instalador" component={IdentidadConfirmada}/>
-      <Stack.Screen options={{headerShown: false}} name="QR Escaneado" component={QREscaneado} />
       <Stack.Screen options={{headerShown: false}} name="QR correcto" component={QRCodeOk} />
-      <Stack.Screen  options={{headerShown: false}} name="QR scan" component={QRscan}  />
       <Stack.Screen  options={{headerShown: false}} name="Chat" component={Chat}  />
       <Stack.Screen  options={{headerShown: false}} name="Nombre usuario" component={IntroducirNombre}  />
       <Stack.Screen  options={{headerShown: false}} name="Confirmar compra" component={CompraConfirmada}  />

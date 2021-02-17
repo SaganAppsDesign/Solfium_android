@@ -13,6 +13,8 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 var {height} = Dimensions.get('window');
 
+
+//Actualiza el estado actual del cliente en la BBDD
 const confirmadoQR = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
   QR_instalador: 'OK',
@@ -37,8 +39,6 @@ export function QRCodeOk({ navigation }) {
             <View style={{alignItems:'center', flex:1 }}> 
             
             <View  style={{alignItems:'center', flex:3,  justifyContent:'center', opacity:1}}>
-                                                                 
-                 
                                                             
                               <Image 
                           
@@ -48,9 +48,7 @@ export function QRCodeOk({ navigation }) {
                               >    
                               </Image> 
 
-                  
-                    
-             
+                              
                   </View>  
 
                    <View style={{marginTop:hp('0%'),  marginBottom:'0%', flex:3.5 }}>
@@ -101,23 +99,23 @@ export function QRCodeOk({ navigation }) {
                    
                       </View>
 
-                      <View >
+                    <View >
                   
                 </View> 
 
-                { /* LOGO*/}
-        
-                <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:2}}>  
-                
-                <Image 
-                  
-                  source={logo}
-                  style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
-                  
-                  >    
-                </Image>  
+              { /* LOGO*/}
 
-               </View>
+              <View style={{alignItems:'center', justifyContent:'center',width:wp('100%'), height:hp('100%'), flex:2}}>  
+              
+              <Image 
+                
+                source={logo}
+                style={{aspectRatio:4.5, width:wp('100%'), height:hp('6%')}}
+                
+                >    
+              </Image>  
+
+              </View>
              
  
         </View>   
@@ -168,4 +166,4 @@ const styles = StyleSheet.create({
 
   },
 
-});
+})

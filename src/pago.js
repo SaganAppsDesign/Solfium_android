@@ -111,26 +111,25 @@ export class Payment extends React.Component {
 
                      
                     </View>
-              
-            
+                       
          
             
-                    { /* LOGO*/}
+            { /* LOGO*/}
 
-                    <View style={{alignItems:'center', flex:0.1, marginTop:hp('15%')}}>  
+            <View style={{alignItems:'center', flex:0.1, marginTop:hp('15%')}}>  
 
-                    <Image 
-                      
-                      source={logo}
-                      style={{aspectRatio:4.5, height:hp('6%')}}
-                      
-                      >    
-                    </Image> 
-                    </View> 
-                    {/*FIN LOGO*/}  
+            <Image 
+              
+              source={logo}
+              style={{aspectRatio:4.5, height:hp('6%')}}
+              
+              >    
+            </Image> 
+            </View> 
+            {/*FIN LOGO*/}  
 
 
-            {/* header */}              
+            {/* footer */}              
            {/*Botones*/}     
            <View style={{alignItems:'center', flex:0.2,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
                          
@@ -217,41 +216,33 @@ export class Payment extends React.Component {
 
                          <View style={{alignItems:'center', flex:1,  justifyContent:'center'}}>   
                                           
-                                          <TouchableOpacity 
-                                                                                                      
-                                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 4})}
-                                          > 
-                                          <View>
-                                          
-                                                  <Image 
-                                              
-                                                  source={chat}
-                                                  style={{aspectRatio:1, height:hp('6%')}}
-                                                  
-                                                  >    
-                                                  </Image> 
+                                    <TouchableOpacity 
+                                                                                                
+                                    onPress={() => this.props.navigation.navigate('Chat',  {valor: 4})}
+                                    > 
+                                    <View>
+                                    
+                                            <Image 
+                                        
+                                            source={chat}
+                                            style={{aspectRatio:1, height:hp('6%')}}
+                                            
+                                            >    
+                                            </Image> 
+                  
+                                    </View>
+                                
+                                    </TouchableOpacity> 
                         
-                                          </View>
-                                      
-                                          </TouchableOpacity> 
-                        
-                                          </View>
+                           </View>
        
-                              
-       
-                       </View>
+                </View>
                      
                      
-                     {/* FIN header */}   
+{/* FIN footer */}   
+   </ImageOverlay> 
 
-                    
-       
-
-
-
-    </ImageOverlay> 
-
-  );
+  )
 }
 }
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Image, StyleSheet} from 'react-native';
+import {Text, View, Image} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import fondo from '../assets/fondo3.jpg'; 
 import logo from '../assets/logo.png'; 
@@ -77,16 +77,9 @@ siguiente = () =>  {
                  
        
     </View>
-                
-                 
-
-
-
-                           
-
-          </View>
-          
-          
+        
+    </View>
+                    
           { /* LOGO*/}
   
           <View style={{alignItems:'center', justifyContent:'center',flex:1}}>  
@@ -99,18 +92,12 @@ siguiente = () =>  {
             >    
           </Image>  
 
-         </View> 
-
-       
-  
-
+    </View> 
 
     </ImageOverlay> 
 
-  );
+  )
 }
-
-
 
 }
 
