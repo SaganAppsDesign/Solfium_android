@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
+import {Text, View, Image, ImageBackground, TouchableOpacity} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import tec3 from '../assets/fondo6.jpg'; 
 import home from '../assets/home.png'; 
@@ -19,8 +19,8 @@ var factor48= 1.28
 var factor60= 1.35
 
 
-//console.log("text12",text12)
 
+//Cálculo financiación según potencia contratada
 const financiacion = (factor, meses) => {
  
   var finam = new Intl.NumberFormat().format(Math.trunc(potenciaFinal/meses*factor))
@@ -28,7 +28,6 @@ const financiacion = (factor, meses) => {
   return finam
  
 }
-
 
 
 
@@ -43,8 +42,7 @@ export class Financiamiento extends React.Component {
  render() {
 
   potenciaFinal =this.state.potenciaSistema
-  console.log("financiacion",financiacion(factor60,60))
-
+ 
   return (
 
 
@@ -89,7 +87,7 @@ export class Financiamiento extends React.Component {
                         <View style={{alignItems: 'center', flex:3,  width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
                         <TouchableOpacity
                           
-                          //onPress={() => this.props.navigation.navigate('Pago único')} 
+                        
                                               
                           >
                           <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.6, justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:4, height:hp('7%'),   borderRadius: 10}}>
@@ -106,8 +104,7 @@ export class Financiamiento extends React.Component {
                           <View style={{alignItems: 'center', flex:3,  width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
                         <TouchableOpacity
                           
-                          //onPress={() => this.props.navigation.navigate('Pago único')} 
-                                              
+                                                                     
                           >
                           <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.6, justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:4, height:hp('7%'),   borderRadius: 10}}>
                                   
@@ -122,9 +119,7 @@ export class Financiamiento extends React.Component {
                           </View>
                         <View style={{alignItems: 'center', flex:3,  width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
                         <TouchableOpacity
-                          
-                          //onPress={() => this.props.navigation.navigate('Pago único')} 
-                                              
+                                                                     
                           >
                           <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.6, justifyContent:'center',overflow: 'hidden', resizeMode: "cover", aspectRatio:4, height:hp('7%'),   borderRadius: 10}}>
                                   
@@ -143,8 +138,7 @@ export class Financiamiento extends React.Component {
                           <TouchableOpacity
                             
                         
-                            //onPress={() => this.props.navigation.navigate('Financiamiento')} 
-                                                
+                                                                   
                             >
                             <ImageBackground source={require('../assets/boton_naranja.png')} style={{opacity:0.6,justifyContent:'center', overflow: 'hidden', resizeMode: "cover", aspectRatio:4, height:hp('7%'),  borderRadius: 10}}>
                                     
@@ -158,35 +152,13 @@ export class Financiamiento extends React.Component {
                             </TouchableOpacity>
                             </View>
 
-                            {/* <View style={{backgroundColor: '#5DCB31',borderRadius:50, justifyContent:'center', alignItems:'center', marginTop:hp('1%'), width:hp('28%'), height:hp('100%'), flex:2}}>
-
-                              <TouchableOpacity
-
-                                 disabled={true}
-                                  
-                                
-                                  onPress={() => this.props.navigation.navigate('Compra Finan')} 
-                                                      
-                                  >
-              
-                                  <Text style={{
-                                                              
-                                  fontWeight:'bold',
-                                  fontSize:hp('2.5%'),
-                                  color: 'white', 
-                                  textAlign:'center',
-                                  textAlignVertical:'center'}}>REALIZAR PAGO</Text>
-              
-                              </TouchableOpacity>
-                          </View>
- */}
-
+                            
                         </View>
 
                     </View>
 
                      
-                    </View>
+              </View>
               
             
          
@@ -206,7 +178,7 @@ export class Financiamiento extends React.Component {
             </View> 
             {/*FIN LOGO*/}   
 
-            {/* header */}              
+            {/* footer */}              
            {/*Botones*/}     
            <View style={{alignItems:'center', flex:0.16,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%')}}>  
                          
@@ -275,8 +247,7 @@ export class Financiamiento extends React.Component {
                          
                          <TouchableOpacity 
                                                                                         
-                           //onPress={() => settings()}
-                             > 
+                                   > 
                                                    
                               <Image 
                               
@@ -313,15 +284,11 @@ export class Financiamiento extends React.Component {
                         
                                           </View>
        
-                              
-       
                        </View>
                      
                      
-                     {/* FIN header */}  
+                     {/* FIN footer */}  
        
-
-
 
     </ImageOverlay> 
 
@@ -330,7 +297,7 @@ export class Financiamiento extends React.Component {
 
 componentDidMount() {
 
-
+//Consulta a BBDD para saber la potencia contratada y así hacer cálculos de la financiación
   const ref = db.ref('/Usuarios/' +  Fire.getUid())
 
   this.listener = ref.on("value", snapshot => {
