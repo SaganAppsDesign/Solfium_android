@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import { Text, View, TouchableOpacity, Image} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import 'react-native-gesture-handler';
 import {db} from '../fire';
@@ -12,23 +12,12 @@ import usuario from '../assets/usuario.png'
 import fondo from '../assets/fondo2.jpg';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import backBtn from '../assets/backBtn.png';
-import {potencia} from './ingresar_consumo2'
 
-var factor24= 1.14
-var factor36= 1.21
-var factor48= 1.28
-var factor60= 1.35
 var cargoFijoMensual = 114
 var tarifaDAC = 4.3333
 var horasSolDiarias = 7.7
 var factorEficiencia = 1.15
 var factorPagoCero = 1.2
-var factorCosto = 140
-var factorCambio = 21.37
-var factorArbol = 7.5
-var factorCO2 = 0.495
-var factorKm = 3535.88
-var garantia = 25
 
 const format = (num) => {
  
@@ -38,10 +27,10 @@ const format = (num) => {
  
 }
 
-var text,text1,text2,text3,text4,text5,text6,text7,color,opacity,viable, produccion_mensual, consumo_mensual
+var text,text1,text2,text3,text4,text5,text6,text7,color,opacity,viable, produccion_mensual
 var diferencial_consumo
 
-
+//Actualización estado cliente
 estadoCliente60 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
   estado_cliente: "6/8 - Oferta ACEPTADA"
@@ -72,23 +61,10 @@ export class InfoResultInsta2 extends React.Component {
                  
   render() {
 
-    
-    //console.log('viabilidad componentDidMount',   this.state.viabilidad)
-    
+      
     var consumo_mensual = this.state.consumoMensual
-    
     var poten = this.state.potencia
-    var inversionTotal = this.state.inversionTotal
-    var mensualidad60 = this.state.mensualidad60
-    var amortizacion = this.state.amortizacion
-    var ahorro25 = this.state.ahorro25
-    var arboles = this.state.arboles
-    var co2 = this.state.co2
-    var coches = this.state.coches
     var calculoSistema = this.state.calculoSistema
-    
-
-
     var potenInt = parseInt(poten)
    
     produccion_mensual = (30*potenInt*horasSolDiarias)/(factorEficiencia*factorPagoCero)
@@ -106,9 +82,6 @@ export class InfoResultInsta2 extends React.Component {
     
    var diferencia_costo_mensual = (tarifaDAC*diferencial_consumo+cargoFijoMensual)*(1.16)
    var nueva_facturacion = ((tarifaDAC*consumo_mensual)+cargoFijoMensual)*1.16
-   console.log('diferencial_consumo',  diferencial_consumo)
-   console.log('diferencia_costo_mensual',  diferencia_costo_mensual)
-   console.log('nueva_facturacion',  nueva_facturacion)
    var ahorro_factura = (nueva_facturacion-diferencia_costo_mensual)*100/nueva_facturacion 
 
   if (potenInt > calculoSistema){
@@ -189,8 +162,6 @@ export class InfoResultInsta2 extends React.Component {
     
     viable = "OPTIMIZADA A LA BAJA"
     text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en un 30%:' 
-    //if (calculoSistema == 10){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 30%:' }
-    
     text1 = 209426*1.16 
     text2 = 4712*1.16 
     text3 = text1/(nueva_facturacion-diferencia_costo_mensual)
@@ -215,44 +186,43 @@ export class InfoResultInsta2 extends React.Component {
     
      if (calculoSistema == 7){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en un 28.57%:' }
      else if (calculoSistema == 10){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 50%:' }
-     //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el  %:' 
-    text1 = 149590*1.16 
-    text2 = 3365*1.16 
-    text3 = text1/(nueva_facturacion-diferencia_costo_mensual)
-    text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
-    text5 = '937' 
-    text6 = '61' 
-    text7 = '441.985'  
-    color = 'orange'
-    opacity = 1
-    backgroundcolor = 'white'
-    db.ref('Usuarios/' +  Fire.getUid()).update({
-    
-      PotenciaSistemaDefinitivo: text1,
-           
-    })    
+        text1 = 149590*1.16 
+        text2 = 3365*1.16 
+        text3 = text1/(nueva_facturacion-diferencia_costo_mensual)
+        text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
+        text5 = '937' 
+        text6 = '61' 
+        text7 = '441.985'  
+        color = 'orange'
+        opacity = 1
+        backgroundcolor = 'white'
+        db.ref('Usuarios/' +  Fire.getUid()).update({
+        
+          PotenciaSistemaDefinitivo: text1,
+              
+        })    
 
   } else if ( potenInt == 3){
     viable = "OPTIMIZADA A LA BAJA"
-    //text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el  %:' 
+   
     if (calculoSistema == 10){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en un 70%:' }
      else if (calculoSistema == 7){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 57.14%:' }
      else if (calculoSistema == 5){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 40%:' }
-    text1 = 89754*1.16 
-    text2 = 2019*1.16 
-    text3 = text1/(nueva_facturacion-diferencia_costo_mensual)
-    text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
-    text5 = '562' 
-    text6 = '37' 
-    text7 = '265.191'  
-    color = 'orange'
-    opacity = 1
-    backgroundcolor = 'white'
-    db.ref('Usuarios/' +  Fire.getUid()).update({
-    
-      PotenciaSistemaDefinitivo: text1,
-           
-    })   
+        text1 = 89754*1.16 
+        text2 = 2019*1.16 
+        text3 = text1/(nueva_facturacion-diferencia_costo_mensual)
+        text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
+        text5 = '562' 
+        text6 = '37' 
+        text7 = '265.191'  
+        color = 'orange'
+        opacity = 1
+        backgroundcolor = 'white'
+        db.ref('Usuarios/' +  Fire.getUid()).update({
+        
+          PotenciaSistemaDefinitivo: text1,
+              
+        })   
 
   } else if (potenInt == 'evaluando'){
     viable = "EVALUANDO INSTALACIÓN"
@@ -297,10 +267,6 @@ export class InfoResultInsta2 extends React.Component {
     opacity = 0
   }
  
-  
-
-  
-
   return (  
 
   
@@ -329,8 +295,7 @@ export class InfoResultInsta2 extends React.Component {
                                     fontSize:hp('2%'),
                                     color: 'white', 
                                     textAlign:'center',
-                                    
-                                   
+                                                                       
                                   }}> {viable} </Text>
               </View> 
 
@@ -473,8 +438,7 @@ export class InfoResultInsta2 extends React.Component {
 
             </View>
 
-        
-    
+            
       {/*  Ahorro a 25 años*/}
         <View style={{flexDirection:'row', flex:2, alignItems:'center',width:wp('80%')}} >
         
@@ -571,7 +535,6 @@ export class InfoResultInsta2 extends React.Component {
             alignItems:'center', justifyContent:'center', flex:5, flexDirection: 'column'}}>
                   
                  
-
                   <Text style={{color: '#5DCB31',
                     fontSize:hp('1.5%'),
                     textAlign:'center',
@@ -677,8 +640,8 @@ export class InfoResultInsta2 extends React.Component {
               
 
 </View>
-{/* header */}              
-           {/*Botones*/}     
+{/* footer */}              
+{/*Botones*/}     
            <View style={{backgroundColor:"white", opacity: 1, alignItems:'center', flex:2.3,  justifyContent:'center', flexDirection:'row',marginTop:hp('3%')}}>  
                          
 
@@ -764,37 +727,31 @@ export class InfoResultInsta2 extends React.Component {
 
                          <View style={{alignItems:'center', flex:1,  justifyContent:'center'}}>   
                                           
-                                          <TouchableOpacity 
-                                                                                                      
-                                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 3})}
-                                          > 
-                                          <View>
-                                          
-                                                  <Image 
-                                              
-                                                  source={chat}
-                                                  style={{aspectRatio:1, height:hp('6%')}}
-                                                  
-                                                  >    
-                                                  </Image> 
-                        
-                                          </View>
+                                  <TouchableOpacity 
+                                                                                              
+                                  onPress={() => this.props.navigation.navigate('Chat',  {valor: 3})}
+                                  > 
+                                  <View>
+                                  
+                                          <Image 
                                       
-                                          </TouchableOpacity> 
-                        
-                                          </View>
-       
+                                          source={chat}
+                                          style={{aspectRatio:1, height:hp('6%')}}
+                                          
+                                          >    
+                                          </Image> 
+                
+                                  </View>
                               
-       
-                       </View>
+                                  </TouchableOpacity> 
+                        
+                          </View>
+                               
+            </View>
+                    
                      
-                     
-                     {/* FIN header */}  
- 
-
-     
-
-</View>
+{/* FIN footer */}  
+ </View>
 
 </ImageOverlay>
      
@@ -803,7 +760,7 @@ export class InfoResultInsta2 extends React.Component {
 
   componentDidMount() {
 
-
+    //Consulta a BBDD
     const ref = db.ref('/Usuarios/' +  Fire.getUid());
 
     this.listener = ref.on("value", snapshot => {
@@ -821,8 +778,7 @@ export class InfoResultInsta2 extends React.Component {
                    calculoSistema: snapshot.child("Sistema").val() || '',
                    consumoMensual: snapshot.child("consumoMensual").val() || '' }) 
  
-   // this.setState({username: snapshot.child("name").val() || ''})
-  
+    
   }
   )
 

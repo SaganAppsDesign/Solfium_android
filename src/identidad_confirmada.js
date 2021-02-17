@@ -37,9 +37,7 @@ export class IdentidadConfirmada extends React.Component {
     var QR = this.state.QR
     var bool,opacity, opacity2, opacity3, screen
 
-     //console.log("potencia",  potencia)
-     //console.log("sistema"  , sistema)
-
+//Condicionales para activar/deactivar botones
      if (potencia == '' ){
             
       bool=true
@@ -58,7 +56,6 @@ export class IdentidadConfirmada extends React.Component {
         screen="Viabilidad Instalación Comparativa"
 
       }
-
 
     
       if (QR == ''){
@@ -186,10 +183,10 @@ export class IdentidadConfirmada extends React.Component {
 
             </View>
 
-    {/*Imagen Confirmar*/} 
+  
 
     <View style={{flex:1, flexDirection:'row', marginBottom:hp('2%'),}}>  
-    
+      {/*Imagen Confirmar*/} 
        <View style={{marginTop:hp('0%'), marginLeft:wp('15%'), flex:1}}>
        
                  <Image 
@@ -272,7 +269,7 @@ export class IdentidadConfirmada extends React.Component {
   </View>
        
      
-     { /* LOGO*/}
+{ /* LOGO*/}
 
      <View style={{alignItems:'center', flex:0.2, marginTop:hp('0%')}}>  
      
@@ -286,7 +283,7 @@ export class IdentidadConfirmada extends React.Component {
 
     </View> 
 {/*FIN LOGO*/} 
- {/* header */}              
+ {/* footer */}              
 {/*Botones*/}     
            <View style={{opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
                          
@@ -391,12 +388,9 @@ export class IdentidadConfirmada extends React.Component {
                         
                                           </View>
        
-                              
-       
                        </View>
-                     
-                     
-                     {/* FIN header */}           
+               
+  {/* FIN footer */}           
          
 </View>
 
@@ -410,7 +404,7 @@ export class IdentidadConfirmada extends React.Component {
 componentDidMount() {
 
 
-
+//Consulta a BBDD
   const ref = db.ref('/Usuarios/' +  Fire.getUid());
 
   this.listener = ref.on("value", snapshot => {
@@ -427,7 +421,6 @@ componentDidMount() {
 }
 
 )
-
 
 
 

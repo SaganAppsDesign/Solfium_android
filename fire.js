@@ -1,6 +1,7 @@
 import firebase from 'firebase'; 
 
 
+//Datos de conexión a BBDD FIREBASE
 const firebaseConfig = {
   apiKey: 'AIzaSyCmFh0zidLXHhW9x2o-xVVLMEtNjVueP6g',
   authDomain: 'solfium.firebaseapp.com',
@@ -15,10 +16,6 @@ const app = firebase.initializeApp(firebaseConfig);
 export const db = app.database();
 
 
-//console.log("codigo_instalador2",codigo_instalador2)
-//console.log("instalador import from main",instalador)
-  
-
 
 export class Fire {
 
@@ -30,7 +27,7 @@ export class Fire {
  
   constructor ()  {
     
-    //Nuevo código
+
     const ref = db.ref('Instaladores/');
  
     this.listener = ref.on("value",  (snapshot) =>{
@@ -87,24 +84,6 @@ export class Fire {
 
   loadMessages(callback){
 
-    
-    //Nuevo código
-/*
-    const ref2 = db.ref('Usuarios/');
-// Retrieve new posts as they are added to our database
-  ref2.on("child_added", function(snapshot, prevChildKey) {
-  codigo_instalador3 = snapshot.val();
-  codigo_instalador2 = codigo_instalador3.codigo_instalador
-  console.log("codigo_instalador2 dentro ref load messages: " + codigo_instalador3.codigo_instalador);
- 
-   });
-
-     console.log("codigo_instalador2 fuera ref load messages: " + codigo_instalador2);
-     console.log("instalador fire dentro load", instalador)
-    //this.messagesRef = firebase.database().ref('/Chat/' + this.uid + '-Instalador1');
-
-
-*/
 
     const ref = db.ref('/Usuarios/' +  this.uid);
 
