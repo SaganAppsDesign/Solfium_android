@@ -21,9 +21,6 @@ export var codigo_instalador
 var lista_items
 
 
-//console.log("main codigo_instalador", instalador)
-//console.log("codigo_instalador", codigo_instalador)
-
 export class IntroducirNombre extends React.Component {
    
   state = {
@@ -43,64 +40,24 @@ export class IntroducirNombre extends React.Component {
   codigo_agente = this.state.codigo_agente
   codigo_instalador = this.state.codigo_instalador
  
-  
-  rastrearCodigosComerciales(codigo_agente){
-    var a
-    array2 = this.state.lista_codigos_agentes  
-    lista_items = []  
-    //crear lista de códigos de agentes comerciales desde la BBDD
-    for (id in array2) {
-               
-             lista_items.push(array2[id].id)
-                           
-        }
-    //Comparar códigos agentes con código cliente
-    for (var i=0; i < lista_items.length; i++) {
-
-         if (lista_items[i] == codigo_agente){
-                       
-           
-           
-            a=0
-            a += 1 
-            return true
-                      
-          } 
-                 
-  }
-
-  if (a==1) {
-  
-    return true
-    
-  } else{
-  
-    return false
-  }
-
  
-    
-}
- 
-
+//Reparto de instaladores dependiendo del número de usuarios en la BBDD
   distribucionUsuariosInstaladores(){
 
     var array = this.state.list
  
-    if ( array.length >= 1 && array.length < 100){
+    if (array.length >= 1 && array.length < 100){
       
-      console.log("Instalador1")
+      
       instalador = "desmex01"
      
+    
+    } if (array.length >= 100 && array.length < 200) {
   
-  
-    } if ( array.length >= 100 && array.length < 200) {
-  
-      console.log("Instalador2 dentro del If")
-      instalador = "desmex02"
+       instalador = "desmex02"
      
       
-    } if ( array.length >= 200 && array.length < 300) {
+    } if (array.length >= 200 && array.length < 300) {
     
       instalador = "desmex03"
       
@@ -108,7 +65,8 @@ export class IntroducirNombre extends React.Component {
      
   
   }
- 
+
+ //Actualización estado cliente, código agente y nombre cliente en BBDD
   user = () =>  db.ref('Usuarios/' +  Fire.getUid()).update({
     
     name: this.state.name,
@@ -120,30 +78,64 @@ export class IntroducirNombre extends React.Component {
     })
 
   
-
+//Nombre cliente tomado del textinput y volcado a estado 'name'
 onChangeText = name => this.setState({ name })
 
+
+ // Búsqueda en BBDD de los códigos de los comerciales 
+ rastrearCodigosComerciales(codigo_agente){
+  var a
+  array2 = this.state.lista_codigos_agentes  
+  lista_items = []  
+  //crear lista de códigos de agentes comerciales desde la BBDD
+  for (id in array2) {
+             
+           lista_items.push(array2[id].id)
+                         
+      }
+  //Comparar códigos agentes con código cliente
+  for (var i=0; i < lista_items.length; i++) {
+
+       if (lista_items[i] == codigo_agente){
+                   
+          a=0
+          a += 1 
+          return true
+                    
+        } 
+               
+}
+
+if (a==1) {
+
+  return true
+  
+} else{
+
+  return false
+}
+  
+}
+
+//Función código agente
 agentCode = codigo_agente => this.setState({ codigo_agente}, () => {
 
     
-    if(this.rastrearCodigosComerciales(codigo_agente)){
-      alert("Código correcto")
+  if(this.rastrearCodigosComerciales(codigo_agente)){
+    alert("Código correcto")
 
-    }
-    
-    if (!this.rastrearCodigosComerciales(codigo_agente)&&codigo_agente.length==4){
-             
-        alert("Por favor, introduce código correcto. Inténtalo de nuevo")
-        this.setState({ codigo_agente: "" })
-
-    }
-     
-  })
-
-
-
-  installCode = codigo_instalador => this.setState({ codigo_instalador})
+  }
   
+  if (!this.rastrearCodigosComerciales(codigo_agente)&&codigo_agente.length==4){
+           
+      alert("Por favor, introduce código correcto. Inténtalo de nuevo")
+      this.setState({ codigo_agente: "" })
+
+  }
+   
+})
+
+//Función botón "Abrir chat"  
   onPress = () =>
 
       this.props.navigation.navigate('Chat', { 
@@ -153,13 +145,6 @@ agentCode = codigo_agente => this.setState({ codigo_agente}, () => {
        
     }
    )
-
-
-  onPress2 = () => {
-    
-    this.setState({opacity:1}) 
-    this.setState({bool:true}) 
-  }
 
      
   render() {
@@ -223,12 +208,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente}, () => {
               alignItems:'center', flex:0.3, height:hp('100%'), justifyContent:'center'}}> 
                   <TouchableOpacity 
                   disabled={true}
-                  onPress={
-
-                            () => {this.onPress2()}
-                      
-                          }
-                          >
+                        >
                   <Text style={{color: 'white',
                     
                     fontSize: hp('1.8%'),
@@ -247,7 +227,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente}, () => {
                 <View style={{width:hp('100%'), marginTop:hp('0%'),marginBottom:hp('3%'), alignItems:'center', flex:0.7, 
                  height:hp('100%'), justifyContent:'center'}}>    
                         <TextInput
-                        //editable={this.state.bool}
+                       
                         maxLength={4}
                         style={{height:hp('8%'),
                         marginLeft: hp('0%'),
@@ -259,11 +239,11 @@ agentCode = codigo_agente => this.setState({ codigo_agente}, () => {
                         fontSize:hp('2%'),
                         fontWeight: 'bold',
                         borderRadius: 2, 
-                         //opacity:this.state.opacity
-                        color:'#2C80E5'}
+                        color:'#2C80E5',
+                       }
                                             
                         }
-                        label="Código agente"
+                        label="Código"
                         onChangeText={this.agentCode}
                         value={this.state.codigo_agente}
                         returnKeyType={ 'done' }
@@ -418,9 +398,9 @@ agentCode = codigo_agente => this.setState({ codigo_agente}, () => {
 
   componentDidMount() {
 
-    this.setState({codigo_instalador: instalador})
+this.setState({codigo_instalador: instalador})
 
-//Llamada a la BBDD para poder calcular el número de clientes que hay enb este momento
+//Llamada a la BBDD para poder calcular el número de clientes que hay en este momento
     db.ref('/Usuarios/').on('value', (snapshot) =>{
       var li = []
                 
@@ -459,17 +439,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente}, () => {
 
 
 })
-    
-    /*
-      const ref = db.ref('/Usuarios');
-    
-      this.listener = ref.on("child_added", snapshot => {
-      
-      //console.log(snapshot.key)
-                                      
-                    
-      })    
-    */
+   
                     
     }
 
@@ -480,7 +450,6 @@ const styles = StyleSheet.create({
   nameInput: {
     height: hp('8%'),
     alignContent:'center',
-    //alignItems:'center',
     marginLeft: hp('0%'),
     marginTop:hp('3%'),
     marginBottom:hp('7%'),
@@ -512,7 +481,6 @@ const styles = StyleSheet.create({
  
 
   buttonText: {
-// marginLeft: hp('30%'),
     marginTop:hp('0%'),
     fontSize: hp('4%'),
     marginBottom:hp('0%'),

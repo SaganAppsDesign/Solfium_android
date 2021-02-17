@@ -10,7 +10,7 @@ import usuario from '../assets/usuario.png';
 import backBtn from '../assets/backBtn.png';
 
 
-var name, cita, uid, title, screen
+var name, cita, title, screen
 export var codigo_instalador
 
 
@@ -23,7 +23,7 @@ data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
 
 });
 
-//Actualización estado cliente
+//Actualización estado cliente en BBDD
 
 estadoCliente4 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
@@ -98,17 +98,15 @@ state = {
    data()
 
    var cita = this.state.cita
-   var bool,bool2, opacity
+   var bool,opacity
    
    if (cita == ''){
           
          bool=true
-         bool2=false
          opacity=0.2
    } else {
 
         bool=false
-        bool2=true
         opacity=1
         
    }

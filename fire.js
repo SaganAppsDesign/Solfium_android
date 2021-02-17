@@ -1,11 +1,5 @@
 import firebase from 'firebase'; 
-import {instalador} from './src/introducir_nombre.js'
-import {codigo_instalador} from './src/introducir_nombre.js'
 
-//console.log("instalador fire", instalador)
-//console.log("codigo_instalador fire", codigo_instalador)
-
-console.log("FIRE SE INICIA POR PRIMERA VEZ")
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCmFh0zidLXHhW9x2o-xVVLMEtNjVueP6g',
@@ -122,7 +116,6 @@ export class Fire {
   }
   )
 
-  console.log("codigo_instalador fire dentro load snapshot", codigo_instalador)
 
     this.messagesRef = firebase.database().ref('/Chat/' + this.uid + "-" + codigo);
     this.messagesRef.off();
