@@ -13,11 +13,16 @@ import  Fire , {db} from '../fire';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import backBtn from '../assets/backBtn.png'; 
 
+
+
+//Actualización estado cliente
 estadoCliente8 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
   estado_cliente: "8/8 - Instalación realizada. Su comisión asciende a 200 MXN",
       
   })
+
+
 
 export class CompraConfirmada extends React.Component {
   state = {
@@ -235,7 +240,7 @@ export class CompraConfirmada extends React.Component {
          </View> 
 
 
-         {/* header */}              
+         {/* footer */}              
            {/*Botones*/}     
            <View style={{opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
                          
@@ -343,15 +348,11 @@ export class CompraConfirmada extends React.Component {
                                           </TouchableOpacity> 
                         
                                           </View>
-       
-                              
-       
+                             
                        </View>
-                     
-                     
-                     {/* FIN header */}  
+                                          
+                  {/* FIN footer */}  
        
-
          </View>
 
     </ImageOverlay> 
@@ -361,7 +362,7 @@ export class CompraConfirmada extends React.Component {
 
 componentDidMount() {
 
-
+  //Consulta a BBDD para rescatar nombre de usuario y fecha de instalación (este dato lo introduce el instalador desde su app)
   const ref = db.ref('/Usuarios/' +  Fire.getUid());
 
   this.listener = ref.on("value", snapshot => {

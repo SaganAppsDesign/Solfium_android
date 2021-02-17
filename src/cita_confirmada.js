@@ -47,7 +47,7 @@ export class CitaConfirmada extends React.Component {
     var visita = this.state.visita
     var bool, opacity
     
-    //Activar botón si se confirma visita por parte del instalador en la BBDD
+    //Activar botón, si se confirma visita por parte del instalador en la BBDD
     if (visita == ''){
             
           bool=true

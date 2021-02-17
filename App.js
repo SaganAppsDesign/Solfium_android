@@ -16,12 +16,10 @@ import {CompraConfirmada} from './src/compra_confirmada';
 import {CompraConfirmadaFinan} from './src/compra_confirmada_finan';  
 import {QREscaneado} from './src/qr_escaneado';  
 import {QRCodeOk} from './src/QR_OK.js'; 
-import { Mapbox2 } from './src/mapbox'; 
 import { QRscan } from './src/qr_scan'; 
 import { Chat } from './src/chat'; 
 import { IntroducirNombre } from './src/introducir_nombre'; 
 import { IngresarConsumo } from './src/ingresar_consumo2'; 
-import {ConfirmaUbicacion } from './src/confirma_ubicacion'; 
 import {MeInteresa } from './src/me_interesa'; 
 import {PagoUnico } from './src/pago_unico'; 
 import {Financiamiento } from './src/financiamiento'; 
@@ -71,7 +69,6 @@ export class MainScreen extends React.Component {
       <Stack.Screen options={{headerShown: false}}  name="SplahScreen" component={SplashScreen}/>
       <Stack.Screen options={{headerShown: false}} name="Ingresar Consumo" component={IngresarConsumo}  />
       <Stack.Screen  options={{headerShown: false}} name="Cálculos" component={Calculos} />
-      <Stack.Screen  options={{headerShown: false}} name="Confirma ubicación" component={ConfirmaUbicacion}  />
       <Stack.Screen  options={{headerShown: false}} name="Implementación" component={MeInteresa}  />
       <Stack.Screen  options={{headerShown: false}} name="Próxima visita" component={CitaConfirmada} />
       <Stack.Screen  options={{headerShown: false}} name="Pago" component={Payment} />
@@ -83,7 +80,6 @@ export class MainScreen extends React.Component {
       <Stack.Screen options={{headerShown: false}} name="Escanear QR Instalador" component={IdentidadConfirmada}/>
       <Stack.Screen options={{headerShown: false}} name="QR Escaneado" component={QREscaneado} />
       <Stack.Screen options={{headerShown: false}} name="QR correcto" component={QRCodeOk} />
-      <Stack.Screen  options={{headerShown: false}} name="Ubicación" component={Mapbox2} />
       <Stack.Screen  options={{headerShown: false}} name="QR scan" component={QRscan}  />
       <Stack.Screen  options={{headerShown: false}} name="Chat" component={Chat}  />
       <Stack.Screen  options={{headerShown: false}} name="Nombre usuario" component={IntroducirNombre}  />

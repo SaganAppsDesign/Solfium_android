@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Text, View,Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
-import { Button, Card} from 'react-native-elements';
+import {Text, View,Image, ImageBackground, TouchableOpacity} from 'react-native';
+import { Card} from 'react-native-elements';
 import ImageOverlay from "react-native-image-overlay";
 import tec3 from '../assets/fondo6.jpg'; 
 import home from '../assets/home.png'; 
@@ -229,7 +229,7 @@ export class CompraConfirmadaFinan extends React.Component {
          </View> 
 
 
-         {/* header */}              
+         {/* footer */}              
            {/*Botones*/}     
            <View style={{opacity: 1, alignItems:'center', flex:1.5,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
                          
@@ -343,7 +343,7 @@ export class CompraConfirmadaFinan extends React.Component {
                        </View>
                      
                      
-                     {/* FIN header */}  
+            {/* FIN footer */}  
        
 
          </View>
