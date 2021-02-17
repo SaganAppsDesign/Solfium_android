@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
+import {Text, View, Image, ImageBackground, TouchableOpacity} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import tec3 from '../assets/fondo6.jpg'; 
 import home from '../assets/home.png'; 
@@ -12,7 +12,7 @@ import backBtn from '../assets/backBtn.png';
 import {db} from '../fire';
 import Fire from '../fire';
 
-
+//Actualiza el estado actual del cliente en la BBDD
 estadoCliente7 = () => db.ref('Usuarios/' +  Fire.getUid()).update({
                 
   estado_cliente: "7/8 - Pago único realizado"
@@ -134,23 +134,23 @@ export class PagoUnico extends React.Component {
               
             
          
+  
+          { /* LOGO*/}
+
+          <View style={{alignItems:'center', flex:0.025, marginTop:hp('10%')}}>  
+
+          <Image 
             
-                    { /* LOGO*/}
+            source={logo}
+            style={{aspectRatio:4.5, height:hp('6%')}}
+            
+            >    
+          </Image>  
 
-                    <View style={{alignItems:'center', flex:0.025, marginTop:hp('10%')}}>  
+          </View> 
+          {/*FIN LOGO*/}
 
-                    <Image 
-                      
-                      source={logo}
-                      style={{aspectRatio:4.5, height:hp('6%')}}
-                      
-                      >    
-                    </Image>  
-
-                    </View> 
-                    {/*FIN LOGO*/}
-
-           {/* header */}              
+           {/* footer */}              
            {/*Botones*/}     
            <View style={{opacity: 1, alignItems:'center', flex:0.2,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('3%')}}>  
                          
@@ -237,39 +237,34 @@ export class PagoUnico extends React.Component {
 
                          <View style={{alignItems:'center', flex:1,  justifyContent:'center'}}>   
                                           
-                                          <TouchableOpacity 
-                                                                                                      
-                                          onPress={() => this.props.navigation.navigate('Chat',  {valor: 5})}
-                                          > 
-                                          <View>
-                                          
-                                                  <Image 
-                                              
-                                                  source={chat}
-                                                  style={{aspectRatio:1, height:hp('6%')}}
-                                                  
-                                                  >    
-                                                  </Image> 
+                            <TouchableOpacity 
+                                                                                        
+                            onPress={() => this.props.navigation.navigate('Chat',  {valor: 5})}
+                            > 
+                            <View>
+                            
+                                    <Image 
+                                
+                                    source={chat}
+                                    style={{aspectRatio:1, height:hp('6%')}}
+                                    
+                                    >    
+                                    </Image> 
+          
+                            </View>
                         
-                                          </View>
-                                      
-                                          </TouchableOpacity> 
+                            </TouchableOpacity> 
                         
-                                          </View>
+                        </View>
        
-                              
-       
-                       </View>
+              </View>
                      
                      
-                     {/* FIN header */}     
+    {/* FIN footer */}     
        
-
-
-
     </ImageOverlay> 
 
-  );
+  )
 }
 }
 

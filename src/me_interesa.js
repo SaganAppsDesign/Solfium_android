@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import { Text, View, Image, TouchableOpacity} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import logo from '../assets/logo.png'; 
 import fondo4 from '../assets/fondo4.jpg';  
@@ -14,13 +14,10 @@ import usuario from '../assets/usuario.png';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import backBtn from '../assets/backBtn.png'; 
 
-
      
 var screen
-var codigo_instalador2
 export var codigo_instalador
 
-//console.log("codigo_instalador  dentro me interesa fuera de export " , codigo_instalador);
 
 export class MeInteresa extends React.Component {
 
@@ -31,21 +28,14 @@ export class MeInteresa extends React.Component {
     
   }
 
-  
- 
-  
 
 render (){
 
   var name = this.state.name
   codigo_instalador = this.state.codigo_instalador 
-  //console.log("name me interesa: " , name);
-  //console.log("codigo_instalador dentro me interesa" , codigo_instalador);
   
-  
+  //Condicional en el que se decide pasar a pantalla CHAT directamente si ya está el nombre del cliente registrado
   if (name){
-
-     //var valor
             
      screen = 'Chat'     
          
@@ -127,13 +117,8 @@ return (
                        </TouchableOpacity>
                        </View>
 
-                       </View>
-
-
-                                 
-    
-          
-          { /* LOGO*/}
+        </View>
+        { /* LOGO*/}
   
           <View style={{alignItems:'center', width:wp('100%'), height:hp('100%'), flex:0.1}}>  
           
@@ -147,7 +132,7 @@ return (
 
          </View> 
 
-          {/* header */}              
+          {/* footer */}              
            {/*Botones*/}     
            <View style={{opacity: 1, alignItems:'center', flex:3,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
                          
@@ -234,10 +219,10 @@ return (
         
                                
         
-                        </View>
+            </View>
                       
                       
-                      {/* FIN header */}  
+    {/* FIN footer */}  
 
     </View>
 
@@ -248,20 +233,7 @@ return (
 
 componentDidMount() {
 
-  /*
-  
-  const ref2 = db.ref('Usuarios/');
-  ref2.on("child_added", function(snapshot, prevChildKey) {
-  codigo_instalador = snapshot.val();
-  codigo_instalador2 = codigo_instalador.codigo_instalador
-  
- 
-  })
-
-*/
-
-
-
+  //Consulta a BBDD
   const ref = db.ref('/Usuarios/' +  Fire.getUid());
 
   this.listener = ref.on("value", snapshot => {
