@@ -508,7 +508,7 @@ export class InfoResultInsta2 extends React.Component {
               <Image
               style={{  width:wp('15%') ,height:wp('12%'),  marginLeft:'0%', 
               marginBottom: '0%'}}
-              source={require('../assets/co2.png')}
+              source={require('../assets/arbol.png')}
               />
         </View>
 
@@ -516,7 +516,7 @@ export class InfoResultInsta2 extends React.Component {
               <Image
               style={{  width:wp('15%') ,height:wp('12%'),  marginLeft:'0%', 
               marginTop: '0%'}}
-              source={require('../assets/coche.png')}
+              source={require('../assets/co2.png')}
               />
         </View>
 
@@ -524,7 +524,7 @@ export class InfoResultInsta2 extends React.Component {
               <Image
               style={{ width:wp('15%') ,height:wp('12%'),  marginLeft:'0%', 
               marginTop: '0%'}}
-              source={require('../assets/arbol.png')}
+              source={require('../assets/coche.png')}
               />
         </View>
         </View>
