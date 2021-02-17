@@ -98,22 +98,20 @@ onChangeText = name => this.setState({ name })
 
        if (lista_items[i] == codigo_agente){
                    
-          a=0
-          a += 1 
-          return true
-                    
+          a=1
+                             
         } 
                
-}
+      }
 
-if (a==1) {
+  if (a==1) {
 
-  return true
-  
-} else{
+    return true
+    
+  } else{
 
-  return false
-}
+    return false
+  }
   
 }
 
