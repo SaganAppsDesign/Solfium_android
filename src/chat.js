@@ -13,7 +13,11 @@ import backBtn from '../assets/backBtn.png';
 var name, cita, title, screen
 export var codigo_instalador
 
-
+send = () => db.ref('Usuarios/' +  Fire.getUid()).update({
+        
+  envioMensaje:  "true"
+        
+  })
 
 data = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
   
@@ -121,7 +125,7 @@ state = {
             <View style={{flex:7}}>
             <GiftedChat
               messages={this.state.messages}
-              onSend={(message) => Fire.sendMessage(message)}
+              onSend={  (message) => {Fire.sendMessage(message);send()}   }
               renderBubble={renderBubble}
               renderLoading={renderLoading}
               showUserAvatar
@@ -277,7 +281,12 @@ componentDidMount() {
             
           }
 
+       
+
         })
+
+        
+        
       
     }
   
