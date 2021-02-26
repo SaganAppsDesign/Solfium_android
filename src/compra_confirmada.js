@@ -180,7 +180,7 @@ export class CompraConfirmada extends React.Component {
                                                   > 
 
 
-                                                      <Text style={{
+                                                      <Text selectable={true} style={{
                                                         opacity:0.3,
                                                         color: '#000',
                                                         marginTop: hp('7%'),
@@ -192,7 +192,7 @@ export class CompraConfirmada extends React.Component {
                                                         marginLeft:wp('0%'),
                                                       
                                                 
-                                                      }}>¿Algún problema durante tu instalación? Click aquí</Text>
+                                                      }}>¿Algún problema durante tu instalación? Escríbenos a info@solfium.com</Text>
 
                                                   </TouchableOpacity> 
 
