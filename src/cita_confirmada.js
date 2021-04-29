@@ -117,7 +117,7 @@ export class CitaConfirmada extends React.Component {
                                                  <Text>{`
                                                          `}</Text>
       
-                                                 <Text style={{fontWeight: "bold", fontSize: hp('2%')}}>{this.state.codigo_instalador}</Text>
+                                                 <Text style={{fontWeight: "bold", fontSize: hp('2%')}}>{this.state.codigo_instalador.toUpperCase()}</Text>
                                                  
                                           
                                           </Text>

@@ -65,7 +65,7 @@ export class InfoResultInsta2 extends React.Component {
     var consumo_mensual = this.state.consumoMensual
     var poten = this.state.potencia
     var calculoSistema = this.state.calculoSistema
-    var potenInt = parseInt(poten)
+    var potenInt = parseFloat(poten)
    
     produccion_mensual = (30*potenInt*horasSolDiarias)/(factorEficiencia*factorPagoCero)
     diferencial_consumo = consumo_mensual - produccion_mensual
@@ -87,7 +87,19 @@ export class InfoResultInsta2 extends React.Component {
   if (potenInt > calculoSistema){
     viable = "VIABLE A LA ALZA"
     text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. En base al ajuste de tu consumo mensual de electricidad, te ofrecemos la siguiente propuesta:' 
-    if (calculoSistema == 3 && potenInt == 5 ){
+    
+    
+    if (calculoSistema == 1.5 && potenInt == 3){
+
+      text1 = 89754*1.16
+      text2 = 2019*1.16 
+      text3 = text1/(nueva_facturacion-diferencia_costo_mensual)
+      text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
+      text5 = '562' 
+      text6 = '37' 
+      text7 = '265.191'   
+    
+    } else if (calculoSistema == 1.5 && potenInt == 5 ){
 
       text1 = 149590*1.16 
       text2 = 3365*1.16 
@@ -96,9 +108,9 @@ export class InfoResultInsta2 extends React.Component {
       text5 = '937' 
       text6 = '61' 
       text7 = '441.985'  
-      color = 'orange'
+      
 
-    } else if(calculoSistema == 3 && potenInt == 7 ) {
+    } else if(calculoSistema == 1.5 && potenInt == 7 ) {
       text1 = 209426*1.16 
       text2 = 4712*1.16 
       text3 = text1/(nueva_facturacion-diferencia_costo_mensual)
@@ -107,7 +119,7 @@ export class InfoResultInsta2 extends React.Component {
       text6 = '86' 
       text7 = '618.779' 
 
-    } else if(calculoSistema == 3 && potenInt == 10 ) {
+    } else if(calculoSistema == 1.5 && potenInt == 10 ) {
       text1 = 299180*1.16
       text2 = 6731*1.16
       text3 = text1/(nueva_facturacion-diferencia_costo_mensual)
@@ -222,7 +234,33 @@ export class InfoResultInsta2 extends React.Component {
         
           PotenciaSistemaDefinitivo: text1,
               
+        })  
+        
+  } else if ( potenInt == 1.5){
+    viable = "OPTIMIZADA A LA BAJA"
+    
+    if (calculoSistema == 10){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en un 70%:' }
+      else if (calculoSistema == 7){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 57.14%:' }
+      else if (calculoSistema == 5){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 40%:' }
+      else if (calculoSistema == 3){text = '¡Felicidades ' + this.state.username + '! Es viable instalar tu sistema Solfium. Hemos optimizado la propuesta inicial haciendo una reducción de tu inversión en el 55%:' }
+        
+        text1 = 49900*1.16
+        text2 = 1304*1.16  
+        text3 = text1/(nueva_facturacion-diferencia_costo_mensual)
+        text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
+        text5 = '281' 
+        text6 = '18.5' 
+        text7 = '132.595' 
+        color = 'orange'
+        opacity = 1
+        backgroundcolor = 'white'
+        db.ref('Usuarios/' +  Fire.getUid()).update({
+        
+          PotenciaSistemaDefinitivo: text1,
+              
         })   
+
+          
 
   } else if (potenInt == 'evaluando'){
     viable = "EVALUANDO INSTALACIÓN"

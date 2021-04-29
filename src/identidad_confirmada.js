@@ -170,7 +170,7 @@ export class IdentidadConfirmada extends React.Component {
                                       marginRight:wp('3%'),
                                       marginLeft:wp('2%'),
                                       height:hp('10%'),
-                                      width:wp('30%'),}}>{this.state.codigo_instalador}</Text>
+                                      width:wp('30%'),}}>{this.state.codigo_instalador.toUpperCase()}</Text>
                                       
                               
                               </Text>

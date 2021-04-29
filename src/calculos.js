@@ -116,17 +116,17 @@ export class Calculos extends React.Component {
 
 if (potenciaSistema < 1.5){
    
-  console.log("Consumo bajo. Sin solución")
-  sistema = 0
-  inversionTotal = 0
-  pagos60 = 0 
-  amortizac = 0
-  ahorroA25 = 0
-  arbolesProm = 0
-  toneladas = 0
-  equivalentKM = 0
-  opacity = 0
-  alert("Consumo bajo. Sin solución")
+ 
+  sistema = 1.5
+  inversionTotal = 49900*1.16
+  pagos60 = 1304*1.16  
+  amortizac = inversionTotal /potencia
+  ahorroA25 = (25*12-amortizac)*potencia
+  arbolesProm = '281' 
+  toneladas = '18.5' 
+  equivalentKM = '132.595' 
+  opacity = 1
+
   
 
 } else if (potenciaSistema >= 1.5 && potenciaSistema < 3.5){
@@ -203,7 +203,8 @@ else if (potenciaSistema > 10,5){
   equivalentKM = 0
   opacity = 0
   alert("Su consumo necesita más atención")
-  
+
+  this.props.navigation.navigate('Nombre usuario')
   
 
 } 

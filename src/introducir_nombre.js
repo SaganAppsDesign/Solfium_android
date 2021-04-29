@@ -46,18 +46,18 @@ export class IntroducirNombre extends React.Component {
 
     var array = this.state.list
  
-    if (array.length >= 1 && array.length < 100){
+    if (array.length >= 1 && array.length < 200){
       
       
-      instalador = "desmex01"
+      instalador = "solan"
      
     
-    } if (array.length >= 100 && array.length < 200) {
+    } if (array.length >= 200 && array.length < 300) {
   
        instalador = "desmex02"
      
       
-    } if (array.length >= 200 && array.length < 300) {
+    } if (array.length >= 300 && array.length < 400) {
     
       instalador = "desmex03"
       

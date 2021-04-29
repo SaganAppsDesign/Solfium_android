@@ -58,7 +58,7 @@ export class InfoResultInsta extends React.Component {
  
     var poten = this.state.potencia
     var consumo_mensual = this.state.consumoMensual
-    var potenInt = parseInt(poten)
+    var potenInt = parseFloat(poten)
     var produccion_mensual = (30*potenInt*horasSolDiarias)/(factorEficiencia*factorPagoCero)
     var diferencial_consumo = consumo_mensual - produccion_mensual
 
@@ -154,6 +154,25 @@ export class InfoResultInsta extends React.Component {
       PotenciaSistemaDefinitivo: text12,
            
     })  
+
+  } else if ( potenInt == 1.5){
+    
+    text12 = 49900*1.16
+    text2 = 1304*1.16  
+    text3 = text12/(nueva_facturacion-diferencia_costo_mensual)
+    text4 = (25*12-text3)*(nueva_facturacion-diferencia_costo_mensual)
+    text5 = '281' 
+    text6 = '18.5' 
+    text7 = '132.595' 
+    color = '#5DCB31'
+    opacity = 1
+
+    db.ref('Usuarios/' +  Fire.getUid()).update({
+    
+      PotenciaSistemaDefinitivo: text12,
+      potenInt: "hola"
+           
+    })
 
   } else if (potenInt == 'evaluando'){
     viable = "EVALUANDO INSTALACIÓN"
