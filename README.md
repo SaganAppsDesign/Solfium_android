@@ -1,6 +1,6 @@
 # Solfium_cliente
 
-BETA application for the solar energy company Solfium with React Native technology, where the user can take the first steps to contract the photovoltaic installation.
+solar energy company Solfium BETA application developing with React Native technology, where the user can take the first steps to contract the photovoltaic installation.
 
 ![solfium1](https://user-images.githubusercontent.com/37807677/206919195-7b6dc5e8-f793-4bab-9991-7bb5cac4d3f8.png)
 ![solfium2](https://user-images.githubusercontent.com/37807677/206919216-7fc94379-5331-469f-9f3d-38c801e1b2fc.png)
